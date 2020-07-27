@@ -2,13 +2,11 @@
 
 $lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
 
+// Provide the list of values
 $lessVars->setVar( 'primary-bg', '' );
-/*$GLOBALS['wgCommonStylesLessVars'] = [
-	'body-bg' => '',
-	'primary-bg' => '',
-	'secondary-bg' => '',
-	'neutral-bg' => '',
-	'primary-fg' => '',
-	'secondary-fg' => '',
-	'neutral-fg' => '',
-];*/
+$lessVars->setVar( 'secondary-bg', '' );
+$lessVars->setVar( 'neutral-bg', '' );
+$lessVars->setVar( 'primary-fg', '' );
+$lessVars->setVar( 'secondary-fg', '' );
+$lessVars->setVar( 'neutral-fg', '' );
+$lessVars->setVar( 'body-bg', '' );

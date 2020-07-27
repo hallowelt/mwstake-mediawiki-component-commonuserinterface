@@ -2,6 +2,7 @@
 	"name": "mwstake/mediawiki-component-commonuserinterface",
 	"description": "Provides common user interface elements and customizeable stylings",
 	"license": "GPL-3.0-only",
+	"version": "1.0",
 	"authors": [
 		{
 			"name": "BlueSpice",
