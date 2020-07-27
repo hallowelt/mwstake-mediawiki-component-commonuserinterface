@@ -1,6 +1,9 @@
 <?php
 
-$GLOBALS['wgCommonStylesLessVars'] = [
+$lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
+
+$lessVars->setVar( 'primary-bg', '' );
+/*$GLOBALS['wgCommonStylesLessVars'] = [
 	'body-bg' => '',
 	'primary-bg' => '',
 	'secondary-bg' => '',
@@ -8,4 +11,4 @@ $GLOBALS['wgCommonStylesLessVars'] = [
 	'primary-fg' => '',
 	'secondary-fg' => '',
 	'neutral-fg' => '',
-];
+];*/

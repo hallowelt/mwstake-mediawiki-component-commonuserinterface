@@ -4,6 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\ResourceLoader;
 
 use Config;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\CommonUserInterface\LessVars as LessVarsObject;
 use ResourceLoaderContext;
 use ResourceLoaderFileModule;
 
@@ -14,9 +15,10 @@ class LessVars extends ResourceLoaderFileModule {
 	 * @return array
 	 */
 	public function getLessVars( ResourceLoaderContext $context ) {
+		$lessVars = LessVarsObject::getInstance();
 		return array_merge(
 			parent::getLessVars( $context ),
-			$this->getConfig()->get( 'CommonStylesLessVars' )
+			$lessVars->getAllVars()
 		);
 	}
 
