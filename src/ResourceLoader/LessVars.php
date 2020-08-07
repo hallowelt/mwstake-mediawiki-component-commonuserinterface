@@ -7,6 +7,7 @@ use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\LessVars as LessVarsObject;
 use ResourceLoaderContext;
 use ResourceLoaderFileModule;
+use WebRequest;
 
 class LessVars extends ResourceLoaderFileModule {
 	/**
@@ -15,10 +16,13 @@ class LessVars extends ResourceLoaderFileModule {
 	 * @return array
 	 */
 	public function getLessVars( ResourceLoaderContext $context ) {
+		$varsFromRequest = $this->getRequestVars( $context->getRequest() );
+
 		$lessVars = LessVarsObject::getInstance();
 		return array_merge(
 			parent::getLessVars( $context ),
-			$lessVars->getAllVars()
+			$lessVars->getAllVars(),
+			$varsFromRequest
 		);
 	}
 
@@ -28,5 +32,18 @@ class LessVars extends ResourceLoaderFileModule {
 	 */
 	public function getConfig() {
 		return MediaWikiServices::getInstance()->getMainConfig();
+	}
+
+	/**
+	 * @param WebRequest $request
+	 * @return array
+	 */
+	private function getRequestVars( WebRequest $request ) {
+		$value = $request->getVal( 'vars', null );
+		if ( !$value ) {
+			return [];
+		}
+
+		return \FormatJson::decode( $value, 1 ) ?? [];
 	}
 }
