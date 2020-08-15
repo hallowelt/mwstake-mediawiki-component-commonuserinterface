@@ -10,3 +10,6 @@ $lessVars->setVar( 'primary-fg', '' );
 $lessVars->setVar( 'secondary-fg', '' );
 $lessVars->setVar( 'neutral-fg', '' );
 $lessVars->setVar( 'body-bg', '' );
+$lessVars->setVar( 'content-bg', '' );
+$lessVars->setVar( 'content-bg', '' );
+$lessVars->setVar( 'content-width', '' );
