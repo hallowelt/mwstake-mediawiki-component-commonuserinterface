@@ -11,5 +11,5 @@ $lessVars->setVar( 'secondary-fg', '' );
 $lessVars->setVar( 'neutral-fg', '' );
 $lessVars->setVar( 'body-bg', '' );
 $lessVars->setVar( 'content-bg', '' );
-$lessVars->setVar( 'content-bg', '' );
+$lessVars->setVar( 'content-fg', '' );
 $lessVars->setVar( 'content-width', '' );
