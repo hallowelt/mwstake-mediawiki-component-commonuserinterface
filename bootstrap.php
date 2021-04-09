@@ -1,4 +1,5 @@
 <?php
+wfLoadExtension( '', __DIR__ . '/extension.json' );
 
 $lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
 

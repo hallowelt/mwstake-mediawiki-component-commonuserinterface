@@ -1,0 +1,17 @@
+{
+	"name": "",
+	"AutoloadClasses": {
+		"OOUI\\MWStakeOOJSUITheme": "includes/MWStakeOOJSUITheme.php"
+	},
+	"OOUIThemePaths": {
+		"MWStakeOOJSUI": {
+			"scripts": "ooui/oojs-ui-mwstake.js",
+			"styles": "ooui/oojs-ui-{module}-mwstake.css",
+			"images": "ooui/{module}.json"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources"
+	},
+	"manifest_version": 2
+}
