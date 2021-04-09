@@ -16,7 +16,7 @@
 	"config_prefix": "mws",
 	"config": {
 		"EnableMediaWikiUITheme": {
-			"value": true
+			"value": false
 		}
 	},
 	"manifest_version": 2
