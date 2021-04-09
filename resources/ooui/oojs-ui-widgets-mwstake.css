@@ -254,8 +254,8 @@
   border-left-color: #fff;
 }
 .oo-ui-buttonSelectWidget.oo-ui-widget-enabled:focus .oo-ui-buttonOptionWidget.oo-ui-optionWidget-selected .oo-ui-buttonElement-button {
-  border-color: var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary), inset 0 0 0 2px #fff;
+  border-color: var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary), inset 0 0 0 2px #fff;
   outline: 1px solid transparent;
 }
 .oo-ui-buttonSelectWidget.oo-ui-widget-enabled .oo-ui-buttonElement.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover,
@@ -376,18 +376,18 @@
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:hover {
   background-color: #fff;
-  border-color: var(--mws-oojs-ui-primary--hover);
+  border-color: var(--mws-primary--hover);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:hover .oo-ui-toggleSwitchWidget-grip {
   background-color: #fff;
-  border-color: var(--mws-oojs-ui-primary--hover);
+  border-color: var(--mws-primary--hover);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:active,
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:active:hover,
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:active:focus {
-  background-color: var(--mws-oojs-ui-primary--active);
-  border-color: var(--mws-oojs-ui-primary--active);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary--active);
+  background-color: var(--mws-primary--active);
+  border-color: var(--mws-primary--active);
+  box-shadow: inset 0 0 0 1px var(--mws-primary--active);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:active .oo-ui-toggleSwitchWidget-grip,
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:active:hover .oo-ui-toggleSwitchWidget-grip,
@@ -397,16 +397,16 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:focus {
-  border-color: var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
   outline: 0;
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled:focus .oo-ui-toggleSwitchWidget-grip {
-  border-color: var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on {
-  background-color: var(--mws-oojs-ui-primary);
-  border-color: var(--mws-oojs-ui-primary);
+  background-color: var(--mws-primary);
+  border-color: var(--mws-primary);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on .oo-ui-toggleSwitchWidget-grip {
   background-color: #fff;
@@ -414,16 +414,16 @@
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on:hover {
-  background-color: var(--mws-oojs-ui-primary--hover);
-  border-color: var(--mws-oojs-ui-primary--hover);
+  background-color: var(--mws-primary--hover);
+  border-color: var(--mws-primary--hover);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on:active,
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on:active:hover {
-  background-color: var(--mws-oojs-ui-primary--active);
-  border-color: var(--mws-oojs-ui-primary--active);
+  background-color: var(--mws-primary--active);
+  border-color: var(--mws-primary--active);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on:focus {
-  border-color: var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
 }
 .oo-ui-toggleSwitchWidget.oo-ui-widget-enabled.oo-ui-toggleWidget-on:focus:before {
   border-color: #fff;
@@ -553,7 +553,7 @@
 .oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget,
 .oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop .oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
   background-color: #eaf3ff;
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-selectFileWidget.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget,
 .oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget {
@@ -567,7 +567,7 @@
   height: 100%;
 }
 .oo-ui-outlineSelectWidget:focus {
-  box-shadow: inset 0 0 0 2px var(--mws-oojs-ui-primary);
+  box-shadow: inset 0 0 0 2px var(--mws-primary);
 }
 
 /* stylelint-disable selector-no-vendor-prefix */
@@ -589,11 +589,11 @@
 }
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-selected {
   background-color: #eaf3ff;
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-outlineOptionWidget.oo-ui-optionWidget-pressed {
   background-color: rgba(41, 98, 204, 0.1);
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-outlineOptionWidget.oo-ui-indicatorElement .oo-ui-labelElement-label {
   padding-right: 1.5em;
@@ -758,31 +758,31 @@
   background-color: #fff;
 }
 .oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
-  border-bottom-color: var(--mws-oojs-ui-primary);
+  border-bottom-color: var(--mws-primary);
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget {
   margin: 6px 6px -1px 0;
   border-width: 1px 0;
-  box-shadow: inset 0 0 0 0 var(--mws-oojs-ui-primary);
+  box-shadow: inset 0 0 0 0 var(--mws-primary);
   -webkit-transition: color 100ms, box-shadow 100ms;
   -moz-transition: color 100ms, box-shadow 100ms;
   transition: color 100ms, box-shadow 100ms;
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
-  color: var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 -2px 0 0 var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
+  box-shadow: inset 0 -2px 0 0 var(--mws-primary);
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
-  color: var(--mws-oojs-ui-primary--hover);
-  box-shadow: inset 0 -2px 0 0 var(--mws-oojs-ui-primary--hover);
+  color: var(--mws-primary--hover);
+  box-shadow: inset 0 -2px 0 0 var(--mws-primary--hover);
 }
 .oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-widget-enabled:active {
-  color: var(--mws-oojs-ui-primary--active);
-  box-shadow: inset 0 -2px 0 0 var(--mws-oojs-ui-primary--active);
+  color: var(--mws-primary--active);
+  box-shadow: inset 0 -2px 0 0 var(--mws-primary--active);
 }
 .oo-ui-tabSelectWidget-frameless.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
   border-radius: 2px;
-  box-shadow: inset 0 0 0 2px var(--mws-oojs-ui-primary);
+  box-shadow: inset 0 0 0 2px var(--mws-primary);
 }
 
 /* stylelint-disable selector-no-vendor-prefix */
@@ -914,13 +914,13 @@
   border-color: #72777d;
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-inlined.oo-ui-tagMultiselectWidget-focus .oo-ui-tagMultiselectWidget-handle {
-  border-color: var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
   outline: 0;
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-inlined.oo-ui-flaggedElement-invalid .oo-ui-tagMultiselectWidget-handle,
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-inlined.oo-ui-flaggedElement-invalid:hover .oo-ui-tagMultiselectWidget-handle {
-  border-color: var(--mws-oojs-ui-destructive);
+  border-color: var(--mws-destructive);
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined {
   background-color: #f8f9fa;
@@ -938,10 +938,10 @@
   border-top-right-radius: 0;
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-tagMultiselectWidget-outlined.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-  border-color: var(--mws-oojs-ui-destructive);
+  border-color: var(--mws-destructive);
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid .oo-ui-inputWidget-input {
-  color: var(--mws-oojs-ui-destructive);
+  color: var(--mws-destructive);
 }
 .oo-ui-tagMultiselectWidget.oo-ui-widget-disabled .oo-ui-tagMultiselectWidget-handle {
   background-color: #eaecf0;
@@ -1004,8 +1004,8 @@
   border-color: #a2a9b1;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:focus {
-  border-color: var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
   outline: 0;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled:not( .oo-ui-tagItemWidget-fixed ) {
@@ -1013,14 +1013,14 @@
   padding-right: 23px;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid {
-  border-color: var(--mws-oojs-ui-destructive);
+  border-color: var(--mws-destructive);
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid:hover {
-  border-color: var(--mws-oojs-ui-destructive);
+  border-color: var(--mws-destructive);
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled.oo-ui-flaggedElement-invalid:focus {
-  border-color: var(--mws-oojs-ui-destructive);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-destructive);
+  border-color: var(--mws-destructive);
+  box-shadow: inset 0 0 0 1px var(--mws-destructive);
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled > .oo-ui-buttonElement {
   display: block;

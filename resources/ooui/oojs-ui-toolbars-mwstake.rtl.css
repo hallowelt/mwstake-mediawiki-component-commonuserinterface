@@ -51,8 +51,8 @@
   transition: background-color 100ms;
 }
 .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
   z-index: 1;
 }
 .oo-ui-tool.oo-ui-widget-enabled .oo-ui-iconElement-icon {
@@ -81,31 +81,31 @@
   background-color: #eaecf0;
 }
 .oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
 }
 .oo-ui-tool.oo-ui-widget-enabled > .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-tool-active > .oo-ui-tool-link,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-popupToolGroup-active > .oo-ui-tool-link {
   background-color: #9cf373;
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
   box-shadow: none;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-tool-link {
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-tool-link:hover {
   background-color: #eaecf0;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-tool-link:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-tool-active > .oo-ui-tool-link,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive.oo-ui-popupToolGroup-active > .oo-ui-tool-link {
   background-color: #9cf373;
-  color: var(--mws-oojs-ui-primary--active);
+  color: var(--mws-primary--active);
   box-shadow: none;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-tool-link {
@@ -115,31 +115,31 @@
   background-color: #eaecf0;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-tool-link:focus {
-  outline: 1px solid var(--mws-oojs-ui-destructive);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-destructive);
+  outline: 1px solid var(--mws-destructive);
+  box-shadow: inset 0 0 0 1px var(--mws-destructive);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive > .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-tool-active > .oo-ui-tool-link,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-destructive.oo-ui-popupToolGroup-active > .oo-ui-tool-link {
   background-color: #9bec7d;
-  color: var(--mws-oojs-ui-destructive--active);
+  color: var(--mws-destructive--active);
   box-shadow: none;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-tool-link {
   color: #fff;
-  background-color: var(--mws-oojs-ui-primary);
+  background-color: var(--mws-primary);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-tool-link:hover {
-  background-color: var(--mws-oojs-ui-primary--hover);
+  background-color: var(--mws-primary--hover);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-tool-link:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary), inset 0 0 0 2px #fff;
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary), inset 0 0 0 2px #fff;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive.oo-ui-tool-active > .oo-ui-tool-link {
   color: #fff;
-  background-color: var(--mws-oojs-ui-primary--active);
+  background-color: var(--mws-primary--active);
   box-shadow: none;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive.oo-ui-widget-disabled > .oo-ui-tool-link,
@@ -149,19 +149,19 @@
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-tool-link {
   color: #fff;
-  background-color: var(--mws-oojs-ui-destructive);
+  background-color: var(--mws-destructive);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-tool-link:hover {
-  background-color: var(--mws-oojs-ui-destructive--hover);
+  background-color: var(--mws-destructive--hover);
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-tool-link:focus {
-  outline: 1px solid var(--mws-oojs-ui-destructive);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-destructive), inset 0 0 0 2px #fff;
+  outline: 1px solid var(--mws-destructive);
+  box-shadow: inset 0 0 0 1px var(--mws-destructive), inset 0 0 0 2px #fff;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-tool-link:active,
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-tool-active > .oo-ui-tool-link {
   color: #fff;
-  background-color: var(--mws-oojs-ui-destructive--active);
+  background-color: var(--mws-destructive--active);
   box-shadow: none;
 }
 .oo-ui-tool.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-widget-disabled > .oo-ui-tool-link,
@@ -434,8 +434,8 @@
   opacity: 1;
 }
 .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-widget-enabled[class*='oo-ui-flaggedElement'] > .oo-ui-popupToolGroup-handle .oo-ui-iconElement-icon,
 .oo-ui-popupToolGroup.oo-ui-widget-enabled[class*='oo-ui-flaggedElement'] > .oo-ui-popupToolGroup-handle:hover .oo-ui-iconElement-icon {
@@ -454,38 +454,38 @@
   border-left-color: #eaf3ff;
 }
 .oo-ui-toolbar-actions .oo-ui-popupToolGroup.oo-ui-widget-enabled > .oo-ui-popupToolGroup-handle:focus {
-  border-left-color: var(--mws-oojs-ui-primary);
+  border-left-color: var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
   background-color: #eaf3ff;
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle:hover {
   background-color: rgba(41, 98, 204, 0.1);
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-popupToolGroup-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-popupToolGroup-tools .oo-ui-tool.oo-ui-widget-enabled .oo-ui-tool-link:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 2px var(--mws-oojs-ui-primary);
+  box-shadow: inset 0 0 0 2px var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle {
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle:hover {
   background-color: #fff;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary);
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle:active,
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-progressive.oo-ui-tool-active > .oo-ui-popupToolGroup-handle,
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-progressive.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
   background-color: #9cf373;
-  color: var(--mws-oojs-ui-primary--active);
+  color: var(--mws-primary--active);
   box-shadow: none;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle {
@@ -495,31 +495,31 @@
   background-color: #fff;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle:focus {
-  outline: 1px solid var(--mws-oojs-ui-destructive);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-destructive);
+  outline: 1px solid var(--mws-destructive);
+  box-shadow: inset 0 0 0 1px var(--mws-destructive);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle:active,
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-destructive.oo-ui-tool-active > .oo-ui-popupToolGroup-handle,
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-destructive.oo-ui-popupToolGroup-active > .oo-ui-popupToolGroup-handle {
   background-color: #9bec7d;
-  color: var(--mws-oojs-ui-destructive--active);
+  color: var(--mws-destructive--active);
   box-shadow: none;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle {
   color: #fff;
-  background-color: var(--mws-oojs-ui-primary);
+  background-color: var(--mws-primary);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle:hover {
-  background-color: var(--mws-oojs-ui-primary--hover);
+  background-color: var(--mws-primary--hover);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle:focus {
-  outline: 1px solid var(--mws-oojs-ui-primary);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-primary), inset 0 0 0 2px #fff;
+  outline: 1px solid var(--mws-primary);
+  box-shadow: inset 0 0 0 1px var(--mws-primary), inset 0 0 0 2px #fff;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-popupToolGroup-handle:active,
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive.oo-ui-tool-active > .oo-ui-popupToolGroup-handle {
   color: #fff;
-  background-color: var(--mws-oojs-ui-primary--active);
+  background-color: var(--mws-primary--active);
   box-shadow: none;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive.oo-ui-widget-disabled > .oo-ui-popupToolGroup-handle,
@@ -529,19 +529,19 @@
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle {
   color: #fff;
-  background-color: var(--mws-oojs-ui-destructive);
+  background-color: var(--mws-destructive);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle:hover {
-  background-color: var(--mws-oojs-ui-destructive--hover);
+  background-color: var(--mws-destructive--hover);
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle:focus {
-  outline: 1px solid var(--mws-oojs-ui-destructive);
-  box-shadow: inset 0 0 0 1px var(--mws-oojs-ui-destructive), inset 0 0 0 2px #fff;
+  outline: 1px solid var(--mws-destructive);
+  box-shadow: inset 0 0 0 1px var(--mws-destructive), inset 0 0 0 2px #fff;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive > .oo-ui-popupToolGroup-handle:active,
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-tool-active > .oo-ui-popupToolGroup-handle {
   color: #fff;
-  background-color: var(--mws-oojs-ui-destructive--active);
+  background-color: var(--mws-destructive--active);
   box-shadow: none;
 }
 .oo-ui-popupToolGroup.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-destructive.oo-ui-widget-disabled > .oo-ui-popupToolGroup-handle,
@@ -573,7 +573,7 @@
   background-color: rgba(41, 98, 204, 0.1);
 }
 .oo-ui-listToolGroup-tools .oo-ui-tool-active.oo-ui-widget-enabled .oo-ui-tool-link .oo-ui-tool-title {
-  color: var(--mws-oojs-ui-primary);
+  color: var(--mws-primary);
 }
 .oo-ui-listToolGroup.oo-ui-widget-disabled,
 .oo-ui-listToolGroup-tools .oo-ui-tool.oo-ui-widget-disabled .oo-ui-tool-title {

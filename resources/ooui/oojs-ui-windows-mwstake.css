@@ -265,7 +265,7 @@
   border-left-color: transparent;
 }
 .oo-ui-processDialog .oo-ui-actionWidget:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) > .oo-ui-buttonElement-button:focus {
-  border-color: var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
 }
 .oo-ui-processDialog .oo-ui-actionWidget.oo-ui-iconElement > .oo-ui-buttonElement-button {
   min-height: 2.85714286em;
@@ -292,7 +292,7 @@
   border-right-color: transparent;
 }
 .oo-ui-processDialog-actions-primary .oo-ui-actionWidget:not( .oo-ui-flaggedElement-progressive ):not( .oo-ui-flaggedElement-destructive ) > .oo-ui-buttonElement-button:focus {
-  border-color: var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
 }
 .oo-ui-processDialog-actions-safe .oo-ui-actionWidget > .oo-ui-buttonElement-button,
 .oo-ui-processDialog-actions-other .oo-ui-actionWidget > .oo-ui-buttonElement-button {
@@ -312,7 +312,7 @@
   border-right-color: #c8ccd1;
 }
 .oo-ui-processDialog-actions-safe .oo-ui-widget-enabled.oo-ui-iconElement:not( .oo-ui-labelElement ) > .oo-ui-buttonElement-button:focus {
-  border-color: var(--mws-oojs-ui-primary);
+  border-color: var(--mws-primary);
 }
 .oo-ui-processDialog-actions-other .oo-ui-actionWidget.oo-ui-buttonElement {
   margin-right: 0;
