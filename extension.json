@@ -1,5 +1,5 @@
 {
-	"name": "",
+	"name": "MWStakeCommonUI",
 	"AutoloadClasses": {
 		"OOUI\\MWStakeOOJSUITheme": "includes/MWStakeOOJSUITheme.php"
 	},
@@ -12,6 +12,12 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources"
+	},
+	"config_prefix": "mws",
+	"config": {
+		"EnableMediaWikiUITheme": {
+			"value": true
+		}
 	},
 	"manifest_version": 2
 }

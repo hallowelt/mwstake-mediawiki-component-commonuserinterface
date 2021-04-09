@@ -13,6 +13,9 @@ In your skin add a css file with the following content:
         --mws-destructive: #d33;
         --mws-destructive--hover: #ff4242;
         --mws-destructive--active: #d33;
+        --mws-error: #d33;
+        --mws-warning: #fc3;
+        --mws-success: #14866d;
     }
 
 Also you need to set in your skin.json:

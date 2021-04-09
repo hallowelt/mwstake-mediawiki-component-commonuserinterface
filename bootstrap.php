@@ -1,5 +1,13 @@
 <?php
+
 wfLoadExtension( '', __DIR__ . '/extension.json' );
+
+$GLOBALS['wgExtensionFunctions'][] = function() {
+	if ( ( $GLOBALS['mwsEnableMediaWikiUITheme'] === true ) || ( $GLOBALS['mwsEnableMediaWikiUITheme'] === 1 ) ) {
+		$mwui = \MWStake\MediaWiki\Component\CommonUserInterface\MediaWikiUI::getInstance();
+		$mwui->enableMediWikiUITheme();
+	}
+};
 
 $lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
 
