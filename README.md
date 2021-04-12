@@ -25,4 +25,5 @@ To use oojs-ui you also you need to set in your skin.json:
     },
 
 To use mediawiki-ui you also you need to set in your LocalSettings.php:
+
     $GLOBALS['mwsEnableMediaWikiUITheme'] = true;
