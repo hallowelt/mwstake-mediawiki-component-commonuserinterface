@@ -18,9 +18,11 @@ In your skin add a css file with the following content:
         --mws-success: #14866d;
     }
 
-Also you need to set in your skin.json:
+To use oojs-ui you also you need to set in your skin.json:
 
     "SkinOOUIThemes": {
         "yourskinname": "MWStakeOOJSUI"
     },
 
+To use mediawiki-ui you also you need to set in your LocalSettings.php:
+    $GLOBALS['mwsEnableMediaWikiUITheme'] = true;
