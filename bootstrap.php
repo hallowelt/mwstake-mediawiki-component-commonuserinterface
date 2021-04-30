@@ -1,6 +1,6 @@
 <?php
 
-if ( !defined( 'MEDIAWIKI' ) ) {
+if ( !defined( 'MEDIAWIKI' ) && !defined( 'MW_PHPUNIT_TEST' ) ) {
 	return;
 }
 
