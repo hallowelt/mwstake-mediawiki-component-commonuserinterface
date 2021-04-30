@@ -1,5 +1,9 @@
 <?php
 
+if ( !defined( 'MEDIAWIKI' ) ) {
+	return;
+}
+
 if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 	return;
 }
