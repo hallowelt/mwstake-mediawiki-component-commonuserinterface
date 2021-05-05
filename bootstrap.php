@@ -10,7 +10,7 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 
 define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '2.0.0' );
 
-wfLoadExtension( '', __DIR__ . '/extension.json' );
+wfLoadExtension( 'MWStakeCommonUI', __DIR__ . '/extension.json' );
 
 $GLOBALS['wgExtensionFunctions'][] = function() {
 	if ( ( $GLOBALS['mwsEnableMediaWikiUITheme'] === true ) || ( $GLOBALS['mwsEnableMediaWikiUITheme'] === 1 ) ) {
