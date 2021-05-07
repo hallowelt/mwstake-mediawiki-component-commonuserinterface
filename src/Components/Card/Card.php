@@ -122,7 +122,7 @@ class Card implements IComponent {
 				]
 			);
 		}
-		if ( $this->body !== '' ) {
+		if ( $this->cardBody !== '' ) {
 			$params = array_merge(
 				$params,
 				[

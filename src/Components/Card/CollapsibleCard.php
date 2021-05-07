@@ -1,6 +1,6 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Component\Card;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Card;
 
 class CollapsibleCard extends Card {
 	/** @var boolean */
