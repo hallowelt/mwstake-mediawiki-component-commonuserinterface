@@ -1,0 +1,19 @@
+<div class="card{{#class}} {{{.}}}{{/class}}"{{#id}} id="{{{.}}}"{{/id}}>
+	{{#collapse}}
+		<div class="card-header">
+			<a href="#{{controls}}-body" data-bs-toggle="collapse" role="button" aria-expanded="{{expanded}}" aria-controls="{{controls}}-body" >{{{header}}}</a>
+		</div>
+		<div class="{{class}}" id="{{controls}}-body">
+	{{/collapse}}
+		{{#img}}{{#top}}
+			{{#href}}<a href="{{.}}">{{/href}}<img src="{{src}}" class="card-img-top" alt="{{alt}}">{{#href}}</a>{{/href}}
+		{{/top}}{{/img}}
+		{{{body}}}
+		{{#img}}{{#bottom}}
+			<img src="{{src}}" class="card-img-bottom" alt="{{alt}}">
+		{{/bottom}}{{/img}}
+			<div class="card-footer">{{{footer}}}</div>
+	{{#collapse}}
+		</div>
+	{{/collapse}}
+</div>
