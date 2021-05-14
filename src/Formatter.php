@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use TemplateParser;
+
 class Formatter {
         /**
          * @return StdClass
@@ -57,6 +59,7 @@ class Formatter {
          */
         public function makeDataAttributes( $data ) {
                 $attribs = [];
+
                 foreach ( $data  as $key => $value ) {
                         $attrib = 'data-'. $key . '="' . $value . '"';
                         array_push( $attribs, $attrib );
@@ -64,4 +67,37 @@ class Formatter {
 
                 return $attribs;
         }
+
+	/**
+	 * @param array $links
+         * @param bool $format
+	 * @return string
+	 */
+	public function makeDropdownItemList( $links, $format=true ) {
+		if ( $format === true ) {
+			$formatter = new Formatter();
+			$params = [
+				'links' => $formatter->formatLinks( $links )
+			];
+		} else {
+			$params = [
+				'links' => $links
+			];
+		}
+		if ( empty( $params ) ) {
+			return '';
+		}
+
+                $templateParser = new TemplateParser(
+			dirname( __DIR__ ) . '/resources/templates/formatter'
+		);
+		$templateParser->enableRecursivePartials( false );
+
+		$html = $templateParser->processTemplate(
+			'dropdown-item-list',
+			$params
+		);
+
+		return $html;
+	}
 }

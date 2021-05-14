@@ -12,40 +12,6 @@ class DropdownBase extends ComponentBase {
 	/** @var array */
 	protected $menu = [];
 
-	/**
-	 * @param array $links
-         * @param bool $format
-	 * @return string
-	 */
-	public function makeDropdownItemList( $links, $format=true ) {
-		if ( $this->format === true ) {
-			$formatter = new Formatter();
-			$params = [
-				'links' => $formatter->formatLinks( $this->links )
-			];
-		} else {
-			$params = [
-				'links' => $this->links
-			];
-		}
-
-		if ( empty( $params ) ) {
-			return '';
-		}
-
-                $templateParser = new TemplateParser(
-			dirname( dirname( dirname( __DIR__ ) ) ) . '/resources/templates/dropdown'
-		);
-		$templateParser->enableRecursivePartials( false );
-
-		$html = $templateParser->processTemplate(
-			'item-list',
-			$params
-		);
-
-		return $html;
-	}
-
         /**
          * @return string
          */
@@ -121,15 +87,7 @@ class DropdownBase extends ComponentBase {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
-					'text' => $this->menu['class']
-                                ]
-                        );
-		}
-		if ( array_key_exists( 'aria-label', $this->menu ) && $this->menu['aria-label'] !== '' ) {
-			$params['menu'] = array_merge(
-                                $params['menu'],
-                                [
-					'aria-label' => $this->menu['aria-label']
+					'class' => $this->menu['class']
                                 ]
                         );
 		}
