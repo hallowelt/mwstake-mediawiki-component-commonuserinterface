@@ -27,8 +27,8 @@ class Card extends ComponentBase {
 	 */
         public function __construct( $config=[] ) {
 		/**
-		 * Content list or card-body.
-		 * You need to wrap it into html like <div class="card-body">...</div>
+		 * Config key 'content' can be a linklist or card-body.
+		 * You need to wrap it into html like <div class="card-body">...</div>.
 		 * See https://getbootstrap.com/docs/5.0/components/card/
 		 */
 		$this->config = $config;
