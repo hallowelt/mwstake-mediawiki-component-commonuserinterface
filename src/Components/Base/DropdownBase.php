@@ -41,11 +41,18 @@ class DropdownBase extends ComponentBase {
 	}
 
         /**
+         * @return string
+         */
+        protected function getTemplatePath() {
+                return dirname( dirname( dirname( __DIR__ ) ) ) . '/resources/templates/dropdown';
+        }
+
+        /**
          * @return array
          */
         public function getParams() {
                 $params = [];
-		if ( array_key_exists( 'id', $this->btn ) && !empty( $this->btn['id'] ) ) {
+		if ( array_key_exists( 'id', $this->btn ) && $this->btn['id'] !== '' ) {
 			$params['btn'] = array_merge(
                                 $params['btn'],
                                 [
@@ -59,7 +66,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'class', $this->btn ) && !empty( $this->btn['class'] ) ) {
+		if ( array_key_exists( 'class', $this->btn ) && $this->btn['class'] !== '' ) {
 			$params['btn'] = array_merge(
                                 $params['btn'],
                                 [
@@ -67,7 +74,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'title', $this->btn ) && !empty( $this->btn['title'] ) ) {
+		if ( array_key_exists( 'title', $this->btn ) && $this->btn['title'] !== '' ) {
 			$params['btn'] = array_merge(
                                 $params['btn'],
                                 [
@@ -75,7 +82,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'aria-label', $this->btn ) && !empty( $this->btn['aria-label'] ) ) {
+		if ( array_key_exists( 'aria-label', $this->btn ) && $this->btn['aria-label'] !== '' ) {
 			$params['btn'] = array_merge(
                                 $params['btn'],
                                 [
@@ -83,7 +90,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'text', $this->btn ) && !empty( $this->btn['text'] ) ) {
+		if ( array_key_exists( 'text', $this->btn ) && $this->btn['text'] !== '' ) {
 			$params['btn'] = array_merge(
                                 $params['btn'],
                                 [
@@ -100,7 +107,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'class', $this->menu ) && !empty( $this->menu['class'] ) ) {
+		if ( array_key_exists( 'class', $this->menu ) && $this->menu['class'] !== '' ) {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
@@ -108,7 +115,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'aria-label', $this->menu ) && !empty( $this->menu['aria-label'] ) ) {
+		if ( array_key_exists( 'aria-label', $this->menu ) && $this->menu['aria-label'] !== '' ) {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
@@ -116,7 +123,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'desc', $this->menu ) && !empty( $this->menu['desc'] ) ) {
+		if ( array_key_exists( 'desc', $this->menu ) && $this->menu['desc'] !== '' ) {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
@@ -124,7 +131,7 @@ class DropdownBase extends ComponentBase {
                                 ]
                         );
 		}
-		if ( array_key_exists( 'body', $this->menu ) && !empty( $this->menu['body'] ) ) {
+		if ( array_key_exists( 'body', $this->menu ) && $this->menu['body'] !== '' ) {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
@@ -135,5 +142,4 @@ class DropdownBase extends ComponentBase {
 
                 return $params;
         }
-
 }
