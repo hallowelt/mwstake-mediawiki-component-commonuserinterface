@@ -21,12 +21,8 @@ class AnchorDropdown extends DropdownBase {
         }
 
 	/**
-	 * @param string $id
-	 * @param string $class
-	 * @param string $body
-	 * @param string $header
-	 * @param string $footer
-	 * @param array $img
+	 * @param array $btn
+	 * @param array $menu
 	 * @return Static
 	 */
         public static function factory( $btn=[], $menu=[] ) {
@@ -38,23 +34,5 @@ class AnchorDropdown extends DropdownBase {
          */
         protected function getTemplateName() {
                 return 'single-anchor';
-        }
-
-	        /**
-         * @return array
-         */
-        public function getParams() {
-                $params = parent::getParams();
-
-		if ( array_key_exists( 'title', $this->btn ) && !empty( $this->btn['title'] ) ) {
-			$params['btn'] = array_merge(
-                                $params['btn'],
-                                [
-					'title' => $this->btn['title']
-                                ]
-                        );
-		}
-
-                return $params;
         }
 }
