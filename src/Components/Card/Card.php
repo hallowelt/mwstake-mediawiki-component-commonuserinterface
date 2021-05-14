@@ -2,10 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Card;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Interfaces\IComponent;
-use TemplateParser;
+use MWStake\MediaWiki\Component\CommonUserInterface\Components\Base\ComponentBase;
 
-class Card implements IComponent {
+class Card extends ComponentBase {
 	/** @var string */
 	protected $cardId = '';
 
@@ -30,7 +29,6 @@ class Card implements IComponent {
 	 * @param string $header
 	 * @param string $footer
 	 * @param array $img
-	 * @return Static
 	 */
         public function __construct( $id='', $class='', $body='', $header='', $footer='', $img=[] ) {
 		/**
@@ -67,24 +65,7 @@ class Card implements IComponent {
 	 * @return Static
 	 */
         public static function factory( $id='', $class='', $body='', $header='', $footer='', $img=[] ) {
-                return new static( $id, $class, $body, $header='', $footer='', $img=[] );
-        }
-
-        /**
-         * @return string
-         */
-        public function getHtml() {
-                $templateParser = new TemplateParser(
-                        $this->getTemplatePath()
-                );
-                $templateParser->enableRecursivePartials( false );
-
-                $html = $templateParser->processTemplate(
-                        $this->getTemplateName(),
-                        $this->getParams()
-                );
-
-                return $html;
+                return new static( $id, $class, $body, $header, $footer, $img );
         }
 
         /**

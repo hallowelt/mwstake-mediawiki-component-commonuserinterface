@@ -14,7 +14,6 @@ class CollapsibleCard extends Card {
 	 * @param string $header
 	 * @param string $footer
 	 * @param array $img
-	 * @return Static
 	 */
         public function __construct( $id='', $class='', $isExpanded=false, $body='', $header='', $footer='', $img=[] ) {
 		$this->cardBody = $body;
@@ -37,7 +36,7 @@ class CollapsibleCard extends Card {
 	 * @return Static
 	 */
         public static function factory( $id='', $class='', $isExpanded=false, $body='', $header='', $footer='', $img=[] ) {
-                return new static( $id,$class, $isExpanded=false, $body, $header='', $footer='', $img=[] );
+                return new static( $id,$class, $isExpanded, $body, $header, $footer, $img );
         }
 
 	/**
