@@ -32,12 +32,12 @@ class Formatter {
                 $params = [];
 
                 foreach ( $links as $key => $link ) {
-                        if ( !isset( $link['text'] ) || $link['text'] === '' ){
+                        if ( !isset( $link['text'] ) || $link['text'] === '' ) {
                                 continue;
                         }
                         $link['text'] = $this->checkForMessage( $link['text'] );
 
-			if ( isset( $link['title'] ) && $link['title'] !== '' ){
+			if ( isset( $link['title'] ) && $link['title'] !== '' ) {
                                 $link['title'] = $this->checkForMessage( $link['title'] );
 			} elseif ( is_string( $key ) ) {
                                 $link['title'] = $this->checkForMessage( $key );
