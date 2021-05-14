@@ -1,0 +1,7 @@
+<ul class="list-group">
+	{{#links}}
+	<li class="list-group-item">
+		<a{{#id}} id="{{{.}}}"{{/id}} class="dropdown-item{{#class}} {{{.}}}{{/class}}" href="{{{href}}}" {{#title}} title="{{{.}}}"{{/title}}{{#data}} {{{.}}}{{/data}}>{{{text}}}</a>
+	</li>
+	{{/links}}
+</ul>

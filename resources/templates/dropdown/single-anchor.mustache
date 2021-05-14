@@ -1,0 +1,13 @@
+<div class="dropdown">
+  {{#btn}}
+  <a type="button" class="btn dropdown-toggle{{#class}} {{{.}}}{{/class}}"{{#id}} id={{{.}}}{{/id}} title="{{{title}}}" {{#data}}{{{.}}}{{/data}}data-bs-toggle="dropdown" aria-haspopup="true" aria-label="{{{aria-label}}}" aria-expanded="false" aria-controls="{{{id}}}-menu">
+   <span>{{{text}}}</span>
+  </a>
+  {{/btn}}
+  {{#menu}}
+  <div id="{{{id}}}-menu" class="dropdown-menu{{#class}} {{{.}}}{{/class}}" aria-describedby="{{id}}-desc" aria-describedby="{{{id}}}-desc">
+    <div id="{{id}}-desc" class="visually-hidden">{{{desc}}}</div>
+    {{{body}}}
+  </div>
+  {{/menu}}
+</div>
