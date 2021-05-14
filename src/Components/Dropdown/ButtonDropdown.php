@@ -5,12 +5,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Dropdown;
 use MWStake\MediaWiki\Component\CommonUserInterface\Components\Base\DropdownBase;
 
 class ButtonDropdown extends DropdownBase {
-	/** @var array */
-	protected $btn = [];
-
-	/** @var array */
-	protected $menu = [];
-
 	/**
 	 * @param array $btn
 	 * @param array $menu

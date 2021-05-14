@@ -6,16 +6,22 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
 use TemplateParser;
 
 class DropdownBase extends ComponentBase {
+	/** @var array */
+	protected $btn = [];
+
+	/** @var array */
+	protected $menu = [];
+
 	/**
 	 * @param array $links
          * @param bool $format
 	 * @return string
 	 */
 	public function makeDropdownItemList( $links, $format=true ) {
-		if ($this->format === true) {
+		if ( $this->format === true ) {
 			$formatter = new Formatter();
 			$params = [
-				'links' => $formatter->formatLinks($this->links)
+				'links' => $formatter->formatLinks( $this->links )
 			];
 		} else {
 			$params = [
@@ -51,7 +57,11 @@ class DropdownBase extends ComponentBase {
          * @return array
          */
         public function getParams() {
-                $params = [];
+                $params = [
+			'btn' => [],
+			'menu' => []
+		];
+
 		if ( array_key_exists( 'id', $this->btn ) && $this->btn['id'] !== '' ) {
 			$params['btn'] = array_merge(
                                 $params['btn'],
@@ -111,7 +121,7 @@ class DropdownBase extends ComponentBase {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
-					'text' => $this->btn['class']
+					'text' => $this->menu['class']
                                 ]
                         );
 		}
@@ -119,7 +129,7 @@ class DropdownBase extends ComponentBase {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
-					'aria-label' => $this->btn['aria-label']
+					'aria-label' => $this->menu['aria-label']
                                 ]
                         );
 		}
@@ -127,7 +137,7 @@ class DropdownBase extends ComponentBase {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
-					'desc' => $this->btn['desc']
+					'desc' => $this->menu['desc']
                                 ]
                         );
 		}
@@ -135,7 +145,7 @@ class DropdownBase extends ComponentBase {
 			$params['menu'] = array_merge(
                                 $params['menu'],
                                 [
-					'body' => $this->btn['body']
+					'body' => $this->menu['body']
                                 ]
                         );
 		}

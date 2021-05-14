@@ -3,12 +3,6 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Dropdown;
 
 class IconDropdown extends AnchorDropdown {
-	/** @var array */
-	protected $btn = [];
-
-	/** @var array */
-	protected $menu = [];
-
 	/**
 	 * @param array $btn
 	 * @param array $menu
