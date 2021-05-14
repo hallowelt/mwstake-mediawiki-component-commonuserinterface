@@ -5,13 +5,13 @@
 		</div>
 		<div class="{{class}}" id="{{controls}}-body">
 	{{/collapse}}
-		{{#img}}{{#top}}
+		{{#img-top}}
 			{{#href}}<a href="{{.}}">{{/href}}<img src="{{src}}" class="card-img-top" alt="{{alt}}">{{#href}}</a>{{/href}}
-		{{/top}}{{/img}}
-		{{{body}}}
-		{{#img}}{{#bottom}}
+		{{/img-top}}
+		{{{content}}}
+		{{#img-bottom}}
 			<img src="{{src}}" class="card-img-bottom" alt="{{alt}}">
-		{{/bottom}}{{/img}}
+		{{/img-bottom}}
 			<div class="card-footer">{{{footer}}}</div>
 	{{#collapse}}
 		</div>

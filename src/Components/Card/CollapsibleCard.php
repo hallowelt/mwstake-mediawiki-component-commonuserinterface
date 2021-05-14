@@ -4,39 +4,24 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Card;
 
 class CollapsibleCard extends Card {
 	/** @var boolean */
-	protected $isExpanded = [];
+	protected $isExpanded = false;
 
 	/**
-	 * @param string $id
-	 * @param string $class
+	 * @param array $config
 	 * @param boolean $isExpanded
-	 * @param string $body
-	 * @param string $header
-	 * @param string $footer
-	 * @param array $img
 	 */
-        public function __construct( $id='', $class='', $isExpanded=false, $body='', $header='', $footer='', $img=[] ) {
-		$this->cardBody = $body;
-		$this->cardClass = $class;
-		$this->cardFooter = $footer;
-		$this->cardHeader = $header;
-		$this->cardId = $id;
-		$this->cardImage = $img;
+        public function __construct( $config=[], $isExpanded=false ) {
+		$this->config = $config;
 		$this->isExpanded = $isExpanded;
         }
 
 	/**
-	 * @param string $id
-	 * @param string $class
+	 * @param array $config
 	 * @param boolean $isExpanded
-	 * @param string $body
-	 * @param string $header
-	 * @param string $footer
-	 * @param array $img
 	 * @return Static
 	 */
-        public static function factory( $id='', $class='', $isExpanded=false, $body='', $header='', $footer='', $img=[] ) {
-                return new static( $id,$class, $isExpanded, $body, $header, $footer, $img );
+        public static function factory( $config=[], $isExpanded=false ) {
+                return new static( $config, $isExpanded );
         }
 
 	/**
@@ -64,7 +49,7 @@ class CollapsibleCard extends Card {
 			[
 				'collapse' => [
 					'expanded' => $expanded,
-					'controls' => $this->cardId,
+					'controls' => $params['id'],
 					'class' => $class
 				]
 			]

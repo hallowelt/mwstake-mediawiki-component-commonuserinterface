@@ -12,7 +12,7 @@ class Card extends ComponentBase {
 	protected $cardClass = '';
 
 	/** @var string */
-	protected $cardBody = '';
+	protected $cardcontent = '';
 
 	/** @var string */
 	protected $cardHeader = '';
@@ -23,49 +23,23 @@ class Card extends ComponentBase {
 	protected $cardImage = [];
 
 	/**
-	 * @param string $id
-	 * @param string $class
-	 * @param string $body
-	 * @param string $header
-	 * @param string $footer
-	 * @param array $img
+	 * @param array $config
 	 */
-        public function __construct( $id='', $class='', $body='', $header='', $footer='', $img=[] ) {
+        public function __construct( $config=[] ) {
 		/**
-		 * body can contain title, text, list, ...
+		 * Content list or card-body.
+		 * You need to wrap it into html like <div class="card-body">...</div>
 		 * See https://getbootstrap.com/docs/5.0/components/card/
 		 */
-		$this->cardBody = $body;
-		$this->cardClass = $class;
-		$this->cardFooter = $footer;
-		$this->cardHeader = $header;
-		$this->cardId = $id;
-		/**
-		 * Image can be on top or at the bottom or both
-		 * $img = [
-		 * 	'top' => [
-		 * 		src => '...',
-		 * 		als => '...',
-		 * 		href => '...' // href is optional - if set image is wrapped in an achor tag
-		 * 	],
-		 * 	'bottom' => [
-		 * 	]
-		 * ]
-		 */
-		$this->cardImage = $img;
+		$this->config = $config;
         }
 
 	/**
-	 * @param string $id
-	 * @param string $class
-	 * @param string $body
-	 * @param string $header
-	 * @param string $footer
-	 * @param array $img
+	 * @param array $config
 	 * @return Static
 	 */
-        public static function factory( $id='', $class='', $body='', $header='', $footer='', $img=[] ) {
-                return new static( $id, $class, $body, $header, $footer, $img );
+        public static function factory( $config=[] ) {
+                return new static( $config );
         }
 
         /**
@@ -87,51 +61,59 @@ class Card extends ComponentBase {
          */
         protected function getParams() {
 		$params = [];
-		if ( $this->cardId !== '' ) {
+		if ( array_key_exists( 'id', $this->config ) && $this->config['id'] !== '' ) {
 			$params = array_merge(
 				$params,
 				[
-					'id' => $this->cardId
+					'id' => $this->config['id']
 				]
 			);
 		}
-		if ( $this->cardClass !== '' ) {
+		if ( array_key_exists( 'class', $this->config ) && $this->config['class'] !== '' ) {
 			$params = array_merge(
 				$params,
 				[
-					'class' => $this->cardClass
+					'class' => $this->config['class']
 				]
 			);
 		}
-		if ( $this->cardBody !== '' ) {
+		if ( array_key_exists( 'content', $this->config ) && $this->config['content'] !== '' ) {
 			$params = array_merge(
 				$params,
 				[
-					'body' => $this->cardBody
+					'content' => $this->config['content']
 				]
 			);
 		}
-		if ( $this->cardHeader !== '' ) {
+		if ( array_key_exists( 'header', $this->config ) && $this->config['header'] !== '' ) {
 			$params = array_merge(
 				$params,
 				[
-					'header' => $this->cardHeader
+					'header' => $this->config['header']
 				]
 			);
 		}
-		if ( $this->cardFooter !== '' ) {
+		if ( array_key_exists( 'footer', $this->config ) && $this->config['footer'] !== '' ) {
 			$params = array_merge(
 				$params,
 				[
-					'footer' => $this->cardFooter
+					'footer' => $this->config['footer']
 				]
 			);
 		}
-		if ( !empty( $this->cardImage ) ) {
+		if ( array_key_exists( 'img-top', $this->config ) && $this->config['img-top'] !== '' ) {
 			$params = array_merge(
 				$params,
 				[
-					'img' => $this->cardImage
+					'img-top' => $this->config['img-top']
+				]
+			);
+		}
+		if ( array_key_exists( 'img-bottom', $this->config ) && $this->config['img-bottom'] !== '' ) {
+			$params = array_merge(
+				$params,
+				[
+					'img-bottom' => $this->config['img-bottom']
 				]
 			);
 		}
