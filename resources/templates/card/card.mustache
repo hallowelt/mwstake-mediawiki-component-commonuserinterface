@@ -1,0 +1,11 @@
+<div class="card{{#class}} {{{.}}}{{/class}}"{{#id}} id="{{{.}}}"{{/id}}>
+	<div class="card-header">{{{header}}}</div>
+	{{#img-top}}
+		{{#href}}<a href="{{.}}">{{/href}}<img src="{{src}}" class="card-img-top" alt="{{alt}}">{{#href}}</a>{{/href}}
+	{{/img-top}}
+	{{{content}}}
+	{{#img-bottom}}
+		<img src="{{src}}" class="card-img-bottom" alt="{{alt}}">
+	{{/img-bottom}}
+	<div class="card-footer">{{{footer}}}</div>
+</div>
