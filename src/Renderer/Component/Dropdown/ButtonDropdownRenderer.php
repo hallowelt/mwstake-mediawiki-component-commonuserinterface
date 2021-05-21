@@ -1,8 +1,10 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Dropdown;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Dropdown;
 
-class IconDropdown extends AnchorDropdown {
+use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Base\DropdownRendererBase;
+
+class ButtonDropdownRenderer extends DropdownRendererBase {
 	/**
 	 * @param array $btn
 	 * @param array $menu
@@ -29,6 +31,6 @@ class IconDropdown extends AnchorDropdown {
          * @return string
          */
         protected function getTemplateName() {
-                return 'single-icon';
+                return 'single-button';
         }
 }

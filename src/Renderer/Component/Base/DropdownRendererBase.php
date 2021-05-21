@@ -1,11 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Base;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Base;
 
 use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
 use TemplateParser;
 
-class DropdownBase extends ComponentBase {
+class DropdownRendererBase extends ComponentRendererBase {
 	/** @var array */
 	protected $btn = [];
 
@@ -16,7 +16,7 @@ class DropdownBase extends ComponentBase {
          * @return string
          */
         protected function getTemplatePath() {
-                return dirname( dirname( dirname( __DIR__ ) ) ) . '/resources/templates/dropdown';
+                return dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/resources/templates/dropdown';
         }
 
         /**

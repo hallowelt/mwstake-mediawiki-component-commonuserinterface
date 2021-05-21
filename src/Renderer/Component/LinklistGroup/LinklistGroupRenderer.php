@@ -1,11 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\LinklistGroup;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\LinklistGroup;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Components\Base\ComponentBase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
+use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Base\ComponentRendererBase;
 
-class LinklistGroup extends ComponentBase {
+class LinklistGroupRenderer extends ComponentRendererBase {
 	/** @var array */
 	protected $links = [];
 
@@ -45,7 +45,7 @@ class LinklistGroup extends ComponentBase {
          * @return string
          */
         protected function getTemplatePath() {
-                return dirname( dirname( dirname( __DIR__ ) ) ) . '/resources/templates/linklist';
+                return dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/resources/templates/linklist';
         }
 
         /**

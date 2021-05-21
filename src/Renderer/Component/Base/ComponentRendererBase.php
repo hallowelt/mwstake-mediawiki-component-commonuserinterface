@@ -1,16 +1,15 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Base;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Base;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Interfaces\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\Interfaces\IComponentRenderer;
 use TemplateParser;
 
-class ComponentBase implements IComponent {
+class ComponentRendererBase implements IComponentRenderer {
 	/**
 	 * @return string
 	 */
-	public function getHtml()
-	{
+	public function getHtml() {
 		$templateParser = new TemplateParser(
 			$this->getTemplatePath()
 		);

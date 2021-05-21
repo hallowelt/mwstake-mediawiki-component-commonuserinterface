@@ -2,7 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Interfaces;
 
-interface IComponent {
+interface IComponentRenderer {
 	/**
 	 * @return string
 	 */

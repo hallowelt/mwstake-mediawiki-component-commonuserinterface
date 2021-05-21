@@ -1,8 +1,8 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Card;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card;
 
-class CollapsibleCard extends Card {
+class CollapsibleCardRenderer extends CardRenderer {
 	/** @var boolean */
 	protected $isExpanded = false;
 

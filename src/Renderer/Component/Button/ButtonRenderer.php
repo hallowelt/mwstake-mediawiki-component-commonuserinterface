@@ -1,11 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Button;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Button;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Components\Base\ComponentBase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
+use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Base\ComponentRendererBase;
 
-class Button extends ComponentBase {
+class ButtonRenderer extends ComponentRendererBase {
 	/** @var array */
 	protected $config = [];
 
@@ -35,7 +35,7 @@ class Button extends ComponentBase {
          * @return string
          */
         protected function getTemplatePath() {
-                return dirname( dirname( dirname( __DIR__ ) ) ) . '/resources/templates/button';
+                return dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/resources/templates/button';
         }
 
         /**

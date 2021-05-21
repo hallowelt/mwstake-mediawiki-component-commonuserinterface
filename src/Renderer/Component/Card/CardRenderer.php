@@ -1,10 +1,10 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Components\Card;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Components\Base\ComponentBase;
+use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Base\ComponentRendererBase;
 
-class Card extends ComponentBase {
+class CardRenderer extends ComponentRendererBase {
 	/** @var string */
 	protected $cardId = '';
 
@@ -53,7 +53,7 @@ class Card extends ComponentBase {
          * @return string
          */
         protected function getTemplatePath() {
-                return dirname( dirname( dirname( __DIR__ ) ) ) . '/resources/templates/card';
+                return dirname( dirname( dirname( dirname( __DIR__ ) ) ) ) . '/resources/templates/card';
         }
 
         /**
