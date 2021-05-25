@@ -1,5 +1,15 @@
 <?php
 
+if ( !defined( 'MEDIAWIKI' ) && !defined( 'MW_PHPUNIT_TEST' ) ) {
+	return;
+}
+
+if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
+	return;
+}
+
+define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '2.0.0' );
+
 $lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
 
 // Provide the list of values
@@ -52,3 +62,49 @@ $lessVars->setVar( 'content-h6-fg', '' );
 $lessVars->setVar( 'content-h6-font-size', '' );
 $lessVars->setVar( 'content-h6-font-weight', '' );
 $lessVars->setVar( 'content-h6-border', '' );
+
+$GLOBALS['mwsgCommonUIComponentRegistry'] = [
+	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\IButton',
+	'toolbar' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\IToolbar',
+	'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\ICard',
+	'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\ILink',
+	'linklist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\ILinklist',
+	'icon-dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\IIconDropDown',
+	'button-dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\IButtonDropDown',
+	'media-element' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\IMediaElement',
+];
+
+$GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
+	'*' => [
+		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\IButton',
+		'toolbar' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\IToolbar',
+		'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ICard',
+		'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ILink',
+		'linklist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ILinklist',
+		'icon-dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\IIconDropDown',
+		'button-dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\IButtonDropDown',
+		'media-element' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\IMediaElement',
+	]
+];
+
+$GLOBALS['mwsgCommonUISkinSlots'] = [
+	'siteNoticeAfter' => [],
+	'skinAfterContent' => []
+];
+
+$GLOBALS['mwsgCommonUISkinSlotRenderers'] = [
+	'siteNoticeAfter' => [
+		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\SkinSlotRenderer\\SiteNoticeAfter::factory'
+	],
+	'skinAfterContent' => [
+		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\SkinSlotRenderer\\SkinAfterContent::factory'
+	]
+];
+
+$GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'dataAfterContent' ];
+
+$GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';
+
+$GLOBALS['wgHooks']['BeforePageDisplay'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onBeforePageDisplay';
+$GLOBALS['wgHooks']['SiteNoticeAfter'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSiteNoticeAfter';
+$GLOBALS['wgHooks']['SkinAfterContent'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
