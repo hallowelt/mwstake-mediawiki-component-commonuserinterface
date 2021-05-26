@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\ITool;
+
 interface IToolProvider {
 
 	/**
