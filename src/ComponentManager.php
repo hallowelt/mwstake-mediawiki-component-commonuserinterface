@@ -2,18 +2,38 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use IContextSource;
+class ComponentManager {
 
-interface IComponent {
 	/**
 	 *
-	 * @return string
+	 * @return void
 	 */
-	public function getId() : string;
+	public function init() {
+		//Load all "skin slots", build up component trees, get RL modules to load from each component
+	}
 
-	public function getRequiredRLModules() : array;
+	/**
+	 *
+	 * @return string[]
+	 */
+	public function getRLModules() {
+		$modules = [];
 
-	public function getRequiredRLStyles() : array;
+		//TODO: Implement
 
-	public function shouldRender( IContextSource $context ) : bool;
+		return $modules;
+	}
+
+	/**
+	 *
+	 * @return string[]
+	 */
+	public function getRLModuleStyles() {
+		$moduleStyles = [];
+
+		//TODO: Implement
+
+		return $moduleStyles;
+	}
+
 }

@@ -57,7 +57,7 @@ $GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-sitenoticeafter-toolba
 			'label' => new RawMessage( 'My panel' ),
 			'collapsible' => true,
 			'collapsed' => true,
-			'expandRLModules' = [ 'my-panel-module' ]
+			'expandRLModules' => [ 'my-panel-module' ]
 		] );
 	}
 ];
