@@ -51,10 +51,10 @@ $GLOBALS['mwsgCommonUISkinSlots']['siteNoticeAfter']['my-sitenoticeafter-toolbar
 	}
 ];
 
-$GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-sitenoticeafter-toolbar'] = [
+$GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-skinaftercontent-panel'] = [
 	'factory' => function() {
 		return new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel( [
-			'label' => new RawMessage( 'My panel' ),
+			'title' => new RawMessage( 'My panel' ),
 			'collapsible' => true,
 			'collapsed' => true,
 			'expandRLModules' => [ 'my-panel-module' ]

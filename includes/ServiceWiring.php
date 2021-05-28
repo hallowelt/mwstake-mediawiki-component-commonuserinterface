@@ -11,7 +11,12 @@ return [
 	},
 
 	'MWStakeCommonUIComponentManager' => function ( MediaWikiServices $services ) {
-		return new ComponentManager();
+		return new ComponentManager(
+			RequestContext::getMain(),
+			$GLOBALS['mwsgCommonUISkinSlots'],
+			$GLOBALS['mwsgCommonUISkinSlotsEnabled'],
+			$services->getObjectFactory()
+		);
 	},
 
 	'MWStakeCommonUIComponentRendererFactory' => function ( MediaWikiServices $services ) {
