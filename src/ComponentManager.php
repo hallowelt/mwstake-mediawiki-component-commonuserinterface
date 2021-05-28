@@ -49,14 +49,14 @@ class ComponentManager {
 	 * @param IContextSource $context
 	 * @param array $slots
 	 * @param array $enabledSlots
-	 * @param ObjectFactory $objectFactory
+	 * @param ObjectFactory|null $objectFactory
 	 */
 	public function __construct( IContextSource $context, $slots, $enabledSlots, $objectFactory = null ) {
 		$this->context = $context;
 		$this->slots = $slots;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
-		if ($this->objectFactory instanceof ObjectFactory === false ) {
+		if ( $this->objectFactory instanceof ObjectFactory === false ) {
 			$this->objectFactory = \MediaWiki\MediaWikiServices::getInstance()->getObjectFactory();
 		}
 	}
@@ -66,12 +66,12 @@ class ComponentManager {
 	 * @return void
 	 */
 	public function init() {
-		//Load all "skin slots", build up component trees, get RL modules to load from each component
+		// Load all "skin slots", build up component trees, get RL modules to load from each component
 		foreach ( $this->slots as $slotId => $components ) {
 			if ( !in_array( $slotId, $this->enabledSlots ) ) {
 				continue;
 			}
-			foreach( $components as $spec ) {
+			foreach ( $components as $spec ) {
 				$component = $this->objectFactory->createObject( $spec );
 				$this->processComponent( $component );
 			}

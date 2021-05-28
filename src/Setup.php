@@ -51,7 +51,7 @@ class Setup {
 		$out->addModules( $componentManager->getRLModules() );
 		$out->addModuleStyles( $componentManager->getRLModuleStyles() );
 
-		//TODO:
+		// TODO:
 		// #1: build up the component tree from "slots" (slots may define allowed components types, e.g. only ICards, ILinks)
 		// #2: walk the tree and ask whether or not to render
 		// #3: Ask for RL modules to load

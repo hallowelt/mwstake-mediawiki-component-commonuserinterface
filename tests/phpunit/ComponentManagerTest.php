@@ -5,7 +5,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 use IContextSource;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IContainerComponent;
 use PHPUnit\Framework\TestCase;
 
 class ComponentManagerTest extends TestCase {
@@ -16,7 +15,6 @@ class ComponentManagerTest extends TestCase {
 	 * @return void
 	 */
 	public function testInit() {
-
 		// Sub component that should render
 		$mockSubComponent1 = $this->createMock( IComponent::class );
 		$mockSubComponent1->expects( $this->once() )->method( 'getId' );
@@ -56,14 +54,14 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function() use ( $mockComponent1 ) {
+				'factory' => function () use ( $mockComponent1 ) {
 					return $mockComponent1;
 				}
 			],
 		];
 		$slots[ 'testSlot2' ] = [
 			'test1' => [
-				'factory' => function() use ( $mockComponent2 ) {
+				'factory' => function () use ( $mockComponent2 ) {
 					return $mockComponent2;
 				}
 			]
@@ -101,7 +99,7 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function() use ( $mockComponent1 ) {
+				'factory' => function () use ( $mockComponent1 ) {
 					return $mockComponent1;
 				}
 			],
@@ -141,7 +139,7 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function() use ( $mockComponent1 ) {
+				'factory' => function () use ( $mockComponent1 ) {
 					return $mockComponent1;
 				}
 			],

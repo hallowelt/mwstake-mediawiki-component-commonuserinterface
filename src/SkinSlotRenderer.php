@@ -11,7 +11,7 @@ class SkinSlotRenderer {
 	public function getHtml() : string {
 		$html = '';
 
-		//TODO: Implement
+		// TODO: Implement
 
 		return $html;
 	}
