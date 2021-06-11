@@ -57,6 +57,8 @@ class Setup {
 		// #3: Ask for RL modules to load
 		// #4: Use renderer to make HTML for each "slot" (also make sure clientside renderers are available using a RL module)
 		// #5: In Skin, pass "slots" HTML into the (mustache-)template
+
+		$out->addModules( 'mwstake.component.commonui' );
 		return true;
 	}
 }

@@ -102,3 +102,18 @@ $GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';
 $GLOBALS['wgHooks']['BeforePageDisplay'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onBeforePageDisplay';
 $GLOBALS['wgHooks']['SiteNoticeAfter'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSiteNoticeAfter';
 $GLOBALS['wgHooks']['SkinAfterContent'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
+
+$GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
+	'localBasePath' => __DIR__ . "/resources/",
+	'packageFiles' => [
+		'init.js',
+		#'commonui/renderer.js',
+		[
+			'name' => 'renderer.json',
+			'callback' => function ( ResourceLoaderContext $context, Config $config, $callbackParams ) {
+			return [
+				'lorem' => 'ipsum'
+			];
+		} ],
+	],
+];
