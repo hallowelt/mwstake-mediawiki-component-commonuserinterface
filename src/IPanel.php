@@ -22,9 +22,9 @@ interface IPanel {
 	public function getTools();
 
 	/**
-	 * @return IBadge
+	 * @return IBadge[]
 	 */
-	public function getBadge();
+	public function getBadges();
 
 	/**
 	 * @return string[]

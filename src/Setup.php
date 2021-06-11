@@ -52,9 +52,6 @@ class Setup {
 		$out->addModuleStyles( $componentManager->getRLModuleStyles() );
 
 		// TODO:
-		// #1: build up the component tree from "slots" (slots may define allowed components types, e.g. only ICards, ILinks)
-		// #2: walk the tree and ask whether or not to render
-		// #3: Ask for RL modules to load
 		// #4: Use renderer to make HTML for each "slot" (also make sure clientside renderers are available using a RL module)
 		// #5: In Skin, pass "slots" HTML into the (mustache-)template
 

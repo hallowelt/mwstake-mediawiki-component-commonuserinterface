@@ -5,7 +5,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 use Message;
 use RawMessage;
 
-class SimpleAccordionItem extends IAccordionItem {
+class SimpleAccordionItem extends ComponentBase implements IAccordionItem {
 
 	/**
 	 *

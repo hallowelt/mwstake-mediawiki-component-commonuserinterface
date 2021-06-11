@@ -17,7 +17,13 @@ class ComponentManager {
 	 *
 	 * @var array
 	 */
-	private $slots = [];
+	private $slotSpecs = [];
+
+	/**
+	 *
+	 * @var array
+	 */
+	private $slotComponentTrees = [];
 
 	/**
 	 *
@@ -47,13 +53,13 @@ class ComponentManager {
 	 * Undocumented function
 	 *
 	 * @param IContextSource $context
-	 * @param array $slots
+	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
 	 */
-	public function __construct( IContextSource $context, $slots, $enabledSlots, $objectFactory = null ) {
+	public function __construct( IContextSource $context, $slotSpecs, $enabledSlots, $objectFactory = null ) {
 		$this->context = $context;
-		$this->slots = $slots;
+		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
 		if ( $this->objectFactory instanceof ObjectFactory === false ) {
@@ -63,27 +69,45 @@ class ComponentManager {
 
 	/**
 	 *
+	 * @var string
+	 */
+	private $currentSlot = '';
+
+	/**
+	 *
 	 * @return void
 	 */
 	public function init() {
 		// Load all "skin slots", build up component trees, get RL modules to load from each component
-		foreach ( $this->slots as $slotId => $components ) {
+		foreach ( $this->slotSpecs as $slotId => $specs ) {
 			if ( !in_array( $slotId, $this->enabledSlots ) ) {
 				continue;
 			}
-			foreach ( $components as $spec ) {
+			$this->slotComponentTrees[$slotId] = [];
+			$this->currentSlot = $slotId;
+			foreach ( $specs as $spec ) {
 				$component = $this->objectFactory->createObject( $spec );
-				$this->processComponent( $component );
+				$this->processComponent( $component, $this->slotComponentTrees[$slotId] );
 			}
 		}
 	}
 
 	/**
 	 *
+	 * @param string $slotId
+	 * @return array
+	 */
+	public function getSkinSlotComponentTree( $slotId ) {
+		return $this->slotComponentTrees[$slotId];
+	}
+
+	/**
+	 *
 	 * @param IComponent $component
+	 * @param array &$treeNode
 	 * @return void
 	 */
-	private function processComponent( $component ) {
+	private function processComponent( $component, &$treeNode ) {
 		if ( !$component->shouldRender( $this->context ) ) {
 			return;
 		}
@@ -93,10 +117,16 @@ class ComponentManager {
 		$this->rlModules = array_merge( $component->getRequiredRLModules(), $this->rlModules );
 		$this->rlStyles = array_merge( $component->getRequiredRLStyles(), $this->rlStyles );
 
+		$newTreeNode = [
+			'component' => $component,
+			'subComponents' => []
+		];
 		$subComponents = $component->getSubComponents();
 		foreach ( $subComponents as $subComponent ) {
-			$this->processComponent( $subComponent );
+			$this->processComponent( $subComponent, $newTreeNode['subComponents'] );
 		}
+
+		$treeNode[$id] = $newTreeNode;
 	}
 
 	/**

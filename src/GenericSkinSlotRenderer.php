@@ -2,14 +2,14 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-class SkinSlotRenderer {
+class GenericSkinSlotRenderer implements ISkinSlotRenderer {
 
 	/**
 	 *
 	 * @return string
 	 */
 	public function getHtml() : string {
-		$html = '';
+		$html = 'ABC';
 
 		// TODO: Implement
 

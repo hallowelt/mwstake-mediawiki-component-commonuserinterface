@@ -6,12 +6,10 @@ class SkinSlotRendererFactory {
 
 	/**
 	 * @param string $slotId
-	 * @return SkinSlotRenderer
+	 * @return ISkinSlotRenderer
 	 */
-	public function create( string $slotId ) : SkinSlotRenderer {
-		$renderer = new SkinSlotRenderer();
-
-		// TODO: Implement
+	public function create( string $slotId ) : ISkinSlotRenderer {
+		$renderer = new GenericSkinSlotRenderer();
 
 		return $renderer;
 	}

@@ -6,7 +6,7 @@ use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use RawMessage;
 
-class SimpleButton extends IButton {
+class SimpleButton extends ComponentBase implements IButton {
 
 	/**
 	 *

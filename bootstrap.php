@@ -111,9 +111,10 @@ $GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
 		[
 			'name' => 'renderer.json',
 			'callback' => function ( ResourceLoaderContext $context, Config $config, $callbackParams ) {
-			return [
-				'lorem' => 'ipsum'
-			];
-		} ],
+				return [
+					'lorem' => 'ipsum'
+				];
+			}
+		],
 	],
 ];

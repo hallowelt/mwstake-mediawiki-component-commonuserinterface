@@ -5,6 +5,12 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 use IContextSource;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
+use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel;
+use RawMessage;
 use PHPUnit\Framework\TestCase;
 
 class ComponentManagerTest extends TestCase {
@@ -153,5 +159,44 @@ class ComponentManagerTest extends TestCase {
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
 		$this->assertEquals( $expectedRLModules, $manager->getRLModuleStyles() );
+	}
+
+	/**
+	 * @covers ComponentManager::getSkinSlotComponentTree
+	 *
+	 * @return void
+	 */
+	public function testGetSkinSlotComponentTree() {
+		$slots = [];
+		$slots[ 'testSlot1' ] = [
+			'test1' => [
+				'factory' => function() {
+					return new SimplePanel( [
+						'id' => 'my-panel',
+						'title' => new RawMessage( 'My card' ),
+						'header-tools' => [],
+						'items' => [
+							new Literal( 'my-literal', 'Hello World!'),
+							new SimpleButton( [
+								'id' => 'my-button',
+								'label' => new RawMessage( 'My button' )
+							] )
+						]
+					] );
+				}
+			],
+		];
+
+		$enabledSlots = [ 'testSlot1' ];
+		$mockContext = $this->createMock( IContextSource::class );
+
+		$manager = new ComponentManager( $mockContext, $slots, $enabledSlots );
+		$manager->init();
+
+		$tree = $manager->getSkinSlotComponentTree( 'testSlot1' );
+
+		$this->assertInstanceOf( IPanel::class, $tree['my-panel']['component'] );
+		$this->assertInstanceOf( Literal::class, $tree['my-panel']['subComponents']['my-literal']['component'] );
+		$this->assertInstanceOf( IButton::class, $tree['my-panel']['subComponents']['my-button']['component'] );
 	}
 }
