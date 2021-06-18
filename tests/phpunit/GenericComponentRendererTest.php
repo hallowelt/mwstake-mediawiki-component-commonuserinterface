@@ -19,19 +19,21 @@ class GenericComponentRendererTest extends TestCase {
 
 		$componentTree = [
 			'my-panel' => [
-				'component' => new SimplePanel(),
+				'component' => new SimplePanel( [] ),
 				'subComponents' => [
-					'my-literal' => [ 'component' => new Literal(), 'subComponents' => [] ],
-					'my-button' => [ 'component' => new SimpleButton(), 'subComponents' => [] ]
+					'my-literal' => [ 'component' => new Literal( 'my-literal', 'This is a test of component \'literal\'' ), 'subComponents' => [] ],
+					'my-button' => [ 'component' => new SimpleButton( [] ), 'subComponents' => [] ]
 				]
 			]
 		];
 
 		$mockRenderer = $this->createMock( IComponentRenderer::class );
 		$mockRenderer->method( 'getTemplateData' )->willReturn();
-		$mockRenderer->method( 'getHtml' )->will( $this->returnCallback( function ( $data ) {
-			$out->addModuleStyles( 'foo.styles' );
-		} );
+		$mockRenderer->method( 'getHtml' )->will(
+			$this->returnCallback( function ( $data ) {
+				return '###';
+			}
+		) );
 		$mockRendererFactory = $this->createMock();
 		$mockRendererFactory->method( 'makeForComponent' )->willReturn( $mockRenderer );
 		$renderer = new GenericComponentRenderer( $mockRendererFactory );
