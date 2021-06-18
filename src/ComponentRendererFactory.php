@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
+
 class ComponentRendererFactory {
 
 	/**
@@ -35,7 +37,18 @@ class ComponentRendererFactory {
 	 * @return string
 	 */
 	public function getKey( $component ) {
+		$rendererKey = 'implement-me';
+		if( $component instanceof IPanel ) {
+			$rendererKey = 'card';
+		}
+		if( $component instanceof IButton ) {
+			$rendererKey = 'button';
+		}
+		if( $component instanceof Literal ) {
+			$rendererKey = 'literal';
+		}
 
+		return $rendererKey;
 	}
 
 	/**
@@ -45,6 +58,18 @@ class ComponentRendererFactory {
 	 */
 	public function getRenderer( $rendererKey ): IComponentRenderer {
 
+		$renderer = null;
+		if ( $rendererKey === 'card' ) {
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card\CardRenderer();
+		}
+		if ( $rendererKey === 'button' ) {
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Button\ButtonRenderer();
+		}
+		if ( $rendererKey === 'literal' ) {
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card\CardRenderer();
+			#$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\LiteralRenderer();
+		}
+		return $renderer;
 	}
 
 }

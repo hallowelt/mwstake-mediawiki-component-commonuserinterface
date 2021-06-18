@@ -1,6 +1,7 @@
 In the `LocalSettings.php` add
 
 ```php
+// Spec
 $GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-skinaftercontent-panel'] = [
 	'factory' => function() {
 		return new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel( [

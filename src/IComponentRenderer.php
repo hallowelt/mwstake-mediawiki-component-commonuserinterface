@@ -31,7 +31,7 @@ interface IComponentRenderer {
 	 * RL modules from `getRLModules` and `getRLModuleStyles`
 	 * @return string
 	 */
-	public function getTemplatePath(): string;
+	public function getTemplatePathname(): string;
 
 	/**
 	 * Used to convert component object into an array of simple data that can be rendered into HTML

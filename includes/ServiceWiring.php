@@ -3,6 +3,7 @@
 use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
+use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\RendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
 
@@ -25,6 +26,12 @@ return [
 			$GLOBALS['mwsgCommonUIComponentRendererRegistry'],
 			$GLOBALS['mwsgCommonUIComponentRegistry'],
 			$GLOBALS['mwsgCommonUIComponentRendererType']
+		);
+	},
+
+	'MWStakeCommonUIRendererDataTreeBuilder' => function ( MediaWikiServices $services ) {
+		return new RendererDataTreeBuilder(
+			$services->getService( 'MWStakeCommonUIComponentRendererFactory' )
 		);
 	},
 ];

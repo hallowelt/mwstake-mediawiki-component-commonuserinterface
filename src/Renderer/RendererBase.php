@@ -3,10 +3,10 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IRenderer;
+use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use TemplateParser;
 
-abstract class RendererBase implements IRenderer {
+abstract class RendererBase implements IComponentRenderer {
 
 	/**
 	 *
@@ -16,45 +16,33 @@ abstract class RendererBase implements IRenderer {
 
 	/**
 	 *
-	 */
-	public function __construct() {
-		$this->templateBasePath = __DIR__ . '/../../resources/templates';
-	}
-
-	/**
-	 *
 	 * @var TemplateParser
 	 */
 	private $templateParser = null;
 
 	/**
-	 *
-	 * @param IComponent $component
-	 * @return string
+	 * @inheritDoc
 	 */
-	public function render( IComponent $component ) : string {
+	public function getHtml( $data ) : string {
 		$templatePathname = $this->getTemplatePathname();
 		$templateDirname = dirname( $templatePathname );
 		$templateFilename = basename( $templatePathname );
-		$templateData = $this->getTemplateData( $component );
 
 		$this->templateParser = new TemplateParser( $templateDirname );
-		return $this->templateParser->processTemplate( $templateFilename, $templateData );
+		return $this->templateParser->processTemplate( $templateFilename, $data );
 	}
 
 	/**
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function getRLModules() : array {
 		return [];
 	}
 
 	/**
-	 *
-	 * @return array
+	 * @inheritDoc
 	 */
-	public function getRLModuleStyles() : array {
+	public function getRLModuleStyles(): array {
 		return [];
 	}
 }

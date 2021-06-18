@@ -33,6 +33,35 @@ class Setup {
 		$skinSlotRendererFactory = $services->getService( 'MWStakeCommonUISkinSlotRendererFactory' );
 		$skinSlotRenderer = $skinSlotRendererFactory->create( 'siteNoticeAfter' );
 		$siteNotice .= $skinSlotRenderer->getHtml();
+
+		//Would e.g. come from `ComponentManger::getSkinSlotComponentTree`
+		$componentTree = [
+			'my-panel' => [
+				'component' => new \MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel( [ 'id' => 'XYZ' ] ),
+				'subComponents' => [
+					'my-literal' => [
+						'component' => new \MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-literal', 'This is a test of component \'literal\'' ),
+						'subComponents' => []
+					],
+					'my-button' => [
+						'component' => new \MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton( [] ),
+						'subComponents' => []
+					]
+				]
+			]
+		];
+
+		/** @var RendererDataTreeBuilder */
+		$rendererDataTreeBuilder = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeCommonUIRendererDataTreeBuilder' );
+		$rendererDataTree = $rendererDataTreeBuilder->getRendererDataTree( $componentTree );
+
+		$siteNotice .= var_export( $rendererDataTree, 1 );
+		return;
+
+		/** @var ComponentDataTreeRenderer */
+		$componentDataRenderer = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeCommonUIComponentDataTreeRenderer' );
+		$siteNotice .= $componentDataRenderer->getHtml( $rendererDataTree );
+
 		return true;
 	}
 
