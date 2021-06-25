@@ -38,10 +38,11 @@ interface IComponentRenderer {
 	 * Maybe called for serverside rendering or by an API module to send templatedata on the wire to
 	 * a clientside renderer
 	 *
-	 * @param object $object Must implement a component interface that has
+	 * @param object $component Must implement a component interface that has
 	 * a renderer registered in `$mwsgCommonUIComponentRendererRegistry`
+	 * @param array $subComponentNodes The pre-created RendererDataTree nodes to be embedded into the $object
 	 *
 	 * @return array
 	 */
-	public function getTemplateData( $object ) : array;
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array;
 }

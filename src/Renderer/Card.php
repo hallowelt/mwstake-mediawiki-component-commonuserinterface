@@ -1,12 +1,12 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
 use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\RendererBase;
 
-class CardRenderer extends RendererBase {
+class Card extends RendererBase {
 	/** @var string */
 	protected $cardId = '';
 
@@ -54,11 +54,11 @@ class CardRenderer extends RendererBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getTemplateData( $component ): array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [
 			'id' => $component->getId(),
 			'class' => '',
-			'content' => '',
+			'content' => $subComponentNodes,
 		];
 		if( $component instanceof IPanel ) {
 			$templateData['class'] = $component->getContainerClasses();

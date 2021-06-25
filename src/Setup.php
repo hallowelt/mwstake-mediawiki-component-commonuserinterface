@@ -44,7 +44,7 @@ class Setup {
 						'subComponents' => []
 					],
 					'my-button' => [
-						'component' => new \MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton( [] ),
+						'component' => new \MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton( [ 'id' => 'ABC' ] ),
 						'subComponents' => []
 					]
 				]

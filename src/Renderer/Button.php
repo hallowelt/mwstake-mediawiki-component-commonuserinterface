@@ -1,12 +1,12 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Generic;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal as LiteralComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\RendererBase;
 
-class Literal extends RendererBase {
+class Button extends RendererBase {
 
 	/**
 	 *
@@ -14,19 +14,21 @@ class Literal extends RendererBase {
 	 * @return boolean
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof LiteralComponent;
+		return $component instanceof IButton;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param LiteralComponent $component
+	 * @param IButton $component
 	 * @return array
 	 */
-	public function getTemplateData( IComponent $component ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		return [
 			'id' => $component->getId(),
-			'text' => $component->getHtml()
+			'text' => $component->getLabel()->plain(),
+			'aria-label' => $component->getTooltip()->plain(),
+			'class' => 'btn-' . $component->getType()
 		];
 	}
 
@@ -36,7 +38,7 @@ class Literal extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname(): string {
-		return $this->templateBasePath . '/literal.mustache';
+		return $this->templateBasePath . '/button/button.mustache';
 	}
 
 }

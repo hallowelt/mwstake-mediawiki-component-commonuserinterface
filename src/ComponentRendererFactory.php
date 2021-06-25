@@ -60,14 +60,13 @@ class ComponentRendererFactory {
 
 		$renderer = null;
 		if ( $rendererKey === 'card' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card\CardRenderer();
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Card();
 		}
 		if ( $rendererKey === 'button' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Button\ButtonRenderer();
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Button();
 		}
 		if ( $rendererKey === 'literal' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\Card\CardRenderer();
-			#$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Component\LiteralRenderer();
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Literal();
 		}
 		return $renderer;
 	}

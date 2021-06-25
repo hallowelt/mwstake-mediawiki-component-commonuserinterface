@@ -10,12 +10,6 @@ class RendererDataTreeBuilder {
 	 */
 	private $rendererFactory = null;
 
-	/**
-	 *
-	 * @var array
-	 */
-	private $templateDataTree = [];
-
 	public function __construct( $rendererFactory ) {
 		$this->rendererFactory = $rendererFactory;
 	}
@@ -45,7 +39,7 @@ class RendererDataTreeBuilder {
 	 *		]
 	 *	],
 	 * ]
-	 * @param array $componentTree e.g. [
+	 * @param array $componentTreeNodes e.g. [
 	 *   'my-panel' => [
 	 *     'component' => <object>:IComponent,
 	 *     'subComponents' => [
@@ -62,20 +56,32 @@ class RendererDataTreeBuilder {
 	 * ];
 	 * @return array
 	 */
-	public function getRendererDataTree( $componentTree ) {
-		foreach( $componentTree as $node ) {
-			$component = $node['component'];
-
-			$rendererKey = $this->rendererFactory->getKey( $component );
-			$renderer = $this->rendererFactory->getRenderer( $rendererKey );
-			$templateData = $renderer->getTemplateData( $component );
-			$dataNode = [
-				'renderer' => $rendererKey,
-				'data' => $templateData
-			];
-			$this->templateDataTree[] = $dataNode;
+	public function getRendererDataTree( $componentTreeNodes ) {
+		$templateDataTreeNodes = [];
+		foreach( $componentTreeNodes as $componentTreeNode ) {
+			$templateDataTreeNodes[] = $this->getDataTreeNode( $componentTreeNode );
 		}
-die();
-		return $this->templateDataTree;
+
+		return $templateDataTreeNodes;
+	}
+
+	private function getDataTreeNode( $componentTreeNode ) {
+		$subComponentTree = $componentTreeNode['subComponents'];
+		$subComponentDataNodes = [];
+		foreach ( $subComponentTree as $subComponentNode ) {
+			$subComponentDataNodes[] = $this->getDataTreeNode( $subComponentNode );
+		}
+
+		$component = $componentTreeNode['component'];
+		$rendererKey = $this->rendererFactory->getKey( $component );
+		$renderer = $this->rendererFactory->getRenderer( $rendererKey );
+		$templateData = $renderer->getRendererDataTreeNode( $component, $subComponentDataNodes );
+
+		$dataNode = [
+			'renderer' => $rendererKey,
+			'data' => $templateData
+		];
+
+		return $dataNode;
 	}
 }
