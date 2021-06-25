@@ -24,10 +24,12 @@ class Literal extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		return [
+		$data = [
 			'id' => $component->getId(),
 			'text' => $component->getHtml()
 		];
+
+		return $data;
 	}
 
 	/**

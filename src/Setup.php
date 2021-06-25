@@ -55,9 +55,6 @@ class Setup {
 		$rendererDataTreeBuilder = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeCommonUIRendererDataTreeBuilder' );
 		$rendererDataTree = $rendererDataTreeBuilder->getRendererDataTree( $componentTree );
 
-		$siteNotice .= var_export( $rendererDataTree, 1 );
-		return;
-
 		/** @var ComponentDataTreeRenderer */
 		$componentDataRenderer = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeCommonUIComponentDataTreeRenderer' );
 		$siteNotice .= $componentDataRenderer->getHtml( $rendererDataTree );

@@ -23,7 +23,7 @@ class Button extends RendererBase {
 	 * @param IAccordion $component
 	 * @return array
 	 */
-	public function getTemplateData( IComponent $component ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		return [
 			'id' => $component->getId(),
 			'items' => $component->getLabel()->plain()

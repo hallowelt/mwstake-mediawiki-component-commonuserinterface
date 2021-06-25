@@ -1,5 +1,5 @@
 <div class="card{{#class}} {{{.}}}{{/class}}"{{#id}} id="{{{.}}}"{{/id}}>
-	<div class="card-header">{{{header}}}</div>
+	{{#header}}<div class="card-header">{{{.}}}</div>{{/header}}
 	{{#img-top}}
 		{{#href}}<a href="{{.}}">{{/href}}<img src="{{src}}" class="card-img-top" alt="{{alt}}">{{#href}}</a>{{/href}}
 	{{/img-top}}
