@@ -20,6 +20,7 @@ class Literal extends RendererBase {
 	 * Having this public should enable client-side rendering
 	 *
 	 * @param LiteralComponent $component
+	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

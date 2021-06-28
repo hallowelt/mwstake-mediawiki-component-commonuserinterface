@@ -57,7 +57,8 @@ class ComponentManager {
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
 	 */
-	public function __construct( IContextSource $context, $slotSpecs, $enabledSlots, $objectFactory = null ) {
+	public function __construct( IContextSource $context, $slotSpecs, $enabledSlots,
+		$objectFactory = null ) {
 		$this->context = $context;
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
@@ -147,6 +148,15 @@ class ComponentManager {
 		$this->rlStyles = array_unique( $this->rlStyles );
 		sort( $this->rlStyles );
 		return $this->rlStyles;
+	}
+
+	/**
+	 *
+	 * @param IComponent $component
+	 * @return string
+	 */
+	public function getComponentId( $component ) {
+		return '';
 	}
 
 }

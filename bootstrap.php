@@ -88,9 +88,11 @@ $GLOBALS['mwsgCommonUISkinSlots'] = [
 
 $GLOBALS['mwsgCommonUISkinSlotRenderers'] = [
 	'siteNoticeAfter' => [
+		// phpcs:ignore
 		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\SkinSlotRenderer\\SiteNoticeAfter::factory'
 	],
 	'skinAfterContent' => [
+		// phpcs:ignore
 		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\SkinSlotRenderer\\SkinAfterContent::factory'
 	]
 ];
@@ -99,9 +101,12 @@ $GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'dataAfterConten
 
 $GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';
 
-$GLOBALS['wgHooks']['BeforePageDisplay'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onBeforePageDisplay';
-$GLOBALS['wgHooks']['SiteNoticeAfter'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSiteNoticeAfter';
-$GLOBALS['wgHooks']['SkinAfterContent'][] = 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
+$GLOBALS['wgHooks']['BeforePageDisplay'][]
+	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onBeforePageDisplay';
+$GLOBALS['wgHooks']['SiteNoticeAfter'][]
+	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSiteNoticeAfter';
+$GLOBALS['wgHooks']['SkinAfterContent'][]
+	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
 
 $GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
 	'localBasePath' => __DIR__ . "/resources/",

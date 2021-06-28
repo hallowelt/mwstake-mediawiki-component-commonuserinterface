@@ -40,7 +40,8 @@ interface IComponentRenderer {
 	 *
 	 * @param object $component Must implement a component interface that has
 	 * a renderer registered in `$mwsgCommonUIComponentRendererRegistry`
-	 * @param array $subComponentNodes The pre-created RendererDataTree nodes to be embedded into the $object
+	 * @param array $subComponentNodes The pre-created RendererDataTree nodes to be embedded
+	 * into the $object
 	 *
 	 * @return array
 	 */

@@ -10,13 +10,18 @@ class ComponentDataTreeRenderer {
 	 */
 	private $rendererFactory = null;
 
+	/**
+	 *
+	 * @param ComponentRendererFactory $rendererFactory
+	 */
 	public function __construct( $rendererFactory ) {
 		$this->rendererFactory = $rendererFactory;
 	}
 
 	/**
 	 *
-	 * @param array $rendererDataTree Data tree as created by `RendererDataTreeBuilder::getRendererDataTree`
+	 * @param array $rendererDataTreeNodes Data tree as created by
+	 * `RendererDataTreeBuilder::getRendererDataTree`
 	 * @return string The finished HTML
 	 */
 	public function getHtml( $rendererDataTreeNodes ) {
@@ -27,6 +32,11 @@ class ComponentDataTreeRenderer {
 		return $html;
 	}
 
+	/**
+	 *
+	 * @param array $dataTreeNode
+	 * @return string
+	 */
 	private function makeHtmlFromRendererDataTreeNode( $dataTreeNode ) {
 		$html = '';
 		$renderKey = $dataTreeNode['renderer'];

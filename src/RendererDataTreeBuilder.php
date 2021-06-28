@@ -10,6 +10,10 @@ class RendererDataTreeBuilder {
 	 */
 	private $rendererFactory = null;
 
+	/**
+	 *
+	 * @param ComponentRendererFactory $rendererFactory
+	 */
 	public function __construct( $rendererFactory ) {
 		$this->rendererFactory = $rendererFactory;
 	}
@@ -65,6 +69,11 @@ class RendererDataTreeBuilder {
 		return $templateDataTreeNodes;
 	}
 
+	/**
+	 *
+	 * @param array $componentTreeNode
+	 * @return array
+	 */
 	private function getDataTreeNode( $componentTreeNode ) {
 		$subComponentTree = $componentTreeNode['subComponents'];
 		$subComponentDataNodes = [];

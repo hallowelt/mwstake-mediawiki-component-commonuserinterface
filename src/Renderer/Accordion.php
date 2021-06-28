@@ -6,7 +6,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\IAccordion;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\RendererBase;
 
-class Button extends RendererBase {
+class Accordion extends RendererBase {
 
 	/**
 	 *
@@ -21,6 +21,7 @@ class Button extends RendererBase {
 	 * Having this public should enable client-side rendering
 	 *
 	 * @param IAccordion $component
+	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

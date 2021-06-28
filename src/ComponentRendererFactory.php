@@ -24,6 +24,12 @@ class ComponentRendererFactory {
 	 */
 	private $rendererType = '';
 
+	/**
+	 *
+	 * @param array $rendererRegsitry
+	 * @param array $componentRegistry
+	 * @param array $rendererType
+	 */
 	public function __construct( $rendererRegsitry, $componentRegistry, $rendererType ) {
 		$this->rendererRegsitry = $rendererRegsitry;
 		$this->componentRegistry = $componentRegistry;

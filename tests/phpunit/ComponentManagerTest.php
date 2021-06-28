@@ -196,7 +196,11 @@ class ComponentManagerTest extends TestCase {
 		$tree = $manager->getSkinSlotComponentTree( 'testSlot1' );
 
 		$this->assertInstanceOf( IPanel::class, $tree['my-panel']['component'] );
-		$this->assertInstanceOf( Literal::class, $tree['my-panel']['subComponents']['my-literal']['component'] );
-		$this->assertInstanceOf( IButton::class, $tree['my-panel']['subComponents']['my-button']['component'] );
+		$this->assertInstanceOf(
+			Literal::class, $tree['my-panel']['subComponents']['my-literal']['component']
+		);
+		$this->assertInstanceOf(
+			IButton::class, $tree['my-panel']['subComponents']['my-button']['component']
+		);
 	}
 }

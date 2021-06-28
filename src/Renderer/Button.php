@@ -20,6 +20,7 @@ class Button extends RendererBase {
 	 * Having this public should enable client-side rendering
 	 *
 	 * @param IButton $component
+	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
