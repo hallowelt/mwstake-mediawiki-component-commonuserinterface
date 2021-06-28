@@ -31,7 +31,7 @@ class ComponentDataTreeRenderer {
 		$html = '';
 		$renderKey = $dataTreeNode['renderer'];
 		$renderer = $this->rendererFactory->getRenderer( $renderKey );
-		foreach( $dataTreeNode['data'] as $dataKey => $dataValue ) {
+		foreach ( $dataTreeNode['data'] as $dataKey => $dataValue ) {
 			if ( !is_array( $dataValue ) ) {
 				continue;
 			}

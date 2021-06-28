@@ -38,13 +38,13 @@ class ComponentRendererFactory {
 	 */
 	public function getKey( $component ) {
 		$rendererKey = 'implement-me';
-		if( $component instanceof IPanel ) {
+		if ( $component instanceof IPanel ) {
 			$rendererKey = 'card';
 		}
-		if( $component instanceof IButton ) {
+		if ( $component instanceof IButton ) {
 			$rendererKey = 'button';
 		}
-		if( $component instanceof Literal ) {
+		if ( $component instanceof Literal ) {
 			$rendererKey = 'literal';
 		}
 
@@ -57,7 +57,6 @@ class ComponentRendererFactory {
 	 * @return IComponentRenderer
 	 */
 	public function getRenderer( $rendererKey ): IComponentRenderer {
-
 		$renderer = null;
 		if ( $rendererKey === 'card' ) {
 			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Card();

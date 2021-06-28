@@ -107,7 +107,7 @@ $GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
 	'localBasePath' => __DIR__ . "/resources/",
 	'packageFiles' => [
 		'init.js',
-		#'commonui/renderer.js',
+		# 'commonui/renderer.js',
 		[
 			'name' => 'renderer.json',
 			'callback' => function ( ResourceLoaderContext $context, Config $config, $callbackParams ) {

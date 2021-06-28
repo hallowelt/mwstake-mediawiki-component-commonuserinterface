@@ -5,11 +5,11 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 class LessVars {
 	protected static $instance = null;
 
-	/** @var array  */
+	/** @var array */
 	protected $vars = [];
 
 	/**
-	 * @return static;
+	 * @return static
 	 */
 	public static function getInstance() {
 		if ( static::$instance === null ) {

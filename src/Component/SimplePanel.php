@@ -50,49 +50,49 @@ class SimplePanel extends ComponentBase implements IPanel {
 	/**
 	 * @return Message
 	 */
-	public function getTitleTooltip(){
+	public function getTitleTooltip() {
 		return $this->options['tooltip'];
 	}
 
 	/**
 	 * @return ITool[]
 	 */
-	public function getTools(){
+	public function getTools() {
 		return $this->options['tools'];
 	}
 
 	/**
 	 * @return IBadge[]
 	 */
-	public function getBadges(){
+	public function getBadges() {
 		return $this->options['badges'];
 	}
 
 	/**
 	 * @return string[]
 	 */
-	public function getTriggerRLDependencies(){
+	public function getTriggerRLDependencies() {
 		return $this->options['trigger-rl-dependencies'];
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getTriggerCallbackFunctionName(){
+	public function getTriggerCallbackFunctionName() {
 		return $this->options['callback-function-name'];
 	}
 
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses(){
+	public function getContainerClasses() {
 		return $this->options['container-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getContainerData(){
+	public function getContainerData() {
 		return $this->options['container-data'];
 	}
 
@@ -100,7 +100,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 	 *
 	 * @return bool
 	 */
-	public function getPanelCollapseState(){
+	public function getPanelCollapseState() {
 		return $this->options['collapse-state'];
 	}
 

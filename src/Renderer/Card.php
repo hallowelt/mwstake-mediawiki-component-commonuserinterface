@@ -4,7 +4,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
-use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\RendererBase;
 
 class Card extends RendererBase {
 
@@ -24,11 +23,10 @@ class Card extends RendererBase {
 			'class' => '',
 			'content' => $subComponentNodes,
 		];
-		if( $component instanceof IPanel ) {
+		if ( $component instanceof IPanel ) {
 			$templateData['class'] = $component->getContainerClasses();
-		}
-		else {
-			throw new Exception( "Can not extract data from ". get_class( $component ) );
+		} else {
+			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
 
 		return $templateData;

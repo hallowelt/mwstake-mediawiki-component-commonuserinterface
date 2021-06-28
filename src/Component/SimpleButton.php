@@ -60,7 +60,7 @@ class SimpleButton extends ComponentBase implements IButton {
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isDisabled() : bool {
 		return $this->options['disabled'];

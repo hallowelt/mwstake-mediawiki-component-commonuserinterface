@@ -34,7 +34,7 @@ class Setup {
 		$skinSlotRenderer = $skinSlotRendererFactory->create( 'siteNoticeAfter' );
 		$siteNotice .= $skinSlotRenderer->getHtml();
 
-		//Would e.g. come from `ComponentManger::getSkinSlotComponentTree`
+		// Would e.g. come from `ComponentManger::getSkinSlotComponentTree`
 		$componentTree = [
 			'my-panel' => [
 				'component' => new \MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel( [ 'id' => 'XYZ' ] ),

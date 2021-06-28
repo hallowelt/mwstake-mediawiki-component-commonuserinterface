@@ -4,14 +4,13 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal as LiteralComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\RendererBase;
 
 class Literal extends RendererBase {
 
 	/**
 	 *
 	 * @param IComponent $component
-	 * @return boolean
+	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
 		return $component instanceof LiteralComponent;

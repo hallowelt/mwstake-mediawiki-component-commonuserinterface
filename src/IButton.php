@@ -3,7 +3,6 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Message;
-use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
 interface IButton extends IComponent {
 

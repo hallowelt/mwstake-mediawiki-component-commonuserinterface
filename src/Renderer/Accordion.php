@@ -11,7 +11,7 @@ class Button extends RendererBase {
 	/**
 	 *
 	 * @param IComponent $component
-	 * @return boolean
+	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
 		return $component instanceof IAccordion;

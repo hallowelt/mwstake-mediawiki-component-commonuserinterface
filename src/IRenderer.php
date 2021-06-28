@@ -40,8 +40,8 @@ interface IRenderer {
 	public function getRLModules() : array;
 
 		/**
-	 *
-	 * @return array
-	 */
+		 *
+		 * @return array
+		 */
 	public function getRLModuleStyles() : array;
 }

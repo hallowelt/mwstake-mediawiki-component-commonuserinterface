@@ -2,7 +2,6 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use TemplateParser;
 

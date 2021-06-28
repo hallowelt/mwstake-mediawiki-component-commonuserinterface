@@ -58,7 +58,7 @@ class RendererDataTreeBuilder {
 	 */
 	public function getRendererDataTree( $componentTreeNodes ) {
 		$templateDataTreeNodes = [];
-		foreach( $componentTreeNodes as $componentTreeNode ) {
+		foreach ( $componentTreeNodes as $componentTreeNode ) {
 			$templateDataTreeNodes[] = $this->getDataTreeNode( $componentTreeNode );
 		}
 

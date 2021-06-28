@@ -3,15 +3,15 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 
 use IContextSource;
-use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
-use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
-use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel;
-use RawMessage;
+use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
+use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
+use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
 use PHPUnit\Framework\TestCase;
+use RawMessage;
 
 class ComponentManagerTest extends TestCase {
 
@@ -170,13 +170,13 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function() {
+				'factory' => function () {
 					return new SimplePanel( [
 						'id' => 'my-panel',
 						'title' => new RawMessage( 'My card' ),
 						'header-tools' => [],
 						'items' => [
-							new Literal( 'my-literal', 'Hello World!'),
+							new Literal( 'my-literal', 'Hello World!' ),
 							new SimpleButton( [
 								'id' => 'my-button',
 								'label' => new RawMessage( 'My button' )
