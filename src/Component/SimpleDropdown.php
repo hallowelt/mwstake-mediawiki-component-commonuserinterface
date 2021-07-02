@@ -7,7 +7,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
 class SimpleDropdown extends ComponentBase implements IDropdown {
 	/**
 	 *
-	 * @param array $links
+	 * @param array $options
 	 */
 	public function __construct( $options ) {
 		$this->options = array_merge(

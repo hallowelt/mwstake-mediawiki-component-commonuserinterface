@@ -63,16 +63,21 @@ $lessVars->setVar( 'content-h6-font-size', '' );
 $lessVars->setVar( 'content-h6-font-weight', '' );
 $lessVars->setVar( 'content-h6-border', '' );
 
+/**
+ * Allows to register additional component interfaces
+ */
 $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Literal',
 	'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownItemlist',
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
-	'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordion',
-	'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordionItem',
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
 ];
 
+/**
+ * Allows to register `IComponentRenderer` objects using any `ObjectFactory` compatible spec.
+ * If the value is just a string a `ObjectFactory` with the `class` key will be created implicitly.
+ */
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 	'*' => [
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
@@ -81,8 +86,6 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		// phpcs:ignore
 		'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownItemlist',
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
-		'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Accordion',
-		'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\AccordionItem',
 		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
 	]
@@ -122,11 +125,12 @@ $GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
 		# 'commonui/renderer.js',
 		[
 			'name' => 'renderer.json',
-			'callback' => function ( ResourceLoaderContext $context, Config $config, $callbackParams ) {
-				return [
-					'lorem' => 'ipsum'
-				];
-			}
+			// phpcs:ignore
+			'callback' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::makeClientSideRendererConfig'
 		],
 	],
+];
+$GLOBALS['wgResourceModules']['mwstake.component.commonui.componentrenderer'] = [
+	// phpcs:ignore
+	'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ResourceLoader\\ComponentRenderer'
 ];

@@ -3,7 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\DropdownItemlist as DropdownItemlistComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\DropdownItemlist
+	as DropdownItemlistComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 

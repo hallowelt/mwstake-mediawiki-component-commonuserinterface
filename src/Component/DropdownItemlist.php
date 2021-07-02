@@ -18,7 +18,7 @@ class DropdownItemlist extends ComponentBase implements IDropdownItemlist {
 	private $links = [];
 
 	/**
-	 *
+	 * @param int $id
 	 * @param array $links
 	 */
 	public function __construct( $id, $links ) {

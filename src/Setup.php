@@ -2,8 +2,10 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Config;
 use MediaWiki\MediaWikiServices;
 use OutputPage;
+use ResourceLoaderContext;
 use Skin;
 
 class Setup {
@@ -58,5 +60,31 @@ class Setup {
 
 		$out->addModules( 'mwstake.component.commonui' );
 		return true;
+	}
+
+	/**
+	 *
+	 * @param ResourceLoaderContext $context
+	 * @param Config $config
+	 * @param array $callbackParams
+	 * @return array
+	 */
+	public static function makeClientSideRendererConfig( ResourceLoaderContext $context,
+	Config $config, $callbackParams ) {
+		$services = MediaWikiServices::getInstance();
+		/** @var ComponentRendererFactory */
+		$rendererFactory = $services->get( 'MWStakeCommonUIComponentRendererFactory' );
+		$rendererConfig = [];
+		$renderers = $rendererFactory->getAllRenderers();
+		foreach ( $renderers as $key => $renderer ) {
+			$rendererConfig[$key] = [
+				// TODO: Make this "mustache independent"
+				'templateKey' => sha1( $renderer->getTemplatePathname() ) . '.mustache',
+				'modules' => $renderer->getRLModules(),
+				'moduleStyles' => $renderer->getRLModules()
+			];
+		}
+
+		return $rendererConfig;
 	}
 }
