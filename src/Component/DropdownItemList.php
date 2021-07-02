@@ -27,8 +27,8 @@ class DropdownItemList extends ComponentBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getHtml() {
-		return $this->html;
+	public function getLinks() {
+		return array_values( $this->links ); 
 	}
 
 	/**

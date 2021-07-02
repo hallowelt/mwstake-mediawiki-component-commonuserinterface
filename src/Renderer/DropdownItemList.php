@@ -26,9 +26,9 @@ class DropdownItemList extends RendererBase {
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$data = [
 			'id' => $component->getId(),
-			'text' => $component->getHtml()
+			'links' => $component->getLinks()
 		];
-
+var_dump( $data );
 		return $data;
 	}
 

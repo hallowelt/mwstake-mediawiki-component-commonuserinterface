@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use MWStake\MediaWiki\Component\CommonUserInterface\Component\DropdownItemList;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 
 class ComponentRendererFactory {
@@ -53,6 +54,9 @@ class ComponentRendererFactory {
 		if ( $component instanceof Literal ) {
 			$rendererKey = 'literal';
 		}
+		if ( $component instanceof DropdownItemList ) {
+			$rendererKey = 'dropdown-itemlist';
+		}
 
 		return $rendererKey;
 	}
@@ -72,6 +76,9 @@ class ComponentRendererFactory {
 		}
 		if ( $rendererKey === 'literal' ) {
 			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Literal();
+		}
+		if ( $rendererKey === 'dropdown-itemlist' ) {
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\DropdownItemList();
 		}
 		return $renderer;
 	}

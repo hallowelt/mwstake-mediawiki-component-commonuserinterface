@@ -65,6 +65,7 @@ $lessVars->setVar( 'content-h6-border', '' );
 
 $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Literal',
+	'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\DropdownItemList',
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordion',
 	'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordionItem',
@@ -73,6 +74,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 	'*' => [
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
+		'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownItemList',
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Accordion',
 		'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\AccordionItem',
