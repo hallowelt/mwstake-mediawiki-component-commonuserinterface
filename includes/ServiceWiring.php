@@ -10,9 +10,8 @@ use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
 return [
 	'MWStakeCommonUISkinSlotRendererFactory' => function ( MediaWikiServices $services ) {
 		return new SkinSlotRendererFactory(
-			$services->getService( 'MWStakeCommonUIComponentManager' ),
-			$services->getService( 'MWStakeCommonUIRendererDataTreeBuilder' ),
-			$services->getService( 'MWStakeCommonUIComponentDataTreeRenderer' )
+			$GLOBALS['mwsgCommonUISkinSlotRenderers'],
+			$services->getObjectFactory()
 		);
 	},
 

@@ -51,7 +51,9 @@ class ComponentDataTreeRenderer {
 					$subComponentHtml .= $this->makeHtmlFromRendererDataTreeNode( $item );
 				}
 			}
-			$dataTreeNode['data'][$dataKey] = $subComponentHtml;
+			if ( !empty( $subComponentHtml ) ) {
+				$dataTreeNode['data'][$dataKey] = $subComponentHtml;
+			}
 		}
 
 		$html = $renderer->getHtml( $dataTreeNode['data'] );

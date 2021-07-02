@@ -65,7 +65,7 @@ $lessVars->setVar( 'content-h6-border', '' );
 
 $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Literal',
-	'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\DropdownItemList',
+	'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownItemlist',
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordion',
 	'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordionItem',
@@ -74,29 +74,28 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 	'*' => [
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
-		'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownItemList',
+	],
+	'bootstrap5' => [
+		'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownItemlist',
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Accordion',
 		'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\AccordionItem',
 	]
 ];
 
-$GLOBALS['mwsgCommonUIComponentRendererType'] = '-';
+$GLOBALS['mwsgCommonUIComponentRendererType'] = 'bootstrap5';
 
 $GLOBALS['mwsgCommonUISkinSlots'] = [
 	'siteNoticeAfter' => [],
 	'skinAfterContent' => []
 ];
 
+/**
+ * Allows to register `ISkinSlotRenderer` objects using any `ObjectFactory` compatible spec
+ */
 $GLOBALS['mwsgCommonUISkinSlotRenderers'] = [
-	'siteNoticeAfter' => [
-		// phpcs:ignore
-		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\GenericSkinSlotRenderer::factory'
-	],
-	'skinAfterContent' => [
-		// phpcs:ignore
-		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\GenericSkinSlotRenderer::factory'
-	]
+	'siteNoticeAfter' => [ /* Use internal fallback to GenericSkinSlotRenderer */ ],
+	'skinAfterContent' => [ /* Use internal fallback to GenericSkinSlotRenderer */ ],
 ];
 
 $GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'skinAfterContent' ];

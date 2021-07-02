@@ -2,36 +2,30 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Wikimedia\ObjectFactory;
+
 class SkinSlotRendererFactory {
 
 	/**
 	 *
-	 * @var ComponentManager
+	 * @var ObjectFactory
 	 */
-	private $componentManager = null;
+	private $objectFactory = null;
 
 	/**
 	 *
-	 * @var RendererDataTreeBuilder
+	 * @var array
 	 */
-	private $dataTreeBuilder = null;
+	private $registry = [];
 
 	/**
 	 *
-	 * @var ComponentDataTreeRenderer
+	 * @param ObjectFactory $objectFactory
+	 * @param array $registry
 	 */
-	private $treeRenderer = null;
-
-	/**
-	 *
-	 * @param ComponentManager $componentManager
-	 * @param RendererDataTreeBuilder $dataTreeBuilder
-	 * @param ComponentDataTreeRenderer $treeRenderer
-	 */
-	public function __construct( $componentManager, $dataTreeBuilder, $treeRenderer ) {
-		$this->componentManager = $componentManager;
-		$this->dataTreeBuilder = $dataTreeBuilder;
-		$this->treeRenderer = $treeRenderer;
+	public function __construct( $registry, $objectFactory ) {
+		$this->registry = $registry;
+		$this->objectFactory = $objectFactory;
 	}
 
 	/**
@@ -39,13 +33,24 @@ class SkinSlotRendererFactory {
 	 * @return ISkinSlotRenderer
 	 */
 	public function create( string $slotId ) : ISkinSlotRenderer {
-		$componentTree = $this->componentManager->getSkinSlotComponentTree( $slotId );
-		$renderer = new GenericSkinSlotRenderer(
-			$componentTree,
-			$this->dataTreeBuilder,
-			$this->treeRenderer
-		);
+		$spec = [];
+		if ( isset( $this->registry[$slotId] ) ) {
+			$spec = $this->registry[$slotId];
+		}
+		if ( empty( $spec ) ) {
+			// Fall back to generic
+			$spec = [
+				'class' => GenericSkinSlotRenderer::class,
+				'services' => [
+					'MWStakeCommonUIComponentManager',
+					'MWStakeCommonUIRendererDataTreeBuilder',
+					'MWStakeCommonUIComponentDataTreeRenderer'
+				],
+				'args' => [ $slotId ]
+			];
+		}
 
+		$renderer = $this->objectFactory->createObject( $spec );
 		return $renderer;
 	}
 

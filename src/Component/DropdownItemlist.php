@@ -2,7 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-class DropdownItemList extends ComponentBase {
+use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlist;
+
+class DropdownItemlist extends ComponentBase implements IDropdownItemlist {
 	/**
 	 *
 	 * @var string
@@ -27,8 +29,8 @@ class DropdownItemList extends ComponentBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getLinks() {
-		return array_values( $this->links ); 
+	public function getLinks() : array {
+		return $this->links;
 	}
 
 	/**

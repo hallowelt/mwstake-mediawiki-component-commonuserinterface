@@ -6,9 +6,9 @@ class GenericSkinSlotRenderer implements ISkinSlotRenderer {
 
 	/**
 	 *
-	 * @var array
+	 * @var ComponentManager
 	 */
-	private $componentTree = [];
+	private $componentManager = [];
 
 	/**
 	 *
@@ -22,10 +22,25 @@ class GenericSkinSlotRenderer implements ISkinSlotRenderer {
 	 */
 	private $componentDataTreeRenderer = null;
 
-	public function __construct( $componentTree, $rendererDataTreeBuilder, $componentDataTreeRenderer ) {
-		$this->componentTree = $componentTree;
+	/**
+	 *
+	 * @var string
+	 */
+	private $slotId = '';
+
+	/**
+	 *
+	 * @param ComponentManager $componentManager
+	 * @param RendererDataTreeBuilder $rendererDataTreeBuilder
+	 * @param ComponentDataTreeRenderer $componentDataTreeRenderer
+	 * @param string $slotId
+	 */
+	public function __construct( $componentManager, $rendererDataTreeBuilder,
+	$componentDataTreeRenderer, $slotId ) {
+		$this->componentManager = $componentManager;
 		$this->rendererDataTreeBuilder = $rendererDataTreeBuilder;
 		$this->componentDataTreeRenderer = $componentDataTreeRenderer;
+		$this->slotId = $slotId;
 	}
 
 	/**
@@ -33,10 +48,8 @@ class GenericSkinSlotRenderer implements ISkinSlotRenderer {
 	 * @return string
 	 */
 	public function getHtml() : string {
-		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree(
-			$this->componentTree
-		);
-
+		$componentTree = $this->componentManager->getSkinSlotComponentTree( $this->slotId );
+		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree( $componentTree );
 		$html = $this->componentDataTreeRenderer->getHtml( $rendererDataTree );
 
 		return $html;
