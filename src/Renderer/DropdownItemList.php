@@ -28,7 +28,7 @@ class DropdownItemList extends RendererBase {
 			'id' => $component->getId(),
 			'links' => $component->getLinks()
 		];
-var_dump( $data );
+
 		return $data;
 	}
 
