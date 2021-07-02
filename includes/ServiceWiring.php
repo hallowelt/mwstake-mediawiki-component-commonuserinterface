@@ -9,16 +9,22 @@ use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
 
 return [
 	'MWStakeCommonUISkinSlotRendererFactory' => function ( MediaWikiServices $services ) {
-		return new SkinSlotRendererFactory();
+		return new SkinSlotRendererFactory(
+			$services->getService( 'MWStakeCommonUIComponentManager' ),
+			$services->getService( 'MWStakeCommonUIRendererDataTreeBuilder' ),
+			$services->getService( 'MWStakeCommonUIComponentDataTreeRenderer' )
+		);
 	},
 
 	'MWStakeCommonUIComponentManager' => function ( MediaWikiServices $services ) {
-		return new ComponentManager(
+		$componentManager = ComponentManager::singleton(
 			RequestContext::getMain(),
 			$GLOBALS['mwsgCommonUISkinSlots'],
 			$GLOBALS['mwsgCommonUISkinSlotsEnabled'],
 			$services->getObjectFactory()
 		);
+
+		return $componentManager;
 	},
 
 	'MWStakeCommonUIComponentRendererFactory' => function ( MediaWikiServices $services ) {

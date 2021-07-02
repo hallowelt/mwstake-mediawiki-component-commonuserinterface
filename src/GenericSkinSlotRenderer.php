@@ -6,12 +6,38 @@ class GenericSkinSlotRenderer implements ISkinSlotRenderer {
 
 	/**
 	 *
+	 * @var array
+	 */
+	private $componentTree = [];
+
+	/**
+	 *
+	 * @var RendererDataTreeBuilder
+	 */
+	private $rendererDataTreeBuilder = null;
+
+	/**
+	 *
+	 * @var ComponentDataTreeRenderer
+	 */
+	private $componentDataTreeRenderer = null;
+
+	public function __construct( $componentTree, $rendererDataTreeBuilder, $componentDataTreeRenderer ) {
+		$this->componentTree = $componentTree;
+		$this->rendererDataTreeBuilder = $rendererDataTreeBuilder;
+		$this->componentDataTreeRenderer = $componentDataTreeRenderer;
+	}
+
+	/**
+	 *
 	 * @return string
 	 */
 	public function getHtml() : string {
-		$html = 'ABC';
+		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree(
+			$this->componentTree
+		);
 
-		// TODO: Implement
+		$html = $this->componentDataTreeRenderer->getHtml( $rendererDataTree );
 
 		return $html;
 	}

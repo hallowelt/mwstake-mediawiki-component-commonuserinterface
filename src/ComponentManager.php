@@ -49,8 +49,33 @@ class ComponentManager {
 	 */
 	private $rlStyles = [];
 
+	private static $instance = null;
+
 	/**
-	 * Undocumented function
+	 *
+	 * @param IContextSource $context
+	 * @param array $slotSpecs
+	 * @param array $enabledSlots
+	 * @param ObjectFactory|null $objectFactory
+	 *
+	 * @return ComponentManager
+	 */
+	public static function singleton( IContextSource $context, $slotSpecs, $enabledSlots,
+	$objectFactory = null ) : ComponentManager {
+		if ( static::$instance == null ) {
+			static::$instance = new ComponentManager(
+				$context,
+				$slotSpecs,
+				$enabledSlots,
+				$objectFactory
+			);
+			static::$instance->init();
+		}
+
+		return static::$instance;
+	}
+
+	/**
 	 *
 	 * @param IContextSource $context
 	 * @param array $slotSpecs

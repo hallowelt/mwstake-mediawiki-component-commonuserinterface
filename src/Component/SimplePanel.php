@@ -29,7 +29,8 @@ class SimplePanel extends ComponentBase implements IPanel {
 			'container-classes' => [],
 			'container-data' => [],
 			'collapse-state' => false,
-			'items' => []
+			'items' => [],
+			'id' => ''
 		], $options );
 	}
 

@@ -89,15 +89,15 @@ $GLOBALS['mwsgCommonUISkinSlots'] = [
 $GLOBALS['mwsgCommonUISkinSlotRenderers'] = [
 	'siteNoticeAfter' => [
 		// phpcs:ignore
-		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\SkinSlotRenderer\\SiteNoticeAfter::factory'
+		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\GenericSkinSlotRenderer::factory'
 	],
 	'skinAfterContent' => [
 		// phpcs:ignore
-		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\SkinSlotRenderer\\SkinAfterContent::factory'
+		'factory' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\GenericSkinSlotRenderer::factory'
 	]
 ];
 
-$GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'dataAfterContent' ];
+$GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'skinAfterContent' ];
 
 $GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';
 

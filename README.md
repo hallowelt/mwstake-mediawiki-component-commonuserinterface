@@ -27,7 +27,10 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry']['my-custom-renderer']['button'
 TBD
 
 ### Client side
-TBD
+
+```javascript
+mws.commonui.renderPath( '<skinslot>/<parentComponentId>/<subComponentId>', $container );
+```
 
 ## Skin Slots
 

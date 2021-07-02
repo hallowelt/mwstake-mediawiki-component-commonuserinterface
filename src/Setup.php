@@ -16,9 +16,12 @@ class Setup {
 	 */
 	public static function onSkinAfterContent( &$data, Skin $skin ) {
 		$services = MediaWikiServices::getInstance();
+		/** @var SkinSlotRendererFactory */
 		$skinSlotRendererFactory = $services->getService( 'MWStakeCommonUISkinSlotRendererFactory' );
+		/** @var GenericSkinSlotRenderer */
 		$skinSlotRenderer = $skinSlotRendererFactory->create( 'skinAfterContent' );
 		$data .= $skinSlotRenderer->getHtml();
+
 		return true;
 	}
 
@@ -30,7 +33,9 @@ class Setup {
 	 */
 	public static function onSiteNoticeAfter( &$siteNotice, $skin ) {
 		$services = MediaWikiServices::getInstance();
+		/** @var SkinSlotRendererFactory */
 		$skinSlotRendererFactory = $services->getService( 'MWStakeCommonUISkinSlotRendererFactory' );
+		/** @var GenericSkinSlotRenderer */
 		$skinSlotRenderer = $skinSlotRendererFactory->create( 'siteNoticeAfter' );
 		$siteNotice .= $skinSlotRenderer->getHtml();
 
@@ -47,7 +52,6 @@ class Setup {
 		$services = MediaWikiServices::getInstance();
 		/** @var ComponentManager */
 		$componentManager = $services->getService( 'MWStakeCommonUIComponentManager' );
-		$componentManager->init();
 
 		$out->addModules( $componentManager->getRLModules() );
 		$out->addModuleStyles( $componentManager->getRLModuleStyles() );

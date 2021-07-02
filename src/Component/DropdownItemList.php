@@ -19,7 +19,7 @@ class DropdownItemList extends ComponentBase {
 	 *
 	 * @param array $links
 	 */
-	public function __construct(  $id, $links ) {
+	public function __construct( $id, $links ) {
 		$this->id = $id;
 		$this->links = $links;
 	}
