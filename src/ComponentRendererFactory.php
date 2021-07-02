@@ -2,7 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
+use Exception;
+use Wikimedia\ObjectFactory;
 
 class ComponentRendererFactory {
 
@@ -10,7 +11,7 @@ class ComponentRendererFactory {
 	 *
 	 * @var array
 	 */
-	private $rendererRegsitry = [];
+	private $rendererRegistry = [];
 
 	/**
 	 *
@@ -26,14 +27,23 @@ class ComponentRendererFactory {
 
 	/**
 	 *
-	 * @param array $rendererRegsitry
+	 * @var ObjectFactory
+	 */
+	private $objectFactory = null;
+
+	/**
+	 *
+	 * @param array $rendererRegistry
 	 * @param array $componentRegistry
 	 * @param array $rendererType
+	 * @param array $objectFactory
 	 */
-	public function __construct( $rendererRegsitry, $componentRegistry, $rendererType ) {
-		$this->rendererRegsitry = $rendererRegsitry;
+	public function __construct( $rendererRegistry, $componentRegistry, $rendererType,
+	$objectFactory ) {
+		$this->rendererRegistry = $rendererRegistry;
 		$this->componentRegistry = $componentRegistry;
-		$this->componentRegistry = $rendererType;
+		$this->rendererType = $rendererType;
+		$this->objectFactory = $objectFactory;
 	}
 
 	/**
@@ -43,21 +53,14 @@ class ComponentRendererFactory {
 	 * @return string
 	 */
 	public function getKey( $component ) {
-		$rendererKey = 'implement-me';
-		if ( $component instanceof IPanel ) {
-			$rendererKey = 'card';
-		}
-		if ( $component instanceof IButton ) {
-			$rendererKey = 'button';
-		}
-		if ( $component instanceof Literal ) {
-			$rendererKey = 'literal';
-		}
-		if ( $component instanceof IDropdownItemlist ) {
-			$rendererKey = 'dropdown-itemlist';
+		foreach ( $this->componentRegistry as $key => $interface ) {
+			if ( $component instanceof $interface ) {
+				return $key;
+			}
 		}
 
-		return $rendererKey;
+		$className = get_class( $component );
+		throw new Exception( "No interface for '$className' registered!" );
 	}
 
 	/**
@@ -66,19 +69,28 @@ class ComponentRendererFactory {
 	 * @return IComponentRenderer
 	 */
 	public function getRenderer( $rendererKey ): IComponentRenderer {
-		$renderer = null;
-		if ( $rendererKey === 'card' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Card();
+		$spec = [];
+
+		// Renderer available for current environment?
+		if ( isset( $this->rendererRegistry[$this->rendererType][$rendererKey] ) ) {
+			$spec = $this->rendererRegistry[$this->rendererType][$rendererKey];
 		}
-		if ( $rendererKey === 'button' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Button();
+		// Try to fall back to "generic" renderer
+ elseif ( isset( $this->rendererRegistry['*'][$rendererKey] ) ) {
+			$spec = $this->rendererRegistry['*'][$rendererKey];
+	}
+		// Convert simple registration to `ObjectFactory` compatible spec
+		if ( is_string( $spec ) && !empty( $spec ) ) {
+			$callback = $spec;
+			$spec = [
+				'class' => $callback
+			];
 		}
-		if ( $rendererKey === 'literal' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Literal();
+		if ( empty( $spec ) ) {
+			throw new Exception( "No renderer for '$rendererKey' registered!" );
 		}
-		if ( $rendererKey === 'dropdown-itemlist' ) {
-			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\DropdownItemlist();
-		}
+
+		$renderer = $this->objectFactory->createObject( $spec );
 		return $renderer;
 	}
 

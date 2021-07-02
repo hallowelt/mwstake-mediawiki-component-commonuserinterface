@@ -69,6 +69,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordion',
 	'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordionItem',
+	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 ];
 
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
@@ -76,10 +77,12 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
 	],
 	'bootstrap5' => [
+		// phpcs:ignore
 		'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownItemlist',
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Accordion',
 		'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\AccordionItem',
+		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card'
 	]
 ];
 
@@ -94,8 +97,9 @@ $GLOBALS['mwsgCommonUISkinSlots'] = [
  * Allows to register `ISkinSlotRenderer` objects using any `ObjectFactory` compatible spec
  */
 $GLOBALS['mwsgCommonUISkinSlotRenderers'] = [
-	'siteNoticeAfter' => [ /* Use internal fallback to GenericSkinSlotRenderer */ ],
-	'skinAfterContent' => [ /* Use internal fallback to GenericSkinSlotRenderer */ ],
+	// Use internal fallback to GenericSkinSlotRenderer by giving empty spec array
+	'siteNoticeAfter' => [],
+	'skinAfterContent' => [],
 ];
 
 $GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'skinAfterContent' ];

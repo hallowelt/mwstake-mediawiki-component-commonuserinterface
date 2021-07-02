@@ -20,8 +20,8 @@ class SkinSlotRendererFactory {
 
 	/**
 	 *
-	 * @param ObjectFactory $objectFactory
 	 * @param array $registry
+	 * @param ObjectFactory $objectFactory
 	 */
 	public function __construct( $registry, $objectFactory ) {
 		$this->registry = $registry;

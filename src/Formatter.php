@@ -2,8 +2,6 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use TemplateParser;
-
 class Formatter {
 	/**
 	 * @return StdClass
@@ -52,7 +50,7 @@ class Formatter {
 		}
 
 		return $params;
-}
+ }
 
 	/**
 	 * @param array $data

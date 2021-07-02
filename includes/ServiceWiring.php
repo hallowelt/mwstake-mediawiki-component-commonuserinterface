@@ -30,7 +30,8 @@ return [
 		return new ComponentRendererFactory(
 			$GLOBALS['mwsgCommonUIComponentRendererRegistry'],
 			$GLOBALS['mwsgCommonUIComponentRegistry'],
-			$GLOBALS['mwsgCommonUIComponentRendererType']
+			$GLOBALS['mwsgCommonUIComponentRendererType'],
+			$services->getObjectFactory()
 		);
 	},
 
