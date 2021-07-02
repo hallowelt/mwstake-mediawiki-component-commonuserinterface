@@ -70,6 +70,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordion',
 	'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IAccordionItem',
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
+	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
 ];
 
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
@@ -82,7 +83,8 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'accordion' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Accordion',
 		'accordion-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\AccordionItem',
-		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card'
+		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
+		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
 	]
 ];
 
