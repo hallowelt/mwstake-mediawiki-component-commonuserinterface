@@ -13,7 +13,7 @@ $GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-skinaftercontent-panel
 					'id' => 'my-button',
 					'label' => new RawMessage( 'My Button' )
 				] ),
-				new MWStake\MediaWiki\Component\CommonUserInterface\Component\DropdownItemList( 'my-dd', [
+				new MWStake\MediaWiki\Component\CommonUserInterface\Component\DropdownItemlist( 'my-dd', [
 					'link1' => [
 						'text' => 'Test',
 						'title' => 'Klick mich',
