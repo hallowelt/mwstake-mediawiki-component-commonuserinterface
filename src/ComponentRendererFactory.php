@@ -56,6 +56,9 @@ class ComponentRendererFactory {
 		if ( $component instanceof IDropdownItemlist ) {
 			$rendererKey = 'dropdown-itemlist';
 		}
+		if ( $component instanceof IDropdown ) {
+			$rendererKey = 'dropdown';
+		}
 
 		return $rendererKey;
 	}
@@ -78,6 +81,9 @@ class ComponentRendererFactory {
 		}
 		if ( $rendererKey === 'dropdown-itemlist' ) {
 			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\DropdownItemlist();
+		}
+		if ( $rendererKey === 'dropdown' ) {
+			$renderer = new \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Dropdown();
 		}
 		return $renderer;
 	}
