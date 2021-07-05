@@ -134,3 +134,8 @@ $GLOBALS['wgResourceModules']['mwstake.component.commonui.componentrenderer'] = 
 	// phpcs:ignore
 	'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ResourceLoader\\ComponentRenderer'
 ];
+
+$GLOBALS['wgMessagesDirs']['mwstake-component-commonui'] = __DIR__ . '/i18n';
+
+$GLOBALS['wgAPIModules']['mwstake-commonui-skinslot']
+	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Api\\SkinSlot';

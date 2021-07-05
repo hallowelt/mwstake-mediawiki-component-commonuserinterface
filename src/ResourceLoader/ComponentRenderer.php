@@ -4,9 +4,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\ResourceLoader;
 
 use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
-use ResourceLoaderModule;
+use ResourceLoaderFileModule;
 
-class ComponentRenderer extends ResourceLoaderModule {
+class ComponentRenderer extends ResourceLoaderFileModule {
 
 	/**
 	 *
@@ -20,8 +20,10 @@ class ComponentRenderer extends ResourceLoaderModule {
 		$renderers = $rendererFactory->getAllRenderers();
 		foreach ( $renderers as $rendererKey => $renderer ) {
 			// Keep aligned with `Setup::makeClientSideRendererConfig`
-			$templateKey = sha1( $renderer->getTemplatePathname() ) . '.mustache';
-			$templates[$templateKey] = realpath( $renderer->getTemplatePathname() );
+			$pathname = $renderer->getTemplatePathname();
+			$templateKey = sha1( $pathname ) . '.mustache';
+			$content = file_get_contents( $pathname );
+			$templates[$templateKey] = $this->stripBom( $content );
 		}
 
 		return $templates;
