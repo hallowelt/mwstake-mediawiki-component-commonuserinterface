@@ -2,13 +2,15 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-class Separator extends ComponentBase {
+use MWStake\MediaWiki\Component\CommonUserInterface\ISeparator;
+
+class Separator extends ComponentBase implements ISeparator {
 
 	/**
 	 *
-	 * @var string
+	 * @var array
 	 */
-	private $class = '';
+	private $classes = [];
 
 	/**
 	 *
@@ -36,9 +38,9 @@ class Separator extends ComponentBase {
 
 	/**
 	 *
-	 * @return string
+	 * @return string[]
 	 */
-	public function getClass() : string {
-		return $this->class;
+	public function getContainerClasses() : array {
+		return $this->classes;
 	}
 }

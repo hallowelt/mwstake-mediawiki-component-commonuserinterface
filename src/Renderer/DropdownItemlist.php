@@ -3,10 +3,9 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\DropdownItemlist
-	as DropdownItemlistComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlist;
 
 class DropdownItemlist extends RendererBase {
 
@@ -16,25 +15,28 @@ class DropdownItemlist extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof DropdownItemlistComponent;
+		return $component instanceof IDropdownItemlist;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param LiteralComponent $component
+	 * @param IDropdownItemlist $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'list-id' => $component->getId()
-		];
+		/** @var IComponent $component */
+		if ( $component instanceof IDropdownItemlist ) {
+			$templateData = [
+				'list-id' => $component->getId()
+			];
 
-		$links = $component->getLinks();
-		if ( !empty( $links ) ) {
-			$formatter = new Formatter();
-			$templateData['links'] = $formatter->formatLinks( $links );
+			$links = $component->getLinks();
+			if ( !empty( $links ) ) {
+				$formatter = new Formatter();
+				$templateData['links'] = $formatter->formatLinks( $links );
+			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}

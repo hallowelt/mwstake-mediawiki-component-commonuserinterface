@@ -22,6 +22,8 @@ class Card extends RendererBase {
 			'id' => $component->getId(),
 			'body' => $subComponentNodes,
 		];
+
+		/** @var IComponent $component */
 		if ( $component instanceof ICard ) {
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(

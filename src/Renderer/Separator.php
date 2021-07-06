@@ -2,8 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\Separator as SeparatorComponent;
+use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\ISeparator;
 
 class Separator extends RendererBase {
 
@@ -13,25 +14,34 @@ class Separator extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof SeparatorComponent;
+		return $component instanceof ISeparator;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param SeparatorComponent $component
+	 * @param ISeparator $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$data = [];
-		if ( $component->getClass() !== '' ) {
-			$data = [
-				'class' => $component->getClass()
-			];
+		$templateData = [];
+
+		/** @var IComponent $component */
+		if ( $component instanceof ISeparator ) {
+			if ( !empty( $component->getContainerClasses() ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'class' => implode( ' ', $component->getContainerClasses() )
+					]
+				);
+			}
+		} else {
+			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
 
-		return $data;
+		return $templateData;
 	}
 
 	/**

@@ -69,25 +69,24 @@ $GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-skinaftercontent-panel
 						new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardBody( [
 							'classes' => [ 'my-SimpleCard-body' ],
 							'items' => [
-								new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-body', 'Hello World!')
-							]
-						] ),
-						new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardTitle( [
-							'classes' => [ 'my-SimpleCard-Title' ],
-							'items' => [
-								new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-title', 'Hello World!')
-							]
-						] ),
-						new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardSubTitle( [
-							'classes' => [ 'my-SimpleCard-subtitle' ],
-							'items' => [
-								new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-subtitle', 'Hello World!')
-							]
-						] ),
-						new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardText( [
-							'classes' => [ 'my-SimpleCard-text'] ,
-							'items' => [
-								new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-text', 'Hello World!')
+									new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardTitle( [
+								'classes' => [ 'my-SimpleCard-Title' ],
+								'items' => [
+									new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-title', 'Hello World!')
+								]
+								] ),
+								new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardSubTitle( [
+									'classes' => [ 'my-SimpleCard-subtitle' ],
+									'items' => [
+										new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-subtitle', 'Hello World!')
+									]
+								] ),
+								new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardText( [
+									'classes' => [ 'my-SimpleCard-text'] ,
+									'items' => [
+										new MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal( 'my-text', 'Hello World!')
+									]
+								] ),
 							]
 						] ),
 						new MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleCardFooter( [

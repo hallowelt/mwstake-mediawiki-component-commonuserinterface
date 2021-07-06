@@ -67,19 +67,19 @@ $lessVars->setVar( 'content-h6-border', '' );
  * Allows to register additional component interfaces
  */
 $GLOBALS['mwsgCommonUIComponentRegistry'] = [
-	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Literal',
+	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILiteral',
 	'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownItemlist',
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
-	'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Separator',
+	'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ISeparator',
 	'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
-	'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
-	'card-title' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
-	'card-subtitle' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
-	'card-body' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
-	'card-text' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
-	'card-footer' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardHeader',
+	'card-title' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardTitle',
+	'card-subtitle' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardSubTitle',
+	'card-body' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardBody',
+	'card-text' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardText',
+	'card-footer' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardFooter',
 ];
 
 /**

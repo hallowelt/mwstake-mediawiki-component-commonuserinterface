@@ -20,7 +20,8 @@ class SimpleCard extends ComponentBase implements ICard {
 		$this->options = array_merge(
 			[
 				'id' => '',
-				'classes' => []
+				'classes' => [],
+				'items' => []
 			],
 			$options
 		);
@@ -38,5 +39,12 @@ class SimpleCard extends ComponentBase implements ICard {
 	 */
 	public function getContainerClasses(): array {
 		return $this->options['classes'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getSubComponents(): array {
+		return $this->options['items'];
 	}
 }

@@ -2,7 +2,11 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
-class CardFooter extends CardHeader {
+use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\ICardFooter;
+use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+
+class CardFooter extends RendererBase {
 
 	/**
 	 * @return string
@@ -11,4 +15,36 @@ class CardFooter extends CardHeader {
 		return $this->templateBasePath . 'card-footer.mustache';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+		$templateData = [
+			'body' => $subComponentNodes,
+		];
+
+		/** @var IComponent $component */
+		if ( $component instanceof ICardFooter ) {
+			if ( !empty( $component->getContainerClasses() ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'class' => implode( ' ', $component->getContainerClasses() )
+					]
+				);
+			}
+			if ( $component->getId() !== '' ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'id' => $component->getId()
+					]
+				);
+			}
+		} else {
+			throw new Exception( "Can not extract data from " . get_class( $component ) );
+		}
+
+		return $templateData;
+	}
 }

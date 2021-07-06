@@ -2,7 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-class Literal extends ComponentBase {
+use MWStake\MediaWiki\Component\CommonUserInterface\ILiteral;
+
+class Literal extends ComponentBase implements ILiteral{
 
 	/**
 	 *
@@ -38,7 +40,7 @@ class Literal extends ComponentBase {
 	 *
 	 * @return string
 	 */
-	public function getHtml() {
+	public function getHtml() : string{
 		return $this->html;
 	}
 }

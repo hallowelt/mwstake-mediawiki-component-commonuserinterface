@@ -3,7 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\ICard;
+use MWStake\MediaWiki\Component\CommonUserInterface\ICardHeader;
+use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
 class CardHeader extends RendererBase {
 
@@ -21,7 +22,9 @@ class CardHeader extends RendererBase {
 		$templateData = [
 			'body' => $subComponentNodes,
 		];
-		if ( $component instanceof ICard ) {
+
+		/** @var IComponent $component */
+		if ( $component instanceof ICardHeader ) {
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
@@ -44,5 +47,4 @@ class CardHeader extends RendererBase {
 
 		return $templateData;
 	}
-
 }

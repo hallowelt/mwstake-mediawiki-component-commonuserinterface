@@ -2,8 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal as LiteralComponent;
+use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILiteral;
 
 class Literal extends RendererBase {
 
@@ -13,21 +14,26 @@ class Literal extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof LiteralComponent;
+		return $component instanceof ILiteral;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param LiteralComponent $component
+	 * @param ILiteral $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$data = [
-			'id' => $component->getId(),
-			'text' => $component->getHtml()
-		];
+		/** @var IComponent $component */
+		if ( $component instanceof ILiteral ) {
+			$data = [
+				'id' => $component->getId(),
+				'text' => $component->getHtml()
+			];
+		} else {
+			throw new Exception( "Can not extract data from " . get_class( $component ) );
+		}
 
 		return $data;
 	}

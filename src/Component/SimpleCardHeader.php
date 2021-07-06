@@ -2,9 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\ICard;
+use MWStake\MediaWiki\Component\CommonUserInterface\ICardHeader;
 
-class SimpleCardHeader extends ComponentBase implements ICard {
+class SimpleCardHeader extends ComponentBase implements ICardHeader {
 
 	/**
 	 *
@@ -14,13 +14,14 @@ class SimpleCardHeader extends ComponentBase implements ICard {
 
 	/**
 	 *
-	 * @param array $options
+	 * @param string $options
 	 */
 	public function __construct( $options ) {
 		$this->options = array_merge(
 			[
 				'id' => '',
-				'classes' => []
+				'classes' => [],
+				'items' => []
 			],
 			$options
 		);
@@ -38,5 +39,12 @@ class SimpleCardHeader extends ComponentBase implements ICard {
 	 */
 	public function getContainerClasses(): array {
 		return $this->options['classes'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getSubComponents(): array {
+		return $this->options['items'];
 	}
 }
