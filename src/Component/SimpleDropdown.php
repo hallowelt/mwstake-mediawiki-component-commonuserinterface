@@ -2,7 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
+use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
+use RawMessage;
 
 class SimpleDropdown extends ComponentBase implements IDropdown {
 	/**
@@ -13,8 +15,8 @@ class SimpleDropdown extends ComponentBase implements IDropdown {
 		$this->options = array_merge(
 			[
 				'id' => '',
-				'aria-label' => '',
-				'aria-desc' => '',
+				'aria-label' => new RawMessage( 'simple dropdown' ),
+				'aria-desc' => new RawMessage( 'simple-dropdown' ),
 				'items' => [],
 				'container-classes' => []
 			],
@@ -44,16 +46,16 @@ class SimpleDropdown extends ComponentBase implements IDropdown {
 	}
 
 	/**
-	 * @return string
+	 * @return Message
 	 */
-	public function getAriaLabel() : string {
+	public function getAriaLabel() : Message {
 		return $this->options['aria-label'];
 	}
 
 	/**
-	 * @return string
+	 * @return Message
 	 */
-	public function getAriaDesc() : string {
+	public function getAriaDesc() : Message {
 		return $this->options['aria-desc'];
 	}
 }

@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Message;
+
 interface IDropdown extends IComponent {
 	/**
 	 * @return string[]
@@ -9,12 +11,12 @@ interface IDropdown extends IComponent {
 	public function getContainerClasses() : array;
 
 	/**
-	 * @return string
+	 * @return Message
 	 */
-	public function getAriaLabel() : string;
+	public function getAriaLabel() : Message;
 
 	/**
-	 * @return string
+	 * @return Message
 	 */
-	public function getAriaDesc() : string;
+	public function getAriaDesc() : Message;
 }

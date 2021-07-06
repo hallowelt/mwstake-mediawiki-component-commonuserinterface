@@ -1,9 +1,9 @@
 <div class="dropdown">
-	<a type="button" class="btn dropdown-toggle{{#btn-class}} {{{.}}}{{/btn-class}}"{{#id}} id="{{{.}}}"{{/id}} title="{{{title}}}" {{#btn-data}}{{{.}}}{{/btn-data}}data-bs-toggle="dropdown" aria-haspopup="true" aria-label="{{{btn-aria-label}}}" aria-expanded="false" aria-controls="{{{id}}}-menu">
+	<a type="button" class="btn dropdown-toggle{{#btn-class}} {{{.}}}{{/btn-class}}"{{#id}} id="{{{.}}}"{{/id}} title="{{title}}" {{#btn-data}}{{{.}}}{{/btn-data}}data-bs-toggle="dropdown" aria-haspopup="true" aria-label="{{btn-aria-label}}" aria-expanded="false" aria-controls="{{id}}-menu">
 		<span>{{{text}}}</span>
 	</a>
-	<div id="{{{id}}}-menu" class="dropdown-menu{{#menu-class}} {{{.}}}{{/menu-class}}" aria-describedby="{{id}}-desc">
-		<div id="{{id}}-desc" class="visually-hidden">{{{menu-aria-desc}}}</div>
+	<div id="{{id}}-menu" class="dropdown-menu{{#menu-class}} {{{.}}}{{/menu-class}}" aria-describedby="{{id}}-desc">
+		{{#menu-aria-desc}}<div id="{{id}}-desc" class="visually-hidden">{{{.}}}</div>{{/menu-aria-desc}}
 			{{{body}}}
 		</div>
 </div>

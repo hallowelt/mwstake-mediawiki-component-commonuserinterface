@@ -28,7 +28,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 			'callback-function-name' => [],
 			'container-classes' => [],
 			'container-data' => [],
-			'collapse-state' => false,
+			'expanded-state' => false,
 			'items' => [],
 			'id' => ''
 		], $options );
@@ -86,7 +86,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() {
+	public function getContainerClasses() : array {
 		return $this->options['container-classes'];
 	}
 
@@ -101,8 +101,8 @@ class SimplePanel extends ComponentBase implements IPanel {
 	 *
 	 * @return bool
 	 */
-	public function getPanelCollapseState() {
-		return $this->options['collapse-state'];
+	public function getPanelExpandedState() {
+		return $this->options['expanded-state'];
 	}
 
 	/**

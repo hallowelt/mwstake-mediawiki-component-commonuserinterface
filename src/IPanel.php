@@ -4,7 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Message;
 
-interface IPanel {
+interface IPanel extends ICard {
 
 	/**
 	 * @return Message
@@ -37,11 +37,6 @@ interface IPanel {
 	public function getTriggerCallbackFunctionName();
 
 	/**
-	 * @return string[]
-	 */
-	public function getContainerClasses();
-
-	/**
 	 * @return array
 	 */
 	public function getContainerData();
@@ -50,5 +45,5 @@ interface IPanel {
 	 *
 	 * @return bool
 	 */
-	public function getPanelCollapseState();
+	public function getPanelExpandedState();
 }

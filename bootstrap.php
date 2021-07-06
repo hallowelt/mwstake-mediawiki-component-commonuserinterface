@@ -73,6 +73,13 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
 	'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Separator',
+	'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-title' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-subtitle' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-body' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-text' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
+	'card-footer' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
 ];
 
 /**
@@ -90,6 +97,13 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
 		'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Separator',
+		'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
+		'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardHeader',
+		'card-title' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardTitle',
+		'card-subtitle' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardSubTitle',
+		'card-body' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardBody',
+		'card-text' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardText',
+		'card-footer' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardFooter',
 	]
 ];
 

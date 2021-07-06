@@ -20,7 +20,7 @@ class Dropdown extends RendererBase {
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param LiteralComponent $component
+	 * @param IDropdown $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
@@ -28,8 +28,8 @@ class Dropdown extends RendererBase {
 		$templateData = [
 			'id' => $component->getId(),
 			'btn-class' => '',
-			'btn-aria-label' => $component->getAriaLabel(),
-			'menu-aria-desc' => $component->getAriaDesc(),
+			'btn-aria-label' => $component->getAriaLabel()->text(),
+			'menu-aria-desc' => $component->getAriaDesc()->text(),
 			'body' => $subComponentNodes,
 		];
 		if ( $component instanceof IDropdown ) {
