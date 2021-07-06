@@ -72,6 +72,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
+	'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\Separator',
 ];
 
 /**
@@ -88,6 +89,7 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
+		'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Separator',
 	]
 ];
 
