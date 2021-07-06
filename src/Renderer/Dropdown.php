@@ -26,24 +26,17 @@ class Dropdown extends RendererBase {
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [
-			'btn' => [
-				'id' => $component->getId(),
-				'class' => '',
-				'aria-label' => $component->getAriaLabel(),
-			],
-			'menu' => [
-				'id' => $component->getId(),
-				'aria-desc' => $component->getAriaDesc(),
-				'content' => $subComponentNodes,
-			]
+			'id' => $component->getId(),
+			'btn-class' => '',
+			'btn-aria-label' => $component->getAriaLabel(),
+			'menu-aria-desc' => $component->getAriaDesc(),
+			'body' => $subComponentNodes,
 		];
 		if ( $component instanceof IDropdown ) {
 			$templateData['class'] = implode( ' ', $component->getContainerClasses() );
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
-
-		// TODO: make subcomponents work
 
 		return $templateData;
 	}

@@ -21,7 +21,7 @@ class Card extends RendererBase {
 		$templateData = [
 			'id' => $component->getId(),
 			'class' => '',
-			'content' => $subComponentNodes,
+			'body' => $subComponentNodes,
 		];
 		if ( $component instanceof IPanel ) {
 			$templateData['class'] = $component->getContainerClasses();
