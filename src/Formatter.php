@@ -46,6 +46,10 @@ class Formatter {
 				$link['title'] = $link['text'];
 			}
 
+			if ( isset( $link['data'] ) && !empty( $link['data'] ) ) {
+				$link['data'] = $this->makeDataAttributes( $link['data'] );
+			}
+
 			$params[] = $link;
 		}
 
