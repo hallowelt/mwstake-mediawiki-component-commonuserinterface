@@ -6,35 +6,25 @@ use Message;
 
 interface IButton extends IComponent {
 
-	public const TYPE_PRIMARY = 'primary';
-	public const TYPE_SECONDARY = 'seconday';
-	public const TYPE_SUCCESS = 'success';
-	public const TYPE_DANGER = 'danger';
-	public const TYPE_WARNING = 'warning';
-	public const TYPE_INFO = 'info';
-
 	/**
 	 *
 	 * @return Message
 	 */
-	public function getLabel() : Message;
-
-	/**
-	 * One of the `IButton::TYPE_*` values
-	 *
-	 * @return string
-	 */
-	public function getType() : string;
+	public function getAriaLabel() : Message;
 
 	/**
 	 * @return Message
 	 */
-	public function getTooltip() : Message;
+	public function getText() : Message;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getContainerClasses() : array;
 
 	/**
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
-	public function isDisabled() : bool;
-
+	public function isDisabled() : bool ;
 }

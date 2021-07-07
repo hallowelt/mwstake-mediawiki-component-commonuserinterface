@@ -20,9 +20,9 @@ class SimpleButton extends ComponentBase implements IButton {
 	 */
 	public function __construct( $options ) {
 		$this->options = array_merge( [
-			'label' => new RawMessage( 'Some label' ),
-			'tooltip' => new RawMessage( 'Some tooltip' ),
-			'type' => IButton::TYPE_SECONDARY,
+			'aria-label' => new RawMessage( 'Some label' ),
+			'text' => new RawMessage( 'Some tooltip' ),
+			'classes' => [],
 			'disabled' => false
 		], $options );
 	}
@@ -38,24 +38,22 @@ class SimpleButton extends ComponentBase implements IButton {
 	 *
 	 * @return Message
 	 */
-	public function getLabel() : Message {
-		return $this->options['label'];
-	}
-
-	/**
-	 * One of the `IButton::TYPE_*` values
-	 *
-	 * @return string
-	 */
-	public function getType() : string {
-		return $this->options['type'];
+	public function getAriaLabel() : Message {
+		return $this->options['aria-label'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getTooltip() : Message {
-		return $this->options['tooltip'];
+	public function getText() : Message {
+		return $this->options['text'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getContainerClasses(): array {
+		return $this->options['classes'];
 	}
 
 	/**

@@ -34,7 +34,7 @@ class SimpleLink extends ComponentBase implements ILink {
 	 * @inheritDoc
 	 */
 	public function getHref() : string {
-		return $this->options['id'];
+		return $this->options['href'];
 	}
 
 	/**

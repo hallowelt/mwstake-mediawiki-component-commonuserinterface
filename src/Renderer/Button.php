@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
+use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
@@ -24,12 +25,40 @@ class Button extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		return [
+		$templateData = [
 			'id' => $component->getId(),
-			'text' => $component->getLabel()->plain(),
-			'aria-label' => $component->getTooltip()->plain(),
-			'class' => 'btn-' . $component->getType()
 		];
+
+		/** @var IComponent $component */
+		if ( $component instanceof IButton ) {
+			$templateData = array_merge(
+				$templateData,
+				[
+					'text' => $component->getText()->text(),
+					'aria-label' => $component->getAriaLabel()
+				]
+			);
+			if ( !empty( $component->getContainerClasses() ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'class' => implode( ' ', $component->getContainerClasses() )
+					]
+				);
+			}
+			if ( empty( $component->isDisabled() ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'disabled' => 'disabled'
+					]
+				);
+			}
+		} else {
+			throw new Exception( "Can not extract data from " . get_class( $component ) );
+		}
+
+		return $templateData;
 	}
 
 	/**
@@ -38,7 +67,7 @@ class Button extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname(): string {
-		return $this->templateBasePath . '/button/button.mustache';
+		return $this->templateBasePath . '/button.mustache';
 	}
 
 }
