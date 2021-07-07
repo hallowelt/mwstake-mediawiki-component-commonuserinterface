@@ -7,5 +7,5 @@ interface ICardText {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses();
+	public function getContainerClasses() : array;
 }

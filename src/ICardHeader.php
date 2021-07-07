@@ -7,5 +7,5 @@ interface ICardHeader {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses();
+	public function getContainerClasses() : array;
 }

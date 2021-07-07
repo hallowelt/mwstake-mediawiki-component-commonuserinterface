@@ -7,5 +7,5 @@ interface ICardBody {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses();
+	public function getContainerClasses() : array;
 }
