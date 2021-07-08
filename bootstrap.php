@@ -72,6 +72,8 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
+	'dropdown-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownButton',
+	'dropdown-icon' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownIcon',
 	'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ISeparator',
 	'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
 	'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardHeader',
@@ -82,8 +84,10 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'card-footer' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardFooter',
 	'card-image' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardImage',
 	'card-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardLink',
+	'collapsible-card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICollapsibleCard',
 	'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroup',
 	'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILink',
+	'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
 ];
 
 /**
@@ -100,6 +104,8 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
+		'dropdown-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownButton',
+		'dropdown-icon' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownIcon',
 		'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Separator',
 		'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardHeader',
@@ -110,8 +116,10 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'card-footer' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardFooter',
 		'card-image' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardImage',
 		'card-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardLink',
+		'collapsible-card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CollapsibleCard',
 		'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroup',
 		'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
+		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 	]
 ];
 
