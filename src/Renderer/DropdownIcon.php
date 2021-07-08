@@ -6,7 +6,7 @@ use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownIcon;
 
-class Dropdown extends RendererBase {
+class DropdownIcon extends RendererBase {
 
 	/**
 	 *

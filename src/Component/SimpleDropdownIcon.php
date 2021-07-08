@@ -6,7 +6,7 @@ use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownIcon;
 use RawMessage;
 
-class SimpleDropdown extends ComponentBase implements IDropdownIcon {
+class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 	/**
 	 *
 	 * @param array $options
@@ -14,9 +14,9 @@ class SimpleDropdown extends ComponentBase implements IDropdownIcon {
 	public function __construct( $options ) {
 		$this->options = array_merge(
 			[
-				'id' => 'simple-dropdown',
-				'title' => new RawMessage( 'simple dropdown' ),
-				'aria-label' => new RawMessage( 'simple dropdown' ),
+				'id' => 'simple-dropdown-icon',
+				'title' => new RawMessage( 'SimpleDropdownIcon' ),
+				'aria-label' => new RawMessage( 'SimpleDropdownIcon' ),
 				'items' => [],
 				'container-classes' => [],
 				'button-classes' => [],
