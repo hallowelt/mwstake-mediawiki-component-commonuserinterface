@@ -29,11 +29,11 @@ class Separator extends RendererBase {
 
 		/** @var IComponent $component */
 		if ( $component instanceof ISeparator ) {
-			if ( !empty( $component->getContainerClasses() ) ) {
+			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'class' => implode( ' ', $component->getContainerClasses() )
+						'class' => implode( ' ', $component->getClasses() )
 					]
 				);
 			}

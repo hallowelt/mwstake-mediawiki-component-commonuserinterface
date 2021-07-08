@@ -20,11 +20,11 @@ interface IButton extends IComponent {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses() : array;
+	public function getClasses() : array;
 
 	/**
 	 *
 	 * @return bool
 	 */
-	public function isDisabled() : bool ;
+	public function isDisabled() : bool;
 }

@@ -52,7 +52,7 @@ class SimpleButton extends ComponentBase implements IButton {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

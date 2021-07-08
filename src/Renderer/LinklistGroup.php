@@ -29,13 +29,20 @@ class LinklistGroup extends RendererBase {
 		/** @var IComponent $component */
 		if ( $component instanceof ILinklistGroup ) {
 			$templateData = [
-				'list-id' => $component->getId()
+				'cnt-id' => $component->getId()
 			];
 
-			$links = $component->getLinks();
-			if ( !empty( $links ) ) {
+			if ( !empty( $component->getContainerClasses() ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'cnt-class' => implode( ' ', $component->getContainerClasses() )
+					]
+				);
+			}
+			if ( !empty( $component->getLinks() ) ) {
 				$formatter = new Formatter();
-				$templateData['links'] = $formatter->formatLinks( $links );
+				$templateData['links'] = $formatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

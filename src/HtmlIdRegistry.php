@@ -26,7 +26,7 @@ class HtmlIdRegistry {
 	 *
 	 * @return HtmlIdRegistry
 	 */
-	public static function singleton() : HtmlIdRegistry{
+	public static function singleton() : HtmlIdRegistry {
 		if ( self::$registry === null ) {
 			self::$registry = new HtmlIdRegistry();
 		}

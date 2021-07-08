@@ -83,6 +83,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'card-image' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardImage',
 	'card-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardLink',
 	'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroup',
+	'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILink',
 ];
 
 /**
@@ -110,6 +111,7 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'card-image' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardImage',
 		'card-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardLink',
 		'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroup',
+		'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
 	]
 ];
 

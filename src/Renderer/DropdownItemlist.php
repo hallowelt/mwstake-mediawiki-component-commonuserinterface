@@ -28,14 +28,26 @@ class DropdownItemlist extends RendererBase {
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		/** @var IComponent $component */
 		if ( $component instanceof IDropdownItemlist ) {
-			$templateData = [
-				'list-id' => $component->getId()
-			];
-
-			$links = $component->getLinks();
-			if ( !empty( $links ) ) {
+			$templateData = [];
+			if ( $component->getId() !== '' ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'list-id' => $component->getId()
+					]
+				);
+			}
+			if ( !empty( $component->getClasses() ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'list-class' => implode( ' ', $component->getClasses() )
+					]
+				);
+			}
+			if ( !empty( $component->getLinks() ) ) {
 				$formatter = new Formatter();
-				$templateData['links'] = $formatter->formatLinks( $links );
+				$templateData['links'] = $formatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

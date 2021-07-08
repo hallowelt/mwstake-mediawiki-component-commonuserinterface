@@ -37,7 +37,7 @@ class SimpleCardText extends ComponentBase implements ICardText {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

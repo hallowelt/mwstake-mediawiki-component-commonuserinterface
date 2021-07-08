@@ -9,7 +9,7 @@ interface ICardImage {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array;
+	public function getClasses() : array;
 
 	/**
 	 * @return CardImageType

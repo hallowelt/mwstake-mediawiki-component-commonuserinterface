@@ -15,10 +15,14 @@ class SimpleDropdown extends ComponentBase implements IDropdown {
 		$this->options = array_merge(
 			[
 				'id' => '',
+				'text' => '',
+				'title' => '',
 				'aria-label' => new RawMessage( 'simple dropdown' ),
 				'aria-desc' => new RawMessage( 'simple-dropdown' ),
 				'items' => [],
-				'container-classes' => []
+				'container-classes' => [],
+				'button-classes' => [],
+				'menu-classes' => []
 			],
 			$options
 		);
@@ -43,6 +47,34 @@ class SimpleDropdown extends ComponentBase implements IDropdown {
 	 */
 	public function getContainerClasses() : array {
 		return $this->options['container-classes'];
+	}
+
+		/**
+		 * @return array
+		 */
+	public function getButtonClasses() : array {
+		return $this->options['button-classes'];
+	}
+
+		/**
+		 * @return array
+		 */
+	public function getMenuClasses() : array {
+		return $this->options['menu-classes'];
+	}
+
+	/**
+	 * @return Message
+	 */
+	public function getText() : Message {
+		return $this->options['text'];
+	}
+
+	/**
+	 * @return Message
+	 */
+	public function getTitle() : Message {
+		return $this->options['title'];
 	}
 
 	/**

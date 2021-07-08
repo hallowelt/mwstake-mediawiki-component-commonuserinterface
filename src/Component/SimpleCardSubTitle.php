@@ -37,7 +37,7 @@ class SimpleCardSubTitle extends ComponentBase implements ICardSubTitle {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

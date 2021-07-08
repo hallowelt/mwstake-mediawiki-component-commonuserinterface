@@ -3,39 +3,38 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Message;
-use MWStake\MediaWiki\Component\CommonUserInterface\Interfaces\IComponent;
 
-interface ILink extends IComponent {
+interface ILink {
 
 	/**
-	 *
+	 * @return string[]
+	 */
+	public function getClasses() : array;
+
+	/**
+	 * @return array
+	 */
+	public function getDataAttributes() : array;
+
+	/**
 	 * @return string
 	 */
 	public function getHref() : string;
 
 	/**
-	 *
-	 * @return Message
-	 */
-	public function getText() : Message;
-
-	/**
-	 *
 	 * @return Message
 	 */
 	public function getTitle() : Message;
 
 	/**
-	 *
-	 * @return array
+	 * @return Message
 	 */
-	public function getClasses() : array;
+	public function getText() : Message;
 
 	/**
-	 *
-	 * @return array
+	 * @return Message
 	 */
-	public function getDataAttributes() : array;
+	public function getAriaLabel() : Message;
 
 	/**
 	 * One of the `ARIARole::*` constants
@@ -45,9 +44,7 @@ interface ILink extends IComponent {
 	public function getRole() : string;
 
 	/**
-	 *
-	 * @return string
+	 * @inheritDoc
 	 */
 	public function getRel() : string;
-
 }

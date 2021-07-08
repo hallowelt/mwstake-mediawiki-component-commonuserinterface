@@ -7,5 +7,5 @@ interface ICardSubTitle {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array;
+	public function getClasses() : array;
 }

@@ -26,6 +26,8 @@ class SimpleCardLink extends ComponentBase implements ICardLink {
 				'href' => '',
 				'title' => new RawMessage( 'SimpleCardLink' ),
 				'text' => new RawMessage( 'SimpleCardLink' ),
+				'aria-label' => new RawMessage( 'SimpleCardLink' ),
+				'rel' => '',
 				'data' => []
 			],
 			$options
@@ -42,7 +44,7 @@ class SimpleCardLink extends ComponentBase implements ICardLink {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 
@@ -67,6 +69,13 @@ class SimpleCardLink extends ComponentBase implements ICardLink {
 		return $this->options['title'];
 	}
 
+		/**
+		 * @inheritDoc
+		 */
+	public function getAriaLabel(): Message {
+		return $this->options['aria-label'];
+	}
+
 	/**
 	 * @inheritDoc
 	 */
@@ -77,7 +86,14 @@ class SimpleCardLink extends ComponentBase implements ICardLink {
 	/**
 	 * @inheritDoc
 	 */
-	public function getUrl() : string {
+	public function getHref() : string {
 		return $this->options['href'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getRel() : string {
+		return $this->options['rel'];
 	}
 }

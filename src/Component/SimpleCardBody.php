@@ -37,7 +37,7 @@ class SimpleCardBody extends ComponentBase implements ICardBody {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

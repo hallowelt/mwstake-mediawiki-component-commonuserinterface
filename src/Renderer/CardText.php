@@ -25,11 +25,11 @@ class CardText extends RendererBase {
 
 		/** @var IComponent $component */
 		if ( $component instanceof ICardText ) {
-			if ( !empty( $component->getContainerClasses() ) ) {
+			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'class' => implode( ' ', $component->getContainerClasses() )
+						'class' => implode( ' ', $component->getClasses() )
 					]
 				);
 			}

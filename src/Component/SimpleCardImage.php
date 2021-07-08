@@ -41,7 +41,7 @@ class SimpleCardImage extends ComponentBase implements ICardImage {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

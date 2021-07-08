@@ -32,11 +32,11 @@ class CardImage extends RendererBase {
 					'alt' => $component->getImageAltText()->text()
 				]
 			);
-			if ( !empty( $component->getContainerClasses() ) ) {
+			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'class' => implode( ' ', $component->getContainerClasses() )
+						'class' => implode( ' ', $component->getClasses() )
 					]
 				);
 			}

@@ -4,10 +4,10 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
-use MWStake\MediaWiki\Component\CommonUserInterface\ICardLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILink;
 
-class CardLink extends RendererBase {
+class Link extends RendererBase {
 
 	/**
 	 *
@@ -15,19 +15,19 @@ class CardLink extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof ICardLink;
+		return $component instanceof ILink;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param ICardLink $component
+	 * @param ILink $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		/** @var IComponent $component */
-		if ( $component instanceof ICardLink ) {
+		if ( $component instanceof ILink ) {
 			$templateData = [
 				'id' => $component->getId(),
 				'title' => $component->getTitle()->text(),

@@ -37,7 +37,7 @@ class SimpleCardFooter extends ComponentBase implements ICardFooter {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

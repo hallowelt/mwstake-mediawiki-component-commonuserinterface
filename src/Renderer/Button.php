@@ -38,11 +38,11 @@ class Button extends RendererBase {
 					'aria-label' => $component->getAriaLabel()
 				]
 			);
-			if ( !empty( $component->getContainerClasses() ) ) {
+			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'class' => implode( ' ', $component->getContainerClasses() )
+						'class' => implode( ' ', $component->getClasses() )
 					]
 				);
 			}

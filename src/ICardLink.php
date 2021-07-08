@@ -9,7 +9,7 @@ interface ICardLink {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array;
+	public function getClasses() : array;
 
 	/**
 	 * @return array
@@ -19,7 +19,7 @@ interface ICardLink {
 	/**
 	 * @return string
 	 */
-	public function getUrl() : string;
+	public function getHref() : string;
 
 	/**
 	 * @return Message
@@ -32,7 +32,19 @@ interface ICardLink {
 	public function getText() : Message;
 
 	/**
+	 * @return Message
+	 */
+	public function getAriaLabel() : Message;
+
+	/**
+	 * One of the `ARIARole::*` constants
+	 *
 	 * @return string
 	 */
 	public function getRole() : string;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getRel() : string;
 }

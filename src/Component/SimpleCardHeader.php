@@ -37,7 +37,7 @@ class SimpleCardHeader extends ComponentBase implements ICardHeader {
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 

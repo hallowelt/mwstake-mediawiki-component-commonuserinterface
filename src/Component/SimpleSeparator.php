@@ -4,7 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use MWStake\MediaWiki\Component\CommonUserInterface\ISeparator;
 
-class Separator extends ComponentBase implements ISeparator {
+class SimpleSeparator extends ComponentBase implements ISeparator {
 
 	/**
 	 *
@@ -24,7 +24,7 @@ class Separator extends ComponentBase implements ISeparator {
 	 * @inheritDoc
 	 */
 	public function getId(): string {
-		return 'id is not used in mustache template';
+		return 'separator';
 	}
 
 	/**
@@ -40,7 +40,7 @@ class Separator extends ComponentBase implements ISeparator {
 	 *
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array {
+	public function getClasses() : array {
 		return $this->classes;
 	}
 }
