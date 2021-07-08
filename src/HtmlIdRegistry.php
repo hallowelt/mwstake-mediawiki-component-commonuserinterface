@@ -20,7 +20,7 @@ class HtmlIdRegistry {
 	 *
 	 * @var integer
 	 */
-	private $limit = 10000;
+	private $limit = 1000;
 
 	/**
 	 *
@@ -46,22 +46,21 @@ class HtmlIdRegistry {
 	 * @param string $id
 	 * @return string
 	 */
-	public function makeHtmlIdSave( $id ) : string {
+	public function makeHtmlIdSafe( $id ) : string {
 		if ( !in_array( $id, $this->htmlIds ) ) {
 			array_push( $this->htmlIds, $id );
 			return $id;
 		}
 
-		$suffix = 1;
-		while ( $suffix <= $this->limit ) {
+		for ( $suffix = 1; $suffix <= $this->limit; $suffix++ ) {
 			$newId = $id . '-' . $suffix;
 			if ( !in_array( $newId, $this->htmlIds ) ) {
+				$id = $newId;
+				array_push( $this->htmlIds, $id );
 				break;
 			}
 		}
 
-		array_push( $this->htmlIds, $newId );
-
-		return $newId;
+		return $id;
 	}
 }
