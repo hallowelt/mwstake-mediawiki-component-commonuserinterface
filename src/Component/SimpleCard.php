@@ -19,7 +19,7 @@ class SimpleCard extends ComponentBase implements ICard {
 	public function __construct( $options ) {
 		$this->options = array_merge(
 			[
-				'id' => '',
+				'id' => 'simple-card',
 				'classes' => [],
 				'items' => []
 			],

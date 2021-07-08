@@ -28,7 +28,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 			'callback-function-name' => [],
 			'container-classes' => [],
 			'container-data' => [],
-			'expanded-state' => false,
+			'expanded' => false,
 			'items' => [],
 			'id' => ''
 		], $options );
@@ -101,8 +101,8 @@ class SimplePanel extends ComponentBase implements IPanel {
 	 *
 	 * @return bool
 	 */
-	public function getPanelExpandedState() {
-		return $this->options['expanded-state'];
+	public function getExpandedState() {
+		return $this->options['expanded'];
 	}
 
 	/**

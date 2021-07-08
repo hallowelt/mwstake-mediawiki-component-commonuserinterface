@@ -45,5 +45,5 @@ interface IPanel extends ICard {
 	 *
 	 * @return bool
 	 */
-	public function getPanelExpandedState();
+	public function getExpandedState();
 }
