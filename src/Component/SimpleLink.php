@@ -16,7 +16,7 @@ class SimpleLink extends ComponentBase implements ILink {
 		$this->options = array_merge(
 			[
 				'role' => '',
-				'id' => '',
+				'id' => 'simple-link',
 				'classes' => [],
 				'href' => '',
 				'title' => new RawMessage( 'SimpleLink' ),
@@ -64,9 +64,9 @@ class SimpleLink extends ComponentBase implements ILink {
 		return $this->options['title'];
 	}
 
-		/**
-		 * @inheritDoc
-		 */
+	/**
+	 * @inheritDoc
+	 */
 	public function getAriaLabel(): Message {
 		return $this->options['aria-label'];
 	}

@@ -4,7 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Message;
 
-interface IDropdown extends IComponent {
+interface IDropdownButton extends IComponent {
 
 	/**
 	 * @return string[]

@@ -4,9 +4,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
+use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownButton;
 
-class Dropdown extends RendererBase {
+class DropdownButton extends RendererBase {
 
 	/**
 	 *
@@ -14,13 +14,13 @@ class Dropdown extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof IDropdown;
+		return $component instanceof IDropdownButton;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param IDropdown $component
+	 * @param IDropdownButton $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
@@ -32,7 +32,7 @@ class Dropdown extends RendererBase {
 			'btn-aria-label' => $component->getAriaLabel()->text(),
 			'body' => $subComponentNodes,
 		];
-		if ( $component instanceof IDropdown ) {
+		if ( $component instanceof IDropdownButton ) {
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
@@ -70,6 +70,6 @@ class Dropdown extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname(): string {
-		return $this->templateBasePath . '/dropdown.mustache';
+		return $this->templateBasePath . '/dropdown-button.mustache';
 	}
 }
