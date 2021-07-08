@@ -48,16 +48,16 @@ class SimpleDropdown extends ComponentBase implements IDropdown {
 		return $this->options['container-classes'];
 	}
 
-		/**
-		 * @return array
-		 */
+	/**
+	 * @return array
+	 */
 	public function getButtonClasses() : array {
 		return $this->options['button-classes'];
 	}
 
-		/**
-		 * @return array
-		 */
+	/**
+	 * @return array
+	 */
 	public function getMenuClasses() : array {
 		return $this->options['menu-classes'];
 	}

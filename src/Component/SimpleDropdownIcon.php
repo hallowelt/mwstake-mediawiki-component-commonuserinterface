@@ -3,10 +3,10 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use Message;
-use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownButton;
+use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownIcon;
 use RawMessage;
 
-class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
+class SimpleDropdown extends ComponentBase implements IDropdownIcon {
 	/**
 	 *
 	 * @param array $options
@@ -14,13 +14,13 @@ class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 	public function __construct( $options ) {
 		$this->options = array_merge(
 			[
-				'id' => 'simple-dropdown-button',
-				'text' => new RawMessage( 'simple dropdown button' ),
-				'title' => new RawMessage( 'simple dropdown button' ),
-				'aria-label' => new RawMessage( 'simple dropdown button' ),
+				'id' => 'simple-dropdown',
+				'title' => new RawMessage( 'simple dropdown' ),
+				'aria-label' => new RawMessage( 'simple dropdown' ),
 				'items' => [],
 				'container-classes' => [],
 				'button-classes' => [],
+				'icon-classes' => [],
 				'menu-classes' => []
 			],
 			$options
@@ -63,10 +63,10 @@ class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 	}
 
 	/**
-	 * @return Message
+	 * @return array
 	 */
-	public function getText() : Message {
-		return $this->options['text'];
+	public function getIconClasses() : array {
+		return $this->options['icon-classes'];
 	}
 
 	/**
