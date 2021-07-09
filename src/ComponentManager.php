@@ -120,6 +120,17 @@ class ComponentManager {
 
 	/**
 	 *
+	 * @param IComponent $component
+	 * @return array
+	 */
+	public function getCustomComponentTree( $component ) {
+		$tree = [];
+		$this->processComponent( $component, $tree );
+		return $tree;
+	}
+
+	/**
+	 *
 	 * @param string $slotId
 	 * @return array
 	 */

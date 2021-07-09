@@ -4,6 +4,7 @@ use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentDataTreeRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
+use MWStake\MediaWiki\Component\CommonUserInterface\GenericComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\HtmlIdRegistry;
 use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
@@ -51,5 +52,15 @@ return [
 	'MWStakeCommonUIHtmlIdRegistry' => function ( MediaWikiServices $services ) {
 		$registry = HtmlIdRegistry::singleton();
 		return $registry;
+	},
+
+
+	'MWStakeCommonUIGenericComponentRenderer' => function ( MediaWikiServices $services ) {
+		$renderer = new GenericComponentRenderer(
+			$services->get( 'MWStakeCommonUIComponentManager' ),
+			$services->get( 'MWStakeCommonUIRendererDataTreeBuilder' ),
+			$services->get( 'MWStakeCommonUIComponentDataTreeRenderer' )
+		);
+		return $renderer;
 	},
 ];

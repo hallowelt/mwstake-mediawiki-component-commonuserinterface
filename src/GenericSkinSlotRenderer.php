@@ -2,46 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-class GenericSkinSlotRenderer implements ISkinSlotRenderer {
-
-	/**
-	 *
-	 * @var ComponentManager
-	 */
-	private $componentManager = [];
-
-	/**
-	 *
-	 * @var RendererDataTreeBuilder
-	 */
-	private $rendererDataTreeBuilder = null;
-
-	/**
-	 *
-	 * @var ComponentDataTreeRenderer
-	 */
-	private $componentDataTreeRenderer = null;
-
-	/**
-	 *
-	 * @var string
-	 */
-	private $slotId = '';
-
-	/**
-	 *
-	 * @param ComponentManager $componentManager
-	 * @param RendererDataTreeBuilder $rendererDataTreeBuilder
-	 * @param ComponentDataTreeRenderer $componentDataTreeRenderer
-	 * @param string $slotId
-	 */
-	public function __construct( $componentManager, $rendererDataTreeBuilder,
-	$componentDataTreeRenderer, $slotId ) {
-		$this->componentManager = $componentManager;
-		$this->rendererDataTreeBuilder = $rendererDataTreeBuilder;
-		$this->componentDataTreeRenderer = $componentDataTreeRenderer;
-		$this->slotId = $slotId;
-	}
+class GenericSkinSlotRenderer extends SkinSlotRendererBase {
 
 	/**
 	 *
