@@ -15,18 +15,17 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 		$this->options = array_merge(
 			[
 				'id' => 'simple-dropdown-split-button',
-				'main-button-text' => new RawMessage( 'SimpleSplitButton' ),
-				'menu-button-text' => new RawMessage( 'SimpleSplitButton' ),
-				'main-button-title' => new RawMessage( 'SimpleSplitButton' ),
-				'main-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
-				'menu-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
+				'button-text' => new RawMessage( 'SimpleSplitButton' ),
+				'button-title' => new RawMessage( 'SimpleSplitButton' ),
+				'button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
+				'split-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'button-group-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'button-group-role' => 'button',
 				'items' => [],
 				'container-classes' => [],
 				'button-group-classes' => [],
-				'main-button-classes' => [],
-				'menu-button-classes' => [],
+				'button-classes' => [],
+				'split-button-classes' => [],
 				'menu-classes' => []
 			],
 			$options
@@ -64,15 +63,15 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	/**
 	 * @return array
 	 */
-	public function getMainButtonClasses() : array {
-		return $this->options['main-button-classes'];
+	public function getButtonClasses() : array {
+		return $this->options['button-classes'];
 	}
 
 		/**
 	 * @return array
 	 */
-	public function getMenuButtonClasses() : array {
-		return $this->options['menu-button-classes'];
+	public function getSplitButtonClasses() : array {
+		return $this->options['split-button-classes'];
 	}
 
 	/**
@@ -85,22 +84,22 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	/**
 	 * @return Message
 	 */
-	public function getMainButtonText() : Message {
-		return $this->options['main-button-text'];
+	public function getButtonText() : Message {
+		return $this->options['button-text'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getMainButtonTitle() : Message {
-		return $this->options['main-button-title'];
+	public function getButtonTitle() : Message {
+		return $this->options['button-title'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getMenuButtonTitle() : Message {
-		return $this->options['menu-button-title'];
+	public function getSplitButtonTitle() : Message {
+		return $this->options['split-button-title'];
 	}
 
 	/**
@@ -113,15 +112,15 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	/**
 	 * @return Message
 	 */
-	public function getMainButtonAriaLabel() : Message {
-		return $this->options['main-button-aria-label'];
+	public function getButtonAriaLabel() : Message {
+		return $this->options['button-aria-label'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getMenuButtonAriaLabel() : Message {
-		return $this->options['menu-button-aria-label'];
+	public function getSplitButtonAriaLabel() : Message {
+		return $this->options['split-button-aria-label'];
 	}
 
 	/**

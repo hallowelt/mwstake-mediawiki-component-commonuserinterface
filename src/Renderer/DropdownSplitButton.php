@@ -27,12 +27,12 @@ class DropdownSplitButton extends RendererBase {
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [
 			'id' => $component->getId(),
-			'main-btn-text' => $component->getMainButtonText()->text(),
-			'main-btn-title' => $component->getMainButtonTitle()->text(),
-			'menu-btn-title' => $component->getMenuButtonTitle()->text(),
+			'main-btn-text' => $component->getButtonText()->text(),
+			'main-btn-title' => $component->getButtonTitle()->text(),
+			'menu-btn-title' => $component->getSplitButtonTitle()->text(),
 			'btn-group-aria-label' => $component->getButtonGroupAriaLabel()->text(),
-			'main-btn-aria-label' => $component->getMainButtonAriaLabel()->text(),
-			'menu-btn-aria-label' => $component->getMenuButtonAriaLabel()->text(),
+			'main-btn-aria-label' => $component->getButtonAriaLabel()->text(),
+			'menu-btn-aria-label' => $component->getSplitButtonAriaLabel()->text(),
 			'btn-group-role' => $component->getButtonGroupRole(),
 			'body' => $subComponentNodes,
 		];
@@ -45,19 +45,19 @@ class DropdownSplitButton extends RendererBase {
 					]
 				);
 			}
-			if ( !empty( $component->getMainButtonClasses() ) ) {
+			if ( !empty( $component->getButtonClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'main-btn-class' => implode( ' ', $component->getMainButtonClasses() )
+						'main-btn-class' => implode( ' ', $component->getButtonClasses() )
 					]
 				);
 			}
-			if ( !empty( $component->getMenuButtonClasses() ) ) {
+			if ( !empty( $component->getSplitButtonClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'main-btn-class' => implode( ' ', $component->getMenuButtonClasses() )
+						'main-btn-class' => implode( ' ', $component->getSplitButtonClasses() )
 					]
 				);
 			}

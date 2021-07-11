@@ -20,7 +20,7 @@ class SimpleDropdownItemlist extends ComponentBase implements IDropdownItemlist 
 			[
 				'id' => 'simple-dropdown-list',
 				'links' => [],
-				'classes' => ''
+				'classes' => []
 			],
 			$options
 		);

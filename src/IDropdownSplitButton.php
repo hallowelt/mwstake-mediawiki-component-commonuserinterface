@@ -19,12 +19,12 @@ interface IDropdownSplitButton extends IComponent {
 	/**
 	 * @return string[]
 	 */
-	public function getMainButtonClasses() : array;
+	public function getButtonClasses() : array;
 
 	/**
 	 * @return string[]
 	 */
-	public function getMenuButtonClasses() : array;
+	public function getSplitButtonClasses() : array;
 
 	/**
 	 * @return string[]
@@ -34,17 +34,17 @@ interface IDropdownSplitButton extends IComponent {
 	/**
 	 * @return Message
 	 */
-	public function getMainButtonText() : Message;
+	public function getButtonText() : Message;
 
 	/**
 	 * @return Message
 	 */
-	public function getMainButtonTitle() : Message;
+	public function getButtonTitle() : Message;
 
 		/**
 	 * @return Message
 	 */
-	public function getMenuButtonTitle() : Message;
+	public function getSplitButtonTitle() : Message;
 
 	/**
 	 * @return Message
@@ -54,12 +54,12 @@ interface IDropdownSplitButton extends IComponent {
 	/**
 	 * @return Message
 	 */
-	public function getMainButtonAriaLabel() : Message;
+	public function getButtonAriaLabel() : Message;
 
 	/**
 	 * @return Message
 	 */
-	public function getMenuButtonAriaLabel() : Message;
+	public function getSplitButtonAriaLabel() : Message;
 
 	/**
 	 * One of the `ARIARole::*` constants
