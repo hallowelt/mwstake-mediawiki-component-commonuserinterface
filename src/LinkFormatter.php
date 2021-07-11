@@ -2,7 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-class Formatter {
+class LinkFormatter {
 	/**
 	 * @return StdClass
 	 */
@@ -47,7 +47,8 @@ class Formatter {
 			}
 
 			if ( isset( $link['data'] ) && !empty( $link['data'] ) ) {
-				$link['data'] = $this->makeDataAttributes( $link['data'] );
+				$dataAttributesBuilder = new DataAttributesBuilder();
+				$link['data'] = $dataAttributesBuilder->build( $link['data'] );
 			}
 
 			$params[] = $link;
@@ -55,19 +56,4 @@ class Formatter {
 
 		return $params;
  }
-
-	/**
-	 * @param array $data
-	 * @return array
-	 */
-	public function makeDataAttributes( $data ) : array {
-		$attribs = [];
-
-		foreach ( $data  as $key => $value ) {
-			$attrib = 'data-' . $key . '="' . $value . '"';
-			array_push( $attribs, $attrib );
-		}
-
-		return $attribs;
-	}
 }

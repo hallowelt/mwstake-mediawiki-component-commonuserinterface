@@ -3,7 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
+use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlist;
 
@@ -46,8 +46,8 @@ class DropdownItemlist extends RendererBase {
 				);
 			}
 			if ( !empty( $component->getLinks() ) ) {
-				$formatter = new Formatter();
-				$templateData['links'] = $formatter->formatLinks( $component->getLinks() );
+				$linkFormatter = new LinkFormatter();
+				$templateData['links'] = $linkFormatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

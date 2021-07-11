@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\ICollapsibleCard;
 
 class CollapsibleCard extends RendererBase {
@@ -11,7 +12,7 @@ class CollapsibleCard extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname() : string {
-		return $this->templateBasePath . 'card.mustache';
+		return $this->templateBasePath . 'collapsible-card.mustache';
 	}
 
 	/**
@@ -22,7 +23,6 @@ class CollapsibleCard extends RendererBase {
 			'id' => $component->getId(),
 			'text' => $component->getText()->text(),
 			'title' => $component->getTitle()->text(),
-			'aria-label' => $component->getAriaLabel()->text(),
 			'body' => $subComponentNodes,
 		];
 
@@ -52,22 +52,23 @@ class CollapsibleCard extends RendererBase {
 					]
 				);
 			}
+			$aria = [
+				'label' => $component->getAriaLabel()->text(),
+				'controls' => $component->getId() . '-body'
+			];
 			if ( $component->getExpandedState() ) {
-				$templateData = array_merge(
-					$templateData,
-					[
-						'expanded' => 'true'
-					]
-				);
+				$aria['expanded'] = 'true';
 			} else {
-				$templateData = array_merge(
-					$templateData,
-					[
-						'expanded' => 'false'
-					]
-				);
+				$aria['expanded'] = 'false';
 			}
-
+			$ariaAttributesBuilder = new AriaAttributesBuilder();
+			$templateData = array_merge(
+				$templateData,
+				[
+					'aria' => implode( ' ', $ariaAttributesBuilder->build( $aria ) )
+				]
+			);
+			var_dump($templateData['aria']);
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}

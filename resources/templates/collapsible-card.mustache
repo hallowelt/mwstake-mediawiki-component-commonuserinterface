@@ -1,6 +1,6 @@
 <div class="card{{#cnt-class}} {{{.}}}{{/cnt-class}}" id="{{id}}">
 		<div class="card-header{{#header-class}} {{{.}}}{{/header-class}}">
-			<a href="#{{id}}-body" data-bs-toggle="collapse" role="button"{{#title}} title="{{{.}}}"{{/title}} aria-label="{{aria-label}}" aria-expanded="{{expanded}}" aria-controls="{{id}}-body" >{{{text}}}</a>
+			<a href="#{{id}}-body" data-bs-toggle="collapse" role="button"{{#title}} title="{{{.}}}"{{/title}}{{#aria}} {{{.}}}{{/aria}} >{{{text}}}</a>
 		</div>
 		<div {{#body-class}}class="{{{.}}}"{{/body-class}} id="{{id}}-body">
 		{{{body}}}

@@ -3,7 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\Formatter;
+use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\ICardLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
@@ -38,8 +38,8 @@ class CardLink extends RendererBase {
 
 			$data = $component->getDataAttributes();
 			if ( !empty( $data ) ) {
-				$formatter = new Formatter();
-				$templateData['data'] = $formatter->makeDataAttributes( $data );
+				$dataAttributesBuilder = new DataAttributesBuilder();
+				$templateData['data'] = $dataAttributesBuilder->build( $data );
 			}
 			$role = $component->getRole();
 			if ( !empty( $role ) ) {
