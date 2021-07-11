@@ -1,8 +1,12 @@
 <div class="dropdown{{#cnt-class}} {{{.}}}{{/cnt-class}}">
-	<button class="dropdown-toggle{{#btn-class}} {{{.}}}{{/btn-class}}"{{#id}} id={{{.}}}{{/id}} title="{{title}}" {{#data}}{{{.}}}{{/data}}data-bs-toggle="dropdown" aria-haspopup="true" aria-label="{{{btn-aria-label}}}" aria-expanded="false" aria-controls="{{{id}}}-menu">
-		<span>{{{text}}}</span>
-	</button>
-	<div id="{{id}}-menu" class="dropdown-menu{{#menu-class}} {{{.}}}{{/menu-class}}" aria-labelledby="{{id}}">
-		{{{body}}}
+	<div class="btn-group{{#btn-group-class}} {{{.}}}{{/btn-group-class}}" role="{{btn-group-role}}" aria-label="{{btn-group-aria-label}}">
+		<button {{#main-btn-class}}class="{{{.}}}"{{/main-btn-class}}{{#id}} id={{{.}}}{{/id}} title="{{main-btn-title}}" {{#main-btn-data}}{{{.}}}{{/main-btn-data}} aria-haspopup="true" aria-label="{{{main-btn-aria-label}}}">
+			<span>{{{main-btn-text}}}</span>
+		</button>
+		<button class="dropdown-toggle{{#menu-btn-class}} {{{.}}}{{/menu-btn-class}}"{{#id}} id="{{{.}}}-men-btn"{{/id}} title="{{menu-btn-title}}" {{#menu-btn-data}}{{{.}}}{{/menu-btn-data}}data-bs-toggle="dropdown" aria-haspopup="true" aria-label="{{{menu-btn-aria-label}}}" aria-expanded="false" aria-controls="{{{id}}}-menu">
+		</button>
+		<div id="{{id}}-menu" class="dropdown-menu{{#menu-class}} {{{.}}}{{/menu-class}}" aria-labelledby="{{id}}-men-btn">
+			{{{body}}}
+		</div>
 	</div>
 </div>

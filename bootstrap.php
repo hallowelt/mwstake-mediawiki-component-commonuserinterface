@@ -74,6 +74,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
 	'dropdown-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownButton',
 	'dropdown-icon' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownIcon',
+	'dropdown-split-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdownSplitButton',
 	'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ISeparator',
 	'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICard',
 	'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ICardHeader',
@@ -88,6 +89,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroup',
 	'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILink',
 	'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
+	'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButtonGroup',
 ];
 
 /**
@@ -106,6 +108,7 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
 		'dropdown-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownButton',
 		'dropdown-icon' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownIcon',
+		'dropdown-split-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownSplitButton',
 		'separator' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Separator',
 		'card' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'card-header' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\CardHeader',
@@ -120,6 +123,7 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroup',
 		'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
+		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 	]
 ];
 
