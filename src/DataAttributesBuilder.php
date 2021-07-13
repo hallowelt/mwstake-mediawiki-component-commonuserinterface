@@ -24,4 +24,14 @@ class DataAttributesBuilder {
 
 		return $attribs;
 	}
+
+	/**
+	 * @param array $data
+	 * @return string
+	 */
+	public function toString( $data ) : string {
+		$attribs = $this->build( $data );
+
+		return implode( ' ', $attribs );
+	}
 }

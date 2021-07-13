@@ -39,7 +39,7 @@ class CardLink extends RendererBase {
 			$data = $component->getDataAttributes();
 			if ( !empty( $data ) ) {
 				$dataAttributesBuilder = new DataAttributesBuilder();
-				$templateData['data'] = $dataAttributesBuilder->build( $data );
+				$templateData['data'] = $dataAttributesBuilder->toString( $data );
 			}
 			$role = $component->getRole();
 			if ( !empty( $role ) ) {

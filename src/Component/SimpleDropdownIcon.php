@@ -21,7 +21,8 @@ class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 				'container-classes' => [],
 				'button-classes' => [],
 				'icon-classes' => [],
-				'menu-classes' => []
+				'menu-classes' => [],
+				'tabindex' => '0'
 			],
 			$options
 		);
@@ -81,5 +82,13 @@ class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 	 */
 	public function getAriaLabel() : Message {
 		return $this->options['aria-label'];
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	public function getTabindex() : string {
+		return $this->options['tabindex'];
 	}
 }

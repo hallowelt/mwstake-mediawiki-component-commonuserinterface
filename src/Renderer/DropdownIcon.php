@@ -30,6 +30,7 @@ class DropdownIcon extends RendererBase {
 			'title' => $component->getTitle()->text(),
 			'btn-aria-label' => $component->getAriaLabel()->text(),
 			'body' => $subComponentNodes,
+			'tabindex' => $component->getTabindex()
 		];
 		if ( $component instanceof IDropdownIcon ) {
 			if ( !empty( $component->getContainerClasses() ) ) {

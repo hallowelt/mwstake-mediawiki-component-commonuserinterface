@@ -65,7 +65,7 @@ class CollapsibleCard extends RendererBase {
 			$templateData = array_merge(
 				$templateData,
 				[
-					'aria' => implode( ' ', $ariaAttributesBuilder->build( $aria ) )
+					'aria' => $ariaAttributesBuilder->toString( $aria )
 				]
 			);
 			var_dump($templateData['aria']);
