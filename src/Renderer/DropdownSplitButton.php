@@ -27,12 +27,12 @@ class DropdownSplitButton extends RendererBase {
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [
 			'id' => $component->getId(),
-			'main-btn-text' => $component->getButtonText()->text(),
-			'main-btn-title' => $component->getButtonTitle()->text(),
-			'menu-btn-title' => $component->getSplitButtonTitle()->text(),
+			'btn-text' => $component->getButtonText()->text(),
+			'btn-title' => $component->getButtonTitle()->text(),
+			'split-btn-title' => $component->getSplitButtonTitle()->text(),
 			'btn-group-aria-label' => $component->getButtonGroupAriaLabel()->text(),
-			'main-btn-aria-label' => $component->getButtonAriaLabel()->text(),
-			'menu-btn-aria-label' => $component->getSplitButtonAriaLabel()->text(),
+			'btn-aria-label' => $component->getButtonAriaLabel()->text(),
+			'split-btn-aria-label' => $component->getSplitButtonAriaLabel()->text(),
 			'btn-group-role' => $component->getButtonGroupRole(),
 			'body' => $subComponentNodes,
 		];
@@ -49,7 +49,7 @@ class DropdownSplitButton extends RendererBase {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'main-btn-class' => implode( ' ', $component->getButtonClasses() )
+						'btn-class' => implode( ' ', $component->getButtonClasses() )
 					]
 				);
 			}
@@ -57,7 +57,7 @@ class DropdownSplitButton extends RendererBase {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'main-btn-class' => implode( ' ', $component->getSplitButtonClasses() )
+						'split-btn-class' => implode( ' ', $component->getSplitButtonClasses() )
 					]
 				);
 			}
