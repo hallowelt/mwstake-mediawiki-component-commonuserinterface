@@ -49,7 +49,7 @@ class DropdownIcon extends RendererBase {
 					]
 				);
 			}
-			if ( !empty( $component->getButtonClasses() ) ) {
+			if ( !empty( $component->getIconClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[

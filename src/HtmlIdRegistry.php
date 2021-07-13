@@ -52,7 +52,7 @@ class HtmlIdRegistry {
 		if ( !in_array( $id, $this->htmlIds ) ) {
 			$newId = Sanitizer::escapeIdForAttribute( $id );
 			array_push( $this->htmlIds, $newId );
-			return Sanitizer::escapeIdForAttribute( $newId );
+			return $newId;
 		}
 
 		for ( $suffix = 1; $suffix <= $this->limit; $suffix++ ) {
