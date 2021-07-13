@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Sanitizer;
+
 class HtmlIdRegistry {
 
 	/**
@@ -48,12 +50,13 @@ class HtmlIdRegistry {
 	 */
 	public function makeHtmlIdSafe( $id ) : string {
 		if ( !in_array( $id, $this->htmlIds ) ) {
-			array_push( $this->htmlIds, $id );
-			return $id;
+			$newId = Sanitizer::escapeIdForAttribute( $id );
+			array_push( $this->htmlIds, $newId );
+			return Sanitizer::escapeIdForAttribute( $newId );
 		}
 
 		for ( $suffix = 1; $suffix <= $this->limit; $suffix++ ) {
-			$newId = $id . '-' . $suffix;
+			$newId = Sanitizer::escapeIdForAttribute( $id . '-' . $suffix );
 			if ( !in_array( $newId, $this->htmlIds ) ) {
 				$id = $newId;
 				array_push( $this->htmlIds, $id );
