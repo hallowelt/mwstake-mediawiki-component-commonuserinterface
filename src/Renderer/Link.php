@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILink;
@@ -51,6 +52,16 @@ class Link extends RendererBase {
 			if ( ( $component->getRel() !== '' ) ) {
 				$templateData['rel'] = $component->getRel();
 			}
+			$aria = [
+				'label' => $component->getAriaLabel()->text()
+			];
+			$ariaAttributesBuilder = new AriaAttributesBuilder();
+			$templateData = array_merge(
+				$templateData,
+				[
+					'aria' => $ariaAttributesBuilder->toString( $aria )
+				]
+			);
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
@@ -64,6 +75,6 @@ class Link extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname(): string {
-		return $this->templateBasePath . '/card-link.mustache';
+		return $this->templateBasePath . '/link.mustache';
 	}
 }

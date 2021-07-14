@@ -20,8 +20,9 @@ class SimpleButton extends ComponentBase implements IButton {
 	 */
 	public function __construct( $options ) {
 		$this->options = array_merge( [
-			'aria-label' => new RawMessage( 'Some aria-label' ),
-			'text' => new RawMessage( 'Some text' ),
+			'id' => 'simple-button',
+			'aria-label' => new RawMessage( 'SimpleButton' ),
+			'text' => new RawMessage( 'SimpleButton' ),
 			'classes' => [],
 			'disabled' => false
 		], $options );

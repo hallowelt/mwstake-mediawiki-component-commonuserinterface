@@ -68,7 +68,6 @@ class CollapsibleCard extends RendererBase {
 					'aria' => $ariaAttributesBuilder->toString( $aria )
 				]
 			);
-			var_dump($templateData['aria']);
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
