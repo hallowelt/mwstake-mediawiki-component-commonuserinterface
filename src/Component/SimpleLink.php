@@ -20,10 +20,10 @@ class SimpleLink extends ComponentBase implements ILink {
 				'classes' => [],
 				'href' => '',
 				'title' => new RawMessage( 'SimpleLink' ),
-				'text' => new RawMessage( 'SimpleLink' ),
 				'aria-label' => new RawMessage( 'SimpleLink' ),
 				'rel' => '',
-				'data' => []
+				'data' => [],
+				'items' => []
 			],
 			$options
 		);
@@ -39,6 +39,13 @@ class SimpleLink extends ComponentBase implements ILink {
 	/**
 	 * @inheritDoc
 	 */
+	public function getSubComponents(): array {
+		return $this->options['items'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getClasses(): array {
 		return $this->options['classes'];
 	}
@@ -48,13 +55,6 @@ class SimpleLink extends ComponentBase implements ILink {
 	 */
 	public function getRole(): string {
 		return $this->options['role'];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getText(): Message {
-		return $this->options['text'];
 	}
 
 	/**

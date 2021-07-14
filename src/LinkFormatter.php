@@ -43,7 +43,7 @@ class LinkFormatter {
 			} elseif ( is_string( $key ) ) {
 				$link['title'] = $this->checkForMessage( $key );
 			} else {
-				$link['title'] = $link['text'];
+				unset( $link['title'] );
 			}
 
 			if ( isset( $link['data'] ) && !empty( $link['data'] ) ) {

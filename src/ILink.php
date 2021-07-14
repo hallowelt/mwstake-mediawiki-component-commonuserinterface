@@ -29,11 +29,6 @@ interface ILink {
 	/**
 	 * @return Message
 	 */
-	public function getText() : Message;
-
-	/**
-	 * @return Message
-	 */
 	public function getAriaLabel() : Message;
 
 	/**

@@ -32,9 +32,8 @@ class Link extends RendererBase {
 			$templateData = [
 				'id' => $component->getId(),
 				'title' => $component->getTitle()->text(),
-				'text' => $component->getText()->text(),
-				'aria-label' => $component->getAriaLabel()->text(),
-				'href' => $component->getHref()
+				'href' => $component->getHref(),
+				'body' => $subComponentNodes
 			];
 
 			$data = $component->getDataAttributes();
