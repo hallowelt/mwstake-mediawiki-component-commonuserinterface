@@ -46,7 +46,7 @@ class Button extends RendererBase {
 					]
 				);
 			}
-			if ( empty( $component->isDisabled() ) ) {
+			if ( $component->isDisabled() ) {
 				$templateData = array_merge(
 					$templateData,
 					[

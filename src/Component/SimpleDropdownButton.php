@@ -18,6 +18,7 @@ class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 				'text' => new RawMessage( 'simple dropdown button' ),
 				'title' => new RawMessage( 'simple dropdown button' ),
 				'aria-label' => new RawMessage( 'simple dropdown button' ),
+				'disabled' => false,
 				'items' => [],
 				'container-classes' => [],
 				'button-classes' => [],
@@ -81,5 +82,13 @@ class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 	 */
 	public function getAriaLabel() : Message {
 		return $this->options['aria-label'];
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	public function isDisabled() : bool {
+		return $this->options['disabled'];
 	}
 }

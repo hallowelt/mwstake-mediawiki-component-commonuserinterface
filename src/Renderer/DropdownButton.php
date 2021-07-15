@@ -57,6 +57,14 @@ class DropdownButton extends RendererBase {
 					]
 				);
 			}
+			if ( $component->isDisabled() ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'disabled' => 'disabled'
+					]
+				);
+			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}

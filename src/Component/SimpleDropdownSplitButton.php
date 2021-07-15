@@ -21,6 +21,8 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 				'split-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'button-group-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'button-group-role' => 'button',
+				'button-is-disabled' => false,
+				'split-button-is-disabled' => false,
 				'items' => [],
 				'container-classes' => [],
 				'button-group-classes' => [],
@@ -130,5 +132,21 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	 */
 	public function getButtonGroupRole() : string {
 		return $this->options['button-group-role'];
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	public function buttonIsDisabled() : bool {
+		return $this->options['button-disabled'];
+	}
+
+		/**
+	 *
+	 * @return bool
+	 */
+	public function splitButtonIsDisabled() : bool {
+		return $this->options['split-button-disabled'];
 	}
 }
