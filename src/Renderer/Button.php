@@ -47,10 +47,11 @@ class Button extends RendererBase {
 				);
 			}
 			if ( $component->isDisabled() ) {
+				$class = $templateData['class'];
 				$templateData = array_merge(
 					$templateData,
 					[
-						'disabled' => 'disabled'
+						'class' => $class . ' disabled'
 					]
 				);
 			}
