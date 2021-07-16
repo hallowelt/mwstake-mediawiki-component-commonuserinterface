@@ -77,21 +77,19 @@ class DropdownSplitButton extends RendererBase {
 					]
 				);
 			}
-			if ( $component->buttonIsDisabled() ) {
-				$class = $templateData['btn-class'];
+			if ( !$component->buttonIsDisabled() ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'btn-class' => $class . ' disabled'
+						'btn-disabled' => 'true'
 					]
 				);
 			}
-			if ( $component->splitButtonIsDisabled() ) {
-				$class = $templateData['split-btn-class'];
+			if ( !$component->splitButtonIsDisabled() ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'split-btn-class' => $class . ' disabled'
+						'split-btn-disabled' => 'true'
 					]
 				);
 			}
