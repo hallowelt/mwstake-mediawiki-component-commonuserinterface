@@ -29,13 +29,15 @@ class ButtonGroup extends RendererBase {
 
 		/** @var IComponent $component */
 		if ( $component instanceof IButtonGroup ) {
-			if ( !empty( $component->getClasses() ) ) {
+			$templateData['aria-label'] = $component->getAriaLabel();
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
+			if ( !empty( $component->getRole() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'role' => $component->getRole(),
-						'aria-label' => $component->getAriaLabel(),
-						'body' => $subComponentNodes,
+						'role' => $component->getRole()
 					]
 				);
 			}

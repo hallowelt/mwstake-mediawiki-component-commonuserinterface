@@ -25,19 +25,15 @@ class Button extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'id' => $component->getId(),
-		];
+		$templateData = [];
 
 		/** @var IComponent $component */
 		if ( $component instanceof IButton ) {
-			$templateData = array_merge(
-				$templateData,
-				[
-					'text' => $component->getText()->text(),
-					'aria-label' => $component->getAriaLabel()
-				]
-			);
+			$templateData = [
+				'id' => $component->getId(),
+				'text' => $component->getText()->text(),
+				'aria-label' => $component->getAriaLabel()
+			];
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

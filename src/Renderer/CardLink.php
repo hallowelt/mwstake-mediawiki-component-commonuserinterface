@@ -26,6 +26,8 @@ class CardLink extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+		$templateData = [];
+
 		/** @var IComponent $component */
 		if ( $component instanceof ICardLink ) {
 			$templateData = [
@@ -35,7 +37,6 @@ class CardLink extends RendererBase {
 				'aria-label' => $component->getAriaLabel()->text(),
 				'href' => $component->getHref()
 			];
-
 			$data = $component->getDataAttributes();
 			if ( !empty( $data ) ) {
 				$dataAttributesBuilder = new DataAttributesBuilder();

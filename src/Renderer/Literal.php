@@ -25,17 +25,22 @@ class Literal extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+		$templateData = [];
+
 		/** @var IComponent $component */
 		if ( $component instanceof ILiteral ) {
-			$data = [
-				'id' => $component->getId(),
-				'text' => $component->getHtml()
-			];
+			$templateData = array_merge(
+				$templateData,
+				[
+					'id' => $component->getId(),
+					'text' => $component->getHtml()
+				]
+			);
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
 
-		return $data;
+		return $templateData;
 	}
 
 	/**

@@ -27,15 +27,19 @@ class Link extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+		$templateData = [];
+
 		/** @var IComponent $component */
 		if ( $component instanceof ILink ) {
 			$templateData = [
 				'id' => $component->getId(),
 				'title' => $component->getTitle()->text(),
 				'href' => $component->getHref(),
-				'body' => $subComponentNodes
 			];
 
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			$data = $component->getDataAttributes();
 			if ( !empty( $data ) ) {
 				$dataAttributesBuilder = new DataAttributesBuilder();

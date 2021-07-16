@@ -25,14 +25,18 @@ class DropdownIcon extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'id' => $component->getId(),
-			'title' => $component->getTitle()->text(),
-			'btn-aria-label' => $component->getAriaLabel()->text(),
-			'body' => $subComponentNodes,
-			'tabindex' => $component->getTabindex()
-		];
+		$templateData = [];
+
 		if ( $component instanceof IDropdownIcon ) {
+			$templateData = [
+				'id' => $component->getId(),
+				'title' => $component->getTitle()->text(),
+				'btn-aria-label' => $component->getAriaLabel()->text(),
+				'tabindex' => $component->getTabindex()
+			];
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

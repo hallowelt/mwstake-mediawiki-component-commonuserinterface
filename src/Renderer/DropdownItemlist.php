@@ -26,17 +26,13 @@ class DropdownItemlist extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+		$templateData = [];
+
 		/** @var IComponent $component */
 		if ( $component instanceof IDropdownItemlist ) {
-			$templateData = [];
-			if ( $component->getId() !== '' ) {
-				$templateData = array_merge(
-					$templateData,
-					[
-						'list-id' => $component->getId()
-					]
-				);
-			}
+			$templateData = [
+					'list-id' => $component->getId()
+			];
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

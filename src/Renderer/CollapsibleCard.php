@@ -19,15 +19,18 @@ class CollapsibleCard extends RendererBase {
 	 * @inheritDoc
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'id' => $component->getId(),
-			'text' => $component->getText()->text(),
-			'title' => $component->getTitle()->text(),
-			'body' => $subComponentNodes,
-		];
+		$templateData = [];
 
 		/** @var IComponent $component */
 		if ( $component instanceof ICollapsibleCard ) {
+			$templateData = [
+				'id' => $component->getId(),
+				'text' => $component->getText()->text(),
+				'title' => $component->getTitle()->text()
+			];
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

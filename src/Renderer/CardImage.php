@@ -18,20 +18,16 @@ class CardImage extends RendererBase {
 	 * @inheritDoc
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-				'id' => $component->getId(),
-		];
+		$templateData = [];
 
 		/** @var IComponent $component */
 		if ( $component instanceof ICardImage ) {
-			$templateData = array_merge(
-				$templateData,
-				[
-					'type' => $component->getImageType(),
-					'src' => $component->getImageSrc(),
-					'alt' => $component->getImageAltText()->text()
-				]
-			);
+			$templateData = [
+				'id' => $component->getId(),
+				'type' => $component->getImageType(),
+				'src' => $component->getImageSrc(),
+				'alt' => $component->getImageAltText()->text()
+			];
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

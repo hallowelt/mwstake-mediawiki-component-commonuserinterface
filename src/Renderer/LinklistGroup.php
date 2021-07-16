@@ -26,6 +26,8 @@ class LinklistGroup extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+		$templateData = [];
+
 		/** @var IComponent $component */
 		if ( $component instanceof ILinklistGroup ) {
 			$templateData = [

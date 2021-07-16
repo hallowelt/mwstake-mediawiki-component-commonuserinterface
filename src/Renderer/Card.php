@@ -18,13 +18,16 @@ class Card extends RendererBase {
 	 * @inheritDoc
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'id' => $component->getId(),
-			'body' => $subComponentNodes,
-		];
+		$templateData = [];
 
 		/** @var IComponent $component */
 		if ( $component instanceof ICard ) {
+			$templateData = [
+				'id' => $component->getId()
+			];
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

@@ -25,18 +25,22 @@ class DropdownSplitButton extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'id' => $component->getId(),
-			'btn-text' => $component->getButtonText()->text(),
-			'btn-title' => $component->getButtonTitle()->text(),
-			'split-btn-title' => $component->getSplitButtonTitle()->text(),
-			'btn-group-aria-label' => $component->getButtonGroupAriaLabel()->text(),
-			'btn-aria-label' => $component->getButtonAriaLabel()->text(),
-			'split-btn-aria-label' => $component->getSplitButtonAriaLabel()->text(),
-			'btn-group-role' => $component->getButtonGroupRole(),
-			'body' => $subComponentNodes,
-		];
+		$templateData = [];
+
 		if ( $component instanceof IDropdownSplitButton ) {
+			$templateData = [
+				'id' => $component->getId(),
+				'btn-text' => $component->getButtonText()->text(),
+				'btn-title' => $component->getButtonTitle()->text(),
+				'split-btn-title' => $component->getSplitButtonTitle()->text(),
+				'btn-group-aria-label' => $component->getButtonGroupAriaLabel()->text(),
+				'btn-aria-label' => $component->getButtonAriaLabel()->text(),
+				'split-btn-aria-label' => $component->getSplitButtonAriaLabel()->text(),
+				'btn-group-role' => $component->getButtonGroupRole()
+			];
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,

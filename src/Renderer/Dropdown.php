@@ -25,14 +25,18 @@ class Dropdown extends RendererBase {
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
-		$templateData = [
-			'id' => $component->getId(),
-			'text' => $component->getText()->text(),
-			'title' => $component->getTitle()->text(),
-			'btn-aria-label' => $component->getAriaLabel()->text(),
-			'body' => $subComponentNodes,
-		];
+		$templateData = [];
+
 		if ( $component instanceof IDropdown ) {
+			$templateData = [
+				'id' => $component->getId(),
+				'text' => $component->getText()->text(),
+				'title' => $component->getTitle()->text(),
+				'btn-aria-label' => $component->getAriaLabel()->text()
+			];
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
