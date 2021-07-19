@@ -5,9 +5,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlist;
+use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlistFromArray;
 
-class DropdownItemlist extends RendererBase {
+class DropdownItemlistFromArray extends RendererBase {
 
 	/**
 	 *
@@ -15,7 +15,7 @@ class DropdownItemlist extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof IDropdownItemlist;
+		return $component instanceof IDropdownItemlistFromArray;
 	}
 
 	/**
@@ -29,10 +29,9 @@ class DropdownItemlist extends RendererBase {
 		$templateData = [];
 
 		/** @var IComponent $component */
-		if ( $component instanceof IDropdownItemlist ) {
+		if ( $component instanceof IDropdownItemlistFromArray ) {
 			$templateData = [
-					'list-id' => $component->getId(),
-					'body' => $subComponentNodes
+					'list-id' => $component->getId()
 			];
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
@@ -41,6 +40,10 @@ class DropdownItemlist extends RendererBase {
 						'list-class' => implode( ' ', $component->getClasses() )
 					]
 				);
+			}
+			if ( !empty( $component->getLinks() ) ) {
+				$linkFormatter = new LinkFormatter();
+				$templateData['links'] = $linkFormatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

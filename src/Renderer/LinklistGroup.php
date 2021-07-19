@@ -31,7 +31,8 @@ class LinklistGroup extends RendererBase {
 		/** @var IComponent $component */
 		if ( $component instanceof ILinklistGroup ) {
 			$templateData = [
-				'cnt-id' => $component->getId()
+				'cnt-id' => $component->getId(),
+				'body' => $subComponentNodes
 			];
 
 			if ( !empty( $component->getContainerClasses() ) ) {
@@ -41,10 +42,6 @@ class LinklistGroup extends RendererBase {
 						'cnt-class' => implode( ' ', $component->getContainerClasses() )
 					]
 				);
-			}
-			if ( !empty( $component->getLinks() ) ) {
-				$linkFormatter = new LinkFormatter();
-				$templateData['links'] = $linkFormatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

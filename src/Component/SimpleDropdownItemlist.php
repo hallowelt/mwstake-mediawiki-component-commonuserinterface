@@ -19,18 +19,11 @@ class SimpleDropdownItemlist extends ComponentBase implements IDropdownItemlist 
 		$this->options = array_merge(
 			[
 				'id' => 'simple-dropdown-list',
-				'links' => [],
-				'classes' => []
+				'classes' => [],
+				'items' => []
 			],
 			$options
 		);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getLinks() : array {
-		return $this->options['links'];
 	}
 
 	/**

@@ -2,10 +2,15 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-interface ILinklistGroup {
+interface ILinklistGroupFromArray {
 
 	/**
 	 * @return string[]
 	 */
 	public function getContainerClasses() : array;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getLinks() : array;
 }

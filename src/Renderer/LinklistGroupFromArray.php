@@ -5,9 +5,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlist;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupFromArray;
 
-class DropdownItemlist extends RendererBase {
+class LinklistGroupFromArray extends RendererBase {
 
 	/**
 	 *
@@ -15,13 +15,13 @@ class DropdownItemlist extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof IDropdownItemlist;
+		return $component instanceof ILinklistGroupFromArray;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param IDropdownItemlist $component
+	 * @param ILinklistGroup $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
@@ -29,18 +29,22 @@ class DropdownItemlist extends RendererBase {
 		$templateData = [];
 
 		/** @var IComponent $component */
-		if ( $component instanceof IDropdownItemlist ) {
+		if ( $component instanceof ILinklistGroupFromArray ) {
 			$templateData = [
-					'list-id' => $component->getId(),
-					'body' => $subComponentNodes
+				'cnt-id' => $component->getId()
 			];
-			if ( !empty( $component->getClasses() ) ) {
+
+			if ( !empty( $component->getContainerClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'list-class' => implode( ' ', $component->getClasses() )
+						'cnt-class' => implode( ' ', $component->getContainerClasses() )
 					]
 				);
+			}
+			if ( !empty( $component->getLinks() ) ) {
+				$linkFormatter = new LinkFormatter();
+				$templateData['links'] = $linkFormatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
@@ -55,6 +59,6 @@ class DropdownItemlist extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname(): string {
-		return $this->templateBasePath . '/dropdown-itemlist.mustache';
+		return $this->templateBasePath . '/linklist-group.mustache';
 	}
 }

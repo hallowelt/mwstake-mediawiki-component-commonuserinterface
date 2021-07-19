@@ -2,10 +2,15 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-interface IDropdownItemlist {
+interface IDropdownItemlistFromArray {
 
 	/**
 	 * @return string[]
 	 */
 	public function getClasses() : array;
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getLinks() : array;
 }
