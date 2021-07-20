@@ -3,7 +3,6 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroup;
 
@@ -35,11 +34,11 @@ class LinklistGroup extends RendererBase {
 				'body' => $subComponentNodes
 			];
 
-			if ( !empty( $component->getContainerClasses() ) ) {
+			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'cnt-class' => implode( ' ', $component->getContainerClasses() )
+						'cnt-class' => implode( ' ', $component->getClasses() )
 					]
 				);
 			}

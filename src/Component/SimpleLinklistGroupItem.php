@@ -2,9 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroup;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupItem;
 
-class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
+class SimpleLinklistGroupItem extends ComponentBase implements ILinklistGroupItem {
 
 	/**
 	 *
@@ -18,7 +18,7 @@ class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
 	public function __construct( $options ) {
 		$this->options = array_merge(
 			[
-				'id' => 'simple-linklist-group',
+				'id' => 'simple-linklist-group-item',
 				'classes' => [],
 				'items' => []
 			],

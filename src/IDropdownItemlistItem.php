@@ -2,7 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-interface ILinklistGroup {
+interface IDropdownItemlistItem {
 
 	/**
 	 * @return string[]

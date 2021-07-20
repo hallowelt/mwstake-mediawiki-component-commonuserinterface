@@ -2,9 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroup;
+use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlistItem;
 
-class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
+class SimpleDropdownItemlistItem extends ComponentBase implements IDropdownItemlistItem {
 
 	/**
 	 *
@@ -18,7 +18,7 @@ class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
 	public function __construct( $options ) {
 		$this->options = array_merge(
 			[
-				'id' => 'simple-linklist-group',
+				'id' => 'simple-dropdown-list-item',
 				'classes' => [],
 				'items' => []
 			],
@@ -34,7 +34,8 @@ class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
 	}
 
 	/**
-	 * @return array
+	 *
+	 * @return string[]
 	 */
 	public function getClasses() : array {
 		return $this->options['classes'];

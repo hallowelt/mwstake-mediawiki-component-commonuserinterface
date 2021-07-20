@@ -3,11 +3,10 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupFromArray;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupItem;
 
-class LinklistGroupFromArray extends RendererBase {
+class LinklistGroupItem extends RendererBase {
 
 	/**
 	 *
@@ -15,13 +14,13 @@ class LinklistGroupFromArray extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof ILinklistGroupFromArray;
+		return $component instanceof ILinklistGroupItem;
 	}
 
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param ILinklistGroup $component
+	 * @param ILinklistGroupItem $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
@@ -29,22 +28,19 @@ class LinklistGroupFromArray extends RendererBase {
 		$templateData = [];
 
 		/** @var IComponent $component */
-		if ( $component instanceof ILinklistGroupFromArray ) {
+		if ( $component instanceof ILinklistGroupItem ) {
 			$templateData = [
-				'cnt-id' => $component->getId()
+				'cnt-id' => $component->getId(),
+				'body' => $subComponentNodes
 			];
 
-			if ( !empty( $component->getContainerClasses() ) ) {
+			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'cnt-class' => implode( ' ', $component->getContainerClasses() )
+						'cnt-class' => implode( ' ', $component->getClasses() )
 					]
 				);
-			}
-			if ( !empty( $component->getLinks() ) ) {
-				$linkFormatter = new LinkFormatter();
-				$templateData['links'] = $linkFormatter->formatLinks( $component->getLinks() );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
@@ -59,6 +55,6 @@ class LinklistGroupFromArray extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname(): string {
-		return $this->templateBasePath . '/linklist-group-from-array.mustache';
+		return $this->templateBasePath . '/linklist-group.mustache';
 	}
 }
