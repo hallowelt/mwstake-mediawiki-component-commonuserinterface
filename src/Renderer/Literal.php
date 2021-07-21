@@ -33,7 +33,7 @@ class Literal extends RendererBase {
 				$templateData,
 				[
 					'id' => $component->getId(),
-					'text' => $component->getHtml()
+					'body' => $component->getHtml()
 				]
 			);
 		} else {

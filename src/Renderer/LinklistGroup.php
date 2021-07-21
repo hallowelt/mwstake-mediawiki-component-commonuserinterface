@@ -30,15 +30,16 @@ class LinklistGroup extends RendererBase {
 		/** @var IComponent $component */
 		if ( $component instanceof ILinklistGroup ) {
 			$templateData = [
-				'cnt-id' => $component->getId(),
-				'body' => $subComponentNodes
+				'id' => $component->getId()
 			];
-
+			if ( !empty( $subComponentNodes ) ) {
+				$templateData['body'] = $subComponentNodes;
+			}
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'cnt-class' => implode( ' ', $component->getClasses() )
+						'class' => implode( ' ', $component->getClasses() )
 					]
 				);
 			}
