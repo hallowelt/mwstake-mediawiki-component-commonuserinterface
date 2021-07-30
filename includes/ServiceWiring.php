@@ -22,7 +22,8 @@ return [
 			RequestContext::getMain(),
 			$GLOBALS['mwsgCommonUISkinSlots'],
 			$GLOBALS['mwsgCommonUISkinSlotsEnabled'],
-			$services->getObjectFactory()
+			$services->getObjectFactory(),
+			$services->getHookContainer()
 		);
 
 		return $componentManager;

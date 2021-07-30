@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use IContextSource;
+use MediaWiki\HookContainer\HookContainer;
 use Wikimedia\ObjectFactory;
 
 class ComponentManager {
@@ -53,21 +54,29 @@ class ComponentManager {
 
 	/**
 	 *
+	 * @var HookContainer
+	 */
+	private $hookContainer = null;
+
+	/**
+	 *
 	 * @param IContextSource $context
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
+	 * @param HookContainer $hookContainer
 	 *
 	 * @return ComponentManager
 	 */
 	public static function singleton( IContextSource $context, $slotSpecs, $enabledSlots,
-	$objectFactory = null ) : ComponentManager {
+	$objectFactory = null, $hookContainer = null ) : ComponentManager {
 		if ( static::$instance == null ) {
 			static::$instance = new ComponentManager(
 				$context,
 				$slotSpecs,
 				$enabledSlots,
-				$objectFactory
+				$objectFactory,
+				$hookContainer
 			);
 			static::$instance->init();
 		}
@@ -81,15 +90,19 @@ class ComponentManager {
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
+	 * @param HookContainer $hookContainer
 	 */
 	public function __construct( IContextSource $context, $slotSpecs, $enabledSlots,
-		$objectFactory = null ) {
+		$objectFactory = null, $hookContainer = null ) {
 		$this->context = $context;
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
 		if ( $this->objectFactory instanceof ObjectFactory === false ) {
 			$this->objectFactory = \MediaWiki\MediaWikiServices::getInstance()->getObjectFactory();
+		}
+		if ( $this->hookContainer instanceof HookContainer === false ) {
+			$this->hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
 		}
 	}
 
@@ -104,8 +117,11 @@ class ComponentManager {
 	 * @return void
 	 */
 	public function init() {
+		$registry = new SkinSlotRegistry( $this->slotSpecs );
+		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $registry ] );
+
 		// Load all "skin slots", build up component trees, get RL modules to load from each component
-		foreach ( $this->slotSpecs as $slotId => $specs ) {
+		foreach ( $registry->getSkinSlots() as $slotId => $specs ) {
 			if ( !in_array( $slotId, $this->enabledSlots ) ) {
 				continue;
 			}
