@@ -68,6 +68,7 @@ $lessVars->setVar( 'content-h6-border', '' );
  */
 $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILiteral',
+	'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMessageLiteral',
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
 	'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IPanel',
 	'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IDropdown',
@@ -103,6 +104,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 	'*' => [
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
+		'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MessageLiteral',
 	],
 	'bootstrap5' => [
 		// phpcs:ignore
