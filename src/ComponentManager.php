@@ -108,12 +108,6 @@ class ComponentManager {
 
 	/**
 	 *
-	 * @var string
-	 */
-	private $currentSlot = '';
-
-	/**
-	 *
 	 * @return void
 	 */
 	public function init() {

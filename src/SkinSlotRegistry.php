@@ -6,18 +6,29 @@ class SkinSlotRegistry {
 
 	/**
 	 *
+	 * @var array
+	 */
+	private $slotSpecs = [];
+
+	/**
+	 *
+	 * @param array $slotSpecs
+	 */
+	public function __construct( $slotSpecs ) {
+		$this->slotSpecs = $slotSpecs;
+	}
+
+	/**
+	 *
 	 * @param string $skinSlot
 	 * @param IComponent[] $components
 	 * @return void
 	 */
 	public function register( $skinSlot, $components ) {
-		if ( !array_key_exists( $skinSlot, $GLOBALS['mwsgCommonUISkinSlots'] ) ) {
-			$GLOBALS['mwsgCommonUISkinSlots'][$skinSlot] = [];
+		if ( !array_key_exists( $skinSlot, $this->slotSpecs ) ) {
+			$this->slotSpecs[$skinSlot] = [];
 		}
-		array_merge(
-			$GLOBALS['mwsgCommonUISkinSlots'][$skinSlot],
-			$components
-		);
+		$this->slotSpecs[$skinSlot] = array_merge( $components, $this->slotSpecs[$skinSlot] );
 	}
 
 	/**
@@ -25,6 +36,6 @@ class SkinSlotRegistry {
 	 * @return array
 	 */
 	public function getSkinSlots() : array {
-		return $GLOBALS['mwsgCommonUISkinSlots'];
+		return $this->slotSpecs;
 	}
 }
