@@ -1,7 +1,7 @@
 <ul {{#cnt-id}} id="{{{.}}}" {{/cnt-id}}class="list-group{{#cnt-class}} {{{.}}}{{/cnt-class}}">
 	{{#links}}
 	<li class="list-group-item">
-		<a{{#id}} id="{{{.}}}"{{/id}} class="dropdown-item{{#class}} {{{.}}}{{/class}}" href="{{{href}}}" {{#title}} title="{{{.}}}"{{/title}}{{#data}} {{{.}}}{{/data}}>{{{text}}}</a>
+		<a{{#id}} id="{{{.}}}"{{/id}} class="{{#class}} {{{.}}}{{/class}}" href="{{{href}}}" {{#title}} title="{{{.}}}"{{/title}}{{#data}} {{{.}}}{{/data}}>{{{text}}}</a>
 	</li>
 	{{/links}}
 </ul>
