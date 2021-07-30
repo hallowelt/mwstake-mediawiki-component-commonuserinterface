@@ -93,6 +93,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'linklistgroup-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroupItem',
 	'linklistgroup-from-array' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILinklistGroupFromArray',
 	'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILink',
+	'text-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITextLink',
 	'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
 	'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButtonGroup',
 ];
@@ -132,6 +133,7 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'linklistgroup-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroupItem',
 		'linklistgroup-from-array' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroupFromArray',
 		'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
+		'text-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TextLink',
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 	]
