@@ -16,7 +16,6 @@ class SimpleLink extends ComponentBase implements ILink {
 		$this->options = array_merge(
 			[
 				'role' => '',
-				'id' => 'simple-link',
 				'classes' => [],
 				'href' => '',
 				'title' => new RawMessage( 'SimpleLink' ),

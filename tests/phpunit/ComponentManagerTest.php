@@ -76,8 +76,8 @@ class ComponentManagerTest extends TestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 
-		$manager = new ComponentManager( $mockContext, $slots, $enabledSlots );
-		$manager->init();
+		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager->init( $mockContext );
 	}
 
 	/**
@@ -114,8 +114,8 @@ class ComponentManagerTest extends TestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 
-		$manager = new ComponentManager( $mockContext, $slots, $enabledSlots );
-		$manager->init();
+		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager->init( $mockContext );
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
 		$this->assertEquals( $expectedRLModules, $manager->getRLModules() );
@@ -154,8 +154,8 @@ class ComponentManagerTest extends TestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 
-		$manager = new ComponentManager( $mockContext, $slots, $enabledSlots );
-		$manager->init();
+		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager->init( $mockContext );
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
 		$this->assertEquals( $expectedRLModules, $manager->getRLModuleStyles() );
@@ -190,8 +190,8 @@ class ComponentManagerTest extends TestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 
-		$manager = new ComponentManager( $mockContext, $slots, $enabledSlots );
-		$manager->init();
+		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager->init( $mockContext  );
 
 		$tree = $manager->getSkinSlotComponentTree( 'testSlot1' );
 

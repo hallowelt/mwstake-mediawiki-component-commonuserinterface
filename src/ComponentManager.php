@@ -60,6 +60,18 @@ class ComponentManager {
 
 	/**
 	 *
+	 * @var boolean
+	 */
+	private $async = false;
+
+	/**
+	 *
+	 * @var array
+	 */
+	private $exclusivePathes = [];
+
+	/**
+	 *
 	 * @param IContextSource $context
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
@@ -72,13 +84,12 @@ class ComponentManager {
 	$objectFactory = null, $hookContainer = null ) : ComponentManager {
 		if ( static::$instance == null ) {
 			static::$instance = new ComponentManager(
-				$context,
 				$slotSpecs,
 				$enabledSlots,
 				$objectFactory,
 				$hookContainer
 			);
-			static::$instance->init();
+			static::$instance->init( $context );
 		}
 
 		return static::$instance;
@@ -86,15 +97,13 @@ class ComponentManager {
 
 	/**
 	 *
-	 * @param IContextSource $context
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
 	 */
-	public function __construct( IContextSource $context, $slotSpecs, $enabledSlots,
+	public function __construct( $slotSpecs, $enabledSlots,
 		$objectFactory = null, $hookContainer = null ) {
-		$this->context = $context;
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
@@ -107,12 +116,20 @@ class ComponentManager {
 	}
 
 	/**
-	 *
+	 * @param IContextSource $context
+	 * @param boolean $async
+	 * @param array $exclusivePathes
 	 * @return void
 	 */
-	public function init() {
+	public function init( $context, $async = false, $exclusivePathes = [] ) {
+		$this->context = $context;
+		$this->async = $async;
+		$this->exclusivePathes = $exclusivePathes;
+
 		$registry = new SkinSlotRegistry( $this->slotSpecs );
 		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $registry ] );
+
+		//TODO: limit tree walk to exclusive pathes!
 
 		// Load all "skin slots", build up component trees, get RL modules to load from each component
 		foreach ( $registry->getSkinSlots() as $slotId => $specs ) {
