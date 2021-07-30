@@ -64,7 +64,7 @@ class ComponentManager {
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
-	 * @param HookContainer $hookContainer
+	 * @param HookContainer|null $hookContainer
 	 *
 	 * @return ComponentManager
 	 */
@@ -90,7 +90,7 @@ class ComponentManager {
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
-	 * @param HookContainer $hookContainer
+	 * @param HookContainer|null $hookContainer
 	 */
 	public function __construct( IContextSource $context, $slotSpecs, $enabledSlots,
 		$objectFactory = null, $hookContainer = null ) {

@@ -3,8 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButtonGroup;
+use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
 class ButtonGroup extends RendererBase {
 

@@ -55,7 +55,6 @@ return [
 		return $registry;
 	},
 
-
 	'MWStakeCommonUIGenericComponentRenderer' => function ( MediaWikiServices $services ) {
 		$renderer = new GenericComponentRenderer(
 			$services->get( 'MWStakeCommonUIComponentManager' ),

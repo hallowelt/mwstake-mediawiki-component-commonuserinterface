@@ -70,8 +70,8 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	}
 
 		/**
-	 * @return array
-	 */
+		 * @return array
+		 */
 	public function getSplitButtonClasses() : array {
 		return $this->options['split-button-classes'];
 	}
@@ -143,9 +143,9 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	}
 
 		/**
-	 *
-	 * @return bool
-	 */
+		 *
+		 * @return bool
+		 */
 	public function splitButtonIsDisabled() : bool {
 		return $this->options['split-button-disabled'];
 	}

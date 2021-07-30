@@ -79,9 +79,9 @@ class ComponentRendererFactory {
 			$spec = $this->rendererRegistry[$this->rendererType][$rendererKey];
 		}
 		// Try to fall back to "generic" renderer
- 		elseif ( isset( $this->rendererRegistry['*'][$rendererKey] ) ) {
+ elseif ( isset( $this->rendererRegistry['*'][$rendererKey] ) ) {
 			$spec = $this->rendererRegistry['*'][$rendererKey];
-		}
+	}
 		// Convert simple registration to `ObjectFactory` compatible spec
 		if ( is_string( $spec ) && !empty( $spec ) ) {
 			$callback = $spec;
