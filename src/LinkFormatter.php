@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Linker;
+
 class LinkFormatter {
 	/**
 	 * @return StdClass
@@ -36,16 +38,26 @@ class LinkFormatter {
 				continue;
 			}
 
-			$link['text'] = $this->checkForMessage( $link['text'] );
-
 			if ( isset( $link['title'] ) && $link['title'] !== '' ) {
 				$link['title'] = $this->checkForMessage( $link['title'] );
 			} elseif ( is_string( $key ) ) {
 				$link['title'] = $this->checkForMessage( $key );
 			} else {
-				unset( $link['title'] );
+				$tooltip = Linker::tooltip( $link['id'] );
+				if ( $tooltip ) {
+					$link['title'] = $tooltip;
+				}
 			}
 
+			$link['text'] = $this->checkForMessage( $link['text'] );
+
+			if ( isset( $link['data-mw'] ) && isset( $link['data'] ) ) {
+				$link['data']['mw'] = $link['data-mw'];
+			} elseif ( isset( $link['data-mw'] ) ) {
+				$link['data'] = [
+					'mw' => $link['data-mw']
+				];
+			}
 			if ( isset( $link['data'] ) && !empty( $link['data'] ) ) {
 				$dataAttributesBuilder = new DataAttributesBuilder();
 				$link['data'] = $dataAttributesBuilder->build( $link['data'] );
