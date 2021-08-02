@@ -11,9 +11,9 @@ class LinkConverter {
 	 * @param array $linkDescs
 	 * @return SimpleLink[]
 	 */
-	public function getLinkComponents( $linkDescs ){
+	public function getLinkComponents( $linkDescs ) {
 		$links = [];
-		foreach( $linkDescs as $linkKey => $linkDesc ) {
+		foreach ( $linkDescs as $linkKey => $linkDesc ) {
 			$links[$linkKey] = new SimpleLink( [
 				// TODO: Implement
 			] );

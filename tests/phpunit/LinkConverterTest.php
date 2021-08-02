@@ -6,7 +6,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter;
 use PHPUnit\Framework\TestCase;
 use RawMessage;
 
-
 class LinkConverterTest extends TestCase {
 
 	/**
@@ -21,7 +20,7 @@ class LinkConverterTest extends TestCase {
 
 		$this->assertEquals( count( $linkDescs ), count( $links ) );
 
-		foreach( $links as $link ) {
+		foreach ( $links as $link ) {
 			$link->getId();
 		}
 	}

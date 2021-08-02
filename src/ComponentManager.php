@@ -4,6 +4,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use IContextSource;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\MediaWikiServices;
+use Skin\BlueSpiceDiscovery\IRestrictedComponent;
 use Wikimedia\ObjectFactory;
 
 class ComponentManager {
@@ -117,7 +119,7 @@ class ComponentManager {
 
 	/**
 	 * @param IContextSource $context
-	 * @param boolean $async
+	 * @param bool $async
 	 * @param array $exclusivePathes
 	 * @return void
 	 */
@@ -129,7 +131,7 @@ class ComponentManager {
 		$registry = new SkinSlotRegistry( $this->slotSpecs );
 		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $registry ] );
 
-		//TODO: limit tree walk to exclusive pathes!
+		// TODO: limit tree walk to exclusive pathes!
 
 		// Load all "skin slots", build up component trees, get RL modules to load from each component
 		foreach ( $registry->getSkinSlots() as $slotId => $specs ) {
@@ -172,6 +174,9 @@ class ComponentManager {
 	 * @return void
 	 */
 	private function processComponent( $component, &$treeNode ) {
+		if ( $component instanceof IRestrictedComponent && !$this->checkPermissions( $component ) ) {
+			return;
+		}
 		if ( !$component->shouldRender( $this->context ) ) {
 			return;
 		}
@@ -220,6 +225,26 @@ class ComponentManager {
 	 */
 	public function getComponentId( $component ) {
 		return '';
+	}
+
+	/**
+	 *
+	 * @param IRestrictedComponent $component
+	 * @return bool
+	 */
+	private function checkPermissions( $component ) : bool {
+		$user = $this->context->getUser();
+		$services = MediaWikiServices::getInstance();
+		foreach ( $component->getPermissions() as $permission ) {
+			$userHasRight = $services->getPermissionManager()->userHasRight(
+				$user,
+				$permission
+			);
+			if ( $userHasRight ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

@@ -191,7 +191,7 @@ class ComponentManagerTest extends TestCase {
 		$mockContext = $this->createMock( IContextSource::class );
 
 		$manager = new ComponentManager( $slots, $enabledSlots );
-		$manager->init( $mockContext  );
+		$manager->init( $mockContext );
 
 		$tree = $manager->getSkinSlotComponentTree( 'testSlot1' );
 

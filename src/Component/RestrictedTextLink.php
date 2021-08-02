@@ -5,8 +5,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITextLink;
 use RawMessage;
+use Skin\BlueSpiceDiscovery\IRestrictedComponent;
 
-class RestrictedTextLink extends RestrictedComponentBase implements ITextLink {
+class RestrictedTextLink extends ComponentBase implements ITextLink, IRestrictedComponent {
 
 	/**
 	 *
