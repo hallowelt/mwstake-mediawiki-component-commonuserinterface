@@ -4,8 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Message;
 
-interface ITextLink extends ILink {
-
+interface ITextLink {
 
 	/**
 	 * @return string[]

@@ -37,7 +37,6 @@ class TextLink extends RendererBase {
 				'href' => $component->getHref(),
 				'body' => $component->getText()->text()
 			];
-
 			$data = $component->getDataAttributes();
 			if ( !empty( $data ) ) {
 				$dataAttributesBuilder = new DataAttributesBuilder();
