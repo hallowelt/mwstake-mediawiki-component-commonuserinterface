@@ -5,7 +5,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 use IContextSource;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
-use Skin\BlueSpiceDiscovery\IRestrictedComponent;
+use IRestrictedComponent;
 use Wikimedia\ObjectFactory;
 
 class ComponentManager {

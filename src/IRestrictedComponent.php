@@ -1,6 +1,6 @@
 <?php
 
-namespace Skin\BlueSpiceDiscovery;
+namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 interface IRestrictedComponent {
 
