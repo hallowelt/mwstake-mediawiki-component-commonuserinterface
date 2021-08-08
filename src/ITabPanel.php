@@ -48,4 +48,11 @@ interface ITabPanel {
 	 * @return boolean
 	 */
 	public function shouldRender( $context ) : bool;
+
+	/**
+	 *
+	 * @param IContextSource $context
+	 * @return boolean
+	 */
+	public function isActive( $context ) : bool;
 }
