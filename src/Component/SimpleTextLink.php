@@ -23,7 +23,8 @@ class SimpleTextLink extends ComponentBase implements ITextLink {
 				'title' => new RawMessage( 'SimpleLink' ),
 				'aria-label' => new RawMessage( 'SimpleLink' ),
 				'rel' => '',
-				'data' => []
+				'data' => [],
+				'aria' => []
 			],
 			$options
 		);
@@ -76,6 +77,13 @@ class SimpleTextLink extends ComponentBase implements ITextLink {
 	 */
 	public function getDataAttributes(): array {
 		return $this->options['data'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes(): array {
+		return $this->options['aria'];
 	}
 
 	/**

@@ -25,6 +25,7 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 				'aria-label' => new RawMessage( 'RestrictedTextLink' ),
 				'rel' => '',
 				'data' => [],
+				'aria' => [],
 				'permissions' => [],
 			],
 			$options
@@ -78,6 +79,13 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 	 */
 	public function getDataAttributes(): array {
 		return $this->options['data'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes(): array {
+		return $this->options['aria'];
 	}
 
 	/**
