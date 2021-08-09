@@ -5,6 +5,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 use Linker;
 
 class LinkFormatter {
+
 	/**
 	 * @return StdClass
 	 */
@@ -43,7 +44,7 @@ class LinkFormatter {
 			} elseif ( is_string( $key ) ) {
 				$link['title'] = $this->checkForMessage( $key );
 			} else {
-				$tooltip = Linker::tooltip( $link['id'] );
+				$tooltip = Linker::titleAttrib( $link['id'] );
 				if ( $tooltip ) {
 					$link['title'] = $tooltip;
 				}
@@ -61,6 +62,10 @@ class LinkFormatter {
 			if ( isset( $link['data'] ) && !empty( $link['data'] ) ) {
 				$dataAttributesBuilder = new DataAttributesBuilder();
 				$link['data'] = $dataAttributesBuilder->build( $link['data'] );
+			}
+			if ( isset( $link['aria'] ) && !empty( $link['aria'] ) ) {
+				$dataAttributesBuilder = new AriaAttributesBuilder();
+				$link['aria'] = $dataAttributesBuilder->build( $link['aria'] );
 			}
 
 			$params[] = $link;

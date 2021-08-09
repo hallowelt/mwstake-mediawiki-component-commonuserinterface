@@ -44,7 +44,7 @@ class LinklistGroupFromArray extends RendererBase {
 			}
 			if ( !empty( $component->getLinks() ) ) {
 				$linkFormatter = new LinkFormatter();
-				$templateData['links'] = $linkFormatter->formatLinks( $component->getLinks() );
+				$templateData['links'] = $component->getLinks();
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

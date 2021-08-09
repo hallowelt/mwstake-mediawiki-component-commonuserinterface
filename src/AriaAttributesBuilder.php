@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 class AriaAttributesBuilder {
+
 	/**
 	 * @return StdClass
 	 */
