@@ -71,7 +71,7 @@ class ComponentRendererFactory {
 	 * @param string $rendererKey
 	 * @return IComponentRenderer
 	 */
-	public function getRenderer( $rendererKey ): IComponentRenderer {
+	public function getRenderer( $rendererKey ) : IComponentRenderer {
 		$spec = [];
 
 		// Renderer available for current environment?

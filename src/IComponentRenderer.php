@@ -24,14 +24,14 @@ interface IComponentRenderer {
 	 * RL module styles will be loades automatically
 	 * @return array
 	 */
-	public function getRLModuleStyles(): array;
+	public function getRLModuleStyles() : array;
 
 	/**
 	 * This is used to compile a clientside renderer. It will also load
 	 * RL modules from `getRLModules` and `getRLModuleStyles`
 	 * @return string
 	 */
-	public function getTemplatePathname(): string;
+	public function getTemplatePathname() : string;
 
 	/**
 	 * Used to convert component object into an array of simple data that can be rendered into HTML

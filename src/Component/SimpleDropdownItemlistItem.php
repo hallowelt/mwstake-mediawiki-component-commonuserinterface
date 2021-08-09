@@ -29,7 +29,7 @@ class SimpleDropdownItemlistItem extends ComponentBase implements IDropdownIteml
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 

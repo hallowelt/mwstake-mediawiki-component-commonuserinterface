@@ -36,7 +36,7 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 

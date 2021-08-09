@@ -36,7 +36,7 @@ class SimpleDropdownItemlistFromArray extends ComponentBase implements IDropdown
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 

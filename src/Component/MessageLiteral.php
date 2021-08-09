@@ -32,7 +32,7 @@ class MessageLiteral extends ComponentBase implements IMessageLiteral {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->id;
 	}
 

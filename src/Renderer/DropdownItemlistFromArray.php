@@ -57,7 +57,7 @@ class DropdownItemlistFromArray extends RendererBase {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname(): string {
+	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-itemlist-from-array.mustache';
 	}
 }

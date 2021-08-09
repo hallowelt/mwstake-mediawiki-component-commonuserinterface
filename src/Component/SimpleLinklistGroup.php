@@ -29,7 +29,7 @@ class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 

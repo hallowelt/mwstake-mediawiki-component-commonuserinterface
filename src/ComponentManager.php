@@ -3,9 +3,9 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use IContextSource;
+use IRestrictedComponent;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
-use IRestrictedComponent;
 use Wikimedia\ObjectFactory;
 
 class ComponentManager {

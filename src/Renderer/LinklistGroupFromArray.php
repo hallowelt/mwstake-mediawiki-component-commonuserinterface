@@ -58,7 +58,7 @@ class LinklistGroupFromArray extends RendererBase {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname(): string {
+	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/linklist-group-from-array.mustache';
 	}
 }

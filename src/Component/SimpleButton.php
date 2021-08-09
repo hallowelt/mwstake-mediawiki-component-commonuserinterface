@@ -31,7 +31,7 @@ class SimpleButton extends ComponentBase implements IButton {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 
@@ -53,7 +53,7 @@ class SimpleButton extends ComponentBase implements IButton {
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses(): array {
+	public function getClasses() : array {
 		return $this->options['classes'];
 	}
 

@@ -30,21 +30,21 @@ class SimpleCard extends ComponentBase implements ICard {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses(): array {
+	public function getContainerClasses() : array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getSubComponents(): array {
+	public function getSubComponents() : array {
 		return $this->options['items'];
 	}
 }

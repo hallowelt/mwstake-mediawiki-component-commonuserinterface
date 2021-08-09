@@ -26,21 +26,21 @@ class Badge extends ComponentBase implements IBadge {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses(): array {
+	public function getClasses() : array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getText(): Message {
+	public function getText() : Message {
 		return $this->options['text'];
 	}
 }

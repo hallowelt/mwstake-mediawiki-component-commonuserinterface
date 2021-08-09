@@ -34,14 +34,14 @@ class SimpleCardImage extends ComponentBase implements ICardImage {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses(): array {
+	public function getClasses() : array {
 		return $this->options['classes'];
 	}
 
@@ -62,7 +62,7 @@ class SimpleCardImage extends ComponentBase implements ICardImage {
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageAltText(): Message {
+	public function getImageAltText() : Message {
 		return $this->options['alt'];
 	}
 }

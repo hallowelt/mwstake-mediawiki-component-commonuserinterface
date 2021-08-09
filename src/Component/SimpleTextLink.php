@@ -33,56 +33,56 @@ class SimpleTextLink extends ComponentBase implements ITextLink {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId(): string {
+	public function getId() : string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses(): array {
+	public function getClasses() : array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getRole(): string {
+	public function getRole() : string {
 		return $this->options['role'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getText(): Message {
+	public function getText() : Message {
 		return $this->options['text'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getTitle(): Message {
+	public function getTitle() : Message {
 		return $this->options['title'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getAriaLabel(): Message {
+	public function getAriaLabel() : Message {
 		return $this->options['aria-label'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getDataAttributes(): array {
+	public function getDataAttributes() : array {
 		return $this->options['data'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getAriaAttributes(): array {
+	public function getAriaAttributes() : array {
 		return $this->options['aria'];
 	}
 

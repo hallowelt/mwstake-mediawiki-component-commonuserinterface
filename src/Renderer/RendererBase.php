@@ -48,7 +48,7 @@ abstract class RendererBase implements IComponentRenderer {
 	/**
 	 * @inheritDoc
 	 */
-	public function getRLModuleStyles(): array {
+	public function getRLModuleStyles() : array {
 		return [];
 	}
 }

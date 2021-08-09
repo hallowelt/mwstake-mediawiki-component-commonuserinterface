@@ -24,7 +24,7 @@ interface IRenderer {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname(): string;
+	public function getTemplatePathname() : string;
 
 	/**
 	 *

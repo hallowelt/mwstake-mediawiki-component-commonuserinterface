@@ -81,7 +81,7 @@ class DropdownButton extends RendererBase {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname(): string {
+	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-button.mustache';
 	}
 }
