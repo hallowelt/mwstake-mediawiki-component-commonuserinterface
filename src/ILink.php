@@ -17,6 +17,11 @@ interface ILink {
 	public function getDataAttributes() : array;
 
 	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes() : array;
+
+	/**
 	 * @return string
 	 */
 	public function getHref() : string;

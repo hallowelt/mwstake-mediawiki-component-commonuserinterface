@@ -58,6 +58,10 @@ class Link extends RendererBase {
 			$aria = [
 				'label' => $component->getAriaLabel()->text()
 			];
+			$aria = array_merge(
+				$aria,
+				$component->getAriaAttributes()
+			);
 			$ariaAttributesBuilder = new AriaAttributesBuilder();
 			$templateData = array_merge(
 				$templateData,

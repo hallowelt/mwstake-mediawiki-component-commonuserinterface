@@ -22,7 +22,8 @@ class SimpleLink extends ComponentBase implements ILink {
 				'aria-label' => new RawMessage( 'SimpleLink' ),
 				'rel' => '',
 				'data' => [],
-				'items' => []
+				'items' => [],
+				'aria' => []
 			],
 			$options
 		);
@@ -75,6 +76,13 @@ class SimpleLink extends ComponentBase implements ILink {
 	 */
 	public function getDataAttributes(): array {
 		return $this->options['data'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes(): array {
+		return $this->options['aria'];
 	}
 
 	/**
