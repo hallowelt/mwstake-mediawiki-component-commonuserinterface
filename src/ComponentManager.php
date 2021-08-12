@@ -52,6 +52,10 @@ class ComponentManager {
 	 */
 	private $rlStyles = [];
 
+	/**
+	 *
+	 * @var ComponentManager|null
+	 */
 	private static $instance = null;
 
 	/**
@@ -128,7 +132,7 @@ class ComponentManager {
 		$this->async = $async;
 		$this->exclusivePathes = $exclusivePathes;
 
-		$registry = new SkinSlotRegistry( $this->slotSpecs );
+		$registry = MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
 		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $registry ] );
 
 		// TODO: limit tree walk to exclusive pathes!

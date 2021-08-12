@@ -72,5 +72,5 @@ class LinkFormatter {
 		}
 
 		return $params;
- }
+	}
 }

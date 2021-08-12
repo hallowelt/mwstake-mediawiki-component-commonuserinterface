@@ -12,10 +12,30 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 
 	/**
 	 *
+	 * @var SkinSlotRegistry|null
+	 */
+	private static $instance = null;
+
+	/**
+	 *
+	 * @param array $slotSpecs
+	 * @return SkinSlotRegistry
+	 */
+	public static function singleton( $slotSpecs ) : SkinSlotRegistry {
+		if ( static::$instance == null ) {
+			static::$instance = new SkinSlotRegistry(
+				$slotSpecs
+			);
+		}
+		return static::$instance;
+	}
+
+	/**
+	 *
 	 * @param array $slotSpecs
 	 */
-	public function __construct( $slotSpecs ) {
-		$this->slotSpecs = $slotSpecs;
+	public function __construct( &$slotSpecs ) {
+		$this->slotSpecs = &$slotSpecs;
 	}
 
 	/**
