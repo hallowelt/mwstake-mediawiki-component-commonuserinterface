@@ -34,8 +34,8 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	 *
 	 * @param array $slotSpecs
 	 */
-	public function __construct( &$slotSpecs ) {
-		$this->slotSpecs = &$slotSpecs;
+	public function __construct( $slotSpecs ) {
+		$this->slotSpecs = $slotSpecs;
 	}
 
 	/**

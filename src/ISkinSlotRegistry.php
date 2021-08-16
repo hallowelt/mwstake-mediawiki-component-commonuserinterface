@@ -8,7 +8,7 @@ interface ISkinSlotRegistry {
 	 *
 	 * @param array $slotSpecs
 	 */
-	public function __construct( &$slotSpecs );
+	public function __construct( $slotSpecs );
 
 	/**
 	 *
