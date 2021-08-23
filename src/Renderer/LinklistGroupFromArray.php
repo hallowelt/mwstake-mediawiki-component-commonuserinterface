@@ -5,7 +5,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupFromArray;
-use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 
 class LinklistGroupFromArray extends RendererBase {
 
@@ -43,7 +42,6 @@ class LinklistGroupFromArray extends RendererBase {
 				);
 			}
 			if ( !empty( $component->getLinks() ) ) {
-				$linkFormatter = new LinkFormatter();
 				$templateData['links'] = $component->getLinks();
 			}
 		} else {
