@@ -3,7 +3,6 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use IContextSource;
-use IRestrictedComponent;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\ObjectFactory;
