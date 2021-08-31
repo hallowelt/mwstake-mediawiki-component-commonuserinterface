@@ -17,7 +17,7 @@ class MediaObject extends RendererBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
 		$templateData = [];
 
 		/** @var IComponent $component */

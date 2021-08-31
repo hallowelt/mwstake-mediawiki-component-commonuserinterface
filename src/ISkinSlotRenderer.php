@@ -5,8 +5,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 interface ISkinSlotRenderer {
 
 	/**
-	 *
+	 * @param array $data
 	 * @return string
 	 */
-	public function getHtml() : string;
+	public function getHtml( $data ) : string;
 }

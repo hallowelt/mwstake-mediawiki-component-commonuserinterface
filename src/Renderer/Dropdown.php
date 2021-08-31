@@ -22,9 +22,10 @@ class Dropdown extends RendererBase {
 	 *
 	 * @param IDropdown $component
 	 * @param array $subComponentNodes
+	 * @param array $data
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
 		$templateData = [];
 
 		if ( $component instanceof IDropdown ) {

@@ -22,9 +22,10 @@ class DropdownItemlistFromArray extends RendererBase {
 	 *
 	 * @param IDropdownItemlist $component
 	 * @param array $subComponentNodes
+	 * @param array $data
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
 		$templateData = [];
 
 		/** @var IComponent $component */
@@ -41,7 +42,7 @@ class DropdownItemlistFromArray extends RendererBase {
 				);
 			}
 			if ( !empty( $component->getLinks() ) ) {
-				$templateData['links'] =$component->getLinks();
+				$templateData['links'] = $component->getLinks();
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

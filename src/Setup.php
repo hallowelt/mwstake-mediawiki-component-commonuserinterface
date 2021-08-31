@@ -22,7 +22,7 @@ class Setup {
 		$skinSlotRendererFactory = $services->getService( 'MWStakeCommonUISkinSlotRendererFactory' );
 		/** @var GenericSkinSlotRenderer */
 		$skinSlotRenderer = $skinSlotRendererFactory->create( 'skinAfterContent' );
-		$data .= $skinSlotRenderer->getHtml();
+		$data .= $skinSlotRenderer->getHtml( [] );
 
 		return true;
 	}
@@ -39,7 +39,7 @@ class Setup {
 		$skinSlotRendererFactory = $services->getService( 'MWStakeCommonUISkinSlotRendererFactory' );
 		/** @var GenericSkinSlotRenderer */
 		$skinSlotRenderer = $skinSlotRendererFactory->create( 'siteNoticeAfter' );
-		$siteNotice .= $skinSlotRenderer->getHtml();
+		$siteNotice .= $skinSlotRenderer->getHtml( [] );
 
 		return true;
 	}
