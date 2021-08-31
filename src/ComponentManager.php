@@ -132,7 +132,7 @@ class ComponentManager {
 		$this->exclusivePathes = $exclusivePathes;
 
 		$registry = MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
-		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $this->registryregistry ] );
+		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $registry ] );
 
 		// TODO: limit tree walk to exclusive pathes!
 		foreach ( $registry->getSkinSlots() as $slotId => $specs ) {
