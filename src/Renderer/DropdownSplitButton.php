@@ -34,10 +34,8 @@ class DropdownSplitButton extends RendererBase {
 				'btn-text' => $component->getButtonText()->text(),
 				'btn-title' => $component->getButtonTitle()->text(),
 				'split-btn-title' => $component->getSplitButtonTitle()->text(),
-				'btn-group-aria-label' => $component->getButtonGroupAriaLabel()->text(),
 				'btn-aria-label' => $component->getButtonAriaLabel()->text(),
-				'split-btn-aria-label' => $component->getSplitButtonAriaLabel()->text(),
-				'btn-group-role' => $component->getButtonGroupRole()
+				'split-btn-aria-label' => $component->getSplitButtonAriaLabel()->text()
 			];
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['body'] = $subComponentNodes;

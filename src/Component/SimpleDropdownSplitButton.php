@@ -7,6 +7,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownSplitButton;
 use RawMessage;
 
 class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitButton {
+
 	/**
 	 *
 	 * @param array $options
@@ -19,8 +20,6 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 				'button-title' => new RawMessage( 'SimpleSplitButton' ),
 				'button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'split-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
-				'button-group-aria-label' => new RawMessage( 'SimpleSplitButton' ),
-				'button-group-role' => 'button',
 				'button-disabled' => false,
 				'split-button-disabled' => false,
 				'items' => [],
@@ -107,13 +106,6 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	/**
 	 * @return Message
 	 */
-	public function getButtonGroupAriaLabel() : Message {
-		return $this->options['button-group-aria-label'];
-	}
-
-	/**
-	 * @return Message
-	 */
 	public function getButtonAriaLabel() : Message {
 		return $this->options['button-aria-label'];
 	}
@@ -123,15 +115,6 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 	 */
 	public function getSplitButtonAriaLabel() : Message {
 		return $this->options['split-button-aria-label'];
-	}
-
-	/**
-	 * One of the `ARIARole::*` constants
-	 *
-	 * @return string
-	 */
-	public function getButtonGroupRole() : string {
-		return $this->options['button-group-role'];
 	}
 
 	/**

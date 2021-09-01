@@ -35,4 +35,11 @@ interface IComponent {
 	 * @return boolean
 	 */
 	public function shouldRender( IContextSource $context ) : bool;
+
+	/**
+	 *
+	 * @param array $data Arbitrary data to be consumed by the components. Usually this is SkinTemplate's `$tpl->data`
+	 * @return void
+	 */
+	public function setRendererProcessData( $data ) : void;
 }

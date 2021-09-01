@@ -44,7 +44,7 @@ class SkinSlotRendererFactory {
 				'services' => [
 					'MWStakeCommonUIComponentManager',
 					'MWStakeCommonUIRendererDataTreeBuilder',
-					'MWStakeCommonUIComponentDataTreeRenderer'
+					'MWStakeCommonUIRendererDataTreeRenderer'
 				],
 				'args' => [ $slotId ]
 			];

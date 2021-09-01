@@ -2,7 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-class ComponentDataTreeRenderer {
+class RendererDataTreeRenderer {
 
 	/**
 	 *

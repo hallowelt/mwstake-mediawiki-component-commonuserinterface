@@ -9,6 +9,12 @@ abstract class ComponentBase implements IComponent {
 
 	/**
 	 *
+	 * @var array
+	 */
+	protected $rendererProcessData = [];
+
+	/**
+	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLModules() : array {
@@ -37,5 +43,14 @@ abstract class ComponentBase implements IComponent {
 	 */
 	public function shouldRender( IContextSource $context ) : bool {
 		return true;
+	}
+
+	/**
+	 *
+	 * @param array $data Arbitrary data to be consumed by the components. Usually this is SkinTemplate's `$tpl->data`
+	 * @return void
+	 */
+	public function setRendererProcessData( $data ) : void {
+		$this->rendererProcessData = $data;
 	}
 }

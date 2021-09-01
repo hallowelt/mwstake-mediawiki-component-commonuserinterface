@@ -18,9 +18,9 @@ abstract class SkinSlotRendererBase implements ISkinSlotRenderer {
 
 	/**
 	 *
-	 * @var ComponentDataTreeRenderer
+	 * @var RendererDataTreeRenderer
 	 */
-	protected $componentDataTreeRenderer = null;
+	protected $rendererDataTreeRenderer = null;
 
 	/**
 	 *
@@ -32,14 +32,14 @@ abstract class SkinSlotRendererBase implements ISkinSlotRenderer {
 	 *
 	 * @param ComponentManager $componentManager
 	 * @param RendererDataTreeBuilder $rendererDataTreeBuilder
-	 * @param ComponentDataTreeRenderer $componentDataTreeRenderer
+	 * @param RendererDataTreeRenderer $rendererDataTreeRenderer
 	 * @param string $slotId
 	 */
 	public function __construct( $componentManager, $rendererDataTreeBuilder,
-	$componentDataTreeRenderer, $slotId ) {
+	$rendererDataTreeRenderer, $slotId ) {
 		$this->componentManager = $componentManager;
 		$this->rendererDataTreeBuilder = $rendererDataTreeBuilder;
-		$this->componentDataTreeRenderer = $componentDataTreeRenderer;
+		$this->rendererDataTreeRenderer = $rendererDataTreeRenderer;
 		$this->slotId = $slotId;
 	}
 }

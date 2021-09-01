@@ -18,21 +18,21 @@ class GenericComponentRenderer {
 
 	/**
 	 *
-	 * @var ComponentDataTreeRenderer
+	 * @var RendererDataTreeRenderer
 	 */
-	protected $componentDataTreeRenderer = null;
+	protected $RendererDataTreeRenderer = null;
 
 	/**
 	 *
 	 * @param ComponentManager $componentManager
 	 * @param RendererDataTreeBuilder $rendererDataTreeBuilder
-	 * @param ComponentDataTreeRenderer $componentDataTreeRenderer
+	 * @param RendererDataTreeRenderer $RendererDataTreeRenderer
 	 */
 	public function __construct( $componentManager, $rendererDataTreeBuilder,
-	$componentDataTreeRenderer ) {
+	$RendererDataTreeRenderer ) {
 		$this->componentManager = $componentManager;
 		$this->rendererDataTreeBuilder = $rendererDataTreeBuilder;
-		$this->componentDataTreeRenderer = $componentDataTreeRenderer;
+		$this->RendererDataTreeRenderer = $RendererDataTreeRenderer;
 	}
 
 	/**
@@ -43,7 +43,7 @@ class GenericComponentRenderer {
 	public function getHtml( $component ) : string {
 		$componentTree = $this->componentManager->getCustomComponentTree( $component );
 		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree( $componentTree );
-		return $this->componentDataTreeRenderer->getHtml( $rendererDataTree );
+		return $this->RendererDataTreeRenderer->getHtml( $rendererDataTree );
 	}
 
 }

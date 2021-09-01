@@ -11,7 +11,7 @@ class GenericSkinSlotRenderer extends SkinSlotRendererBase {
 	public function getHtml( $data ) : string {
 		$componentTree = $this->componentManager->getSkinSlotComponentTree( $this->slotId );
 		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree( $componentTree, $data );
-		$html = $this->componentDataTreeRenderer->getHtml( $rendererDataTree );
+		$html = $this->rendererDataTreeRenderer->getHtml( $rendererDataTree );
 
 		return $html;
 	}

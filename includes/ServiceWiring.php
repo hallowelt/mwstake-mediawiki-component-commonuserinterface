@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MWStake\MediaWiki\Component\CommonUserInterface\ComponentDataTreeRenderer;
+use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\GenericComponentRenderer;
@@ -45,8 +45,8 @@ return [
 		);
 	},
 
-	'MWStakeCommonUIComponentDataTreeRenderer' => function ( MediaWikiServices $services ) {
-		return new ComponentDataTreeRenderer(
+	'MWStakeCommonUIRendererDataTreeRenderer' => function ( MediaWikiServices $services ) {
+		return new RendererDataTreeRenderer(
 			$services->getService( 'MWStakeCommonUIComponentRendererFactory' )
 		);
 	},
@@ -60,7 +60,7 @@ return [
 		$renderer = new GenericComponentRenderer(
 			$services->get( 'MWStakeCommonUIComponentManager' ),
 			$services->get( 'MWStakeCommonUIRendererDataTreeBuilder' ),
-			$services->get( 'MWStakeCommonUIComponentDataTreeRenderer' )
+			$services->get( 'MWStakeCommonUIRendererDataTreeRenderer' )
 		);
 		return $renderer;
 	},

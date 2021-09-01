@@ -49,24 +49,12 @@ interface IDropdownSplitButton extends IComponent {
 	/**
 	 * @return Message
 	 */
-	public function getButtonGroupAriaLabel() : Message;
-
-	/**
-	 * @return Message
-	 */
 	public function getButtonAriaLabel() : Message;
 
 	/**
 	 * @return Message
 	 */
 	public function getSplitButtonAriaLabel() : Message;
-
-	/**
-	 * One of the `ARIARole::*` constants
-	 *
-	 * @return string
-	 */
-	public function getButtonGroupRole() : string;
 
 	/**
 	 *

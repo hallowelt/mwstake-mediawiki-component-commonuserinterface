@@ -84,6 +84,7 @@ class RendererDataTreeBuilder {
 		}
 
 		$component = $componentTreeNode['component'];
+		$component->setRendererProcessData( $data );
 		$rendererKey = $this->rendererFactory->getKey( $component );
 		$renderer = $this->rendererFactory->getRenderer( $rendererKey );
 		$templateData = $renderer->getRendererDataTreeNode( $component, $subComponentDataNodes, $data );
