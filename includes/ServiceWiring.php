@@ -1,12 +1,12 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\GenericComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\HtmlIdRegistry;
 use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeBuilder;
+use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRegistry;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
 

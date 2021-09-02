@@ -58,13 +58,12 @@ class RendererDataTreeBuilder {
 	 *     ]
 	 *   ]
 	 * ];
-	 * @param array $data Arbitrary data to be consumed by the components. Usually this is SkinTemplate's `$tpl->data`
 	 * @return array
 	 */
-	public function getRendererDataTree( $componentTreeNodes, $data ) {
+	public function getRendererDataTree( $componentTreeNodes ) {
 		$templateDataTreeNodes = [];
 		foreach ( $componentTreeNodes as $componentTreeNode ) {
-			$templateDataTreeNodes[] = $this->getDataTreeNode( $componentTreeNode, $data );
+			$templateDataTreeNodes[] = $this->getDataTreeNode( $componentTreeNode );
 		}
 
 		return $templateDataTreeNodes;
@@ -73,21 +72,19 @@ class RendererDataTreeBuilder {
 	/**
 	 *
 	 * @param array $componentTreeNode
-	 * @param array $data
 	 * @return array
 	 */
-	private function getDataTreeNode( $componentTreeNode, $data ) {
+	private function getDataTreeNode( $componentTreeNode ) {
 		$subComponentTree = $componentTreeNode['subComponents'];
 		$subComponentDataNodes = [];
 		foreach ( $subComponentTree as $subComponentNode ) {
-			$subComponentDataNodes[] = $this->getDataTreeNode( $subComponentNode, $data );
+			$subComponentDataNodes[] = $this->getDataTreeNode( $subComponentNode );
 		}
 
 		$component = $componentTreeNode['component'];
-		$component->setRendererProcessData( $data );
 		$rendererKey = $this->rendererFactory->getKey( $component );
 		$renderer = $this->rendererFactory->getRenderer( $rendererKey );
-		$templateData = $renderer->getRendererDataTreeNode( $component, $subComponentDataNodes, $data );
+		$templateData = $renderer->getRendererDataTreeNode( $component, $subComponentDataNodes );
 
 		$dataNode = [
 			'renderer' => $rendererKey,

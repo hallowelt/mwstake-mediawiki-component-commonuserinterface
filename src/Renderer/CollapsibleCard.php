@@ -18,7 +18,7 @@ class CollapsibleCard extends RendererBase {
 	/**
 	 * @inheritDoc
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [];
 
 		/** @var IComponent $component */

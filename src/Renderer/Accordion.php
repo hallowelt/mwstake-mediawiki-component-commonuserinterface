@@ -25,7 +25,7 @@ class Accordion extends RendererBase {
 	 * @param array $data
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		return [
 			'id' => $component->getId(),
 			'items' => $component->getLabel()->plain()

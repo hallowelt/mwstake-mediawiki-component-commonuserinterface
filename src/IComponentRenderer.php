@@ -42,9 +42,8 @@ interface IComponentRenderer {
 	 * a renderer registered in `$mwsgCommonUIComponentRendererRegistry`
 	 * @param array $subComponentNodes The pre-created RendererDataTree nodes to be embedded
 	 * into the $object
-	 * @param array $data Arbitrary data to be consumed by the components. Usually this is SkinTemplate's `$tpl->data`
 	 *
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array;
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array;
 }

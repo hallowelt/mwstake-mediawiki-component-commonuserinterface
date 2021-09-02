@@ -25,7 +25,7 @@ class DropdownIcon extends RendererBase {
 	 * @param array $data
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [];
 
 		if ( $component instanceof IDropdownIcon ) {

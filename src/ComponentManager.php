@@ -151,11 +151,12 @@ class ComponentManager {
 	/**
 	 *
 	 * @param IComponent $component
+	 * @param array $data
 	 * @return array
 	 */
-	public function getCustomComponentTree( $component ) {
+	public function getCustomComponentTree( $component, $data = [] ) {
 		$tree = [];
-		$this->processComponent( $component, $tree );
+		$this->processComponent( $component, $tree, $data );
 		return $tree;
 	}
 
@@ -172,15 +173,17 @@ class ComponentManager {
 	 *
 	 * @param IComponent $component
 	 * @param array &$treeNode
+	 * @param array $data
 	 * @return void
 	 */
-	private function processComponent( $component, &$treeNode ) {
+	private function processComponent( $component, &$treeNode, $data = [] ) {
 		if ( $component instanceof IRestrictedComponent && !$this->checkPermissions( $component ) ) {
 			return;
 		}
 		if ( !$component->shouldRender( $this->context ) ) {
 			return;
 		}
+		$component->setComponentData( $data );
 
 		$id = $component->getId();
 
@@ -193,7 +196,7 @@ class ComponentManager {
 		];
 		$subComponents = $component->getSubComponents();
 		foreach ( $subComponents as $subComponent ) {
-			$this->processComponent( $subComponent, $newTreeNode['subComponents'] );
+			$this->processComponent( $subComponent, $newTreeNode['subComponents'], $data );
 		}
 
 		$treeNode[$id] = $newTreeNode;

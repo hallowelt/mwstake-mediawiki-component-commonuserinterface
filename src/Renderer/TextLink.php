@@ -27,7 +27,7 @@ class TextLink extends RendererBase {
 	 * @param array $data
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes, $data ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
 		$templateData = [];
 
 		/** @var IComponent $component */

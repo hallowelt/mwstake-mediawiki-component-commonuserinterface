@@ -50,7 +50,7 @@ abstract class ComponentBase implements IComponent {
 	 * @param array $data Arbitrary data to be consumed by the components. Usually this is SkinTemplate's `$tpl->data`
 	 * @return void
 	 */
-	public function setRendererProcessData( $data ) : void {
+	public function setComponentData( $data ) : void {
 		$this->rendererProcessData = $data;
 	}
 }
