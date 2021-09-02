@@ -11,7 +11,7 @@ abstract class ComponentBase implements IComponent {
 	 *
 	 * @var array
 	 */
-	protected $rendererProcessData = [];
+	protected $componentProcessData = [];
 
 	/**
 	 *
@@ -51,6 +51,6 @@ abstract class ComponentBase implements IComponent {
 	 * @return void
 	 */
 	public function setComponentData( $data ) : void {
-		$this->rendererProcessData = $data;
+		$this->componentProcessData = $data;
 	}
 }
