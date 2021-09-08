@@ -58,4 +58,15 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	public function getSkinSlots() : array {
 		return $this->slotSpecs;
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
+	public function getSkinSlot( $regKey ) : array {
+		if ( array_key_exists( $regKey, $this->slotSpecs ) ) {
+			return $this->slotSpecs[$regKey];
+		}
+		return [];
+	}
 }
