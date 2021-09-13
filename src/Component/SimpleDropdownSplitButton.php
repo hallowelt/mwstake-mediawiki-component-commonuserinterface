@@ -19,6 +19,7 @@ class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitB
 				'button-text' => new RawMessage( 'SimpleSplitButton' ),
 				'button-title' => new RawMessage( 'SimpleSplitButton' ),
 				'button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
+				'split-button-title' => new RawMessage( 'SimpleSplitButton' ),
 				'split-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'button-disabled' => false,
 				'split-button-disabled' => false,
