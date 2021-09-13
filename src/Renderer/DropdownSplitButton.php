@@ -80,7 +80,7 @@ class DropdownSplitButton extends RendererBase {
 					]
 				);
 			}
-			if ( !$component->buttonIsDisabled() ) {
+			if ( $component->buttonIsDisabled() ) {
 				$templateData = array_merge(
 					$templateData,
 					[
@@ -88,7 +88,7 @@ class DropdownSplitButton extends RendererBase {
 					]
 				);
 			}
-			if ( !$component->splitButtonIsDisabled() ) {
+			if ( $component->splitButtonIsDisabled() || empty( $subComponentNodes ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
