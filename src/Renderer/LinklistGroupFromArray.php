@@ -43,7 +43,12 @@ class LinklistGroupFromArray extends RendererBase {
 				);
 			}
 			if ( !empty( $component->getLinks() ) ) {
-				$templateData['links'] = $component->getLinks();
+				$templateData = array_merge(
+					$templateData,
+					[
+						'links' => $component->getLinks()
+					]
+				);
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
