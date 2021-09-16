@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use IContextSource;
 use Message;
 
 interface ITabPanel {
@@ -47,7 +48,7 @@ interface ITabPanel {
 	 * @param IContextSource $context
 	 * @return boolean
 	 */
-	public function shouldRender( $context ) : bool;
+	public function shouldRender( IContextSource $context ) : bool;
 
 	/**
 	 *
