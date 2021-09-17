@@ -20,7 +20,8 @@ class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
 			[
 				'id' => 'simple-linklist-group',
 				'classes' => [],
-				'items' => []
+				'items' => [],
+				'aria' => []
 			],
 			$options
 		);
@@ -34,9 +35,16 @@ class SimpleLinklistGroup extends ComponentBase implements ILinklistGroup {
 	}
 
 	/**
-	 * @return array
+	 * @inheritDoc
 	 */
 	public function getClasses() : array {
 		return $this->options['classes'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes() : array {
+		return $this->options['aria'];
 	}
 }

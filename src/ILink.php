@@ -17,7 +17,7 @@ interface ILink {
 	public function getDataAttributes() : array;
 
 	/**
-	 * @inheritDoc
+	 * @return array
 	 */
 	public function getAriaAttributes() : array;
 
@@ -44,7 +44,7 @@ interface ILink {
 	public function getRole() : string;
 
 	/**
-	 * @inheritDoc
+	 * @return string
 	 */
 	public function getRel() : string;
 }

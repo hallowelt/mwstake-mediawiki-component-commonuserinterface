@@ -20,7 +20,8 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 			[
 				'id' => '',
 				'links' => [],
-				'classes' => []
+				'classes' => [],
+				'aria' => []
 			],
 			$options
 		);
@@ -45,5 +46,12 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 	 */
 	public function getContainerClasses() : array {
 		return $this->options['classes'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes() : array {
+		return $this->options['aria'];
 	}
 }

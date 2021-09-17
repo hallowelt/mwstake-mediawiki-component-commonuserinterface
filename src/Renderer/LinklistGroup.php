@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroup;
 
@@ -41,6 +42,16 @@ class LinklistGroup extends RendererBase {
 					$templateData,
 					[
 						'class' => implode( ' ', $component->getClasses() )
+					]
+				);
+			}
+			$aria = $component->getAriaAttributes();
+			if ( !empty( $aria ) ) {
+				$ariaAttributesBuilder = new AriaAttributesBuilder();
+				$templateData = array_merge(
+					$templateData,
+					[
+						'aria' => $ariaAttributesBuilder->toString( $aria )
 					]
 				);
 			}

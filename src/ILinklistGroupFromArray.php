@@ -13,4 +13,9 @@ interface ILinklistGroupFromArray {
 	 * @inheritDoc
 	 */
 	public function getLinks() : array;
+
+	/**
+	 * @return array
+	 */
+	public function getAriaAttributes() : array;
 }
