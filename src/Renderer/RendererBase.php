@@ -35,7 +35,13 @@ abstract class RendererBase implements IComponentRenderer {
 		// TODO: Maybe add a "getTemplateFileExtension" method to the interface?
 		$templateFilename = preg_replace( '#\.mustache$#', '', $templateFilename );
 		$this->templateParser = new TemplateParser( $templateDirname );
-		return $this->templateParser->processTemplate( $templateFilename, $data );
+		$html =  $this->templateParser->processTemplate( $templateFilename, $data );
+		// An empty string causes an PHP Notice: 'Array to string conversion inincludes/TemplateParser.php(173) : eval()'d'
+		// and the output in the browser is 'Array'. To avoid this we replace the empty sting.
+		if ( $html === '' ) {
+			$html = "\0";
+		}
+		return $html;
 	}
 
 	/**
