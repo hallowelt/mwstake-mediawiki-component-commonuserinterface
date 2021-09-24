@@ -1,5 +1,5 @@
 <ul{{#list-id}} id="{{{.}}}"{{/list-id}}{{#list-class}} id="{{{.}}}"{{/list-class}}>
 {{#links}}
-	<li><a{{#id}} id="{{{.}}}"{{/id}} class="dropdown-item{{#class}} {{{.}}}{{/class}}" href="{{{href}}}"{{#title}} title="{{{.}}}"{{/title}}>{{{text}}}</a></li>
+	<li><a{{#id}} id="{{{.}}}"{{/id}} class="dropdown-item{{#class}} {{{.}}}{{/class}}" href="{{{href}}}"{{#title}} title="{{{.}}}"{{/title}}{{#data}} {{{.}}}{{/data}}{{#aria}} {{{.}}}{{/aria}}>{{{text}}}</a></li>
 {{/links}}
 </ul>

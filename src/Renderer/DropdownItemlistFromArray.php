@@ -3,6 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
+use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlistFromArray;
 
@@ -33,19 +35,30 @@ class DropdownItemlistFromArray extends RendererBase {
 			$templateData = [
 					'list-id' => $component->getId()
 			];
+			$links = $component->getLinks();
+			if ( !empty( $links ) ) {
+				$dataAttributesBuilder = new DataAttributesBuilder();
+				$ariaAttributesBuilder = new AriaAttributesBuilder();
+				foreach ( $links as $key => $link ) {
+					if ( isset( $link['data'] ) ) {
+						$links[$key]['data'] = $dataAttributesBuilder->toString( $link['data'] );
+					}
+					if ( isset( $link['aria'] ) ) {
+						$links[$key]['aria'] = $ariaAttributesBuilder->toString( $link['aria'] );
+					}
+				}
+				$templateData = array_merge(
+					$templateData,
+					[
+						'links' => $links
+					]
+				);
+			}
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
 					$templateData,
 					[
 						'list-class' => implode( ' ', $component->getClasses() )
-					]
-				);
-			}
-			if ( !empty( $component->getLinks() ) ) {
-				$templateData = array_merge(
-					$templateData,
-					[
-						'links' => $component->getLinks()
 					]
 				);
 			}

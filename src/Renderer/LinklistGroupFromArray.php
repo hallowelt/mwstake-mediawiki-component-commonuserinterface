@@ -4,6 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
+use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupFromArray;
 
@@ -43,11 +44,22 @@ class LinklistGroupFromArray extends RendererBase {
 					]
 				);
 			}
-			if ( !empty( $component->getLinks() ) ) {
+			$links = $component->getLinks();
+			if ( !empty( $links ) ) {
+				$dataAttributesBuilder = new DataAttributesBuilder();
+				$ariaAttributesBuilder = new AriaAttributesBuilder();
+				foreach ( $links as $key => $link ) {
+					if ( isset( $link['data'] ) ) {
+						$links[$key]['data'] = $dataAttributesBuilder->toString( $link['data'] );
+					}
+					if ( isset( $link['aria'] ) ) {
+						$links[$key]['aria'] = $ariaAttributesBuilder->toString( $link['aria'] );
+					}
+				}
 				$templateData = array_merge(
 					$templateData,
 					[
-						'links' => $component->getLinks()
+						'links' => $links
 					]
 				);
 			}
@@ -57,7 +69,7 @@ class LinklistGroupFromArray extends RendererBase {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'aria' => $ariaAttributesBuilder->toString( $aria )
+						'aria-cnt' => $ariaAttributesBuilder->build( $aria )
 					]
 				);
 			}
