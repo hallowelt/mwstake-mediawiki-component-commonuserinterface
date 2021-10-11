@@ -22,6 +22,18 @@ $lessVars->setVar( 'secondary-fg', '' );
 $lessVars->setVar( 'tertiary-fg', '' );
 $lessVars->setVar( 'quaternary-fg', '' );
 $lessVars->setVar( 'body-bg', '' );
+
+$lessVars->setVar( 'navbar-bg', '' );
+$lessVars->setVar( 'navbar-fg', '' );
+$lessVars->setVar( 'navbar-highlight', '' );
+
+$lessVars->setVar( 'sidebar-bg', '' );
+$lessVars->setVar( 'sidebar-fg', '' );
+$lessVars->setVar( 'sidebar-highlight', '' );
+
+$lessVars->setVar( 'footer-bg', '' );
+$lessVars->setVar( 'footer-fg', '' );
+
 $lessVars->setVar( 'content-bg', '' );
 $lessVars->setVar( 'content-fg', '' );
 $lessVars->setVar( 'content-width', '' );
