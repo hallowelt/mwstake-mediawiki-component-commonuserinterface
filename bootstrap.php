@@ -184,24 +184,25 @@ $GLOBALS['wgHooks']['SiteNoticeAfter'][]
 $GLOBALS['wgHooks']['SkinAfterContent'][]
 	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
 
-$GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
-	'localBasePath' => __DIR__ . "/resources/",
-	'packageFiles' => [
-		'init.js',
-		# 'commonui/renderer.js',
-		[
-			'name' => 'renderer.json',
-			// phpcs:ignore
-			'callback' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::makeClientSideRendererConfig'
-		],
-	],
-];
-$GLOBALS['wgResourceModules']['mwstake.component.commonui.componentrenderer'] = [
+// Not yet ready
+#$GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
+#	'localBasePath' => __DIR__ . "/resources/",
+#	'packageFiles' => [
+#		'init.js',
+#		# 'commonui/renderer.js',
+#		[
+#			'name' => 'renderer.json',
+#			// phpcs:ignore
+#			'callback' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::makeClientSideRendererConfig'
+#		],
+#	],
+#];
+#$GLOBALS['wgResourceModules']['mwstake.component.commonui.componentrenderer'] = [
 	// phpcs:ignore
-	'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ResourceLoader\\ComponentRenderer'
-];
+#	'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ResourceLoader\\ComponentRenderer'
+#];
 
-$GLOBALS['wgMessagesDirs']['mwstake-component-commonui'] = __DIR__ . '/i18n';
+#$GLOBALS['wgMessagesDirs']['mwstake-component-commonui'] = __DIR__ . '/i18n';
 
-$GLOBALS['wgAPIModules']['mwstake-commonui-skinslot']
-	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Api\\SkinSlot';
+#$GLOBALS['wgAPIModules']['mwstake-commonui-skinslot']
+#	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Api\\SkinSlot';

@@ -22,16 +22,6 @@ if it provides "Twitter Bootstrap V5". The "CommonUserInterface" will fall back 
 $GLOBALS['mwsgCommonUIComponentRendererRegistry']['my-custom-renderer']['button'] = '...';
 ```
 
-
-### Server side
-TBD
-
-### Client side
-
-```javascript
-mws.commonui.renderPath( '<skinslot>/<parentComponentId>/<subComponentId>', $container );
-```
-
 ## Skin Slots
 
 Default slots:
@@ -64,4 +54,13 @@ $GLOBALS['mwsgCommonUISkinSlots']['skinAfterContent']['my-skinaftercontent-panel
 		] );
 	}
 ];
+```
+
+# TODO
+
+### Client side rendering
+
+Example:
+```javascript
+mws.commonui.renderPath( '<skinslot>/<parentComponentId>/<subComponentId>', $container );
 ```
