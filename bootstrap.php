@@ -79,6 +79,7 @@ $lessVars->setVar( 'content-h6-border', '' );
  * Allows to register additional component interfaces
  */
 $GLOBALS['mwsgCommonUIComponentRegistry'] = [
+	// phpcs:disable
 	'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILiteral',
 	'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMessageLiteral',
 	'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
@@ -111,6 +112,7 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
 	'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
 	'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButtonGroup',
 	'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMediaObject',
+	// phpcs:enable
 ];
 
 /**
@@ -119,11 +121,13 @@ $GLOBALS['mwsgCommonUIComponentRegistry'] = [
  */
 $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 	'*' => [
+		// phpcs:disable
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
 		'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MessageLiteral',
+		// phpcs:enable
 	],
 	'bootstrap5' => [
-		// phpcs:ignore
+		// phpcs:disable
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 		'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 		'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
@@ -154,6 +158,7 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 		'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',
+		// phpcs:enable
 	]
 ];
 
@@ -184,6 +189,7 @@ $GLOBALS['wgHooks']['SiteNoticeAfter'][]
 $GLOBALS['wgHooks']['SkinAfterContent'][]
 	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
 
+// phpcs:disable
 // Not yet ready
 #$GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
 #	'localBasePath' => __DIR__ . "/resources/",
@@ -206,3 +212,4 @@ $GLOBALS['wgHooks']['SkinAfterContent'][]
 
 #$GLOBALS['wgAPIModules']['mwstake-commonui-skinslot']
 #	= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Api\\SkinSlot';
+// phpcs:enable

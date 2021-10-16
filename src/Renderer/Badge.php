@@ -22,7 +22,6 @@ class Badge extends RendererBase {
 	 *
 	 * @param IBadge $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

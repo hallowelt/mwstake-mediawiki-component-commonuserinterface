@@ -23,7 +23,6 @@ class CardLink extends RendererBase {
 	 *
 	 * @param ICardLink $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

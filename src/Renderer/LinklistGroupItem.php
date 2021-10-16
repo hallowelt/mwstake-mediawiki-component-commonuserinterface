@@ -22,7 +22,6 @@ class LinklistGroupItem extends RendererBase {
 	 *
 	 * @param ILinklistGroupItem $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

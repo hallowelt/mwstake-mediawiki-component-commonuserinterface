@@ -60,7 +60,7 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	}
 
 	/**
-	 *
+	 * @param string $regKey
 	 * @return array
 	 */
 	public function getSkinSlot( $regKey ) : array {

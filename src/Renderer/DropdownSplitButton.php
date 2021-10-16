@@ -22,7 +22,6 @@ class DropdownSplitButton extends RendererBase {
 	 *
 	 * @param IDropdownSplitButton $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

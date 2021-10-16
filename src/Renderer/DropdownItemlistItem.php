@@ -22,7 +22,6 @@ class DropdownItemlistItem extends RendererBase {
 	 *
 	 * @param IDropdownItemlist $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

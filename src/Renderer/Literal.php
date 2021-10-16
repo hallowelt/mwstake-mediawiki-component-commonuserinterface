@@ -22,7 +22,6 @@ class Literal extends RendererBase {
 	 *
 	 * @param ILiteral $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

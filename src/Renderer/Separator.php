@@ -22,7 +22,6 @@ class Separator extends RendererBase {
 	 *
 	 * @param ISeparator $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {

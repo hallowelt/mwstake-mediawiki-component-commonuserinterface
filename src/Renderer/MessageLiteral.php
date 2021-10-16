@@ -22,7 +22,6 @@ class MessageLiteral extends RendererBase {
 	 *
 	 * @param IMessageLiteral $component
 	 * @param array $subComponentNodes
-	 * @param array $data
 	 * @return array
 	 */
 	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
