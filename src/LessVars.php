@@ -5,11 +5,11 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 class LessVars {
 	protected static $instance = null;
 
-	/** @var array  */
+	/** @var array */
 	protected $vars = [];
 
 	/**
-	 * @return static;
+	 * @return static
 	 */
 	public static function getInstance() {
 		if ( static::$instance === null ) {
@@ -22,6 +22,7 @@ class LessVars {
 	/**
 	 * @param string $name
 	 * @param mixed $default
+	 * @return string
 	 */
 	public function getVar( $name, $default = null ) {
 		if ( isset( $this->vars[$name] ) ) {
@@ -41,6 +42,7 @@ class LessVars {
 	/**
 	 * @param string $name
 	 * @param string $value
+	 * @return void
 	 */
 	public function setVar( $name, $value ) {
 		$this->vars[$name] = $value;
