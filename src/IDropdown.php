@@ -22,9 +22,9 @@ interface IDropdown extends IComponent {
 	public function getMenuClasses() : array;
 
 	/**
-	 * @return Message
+	 * @return string
 	 */
-	public function getText() : Message;
+	public function getText() : string;
 
 	/**
 	 * @return Message
