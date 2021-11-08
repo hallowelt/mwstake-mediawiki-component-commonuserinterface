@@ -30,7 +30,7 @@ class Dropdown extends RendererBase {
 		if ( $component instanceof IDropdown ) {
 			$templateData = [
 				'id' => $component->getId(),
-				'text' => $component->getText()->text(),
+				'text' => $component->getText()->plain(),
 				'title' => $component->getTitle()->text(),
 				'btn-aria-label' => $component->getAriaLabel()->text()
 			];
