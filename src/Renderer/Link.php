@@ -46,7 +46,7 @@ class Link extends RendererBase {
 				$templateData['data'] = $dataAttributesBuilder->build( $data );
 			}
 			$role = $component->getRole();
-			if ( !empty( $role ) ) {
+			if ( !empty( $role ) && $role !== 'link' ) {
 				$templateData['role'] = $role;
 			}
 			if ( !empty( $component->getClasses() ) ) {
