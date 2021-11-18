@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
+use MWStake\MediaWiki\Component\CommonUserInterface\IAccordion;
+
 class SimpleAccordion extends ComponentBase implements IAccordion {
 
 	/**

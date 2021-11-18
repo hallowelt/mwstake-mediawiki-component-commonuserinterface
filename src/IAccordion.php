@@ -1,6 +1,6 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
+namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
