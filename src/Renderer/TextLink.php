@@ -66,6 +66,14 @@ class TextLink extends RendererBase {
 					'aria' => $ariaAttributesBuilder->toString( $aria )
 				]
 			);
+			if ( $component->getTarget() !== '' ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'target' => $component->getTarget()
+					]
+				);
+			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
