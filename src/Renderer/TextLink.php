@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
@@ -68,13 +69,24 @@ class TextLink extends RendererBase {
 			);
 			// Is target external?
 			$parsedUrl = wfParseUrl( $component->getHref() );
-			if ( $parsedUrl ) {
+			$services = MediaWikiServices::getInstance();
+			$externalLinkTarget = $services->getMainConfig()->get( 'ExternalLinkTarget' );
+			if ( $parsedUrl && $externalLinkTarget ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'target' => '_blank'
+						'target' => $externalLinkTarget
 					]
 				);
+				$rel = [];
+				if ( isset( $templateData['rel'] ) ) {
+					$rel = implode( ' ', $templateData['rel'] );
+					// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
+					$rel = array_merge( $rel, 'external', 'noreferrer', 'noopener' );
+				} else {
+					$rel =[ 'external', 'noreferrer', 'noopener' ];
+				}
+				$templateData['rel'] = implode( ' ', $rel );
 			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
