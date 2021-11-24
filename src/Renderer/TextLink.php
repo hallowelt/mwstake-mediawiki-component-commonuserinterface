@@ -66,11 +66,13 @@ class TextLink extends RendererBase {
 					'aria' => $ariaAttributesBuilder->toString( $aria )
 				]
 			);
-			if ( $component->getTarget() !== '' ) {
+			// Is target external?
+			$parsedUrl = wfParseUrl( $component->getHref() );
+			if ( $parsedUrl ) {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'target' => $component->getTarget()
+						'target' => '_blank'
 					]
 				);
 			}

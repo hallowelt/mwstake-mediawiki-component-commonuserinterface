@@ -52,4 +52,5 @@ interface ITextLink {
 	 * @return string
 	 */
 	public function getRel() : string;
+
 }
