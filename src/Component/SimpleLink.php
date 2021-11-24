@@ -23,8 +23,7 @@ class SimpleLink extends ComponentBase implements ILink {
 				'rel' => '',
 				'data' => [],
 				'items' => [],
-				'aria' => [],
-				'target' => ''
+				'aria' => []
 			],
 			$options
 		);
@@ -98,12 +97,5 @@ class SimpleLink extends ComponentBase implements ILink {
 	 */
 	public function getRel() : string {
 		return $this->options['rel'];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getTarget() : string {
-		return $this->options['target'];
 	}
 }

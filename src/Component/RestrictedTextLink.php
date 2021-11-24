@@ -26,7 +26,6 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 				'rel' => '',
 				'data' => [],
 				'aria' => [],
-				'target' => '',
 				'permissions' => [],
 			],
 			$options
@@ -101,13 +100,6 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 	 */
 	public function getRel() : string {
 		return $this->options['rel'];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getTarget() : string {
-		return $this->options['target'];
 	}
 
 	/**
