@@ -78,13 +78,11 @@ class TextLink extends RendererBase {
 						'target' => $externalLinkTarget
 					]
 				);
-				$rel = [];
+				// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
+				$rel = [ 'external', 'noreferrer', 'noopener' ];
 				if ( isset( $templateData['rel'] ) ) {
-					$rel = implode( ' ', $templateData['rel'] );
-					// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
-					$rel = array_merge( $rel, 'external', 'noreferrer', 'noopener' );
-				} else {
-					$rel =[ 'external', 'noreferrer', 'noopener' ];
+					$componentRel = implode( ' ', $templateData['rel'] );
+					$rel = array_merge( $componentRel, $rel );
 				}
 				$templateData['rel'] = implode( ' ', $rel );
 			}
