@@ -3,13 +3,28 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILink;
 
 class Link extends RendererBase {
+
+	/**
+	 *
+	 * @var MainConfig
+	 */
+	private $mainConfig = null;
+
+	/**
+	 *
+	 * @param MainConfig $mainConfig
+	 */
+	public function __construct( $mainConfig ) {
+		parent::__construct();
+
+		$this->mainConfig = $mainConfig;
+	}
 
 	/**
 	 *
@@ -72,8 +87,8 @@ class Link extends RendererBase {
 			);
 			// Is target external?
 			$parsedUrl = wfParseUrl( $component->getHref() );
-			$services = MediaWikiServices::getInstance();
-			$externalLinkTarget = $services->getMainConfig()->get( 'ExternalLinkTarget' );
+			// MediaWiki global $wgExternalLinkTarget
+			$externalLinkTarget = $this->mainConfig->get( 'ExternalLinkTarget' );
 			if ( $parsedUrl && $externalLinkTarget ) {
 				$templateData = array_merge(
 					$templateData,
