@@ -58,9 +58,6 @@ class ComponentRendererFactory {
 				return $key;
 			}
 		}
-		if ( $component instanceof IDropdown ) {
-			$rendererKey = 'dropdown';
-		}
 
 		$className = get_class( $component );
 		throw new Exception( "No interface for '$className' registered!" );

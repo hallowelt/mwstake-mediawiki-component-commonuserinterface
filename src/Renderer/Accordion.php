@@ -4,7 +4,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use MWStake\MediaWiki\Component\CommonUserInterface\IAccordion;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\RendererBase;
 
 class Accordion extends RendererBase {
 

@@ -17,7 +17,7 @@ interface ITextLink {
 	public function getDataAttributes() : array;
 
 	/**
-	 * @inheritDoc
+	 * @return array
 	 */
 	public function getAriaAttributes() : array;
 
@@ -49,7 +49,7 @@ interface ITextLink {
 	public function getRole() : string;
 
 	/**
-	 * @inheritDoc
+	 * @return string
 	 */
 	public function getRel() : string;
 

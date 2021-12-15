@@ -153,8 +153,14 @@ $GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'linklistgroup' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroup',
 		'linklistgroup-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroupItem',
 		'linklistgroup-from-array' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\LinklistGroupFromArray',
-		'link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
-		'text-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TextLink',
+		'link' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
+			'services' => [ 'MainConfig' ]
+		],
+		'text-link' =>  [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TextLink',
+			'services' => [ 'MainConfig' ]
+		],
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 		'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',

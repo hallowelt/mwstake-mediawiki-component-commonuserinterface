@@ -12,6 +12,22 @@ class TextLink extends RendererBase {
 
 	/**
 	 *
+	 * @var MainConfig
+	 */
+	private $mainConfig = null;
+
+	/**
+	 *
+	 * @param MainConfig $mainConfig
+	 */
+	public function __construct( $mainConfig ) {
+		parent::__construct();
+
+		$this->mainConfig = $mainConfig;
+	}
+
+	/**
+	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */
@@ -66,6 +82,25 @@ class TextLink extends RendererBase {
 					'aria' => $ariaAttributesBuilder->toString( $aria )
 				]
 			);
+			// Is target external?
+			$parsedUrl = wfParseUrl( $component->getHref() );
+			// MediaWiki global $wgExternalLinkTarget
+			$externalLinkTarget = $this->mainConfig->get( 'ExternalLinkTarget' );
+			if ( $parsedUrl && $externalLinkTarget ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'target' => $externalLinkTarget
+					]
+				);
+				// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
+				$rel = [ 'external', 'noreferrer', 'noopener' ];
+				if ( isset( $templateData['rel'] ) ) {
+					$componentRel = implode( ' ', $templateData['rel'] );
+					$rel = array_merge( $componentRel, $rel );
+				}
+				$templateData['rel'] = implode( ' ', $rel );
+			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}
