@@ -82,6 +82,10 @@ class LinkFormatter {
 				}
 			}
 
+			if ( isset( $link['class'] ) && is_array( $link['class'] ) ) {
+				$link['class'] = implode( ' ', $link['class'] );
+			}
+
 			if ( isset( $link['data-mw'] ) && isset( $link['data'] ) ) {
 				$link['data']['mw'] = $link['data-mw'];
 			} elseif ( isset( $link['data-mw'] ) ) {
