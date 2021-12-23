@@ -24,7 +24,8 @@ class LinkFormatter {
 	 * https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
 	 * https://www.mediawiki.org/wiki/Manual:$wgNoFollowLinks
 	 *
-	 * @param string|false $externalLinkTarget
+	 * @param string|bool $externalLinkTarget
+	 * @param bool $noFollowLinks
 	 * @return LinkFormatter
 	 */
 	public function __construct( $externalLinkTarget = false, $noFollowLinks = true ) {
@@ -102,7 +103,10 @@ class LinkFormatter {
 			if ( $this->noFollowLinks ) {
 				$rel[] = 'nofollow';
 			}
-			if ( isset( $link['href'] ) && ( $link['href'] !== '' ) && ( strpos( $link['href'], '#' ) !== 0 ) ) {
+			$validHref = isset( $link['href'] )
+				&& ( $link['href'] !== '' )
+				&& ( strpos( $link['href'], '#' ) !== 0 );
+			if ( $validHref ) {
 				$parsedUrl = wfParseUrl( $link['href'] );
 				if ( $parsedUrl && $this->externalLinkTarget ) {
 					if ( !isset( $link['target'] ) ) {
