@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 
 use IContextSource;
+use MediaWiki\HookContainer\HookContainer;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel;
@@ -75,8 +76,9 @@ class ComponentManagerTest extends TestCase {
 
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
+		$mockHookContainer = $this->createMock( HookContainer::class );
 
-		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
 		$manager->init( $mockContext );
 	}
 
@@ -113,8 +115,9 @@ class ComponentManagerTest extends TestCase {
 
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
+		$mockHookContainer = $this->createMock( HookContainer::class );
 
-		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
 		$manager->init( $mockContext );
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
@@ -153,8 +156,9 @@ class ComponentManagerTest extends TestCase {
 
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
+		$mockHookContainer = $this->createMock( HookContainer::class );
 
-		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
 		$manager->init( $mockContext );
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
@@ -189,8 +193,9 @@ class ComponentManagerTest extends TestCase {
 
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
+		$mockHookContainer = $this->createMock( HookContainer::class );
 
-		$manager = new ComponentManager( $slots, $enabledSlots );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
 		$manager->init( $mockContext );
 
 		$tree = $manager->getSkinSlotComponentTree( 'testSlot1' );

@@ -65,6 +65,12 @@ class ComponentManager {
 
 	/**
 	 *
+	 * @var SkinSlotRegistry
+	 */
+	private $slotRegistry = null;
+
+	/**
+	 *
 	 * @var boolean
 	 */
 	private $async = false;
@@ -73,7 +79,7 @@ class ComponentManager {
 	 *
 	 * @var array
 	 */
-	private $exclusivePathes = [];
+	private $exclusivePaths = [];
 
 	/**
 	 *
@@ -82,17 +88,19 @@ class ComponentManager {
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
+	 * @param SkinSlotRegistry|null $slotRegistry
 	 *
 	 * @return ComponentManager
 	 */
 	public static function singleton( IContextSource $context, $slotSpecs, $enabledSlots,
-	$objectFactory = null, $hookContainer = null ) : ComponentManager {
+	$objectFactory = null, $hookContainer = null, $slotRegistry = null ) : ComponentManager {
 		if ( static::$instance == null ) {
 			static::$instance = new ComponentManager(
 				$slotSpecs,
 				$enabledSlots,
 				$objectFactory,
-				$hookContainer
+				$hookContainer,
+				$slotRegistry
 			);
 			static::$instance->init( $context );
 		}
@@ -106,36 +114,47 @@ class ComponentManager {
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
+	 * @param SkinSlotRegistry|null $slotRegistry
 	 */
 	public function __construct( $slotSpecs, $enabledSlots,
-		$objectFactory = null, $hookContainer = null ) {
+		$objectFactory = null, $hookContainer = null, $slotRegistry = null ) {
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
+		$this->hookContainer = $hookContainer;
+		$this->slotRegistry = $slotRegistry;
 		if ( $this->objectFactory instanceof ObjectFactory === false ) {
 			$this->objectFactory = \MediaWiki\MediaWikiServices::getInstance()->getObjectFactory();
 		}
 		if ( $this->hookContainer instanceof HookContainer === false ) {
 			$this->hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
 		}
+		if ( $this->slotRegistry instanceof SkinSlotRegistry === false ) {
+			// phpcs:ignore Generic.Files.LineLength.TooLong
+			$this->slotRegistry = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
+		}
 	}
 
 	/**
 	 * @param IContextSource $context
 	 * @param bool $async
-	 * @param array $exclusivePathes
+	 * @param array $exclusivePaths
 	 * @return void
 	 */
-	public function init( $context, $async = false, $exclusivePathes = [] ) {
+	public function init( $context, $async = false, $exclusivePaths = [] ) {
 		$this->context = $context;
 		$this->async = $async;
-		$this->exclusivePathes = $exclusivePathes;
+		$this->exclusivePaths = $exclusivePaths;
 
-		$registry = MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
-		$this->hookContainer->run( 'MWStakeCommonUIRegisterSkinSlotComponents', [ $registry ] );
+		$this->hookContainer->run(
+			'MWStakeCommonUIRegisterSkinSlotComponents',
+			[ $this->slotRegistry ]
+		);
+		$hookProvidedSlotSpecs = $this->slotRegistry->getSkinSlots();
+		$this->slotSpecs = array_merge( $this->slotSpecs, $hookProvidedSlotSpecs );
 
-		// TODO: limit tree walk to exclusive pathes!
-		foreach ( $registry->getSkinSlots() as $slotId => $specs ) {
+		// TODO: limit tree walk to exclusive paths!
+		foreach ( $this->slotSpecs as $slotId => $specs ) {
 			if ( !in_array( $slotId, $this->enabledSlots ) ) {
 				continue;
 			}
