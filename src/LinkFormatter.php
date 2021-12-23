@@ -100,8 +100,8 @@ class LinkFormatter {
 			if ( isset( $link['rel'] ) ) {
 				$rel = explode( ' ', $link['rel'] );
 			}
-			if ( $this->noFollowLinks ) {
-				$rel[] = 'nofollow';
+			if ( $this->noFollowLinks && !in_array( 'nofollow', $rel ) ) {
+				$rel = array_merge( $rel, [ 'nofollow' ] );
 			}
 			$validHref = isset( $link['href'] )
 				&& ( $link['href'] !== '' )
@@ -112,12 +112,12 @@ class LinkFormatter {
 					if ( !isset( $link['target'] ) ) {
 						$link['target'] = $this->externalLinkTarget;
 					}
-					if ( isset( $link['target'] ) && !isset( $link['rel'] ) ) {
-						// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
-						$rel = array_merge(
-							$rel,
-							[ 'noreferrer', 'noopener' ]
-						);
+					// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
+					if ( isset( $link['target'] ) && !in_array( 'noreferrer', $rel ) ) {
+							$rel = array_merge( $rel, [ 'noreferrer' ] );
+					}
+					if ( isset( $link['target'] ) && !in_array( 'noopener', $rel ) ) {
+						$rel = array_merge( $rel, [ 'noopener' ] );
 					}
 				}
 			}
