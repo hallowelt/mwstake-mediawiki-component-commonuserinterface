@@ -114,7 +114,7 @@ class LinkFormatter {
 					}
 					// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
 					if ( isset( $link['target'] ) && !in_array( 'noreferrer', $rel ) ) {
-							$rel = array_merge( $rel, [ 'noreferrer' ] );
+						$rel = array_merge( $rel, [ 'noreferrer' ] );
 					}
 					if ( isset( $link['target'] ) && !in_array( 'noopener', $rel ) ) {
 						$rel = array_merge( $rel, [ 'noopener' ] );
