@@ -5,6 +5,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\GenericComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\HtmlIdRegistry;
+use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
 use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRegistry;
@@ -70,5 +71,12 @@ return [
 			$GLOBALS['mwsgCommonUISkinSlots']
 		);
 		return $skinSlotRegistry;
+	},
+	'MWStakeLinkFormatter' => function ( MediaWikiServices $services ) {
+		$linkFormatter = new LinkFormatter(
+			$services->getMainConfig()->get( 'ExternalLinkTarget' ),
+			$services->getMainConfig()->get( 'NoFollowLinks' )
+		);
+		return $linkFormatter;
 	},
 ];
