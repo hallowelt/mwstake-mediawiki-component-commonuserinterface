@@ -257,12 +257,24 @@ class ComponentManager {
 	 */
 	private function checkPermissions( $component ) : bool {
 		$user = $this->context->getUser();
+		$currentTitle = $this->context->getTitle();
 		$services = MediaWikiServices::getInstance();
+		$permissionManager = $services->getPermissionManager();
 		foreach ( $component->getPermissions() as $permission ) {
-			$userHasRight = $services->getPermissionManager()->userHasRight(
-				$user,
-				$permission
-			);
+			$userHasRight = false;
+			if ( $currentTitle === null ) {
+				$userHasRight = $permissionManager->userHasRight(
+					$user,
+					$permission
+				);
+			} else {
+				$userHasRight = $permissionManager->quickUserCan(
+					$permission,
+					$user,
+					$currentTitle
+				);
+			}
+
 			if ( $userHasRight ) {
 				return true;
 			}
