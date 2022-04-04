@@ -2,10 +2,12 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Sanitizer;
+
 class AriaAttributesBuilder {
 
 	/**
-	 * @return StdClass
+	 * @return AriaAttributesBuilder
 	 */
 	public static function factory() {
 		return new static();
@@ -19,7 +21,10 @@ class AriaAttributesBuilder {
 		$attribs = [];
 
 		foreach ( $data  as $key => $value ) {
-			$attrib = 'aria-' . $key . '="' . $value . '"';
+			$attrib = Sanitizer::safeEncodeTagAttributes( [
+				"aria-$key" => $value
+			] );
+			$attrib = trim( $attrib );
 			array_push( $attribs, $attrib );
 		}
 
