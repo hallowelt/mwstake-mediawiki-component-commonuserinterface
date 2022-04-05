@@ -38,11 +38,11 @@ class BadgeRendererTest extends TestCase {
 	 * @return IComponent
 	 */
 	private function getComponent(): IComponent {
-		return new Badge(  [
+		return new Badge( [
 			'id' => 'simple-badge',
 			'classes' => [ 'renderer-test', 'badge-renderer' ],
 			'text' => new RawMessage( 'Badge renderer' ),
-		]  );
+		] );
 	}
 
 	/**

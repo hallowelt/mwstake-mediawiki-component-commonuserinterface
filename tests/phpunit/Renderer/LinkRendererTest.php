@@ -13,7 +13,7 @@ use HashConfig;
 class LinkRendererTest extends TestCase {
 
 	/**
-	 * @covers BatchRenderer::getHtml
+	 * @covers LinkRenderer::getHtml
 	 *
 	 * @return void
 	 */
@@ -42,7 +42,7 @@ class LinkRendererTest extends TestCase {
 	 * @return IComponent
 	 */
 	private function getComponent(): IComponent {
-		return new SimpleLink(  [
+		return new SimpleLink( [
 			'id' => 'dummy',
 			'role' => '',
 			'classes' => [ 'renderer-test', 'link-renderer'],
@@ -59,7 +59,7 @@ class LinkRendererTest extends TestCase {
 				'good' => 'okay',
 				'evil' => '" onmouseover="alert( \"Should not work\" )"'
 			]
-		],  );
+		] );
 	}
 
 	/**
