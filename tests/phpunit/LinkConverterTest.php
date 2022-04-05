@@ -6,6 +6,9 @@ use MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter;
 use PHPUnit\Framework\TestCase;
 use RawMessage;
 
+/**
+ * @group Broken
+ */
 class LinkConverterTest extends TestCase {
 
 	/**

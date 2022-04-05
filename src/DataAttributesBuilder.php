@@ -2,9 +2,11 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Sanitizer;
+
 class DataAttributesBuilder {
 	/**
-	 * @return StdClass
+	 * @return DataAttributesBuilder
 	 */
 	public static function factory() {
 		return new static();
@@ -18,7 +20,10 @@ class DataAttributesBuilder {
 		$attribs = [];
 
 		foreach ( $data  as $key => $value ) {
-			$attrib = 'data-' . $key . '="' . $value . '"';
+			$attrib = Sanitizer::safeEncodeTagAttributes( [
+				"data-$key" => $value
+			] );
+			$attrib = trim( $attrib );
 			array_push( $attribs, $attrib );
 		}
 

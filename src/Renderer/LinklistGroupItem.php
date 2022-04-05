@@ -31,6 +31,7 @@ class LinklistGroupItem extends RendererBase {
 		if ( $component instanceof ILinklistGroupItem ) {
 			$templateData = [
 				'cnt-id' => $component->getId(),
+				'class' => implode( ' ', $component->getClasses() ),
 				'body' => $subComponentNodes
 			];
 
@@ -55,6 +56,6 @@ class LinklistGroupItem extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname() : string {
-		return $this->templateBasePath . '/linklist-group.mustache';
+		return $this->templateBasePath . '/linklist-group-item.mustache';
 	}
 }
