@@ -12,6 +12,12 @@ use RawMessage;
 class BadgeRendererTest extends TestCase {
 
 	/**
+	 * This is not the regular call of getHtml. This test should confirm DataAttributeBuilder
+	 * output and AriaAttributeBuilder output together with the renderer method
+	 * getRendererDataTreeNode.
+	 *
+	 * The html is easier to compare.
+	 *
 	 * @covers BatchRenderer::getHtml
 	 *
 	 * @return void
@@ -52,6 +58,9 @@ class BadgeRendererTest extends TestCase {
 		return [];
 	}
 
+	/**
+	 * @return string
+	 */
 	private function getExpectedHtml(): string {
 		$expectedHtml = file_get_contents( __DIR__ . '/results/badge.html' );
 		if ( !$expectedHtml ) {
