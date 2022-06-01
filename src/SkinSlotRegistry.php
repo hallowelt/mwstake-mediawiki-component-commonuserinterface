@@ -48,7 +48,7 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 		if ( !array_key_exists( $skinSlot, $this->slotSpecs ) ) {
 			$this->slotSpecs[$skinSlot] = [];
 		}
-		$this->slotSpecs[$skinSlot] = array_merge( $components, $this->slotSpecs[$skinSlot] );
+		$this->slotSpecs[$skinSlot] = array_merge( $this->slotSpecs[$skinSlot], $components );
 	}
 
 	/**
