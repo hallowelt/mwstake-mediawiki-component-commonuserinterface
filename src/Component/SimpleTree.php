@@ -4,7 +4,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITree;
-use RawMessage;
 
 class SimpleTree extends ComponentBase implements ITree {
 

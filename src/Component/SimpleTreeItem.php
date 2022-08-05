@@ -48,14 +48,14 @@ class SimpleTreeItem extends ComponentBase implements ITreeItem {
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function hasPopup(): bool {
 		return $this->options[''];
 	}
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function expanded(): bool {
 		return $this->options[''];
