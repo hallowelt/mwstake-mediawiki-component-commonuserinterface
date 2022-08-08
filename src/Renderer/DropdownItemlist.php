@@ -56,4 +56,11 @@ class DropdownItemlist extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-itemlist.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body' ];
+	}
 }

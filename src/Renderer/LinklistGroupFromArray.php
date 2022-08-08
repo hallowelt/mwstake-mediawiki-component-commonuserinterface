@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use HtmlArmor;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
@@ -86,5 +87,14 @@ class LinklistGroupFromArray extends RendererBase {
 	 */
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/linklist-group-from-array.mustache';
+	}
+
+	/**
+	 * `AriaAttributesBuilder` and `DataAttributesBuilder` are already using
+	 * `Sanitizer::safeEncodeTagAttributes`
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'aria', 'data' ];
 	}
 }

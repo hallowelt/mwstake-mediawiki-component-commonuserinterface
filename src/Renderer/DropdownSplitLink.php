@@ -111,4 +111,11 @@ class DropdownSplitLink extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-split-link.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body' ];
+	}
 }

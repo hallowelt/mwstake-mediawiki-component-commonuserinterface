@@ -118,4 +118,11 @@ class DropdownIconSplitButton extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-icon-split-button.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body' ];
+	}
 }

@@ -67,4 +67,13 @@ class CardLink extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/card-link.mustache';
 	}
+
+	/**
+	 * `AriaAttributesBuilder` and `DataAttributesBuilder` are already using
+	 * `Sanitizer::safeEncodeTagAttributes`
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body', 'data' ];
+	}
 }

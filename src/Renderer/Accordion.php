@@ -39,4 +39,11 @@ class Accordion extends RendererBase {
 		return $this->templateBasePath . '/accordion.mustache';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'header-text', 'body' ];
+	}
+
 }

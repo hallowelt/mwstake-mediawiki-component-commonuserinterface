@@ -51,4 +51,11 @@ class Literal extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/literal.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body' ];
+	}
 }
