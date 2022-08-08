@@ -2,7 +2,6 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use HtmlArmor;
 use Linker;
 use Message;
 
@@ -66,7 +65,6 @@ class LinkFormatter {
 			} else {
 				continue;
 			}
-			//$link['text'] = HtmlArmor::getHtml( $link['text'] );
 
 			if ( isset( $link['title'] ) && $link['title'] !== '' ) {
 				$msg = Message::newFromKey( $link['title'] );
