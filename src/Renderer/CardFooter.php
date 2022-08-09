@@ -48,4 +48,11 @@ class CardFooter extends RendererBase {
 
 		return $templateData;
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body' ];
+	}
 }

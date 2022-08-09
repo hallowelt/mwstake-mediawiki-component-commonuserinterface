@@ -84,4 +84,11 @@ class DropdownIcon extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-icon.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'body' ];
+	}
 }

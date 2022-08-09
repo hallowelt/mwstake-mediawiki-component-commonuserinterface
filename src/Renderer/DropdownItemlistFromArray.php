@@ -76,4 +76,13 @@ class DropdownItemlistFromArray extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/dropdown-itemlist-from-array.mustache';
 	}
+
+	/**
+	 * `AriaAttributesBuilder` and `DataAttributesBuilder` are already using
+	 * `Sanitizer::safeEncodeTagAttributes`
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'aria', 'body', 'data' ];
+	}
 }

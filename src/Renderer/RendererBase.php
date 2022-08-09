@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
+use HtmlArmor;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use TemplateParser;
 
@@ -35,6 +36,7 @@ abstract class RendererBase implements IComponentRenderer {
 		// TODO: Maybe add a "getTemplateFileExtension" method to the interface?
 		$templateFilename = preg_replace( '#\.mustache$#', '', $templateFilename );
 		$this->templateParser = new TemplateParser( $templateDirname );
+		$data = $this->preprocessData( $data );
 		$html = $this->templateParser->processTemplate( $templateFilename, $data );
 		// An empty string causes an
 		//  PHP Notice: 'Array to string conversion inincludes/TemplateParser.php(173) : eval()'d'
@@ -43,6 +45,36 @@ abstract class RendererBase implements IComponentRenderer {
 			$html = "\0";
 		}
 		return $html;
+	}
+
+	/**
+	 * Handle `HtmlArmor`
+	 * @param array $data
+	 * @return array
+	 */
+	protected function preprocessData( $data ) {
+		$htmlArmorExcludedFieldNames = $this->getHtmlArmorExcludedFields();
+		$processedData = [];
+		foreach ( $data as $fieldName => $dataValue ) {
+			if ( is_array( $dataValue ) ) {
+				foreach ( $dataValue as $subDataKey => $subDataValue ) {
+					$dataValue[$subDataKey] = $this->preprocessData( $subDataValue );
+				}
+			} elseif ( !in_array( $fieldName, $htmlArmorExcludedFieldNames ) ) {
+				$dataValue = HtmlArmor::getHtml( $dataValue );
+			}
+			$processedData[$fieldName] = $dataValue;
+		}
+
+		return $processedData;
+	}
+
+	/**
+	 * Explicitly list field names that should not be automatically handeled with `HtmlArmor`
+	 * @return string[]
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [];
 	}
 
 	/**
