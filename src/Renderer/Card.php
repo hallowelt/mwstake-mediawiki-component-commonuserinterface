@@ -48,6 +48,6 @@ class Card extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'id', 'class', 'body' ];
+		return [ 'id', 'class' ];
 	}
 }

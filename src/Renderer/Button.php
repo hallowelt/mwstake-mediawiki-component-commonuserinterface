@@ -70,7 +70,7 @@ class Button extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'id', 'class', 'diabled', 'aria-label' ];
+		return [ 'id', 'class', 'disabled', 'aria-label' ];
 	}
 
 }

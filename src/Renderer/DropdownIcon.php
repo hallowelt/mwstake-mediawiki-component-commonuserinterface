@@ -90,6 +90,6 @@ class DropdownIcon extends RendererBase {
 	 */
 	protected function getHtmlArmorExcludedFields() {
 		return [ 'cnt-class', 'tabindex', 'btn-class', 'id', 'title', 'btn-data', 'btn-aria-label',
-			'icon-class', 'menu-class', 'body' ];
+			'icon-class', 'menu-class' ];
 	}
 }

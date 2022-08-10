@@ -119,6 +119,6 @@ class DropdownSplitLink extends RendererBase {
 		return [ 'cnt-class', 'btn-group-class', 'btn-class', 'id', 'btn-title', 'btn-data',
 			'btn-aria-label', 'btn-disabled', 'btn-href', 'btn-text', 'split-btn-class',
 			'split-btn-title', 'split-btn-data', 'split-btn-aria-label', 'split-btn-disabled',
-			'menu-class', 'body' ];
+			'menu-class' ];
 	}
 }

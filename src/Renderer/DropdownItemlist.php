@@ -61,6 +61,6 @@ class DropdownItemlist extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'list-id', 'list-class', 'body' ];
+		return [ 'list-id', 'list-class' ];
 	}
 }

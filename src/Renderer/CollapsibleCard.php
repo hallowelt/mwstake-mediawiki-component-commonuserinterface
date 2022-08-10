@@ -84,7 +84,7 @@ class CollapsibleCard extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'cnt-class', 'id', 'header-class', 'title', 'aria', 'body-class', 'body' ];
+		return [ 'cnt-class', 'id', 'header-class', 'title', 'aria', 'body-class' ];
 	}
 
 }

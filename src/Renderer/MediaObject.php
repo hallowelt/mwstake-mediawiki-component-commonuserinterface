@@ -70,7 +70,7 @@ class MediaObject extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'id', 'container-class', 'img-class', 'src', 'alt', 'body-class', 'body' ];
+		return [ 'id', 'container-class', 'img-class', 'src', 'alt', 'body-class' ];
 	}
 
 }

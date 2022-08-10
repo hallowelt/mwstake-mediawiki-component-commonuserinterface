@@ -90,6 +90,6 @@ class DropdownButton extends RendererBase {
 	 */
 	protected function getHtmlArmorExcludedFields() {
 		return [ 'cnt-class', 'btn-class', 'id', 'title', 'data', 'btn-aria-label', 'disabled',
-			'text', 'menu-class', 'body' ];
+			'text', 'menu-class' ];
 	}
 }
