@@ -53,6 +53,6 @@ class CardSubTitle extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'body' ];
+		return [ 'class', 'body' ];
 	}
 }

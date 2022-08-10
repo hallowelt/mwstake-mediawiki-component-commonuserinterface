@@ -89,6 +89,7 @@ class DropdownButton extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'body' ];
+		return [ 'cnt-class', 'btn-class', 'id', 'title', 'data', 'btn-aria-label', 'disabled',
+			'text', 'menu-class', 'body' ];
 	}
 }

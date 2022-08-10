@@ -69,4 +69,13 @@ class LinklistGroup extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/linklist-group.mustache';
 	}
+
+	/**
+	 * `AriaAttributesBuilder` and `DataAttributesBuilder` are already using
+	 * `Sanitizer::safeEncodeTagAttributes`
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'id', 'class', 'aria' ];
+	}
 }

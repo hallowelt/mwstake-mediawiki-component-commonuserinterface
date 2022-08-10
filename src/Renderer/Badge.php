@@ -51,4 +51,11 @@ class Badge extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/badge.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'class' ];
+	}
 }

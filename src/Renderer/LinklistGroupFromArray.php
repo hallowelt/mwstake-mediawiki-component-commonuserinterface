@@ -94,6 +94,7 @@ class LinklistGroupFromArray extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'aria', 'data' ];
+		return [ 'cnt-id', 'cnt-class', 'cnt-aria', 'id', 'class', 'href', 'title', 'aria', 'data',
+			'rel', 'target' ];
 	}
 }

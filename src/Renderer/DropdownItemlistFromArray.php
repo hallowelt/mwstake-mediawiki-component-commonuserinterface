@@ -83,6 +83,7 @@ class DropdownItemlistFromArray extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'aria', 'body', 'data' ];
+		return [ 'list-id', 'list-class', 'id', 'class', 'href', 'title', 'aria', 'data',
+			'rel', 'target' ];
 	}
 }

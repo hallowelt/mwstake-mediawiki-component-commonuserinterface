@@ -4,6 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\ICard;
+use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
 class Card extends RendererBase {
 
@@ -47,6 +48,6 @@ class Card extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'body' ];
+		return [ 'id', 'class', 'body' ];
 	}
 }

@@ -69,11 +69,11 @@ class CardLink extends RendererBase {
 	}
 
 	/**
-	 * `AriaAttributesBuilder` and `DataAttributesBuilder` are already using
+	 * `DataAttributesBuilder` is already using
 	 * `Sanitizer::safeEncodeTagAttributes`
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'body', 'data' ];
+		return [ 'id', 'class', 'href', 'title', 'data', 'role', 'rel', 'aria-label' ];
 	}
 }

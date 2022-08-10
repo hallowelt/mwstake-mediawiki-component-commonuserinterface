@@ -52,4 +52,11 @@ class Separator extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/separator.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'class' ];
+	}
 }

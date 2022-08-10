@@ -37,7 +37,7 @@ interface IDropdownIconSplitButton extends IComponent {
 	public function getMenuClasses() : array;
 
 	/**
-	 * @return Message
+	 * @return array
 	 */
 	public function getIconClasses() : array;
 

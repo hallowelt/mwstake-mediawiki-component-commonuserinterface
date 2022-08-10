@@ -58,4 +58,11 @@ class LinklistGroupItem extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/linklist-group-item.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'class' ];
+	}
 }

@@ -43,4 +43,10 @@ class CardImage extends RendererBase {
 		return $templateData;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'src', 'type', 'class', 'alt' ];
+	}
 }

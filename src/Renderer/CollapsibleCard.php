@@ -78,4 +78,13 @@ class CollapsibleCard extends RendererBase {
 		return $templateData;
 	}
 
+	/**
+	 * `AriaAttributesBuilder` is already using
+	 * `Sanitizer::safeEncodeTagAttributes`
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'cnt-class', 'id', 'header-class', 'title', 'aria', 'body-class', 'body' ];
+	}
+
 }

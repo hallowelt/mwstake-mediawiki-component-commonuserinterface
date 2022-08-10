@@ -74,7 +74,7 @@ abstract class RendererBase implements IComponentRenderer {
 	 * @return string[]
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [];
+		return [ 'id', 'class', 'aria-label', 'title', 'aria', 'data' ];
 	}
 
 	/**

@@ -66,4 +66,11 @@ class Button extends RendererBase {
 		return $this->templateBasePath . '/button.mustache';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'id', 'class', 'diabled', 'aria-label' ];
+	}
+
 }
