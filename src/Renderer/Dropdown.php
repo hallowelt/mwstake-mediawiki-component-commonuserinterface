@@ -81,6 +81,6 @@ class Dropdown extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'body' ];
+		return [ 'cnt-class', 'id', 'title', 'btn-data', 'btn-aria-label', 'menu-class' ];
 	}
 }

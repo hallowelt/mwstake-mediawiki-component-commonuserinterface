@@ -123,6 +123,9 @@ class DropdownIconSplitButton extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'body' ];
+		return [ 'cnt-class', 'btn-group-class', 'href', 'btn-class', 'id', 'btn-title',
+			'btn-data', 'btn-aria-label', 'btn-disabled', 'icon-class', 'split-btn-class',
+			'split-btn-title', 'split-btn-data', 'split-btn-aria-label', 'split-btn-disabled',
+			'menu-class' ];
 	}
 }

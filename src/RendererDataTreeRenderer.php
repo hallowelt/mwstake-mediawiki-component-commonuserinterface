@@ -2,6 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use HtmlArmor;
+
 class RendererDataTreeRenderer {
 
 	/**
@@ -52,7 +54,7 @@ class RendererDataTreeRenderer {
 				}
 			}
 			if ( !empty( $subComponentHtml ) ) {
-				$dataTreeNode['data'][$dataKey] = $subComponentHtml;
+				$dataTreeNode['data'][$dataKey] = new HtmlArmor( $subComponentHtml );
 			}
 		}
 

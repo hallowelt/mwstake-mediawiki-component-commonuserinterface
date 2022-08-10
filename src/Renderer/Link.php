@@ -126,6 +126,6 @@ class Link extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'aria', 'data' ];
+		return [ 'id', 'class', 'href', 'title', 'aria', 'data', 'role', 'rel', 'target' ];
 	}
 }

@@ -64,4 +64,11 @@ class ButtonGroup extends RendererBase {
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/button-group.mustache';
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'class', 'role', 'aria-label' ];
+	}
 }

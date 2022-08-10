@@ -43,7 +43,7 @@ class Accordion extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'header-text', 'body' ];
+		return [ 'id' ];
 	}
 
 }
