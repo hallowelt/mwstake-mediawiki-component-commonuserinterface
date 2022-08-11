@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use HtmlArmor;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
 
@@ -30,7 +31,7 @@ class Dropdown extends RendererBase {
 		if ( $component instanceof IDropdown ) {
 			$templateData = [
 				'id' => $component->getId(),
-				'text' => $component->getText()->plain(),
+				'text' => new HtmlArmor( $component->getText()->plain() ),
 				'title' => $component->getTitle()->text(),
 				'btn-aria-label' => $component->getAriaLabel()->text()
 			];
