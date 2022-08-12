@@ -57,9 +57,7 @@ abstract class RendererBase implements IComponentRenderer {
 		$processedData = [];
 		foreach ( $data as $fieldName => $dataValue ) {
 			if ( is_array( $dataValue ) ) {
-				foreach ( $dataValue as $subDataKey => $subDataValue ) {
-					$dataValue[$subDataKey] = $this->preprocessData( $subDataValue );
-				}
+				$dataValue = $this->preprocessData( $dataValue );
 			} elseif ( !in_array( $fieldName, $htmlArmorExcludedFieldNames ) ) {
 				$dataValue = HtmlArmor::getHtml( $dataValue );
 			}

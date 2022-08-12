@@ -8,7 +8,7 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 	return;
 }
 
-define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '3.0.6' );
+define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '3.0.7' );
 
 MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 ->register( 'commonuserinterface', function () {
