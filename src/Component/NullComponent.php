@@ -7,10 +7,24 @@ use IContextSource;
 class NullComponent extends ComponentBase {
 
 	/**
+	 *
+	 * @var string
+	 */
+	private $id = '';
+
+	/**
+	 *
+	 * @param string $id
+	 */
+	public function __construct( $id = 'null-component' ) {
+		$this->id = $id;
+	}
+
+	/**
 	 * @return string
 	 */
-	public function getId(): string {
-		return 'null-component';
+	public function getId() : string {
+		return $this->id;
 	}
 
 	/**
