@@ -15,7 +15,7 @@ class NullComponent extends ComponentBase {
 
 	/**
 	 * @param IContextSource $context
-	 * @return boolean
+	 * @return bool
 	 */
 	public function shouldRender( IContextSource $context ) : bool {
 		return false;
