@@ -9,7 +9,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
 use PHPUnit\Framework\TestCase;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 class ComponentRendererFactoryTest extends TestCase {
 
