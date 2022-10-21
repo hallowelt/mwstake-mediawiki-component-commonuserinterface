@@ -114,8 +114,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
 		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButtonGroup',
 		'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMediaObject',
-		'tree' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITree',
-		'tree-item' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeItem',
+		'tree-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeNode'
 		// phpcs:enable
 	];
 
@@ -168,13 +167,8 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 			'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 			'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',
-			'tree' => [
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Tree',
-				'services' => [ 'MainConfig' ]
-			],
-			'tree-item' => [
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeItem',
-				'services' => [ 'MainConfig' ]
+			'tree-node' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeNode',
 			],
 			// phpcs:enable
 		]

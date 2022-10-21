@@ -2,9 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use Message;
-
-interface ITreeItem {
+interface ITreeNode {
 
 	/**
 	 * @return string
@@ -27,34 +25,15 @@ interface ITreeItem {
 	public function expanded(): bool;
 
 	/**
-	 * @return Message
-	 */
-	public function getText() : Message;
-
-	/**
-	 * @return Message
-	 */
-	public function getTitle() : Message;
-
-	/**
-	 * @return string
-	 */
-	public function getHref() : string;
-
-	/**
-	 * @return array
-	 */
-	public function getDataAttributes() : array;
-
-	/**
 	 * One of the `ARIARole::*` constants
 	 *
 	 * @return string
 	 */
-	public function getRole() : string;
+	public function getRole(): string;
 
 	/**
-	 * @return string
+	 * @param array $data
+	 * @return void
 	 */
-	public function getRel() : string;
+	public function setNodeData( array $data ): void;
 }
