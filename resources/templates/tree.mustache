@@ -1,3 +1,5 @@
-<ul {{#class}} class="{{.}}"{{/class}} aria-labelledby="{{aria-labelledby}}">
-	{{{body}}}
+{{#hasItems}}
+<ul{{#class}} class="{{.}}"{{/class}}{{#aria}} {{{.}}}{{/aria}}>
+	{{#body}}{{{.}}}{{/body}}
 </ul>
+{{/hasItems}}

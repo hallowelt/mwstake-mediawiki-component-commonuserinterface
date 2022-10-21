@@ -1,0 +1,10 @@
+<li{{#id}} id="{{.}}"{{/id}} {{#class}} class="{{.}}"{{/class}} {{#role}} role="{{.}}"{{/role}}>
+	<div id="{{labelId}}">
+		{{text}}
+	</div>
+	{{#hasChildren}}
+	<ul role="tree" aria-labelledby="{{labelId}}" class="tree-node-children">
+		{{#children}}{{{.}}}{{/children}}
+	</ul>
+	{{/hasChildren}}
+</li>

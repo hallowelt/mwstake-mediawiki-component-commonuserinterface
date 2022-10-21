@@ -5,24 +5,14 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 interface ITreeNode {
 
 	/**
-	 * @return string
-	 */
-	public function getId(): string;
-
-	/**
-	 * @return string[]
-	 */
-	public function getClasses(): array;
-
-	/**
-	 * @return boolean
-	 */
-	public function hasPopup(): bool;
-
-	/**
 	 * @return boolean
 	 */
 	public function expanded(): bool;
+
+	/**
+	 * @return array
+	 */
+	public function getAriaAttributes(): array;
 
 	/**
 	 * One of the `ARIARole::*` constants

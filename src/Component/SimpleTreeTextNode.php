@@ -2,9 +2,10 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 
-class SimpleTreeNode extends ComponentBase implements ITreeNode {
+class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNode {
 
 	/**
 	 *
@@ -20,8 +21,11 @@ class SimpleTreeNode extends ComponentBase implements ITreeNode {
 			'id' => 'some-id',
 			'items' => [],
 			'classes' => [],
-			'expanded' => false,
-			'role' => ''
+			'role' => 'tree-item',
+			'text' => '',
+			'aria' => [
+				'expanded' => true
+			]
 		], $options );
 	}
 
@@ -50,19 +54,8 @@ class SimpleTreeNode extends ComponentBase implements ITreeNode {
 	/**
 	 * @return bool
 	 */
-	public function hasPopup(): bool {
-		if ( empty( $this->getSubComponents() ) ) {
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
-	 * @return bool
-	 */
 	public function expanded(): bool {
-		return $this->options['expanded'];
+		return $this->options['aria']['expanded'];
 	}
 
 	/**
@@ -80,5 +73,19 @@ class SimpleTreeNode extends ComponentBase implements ITreeNode {
 	 */
 	public function getSubComponents() : array {
 		return $this->options['items'];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getText(): string {
+		return $this->options['text'];
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getAriaAttributes(): array {
+		return $this->options['aria'];
 	}
 }

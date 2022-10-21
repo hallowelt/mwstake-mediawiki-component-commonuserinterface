@@ -5,12 +5,15 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 interface ITree {
 
 	/**
-	 * @return string[]
+	 * @return array
 	 */
-	public function getClasses(): array;
+	public function getAriaAttributes(): array;
 
 	/**
+	 * One of the `ARIARole::*` constants
+	 *
 	 * @return string
 	 */
-	public function getAriaLabelledBy(): string;
+	public function getRole(): string;
+
 }
