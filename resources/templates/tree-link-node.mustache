@@ -1,12 +1,10 @@
 <li{{#id}} id="{{.}}"{{/id}} {{#classes}} class="{{.}}"{{/classes}} {{#role}} role="{{.}}"{{/role}} tabindex="0">
 	<div>
-		{{#expandBtn}}
-		<button {{#btnClasses}} class="{{.}}"{{/btnClasses}} aria-expanded="{{expanded}}"{{#id}} aria-controlls="{{.}}-children"{{/id}}></button>
-		{{/expandBtn}}
+		{{#expandBtn}}<button {{#classes}} class="{{.}}"{{/classes}} aria-expanded="{{expanded}}"{{#id}} aria-controlls="{{.}}-children"{{/id}}></button>{{/expandBtn}}
 		<a id="{{labelId}}" href="{{href}} title="{{title}}">{{text}}</a>
 	</div>
 	{{#hasChildren}}
-	<ul role="group" aria-labelledby="{{labelId}}" class="tree-node-children"{{#id}} id="{{.}}-children"{{/id}}">
+	<ul role="group" aria-labelledby="{{labelId}}" class="tree-node-children{{#expanded}} show{{/expanded}}"{{#id}} id="{{.}}-children"{{/id}}">
 		{{#children}}{{{.}}}{{/children}}
 	</ul>
 	{{/hasChildren}}

@@ -6,6 +6,7 @@ use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 
 class TreeLinkNode extends RendererBase {
 
@@ -39,13 +40,18 @@ class TreeLinkNode extends RendererBase {
 				'title' => $component->getTitle()->text(),
 				'href' => $component->getHref(),
 				'labelId' => "$id-label",
-				'expanded' => $component->isExpanded(),
 			];
 
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['hasChildren'] = 'true';
 				$templateData['children'] = $subComponentNodes;
 				$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
+
+				$templateData['classes'] = 'false';
+				if ( $component->isExpanded() ) {
+					$templateData['expanded'] = 'true';
+					$templateData['classes'] = 'expanded';
+				}
 			} else {
 				$templateData['classes'][] = 'leaf';
 			}
@@ -77,10 +83,10 @@ class TreeLinkNode extends RendererBase {
 	}
 
 	/**
-	 * @param IComponent $component
-	 * @return array
+	 * @param ITreeNode $component
+	 * @retrun array
 	 */
-	private function getExpandButtonParams( IComponent $component ): array {
+	private function getExpandButtonParams( ITreeNode $component ): array {
 		$button = [
 			'expanded' => 'false',
 			'classes' => $component->getExpandIconClasses()

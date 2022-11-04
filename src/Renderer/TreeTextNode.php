@@ -39,16 +39,18 @@ class TreeTextNode extends RendererBase {
 				'role' => $component->getRole(),
 				'text' => $component->getText()->text(),
 				'labelId' => "$id-label",
-				'expanded' => $component->isExpanded(),
 			];
-
-
-			// TODO: Expanded
 
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['hasChildren'] = 'true';
 				$templateData['children'] = $subComponentNodes;
 				$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
+
+				$templateData['classes'] = 'false';
+				if ( $component->isExpanded() ) {
+					$templateData['expanded'] = 'true';
+					$templateData['classes'] = 'expanded';
+				}
 			} else {
 				$templateData['classes'][] = 'leaf';
 			}
@@ -80,9 +82,10 @@ class TreeTextNode extends RendererBase {
 	}
 
 	/**
-	 * 
+	 * @param ITreeNode $component
+	 * @return array
 	 */
-	private function getExpandButtonParams( $component ): array {
+	private function getExpandButtonParams( ITreeNode $component ): array {
 		$button = [
 			'expanded' => 'false',
 			'classes' => $component->getExpandIconClasses()
