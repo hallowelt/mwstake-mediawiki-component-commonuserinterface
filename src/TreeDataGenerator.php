@@ -2,7 +2,6 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use Config;
 use Wikimedia\ObjectFactory\ObjectFactory;
 
 class TreeDataGenerator {
@@ -17,31 +16,25 @@ class TreeDataGenerator {
 	 */
 	private $validInterface = 'MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode';
 
-
 	/**
 	 * @var array
 	 */
-	private $nodeRegistry = [];
+	private $treeNodeRegistry = [];
 
 	/**
-	 * @var array
-	 */
-	private $data = [];
-
-	/**
+	 * @param array $treeNodeRegistry
 	 * @param ObjectFactory $objectFactory
 	 */
-	public function __construct( ObjectFactory $objectFactory, Config $config ) {
+	public function __construct( array $treeNodeRegistry, ObjectFactory $objectFactory ) {
+		$this->treeNodeRegistry = $treeNodeRegistry;
 		$this->objectFactory = $objectFactory;
-		#$this->nodeRegistry = $config->get( 'mwsgCommonUIComponentTreeNodeRegistry' );
-		$this->nodeRegistry = $GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'];
 	}
 
 	/**
 	 * @param array $data
 	 * @return ITreeNode[]
 	 */
-	public function getTreeNodes( array $data ): array {
+	public function generate( array $data ): array {
 		$nodes = [];
 
 		foreach ( $data as $nodeOptions ) {
@@ -70,17 +63,16 @@ class TreeDataGenerator {
 		$nodeType = $this->getNodeType( $options );
 		$nodeName = $this->getNodeName( $nodeType );
 
-		if ( !isset( $this->nodeRegistry[$nodeName] ) ) {
+		if ( !isset( $this->treeNodeRegistry[$nodeName] ) ) {
 			return false;
 		}
 
-		$spec = $this->nodeRegistry[$nodeName];
+		$spec = $this->treeNodeRegistry[$nodeName];
+		$node = $this->objectFactory->createObject( $spec );
 
 		if ( !empty( $options['items'] ) ) {
-			$options['items'] = $this->getTreeNodes( $options['items'] );
+			$options['items'] = $this->generate( $options['items'] );
 		}
-
-		$node = $this->objectFactory->createObject( $spec );
 		$node->setNodeOptions( $options );
 
 		return $node;

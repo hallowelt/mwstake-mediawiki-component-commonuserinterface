@@ -10,12 +10,15 @@ use PHPUnit\Framework\TestCase;
 class TreeDataGeneratorTest extends TestCase {
 
 	public function testGetNodeDataTest() {
+		require_once( '../../bootstrap.php' );
+
 		$services = MediaWikiServices::getInstance();
 		$objectFactory = $services->get( 'ObjectFactory' );
 		$mainConfig = $services->getMainConfig();
 
-		$treeNodeData = new TreeDataGenerator( $objectFactory, $mainConfig );
-		$nodes = $treeNodeData->getTreeNodes( $this->getInputData() );
+		$treeData = $services->get( 'MWStakeCommonUITreeDataGenerator' );
+
+		$nodes = $treeData->generate( $this->getInputData() );
 
 		$this->assertEquals( $this->getExpectedData(), $nodes );
 	}
@@ -23,47 +26,36 @@ class TreeDataGeneratorTest extends TestCase {
 	protected function getInputData(): array {
 		return [
 			[
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-				'options' => [
-					'id' => 'root-node',
-					'items' => [
-						[
-							'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-							'options' => [
-								'id' => 'dummy-2',
+				'id' => 'root-node',
+				'text' => 'node-1',
+				'items' => [
+					[
+						'id' => 'dummy-2',
+						'text' => 'node-3',
+						'href' => 'test',
+						'items' => []
+					],
+					[
+						'id' => 'dummy-3',
+						'text' => 'node-4',
+						'items' => [
+							[
+								'id' => 'dummy-4',
+								'text' => 'node-5',
 								'items' => []
-							]
-						],
-						[
-							'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-							'options' => [
-								'id' => 'dummy-3',
-								'items' => [
-									[
-										'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-										'options' => [
-											'id' => 'dummy-4',
-											'items' => []
-										]
-									]
-								]
 							]
 						]
 					]
 				]
 			],
 			[
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-				'options' => [
-					'id' => 'dummy-5',
-					'items' => [
-						[
-							'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-							'options' => [
-								'id' => 'dummy-6',
-								'items' => []
-							]
-						]
+				'id' => 'dummy-5',
+				'text' => 'node-2',
+				'items' => [
+					[
+						'id' => 'dummy-6',
+						'text' => 'node-6',
+						'items' => []
 					]
 				]
 			]
@@ -71,34 +63,6 @@ class TreeDataGeneratorTest extends TestCase {
 	}
 
 	protected function getExpectedData(): array {
-		return [
-			new SimpleTreeTextNode( [
-				'id' => 'root-node',
-				'items' => [
-					new SimpleTreeTextNode( [
-						'id' => 'dummy-2',
-								'items' => []
-					] ),
-					new SimpleTreeTextNode( [
-						'id' => 'dummy-3',
-						'items' => [
-							new SimpleTreeTextNode( [
-								'id' => 'dummy-4',
-									'items' => []
-							] )
-						]
-					] ),
-				]
-			] ),
-			new SimpleTreeTextNode( [
-				'id' => 'dummy-5',
-				'items' => [
-					new SimpleTreeTextNode( [
-						'id' => 'dummy-6',
-						'items' => []
-					] )
-				]
-			] )
-		];
+		return [];
 	}
 }

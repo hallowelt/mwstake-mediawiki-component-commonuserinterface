@@ -114,8 +114,9 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
 		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButtonGroup',
 		'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMediaObject',
-		'tree' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITree',
-		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode'
+		'tree-container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeContainer',
+		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode',
+		'tree-link-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeLinkNode',
 		// phpcs:enable
 	];
 
@@ -128,6 +129,15 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			// phpcs:disable
 			'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
 			'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MessageLiteral',
+			'tree-container' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeContainer',
+			],
+			'tree-text-node' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeTextNode',
+			],
+			'tree-link-node' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeLinkNode',
+			],
 			// phpcs:enable
 		],
 		'bootstrap5' => [
@@ -168,17 +178,20 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 			'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 			'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',
-			'tree' => [
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Tree',
-			],
-			'tree-text-node' => [
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeTextNode',
-			],
 			// phpcs:enable
 		]
 	];
 
 	$GLOBALS['mwsgCommonUIComponentRendererType'] = 'bootstrap5';
+
+	$GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'] = [
+		'tree-text-node' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
+		],
+		'tree-link-node' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeLinkNode',
+		],
+	];
 
 	$GLOBALS['mwsgCommonUISkinSlots'] = [
 		'siteNoticeAfter' => [],
