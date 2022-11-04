@@ -28,7 +28,11 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 			'title' => '',
 			'href' => '',
 			'aria' => [
-				'expanded' => true
+				'expanded' => false
+			],
+			'icons' => [
+				'expand' => [ 'add' ],
+				'collapse' => [ 'sub' ],
 			]
 		], $options );
 	}
@@ -58,7 +62,7 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 	/**
 	 * @return bool
 	 */
-	public function expanded(): bool {
+	public function isExpanded(): bool {
 		return $this->options['aria']['expanded'];
 	}
 
@@ -105,5 +109,19 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 	 */
 	public function getAriaAttributes(): array {
 		return $this->options['aria'];
+	}
+		
+	/**
+	 * @return array
+	 */
+	public function getExpandIconClasses(): array {
+		return $this->options['icons']['expand'];
+	}
+	
+	/**
+	 * @return array
+	 */
+	public function getCollapseIconClasses(): array {
+		return $this->options['icons']['collapse'];
 	}
 }

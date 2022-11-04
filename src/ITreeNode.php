@@ -7,7 +7,7 @@ interface ITreeNode {
 	/**
 	 * @return boolean
 	 */
-	public function expanded(): bool;
+	public function isExpanded(): bool;
 
 	/**
 	 * @return array
@@ -31,4 +31,14 @@ interface ITreeNode {
 	 * @return void
 	 */
 	public function setNodeOptions( array $options ): void;
+
+	/**
+	 * @return array
+	 */
+	public function getExpandIconClasses(): array;
+	
+	/**
+	 * @return array
+	 */
+	public function getCollapseIconClasses(): array;
 }

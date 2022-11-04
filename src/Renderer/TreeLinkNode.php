@@ -38,12 +38,16 @@ class TreeLinkNode extends RendererBase {
 				'text' => $component->getText()->text(),
 				'title' => $component->getTitle()->text(),
 				'href' => $component->getHref(),
-				'labelId' => "$id-label"
+				'labelId' => "$id-label",
+				'expanded' => $component->isExpanded(),
 			];
 
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['hasChildren'] = 'true';
 				$templateData['children'] = $subComponentNodes;
+				$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
+			} else {
+				$templateData['classes'][] = 'leaf';
 			}
 
 			$aria = $component->getAriaAttributes();
@@ -70,5 +74,23 @@ class TreeLinkNode extends RendererBase {
 	 */
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/tree-link-node.mustache';
+	}
+
+	/**
+	 * @param IComponent $component
+	 * @return array
+	 */
+	private function getExpandButtonParams( IComponent $component ): array {
+		$button = [
+			'expanded' => 'false',
+			'classes' => $component->getExpandIconClasses()
+		];
+
+		if ( $component->isExpanded() ) {
+			$button['expanded'] = 'true';
+			$button['classes'] = $component->getCollapseIconClasses();
+		}
+
+		return $button;
 	}
 }

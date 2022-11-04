@@ -6,6 +6,7 @@ use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 
 class TreeTextNode extends RendererBase {
 
@@ -30,18 +31,26 @@ class TreeTextNode extends RendererBase {
 
 		/** @var IComponent $component */
 		if ( $component instanceof ITreeTextNode ) {
+			var_dump( $component->getExpandIconClasses() );
 			$id = $component->getId();
 			$templateData = [
 				'id' => $id,
 				'classes' => $component->getClasses(),
 				'role' => $component->getRole(),
 				'text' => $component->getText()->text(),
-				'labelId' => "$id-label"
+				'labelId' => "$id-label",
+				'expanded' => $component->isExpanded(),
 			];
+
+
+			// TODO: Expanded
 
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['hasChildren'] = 'true';
 				$templateData['children'] = $subComponentNodes;
+				$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
+			} else {
+				$templateData['classes'][] = 'leaf';
 			}
 
 			$aria = $component->getAriaAttributes();
@@ -68,5 +77,22 @@ class TreeTextNode extends RendererBase {
 	 */
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/tree-text-node.mustache';
+	}
+
+	/**
+	 * 
+	 */
+	private function getExpandButtonParams( $component ): array {
+		$button = [
+			'expanded' => 'false',
+			'classes' => $component->getExpandIconClasses()
+		];
+
+		if ( $component->isExpanded() ) {
+			$button['expanded'] = 'true';
+			$button['classes'] = $component->getCollapseIconClasses();
+		}
+
+		return $button;
 	}
 }

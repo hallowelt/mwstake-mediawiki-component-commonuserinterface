@@ -26,7 +26,11 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 			'role' => 'tree-item',
 			'text' => '',
 			'aria' => [
-				'expanded' => true
+				'expanded' => false
+			],
+			'icons' => [
+				'expand' => [ 'add' ],
+				'collapse' => [ 'sub' ],
 			]
 		], $options );
 	}
@@ -56,7 +60,7 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	/**
 	 * @return bool
 	 */
-	public function expanded(): bool {
+	public function isExpanded(): bool {
 		return $this->options['aria']['expanded'];
 	}
 
@@ -89,5 +93,19 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 */
 	public function getAriaAttributes(): array {
 		return $this->options['aria'];
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getExpandIconClasses(): array {
+		return $this->options['icons']['expand'];
+	}
+	
+	/**
+	 * @return array
+	 */
+	public function getCollapseIconClasses(): array {
+		return $this->options['icons']['collapse'];
 	}
 }
