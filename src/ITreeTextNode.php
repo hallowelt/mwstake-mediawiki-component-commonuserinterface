@@ -2,15 +2,12 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use Message;
+
 interface ITreeTextNode {
 
 	/**
-	 * @return string
+	 * @return Message
 	 */
-	public function getText(): string;
-
-	/**
-	 * @return array
-	 */
-	public function getClasses(): array;
+	public function getText(): Message;
 }

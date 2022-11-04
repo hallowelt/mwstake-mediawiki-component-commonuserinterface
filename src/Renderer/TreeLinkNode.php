@@ -5,9 +5,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
 
-class TreeTextNode extends RendererBase {
+class TreeLinkNode extends RendererBase {
 
 	/**
 	 *
@@ -15,7 +15,7 @@ class TreeTextNode extends RendererBase {
 	 * @return bool
 	 */
 	public function canRender( IComponent $component ) : bool {
-		return $component instanceof ITreeTextNode;
+		return $component instanceof ITreeLinkNode;
 	}
 
 	/**
@@ -29,13 +29,15 @@ class TreeTextNode extends RendererBase {
 		$templateData = [];
 
 		/** @var IComponent $component */
-		if ( $component instanceof ITreeTextNode ) {
+		if ( $component instanceof ITreeLinkNode ) {
 			$id = $component->getId();
 			$templateData = [
 				'id' => $id,
 				'classes' => $component->getClasses(),
 				'role' => $component->getRole(),
 				'text' => $component->getText()->text(),
+				'title' => $component->getTitle()->text(),
+				'href' => $component->getHref(),
 				'labelId' => "$id-label"
 			];
 
@@ -67,6 +69,6 @@ class TreeTextNode extends RendererBase {
 	 * @return string
 	 */
 	public function getTemplatePathname() : string {
-		return $this->templateBasePath . '/tree-text-node.mustache';
+		return $this->templateBasePath . '/tree-link-node.mustache';
 	}
 }

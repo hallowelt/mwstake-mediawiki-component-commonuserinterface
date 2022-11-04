@@ -15,6 +15,11 @@ interface ITreeNode {
 	public function getAriaAttributes(): array;
 
 	/**
+	 * @return array
+	 */
+	public function getClasses(): array;
+
+	/**
 	 * One of the `ARIARole::*` constants
 	 *
 	 * @return string
@@ -22,8 +27,8 @@ interface ITreeNode {
 	public function getRole(): string;
 
 	/**
-	 * @param array $data
+	 * @param array $options
 	 * @return void
 	 */
-	public function setNodeData( array $data ): void;
+	public function setNodeOptions( array $options ): void;
 }

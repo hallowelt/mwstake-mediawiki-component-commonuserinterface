@@ -3,11 +3,11 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use Message;
-use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 use RawMessage;
 
-class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNode {
+class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNode {
 
 	/**
 	 *
@@ -25,6 +25,8 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 			'classes' => [],
 			'role' => 'tree-item',
 			'text' => '',
+			'title' => '',
+			'href' => '',
 			'aria' => [
 				'expanded' => true
 			]
@@ -82,6 +84,20 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 */
 	public function getText(): Message {
 		return new RawMessage( $this->options['text'] );
+	}
+
+	/**
+	 * @return Message
+	 */
+	public function getTitle(): Message {
+		return new RawMessage( $this->options['title'] );
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getHref(): string {
+		return $this->options['href'];
 	}
 
 	/**
