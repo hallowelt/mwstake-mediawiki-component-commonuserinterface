@@ -54,4 +54,20 @@ class SimpleTreeContainer extends ComponentBase implements ITreeContainer {
 	public function getAriaAttributes(): array {
 		return $this->options['aria'];
 	}
+
+	/**
+	 *
+	 * @inheritDoc
+	 */
+	public function getRequiredRLModules(): array {
+		return [ 'mwstake.component.commonui.tree-component' ];
+	}
+
+	/**
+	 *
+	 * @inheritDoc
+	 */
+	public function getRequiredRLStyles(): array {
+		return [ 'mwstake.component.commonui.tree-component.styles' ];
+	}
 }

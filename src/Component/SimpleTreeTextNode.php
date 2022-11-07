@@ -29,8 +29,8 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 				'expanded' => true
 			],
 			'icons' => [
-				'expand' => [ 'add' ],
-				'collapse' => [ 'sub' ],
+				'expand' => [ 'ico-expand' ],
+				'collapse' => [ 'ico-collapse' ],
 				'before' => [],
 				'after' => [],
 			]

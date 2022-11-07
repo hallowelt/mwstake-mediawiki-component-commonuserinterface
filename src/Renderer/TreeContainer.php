@@ -32,9 +32,18 @@ class TreeContainer extends RendererBase {
 		if ( $component instanceof ITreeContainer ) {
 			$templateData = [
 				'id' => $component->getId(),
-				'classes' => $component->getClasses(),
 				'role' => $component->getRole(),
 			];
+
+			$classes = $component->getClasses();
+			if ( !empty( $classes ) ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'class' => ' ' . implode( ' ', $classes )
+					]
+				);
+			}
 
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['hasItems'] = 'true';

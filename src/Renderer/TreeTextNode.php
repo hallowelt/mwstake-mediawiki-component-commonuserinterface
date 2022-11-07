@@ -35,12 +35,12 @@ class TreeTextNode extends RendererBase {
 
 			$templateData = [
 				'id' => $id,
-				'classes' => $component->getClasses(),
 				'role' => $component->getRole(),
 				'text' => $component->getText()->text(),
 				'labelId' => "$id-label",
 			];
 
+			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
 			$this->getAriaAttributes( $component, $templateData );
 			$this->getIcons( $component, $templateData );
@@ -68,12 +68,12 @@ class TreeTextNode extends RendererBase {
 	protected function getExpandButtonParams( ITreeNode $component ): array {
 		$button = [
 			'expanded' => 'false',
-			'classes' => $component->getIconExpandClasses()
+			'class' => ' ' . implode( ' ', $component->getIconExpandClasses() )
 		];
 
 		if ( $component->isExpanded() ) {
 			$button['expanded'] = 'true';
-			$button['classes'] = $component->getIconCollapseClasses();
+			$button['class'] = ' ' . implode( ' ', $component->getIconCollapseClasses() );
 		}
 
 		return $button;
@@ -86,18 +86,38 @@ class TreeTextNode extends RendererBase {
 	 * return void
 	 */
 	protected function getChildren( IComponent $component, array $subComponentNodes, array &$templateData ): void {
+		$class = $templateData['class'];
+
 		if ( !empty( $subComponentNodes ) ) {
 			$templateData['hasChildren'] = 'true';
 			$templateData['children'] = $subComponentNodes;
 			$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
 
-			$templateData['classes'] = 'false';
 			if ( $component->isExpanded() ) {
 				$templateData['expanded'] = 'true';
-				$templateData['classes'] = 'expanded';
+				$templateData['class'] = $class . ' expanded';
 			}
 		} else {
-			$templateData['classes'][] = 'leaf';
+			$templateData['class'] = $class . ' leaf';
+		}
+	}
+
+
+	/**
+	 * @param IComponent $component
+	 * @param array &$templateData
+	 * @retrun void
+	 */
+	protected function getClasses( IComponent $component, array &$templateData ): void {
+		$classes = $component->getClasses();
+
+		if ( !empty( $classes ) ) {
+			$templateData = array_merge(
+				$templateData,
+				[
+					'class' => ' ' . implode( ' ', $classes )
+				]
+			);
 		}
 	}
 
@@ -118,7 +138,7 @@ class TreeTextNode extends RendererBase {
 		);
 	}
 
-		/**
+	/**
 	 * @param IComponent $component
 	 * @param array &$templateData
 	 * @retrun void

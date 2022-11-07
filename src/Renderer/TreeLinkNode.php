@@ -34,7 +34,6 @@ class TreeLinkNode extends TreeTextNode {
 			$id = $component->getId();
 			$templateData = [
 				'id' => $id,
-				'classes' => $component->getClasses(),
 				'role' => $component->getRole(),
 				'text' => $component->getText()->text(),
 				'title' => $component->getTitle()->text(),
@@ -42,6 +41,7 @@ class TreeLinkNode extends TreeTextNode {
 				'labelId' => "$id-label",
 			];
 
+			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
 			$this->getAriaAttributes( $component, $templateData );
 			$this->getIcons( $component, $templateData );

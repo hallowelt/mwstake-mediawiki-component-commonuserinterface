@@ -1,0 +1,16 @@
+ul.mws-tree-cnt,
+ul.mws-tree-node-children {
+    list-style: none;
+}
+ul.mws-tree-node-children {
+    display: none;
+}
+ul.mws-tree-node-children.show {
+    display: block;
+}
+.mws-tree-expander.ico-expand::before {
+    content: "+";
+}
+.mws-tree-expander.ico-collapse::before {
+    content: "-";
+}

@@ -218,6 +218,20 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 	$GLOBALS['wgHooks']['SkinAfterContent'][]
 		= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
 
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component'] = [
+		'localBasePath' => __DIR__ . "/resources/tree/",
+		'packageFiles' => [
+			'tree.js',
+		],
+	];
+
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component.styles'] = [
+		'localBasePath' => __DIR__ . "/resources/tree/",
+		'styles' => [
+			'tree.css',
+		],
+	];
+
 	// phpcs:disable
 	// Not yet ready
 	#$GLOBALS['wgResourceModules']['mwstake.component.commonui'] = [
