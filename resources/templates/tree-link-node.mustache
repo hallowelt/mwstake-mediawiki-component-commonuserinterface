@@ -1,7 +1,9 @@
 <li{{#id}} id="{{.}}"{{/id}} {{#classes}} class="{{.}}"{{/classes}} {{#role}} role="{{.}}"{{/role}} tabindex="0">
 	<div>
 		{{#expandBtn}}<button {{#classes}} class="{{.}}"{{/classes}} aria-expanded="{{expanded}}"{{#id}} aria-controlls="{{.}}-children"{{/id}}></button>{{/expandBtn}}
-		<a id="{{labelId}}" href="{{href}} title="{{title}}">{{text}}</a>
+		{{#iconBefore}}<span class="{{#classes}}{{{.}}} {{/classes}}"></span>{{/iconBefore}}
+		<a id="{{labelId}}" href="{{href}}" title="{{title}}">{{text}}</a>
+		{{#iconAfter}}<span class="{{#classes}}{{{.}}} {{/classes}}"></span>{{/iconAfter}}
 	</div>
 	{{#hasChildren}}
 	<ul role="group" aria-labelledby="{{labelId}}" class="tree-node-children{{#expanded}} show{{/expanded}}"{{#id}} id="{{.}}-children"{{/id}}">

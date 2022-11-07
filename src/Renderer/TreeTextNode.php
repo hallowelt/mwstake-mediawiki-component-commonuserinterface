@@ -22,7 +22,7 @@ class TreeTextNode extends RendererBase {
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param ILink $component
+	 * @param IComponent $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
@@ -31,8 +31,8 @@ class TreeTextNode extends RendererBase {
 
 		/** @var IComponent $component */
 		if ( $component instanceof ITreeTextNode ) {
-			var_dump( $component->getExpandIconClasses() );
 			$id = $component->getId();
+
 			$templateData = [
 				'id' => $id,
 				'classes' => $component->getClasses(),
@@ -41,29 +41,9 @@ class TreeTextNode extends RendererBase {
 				'labelId' => "$id-label",
 			];
 
-			if ( !empty( $subComponentNodes ) ) {
-				$templateData['hasChildren'] = 'true';
-				$templateData['children'] = $subComponentNodes;
-				$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
-
-				$templateData['classes'] = 'false';
-				if ( $component->isExpanded() ) {
-					$templateData['expanded'] = 'true';
-					$templateData['classes'] = 'expanded';
-				}
-			} else {
-				$templateData['classes'][] = 'leaf';
-			}
-
-			$aria = $component->getAriaAttributes();
-			$ariaAttributesBuilder = new AriaAttributesBuilder();
-			$ariaAttributes = $ariaAttributesBuilder->toString( $aria );
-			$templateData = array_merge(
-				$templateData,
-				[
-					'aria' => $ariaAttributes
-				]
-			);
+			$this->getChildren( $component, $subComponentNodes, $templateData );
+			$this->getAriaAttributes( $component, $templateData );
+			$this->getIcons( $component, $templateData );
 
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
@@ -83,19 +63,90 @@ class TreeTextNode extends RendererBase {
 
 	/**
 	 * @param ITreeNode $component
-	 * @return array
+	 * @retrun array
 	 */
-	private function getExpandButtonParams( ITreeNode $component ): array {
+	protected function getExpandButtonParams( ITreeNode $component ): array {
 		$button = [
 			'expanded' => 'false',
-			'classes' => $component->getExpandIconClasses()
+			'classes' => $component->getIconExpandClasses()
 		];
 
 		if ( $component->isExpanded() ) {
 			$button['expanded'] = 'true';
-			$button['classes'] = $component->getCollapseIconClasses();
+			$button['classes'] = $component->getIconCollapseClasses();
 		}
 
 		return $button;
+	}
+
+	/**
+	 * @param IComponent $component
+	 * @param array $subComponentNodes
+	 * @param array &$templateData
+	 * return void
+	 */
+	protected function getChildren( IComponent $component, array $subComponentNodes, array &$templateData ): void {
+		if ( !empty( $subComponentNodes ) ) {
+			$templateData['hasChildren'] = 'true';
+			$templateData['children'] = $subComponentNodes;
+			$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
+
+			$templateData['classes'] = 'false';
+			if ( $component->isExpanded() ) {
+				$templateData['expanded'] = 'true';
+				$templateData['classes'] = 'expanded';
+			}
+		} else {
+			$templateData['classes'][] = 'leaf';
+		}
+	}
+
+	/**
+	 * @param IComponent $component
+	 * @param array &$templateData
+	 * @retrun void
+	 */
+	protected function getAriaAttributes( IComponent $component, array &$templateData ): void {
+		$aria = $component->getAriaAttributes();
+		$ariaAttributesBuilder = new AriaAttributesBuilder();
+		$ariaAttributes = $ariaAttributesBuilder->toString( $aria );
+		$templateData = array_merge(
+			$templateData,
+			[
+				'aria' => $ariaAttributes
+			]
+		);
+	}
+
+		/**
+	 * @param IComponent $component
+	 * @param array &$templateData
+	 * @retrun void
+	 */
+	protected function getIcons( IComponent $component, array &$templateData ): void {
+		$iconBeforeClasses = $component->getIconBeforeClasses();
+		$iconAfterClasses = $component->getIconAfterClasses();
+
+		if ( !empty( $iconBeforeClasses ) ) {
+			$templateData = array_merge(
+				$templateData,
+				[
+					'iconBefore' => [
+						'classes' => implode( ' ', $iconBeforeClasses )
+					]
+				]
+			);
+		}
+
+		if ( !empty( $iconAfterClasses ) ) {
+			$templateData = array_merge(
+				$templateData,
+				[
+					'iconAfter' =>  [
+						'classes' => implode( ' ', $iconAfterClasses )
+					]
+				]
+			);
+		}
 	}
 }

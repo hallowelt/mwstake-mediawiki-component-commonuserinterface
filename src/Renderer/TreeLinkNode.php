@@ -8,7 +8,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 
-class TreeLinkNode extends RendererBase {
+class TreeLinkNode extends TreeTextNode {
 
 	/**
 	 *
@@ -22,7 +22,7 @@ class TreeLinkNode extends RendererBase {
 	/**
 	 * Having this public should enable client-side rendering
 	 *
-	 * @param ILink $component
+	 * @param IComponent $component
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
@@ -42,29 +42,9 @@ class TreeLinkNode extends RendererBase {
 				'labelId' => "$id-label",
 			];
 
-			if ( !empty( $subComponentNodes ) ) {
-				$templateData['hasChildren'] = 'true';
-				$templateData['children'] = $subComponentNodes;
-				$templateData['expandBtn'] = $this->getExpandButtonParams( $component );
-
-				$templateData['classes'] = 'false';
-				if ( $component->isExpanded() ) {
-					$templateData['expanded'] = 'true';
-					$templateData['classes'] = 'expanded';
-				}
-			} else {
-				$templateData['classes'][] = 'leaf';
-			}
-
-			$aria = $component->getAriaAttributes();
-			$ariaAttributesBuilder = new AriaAttributesBuilder();
-			$ariaAttributes = $ariaAttributesBuilder->toString( $aria );
-			$templateData = array_merge(
-				$templateData,
-				[
-					'aria' => $ariaAttributes
-				]
-			);
+			$this->getChildren( $component, $subComponentNodes, $templateData );
+			$this->getAriaAttributes( $component, $templateData );
+			$this->getIcons( $component, $templateData );
 
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
@@ -82,21 +62,4 @@ class TreeLinkNode extends RendererBase {
 		return $this->templateBasePath . '/tree-link-node.mustache';
 	}
 
-	/**
-	 * @param ITreeNode $component
-	 * @retrun array
-	 */
-	private function getExpandButtonParams( ITreeNode $component ): array {
-		$button = [
-			'expanded' => 'false',
-			'classes' => $component->getExpandIconClasses()
-		];
-
-		if ( $component->isExpanded() ) {
-			$button['expanded'] = 'true';
-			$button['classes'] = $component->getCollapseIconClasses();
-		}
-
-		return $button;
-	}
 }

@@ -31,6 +31,8 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 			'icons' => [
 				'expand' => [ 'add' ],
 				'collapse' => [ 'sub' ],
+				'before' => [],
+				'after' => [],
 			]
 		], $options );
 	}
@@ -98,14 +100,28 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	/**
 	 * @return array
 	 */
-	public function getExpandIconClasses(): array {
+	public function getIconExpandClasses(): array {
 		return $this->options['icons']['expand'];
 	}
 	
 	/**
 	 * @return array
 	 */
-	public function getCollapseIconClasses(): array {
+	public function getIconCollapseClasses(): array {
 		return $this->options['icons']['collapse'];
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getIconBeforeClasses(): array {
+		return $this->options['icons']['before'];
+	}
+	
+	/**
+	 * @return array
+	 */
+	public function getIconAfterClasses(): array {
+		return $this->options['icons']['after'];
 	}
 }

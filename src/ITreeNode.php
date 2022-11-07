@@ -35,10 +35,20 @@ interface ITreeNode {
 	/**
 	 * @return array
 	 */
-	public function getExpandIconClasses(): array;
+	public function getIconExpandClasses(): array;
 	
 	/**
 	 * @return array
 	 */
-	public function getCollapseIconClasses(): array;
+	public function getIconCollapseClasses(): array;
+
+	/**
+	 * @return array
+	 */
+	public function getIconBeforeClasses(): array;
+	
+	/**
+	 * @return array
+	 */
+	public function getIconAfterClasses(): array;
 }
