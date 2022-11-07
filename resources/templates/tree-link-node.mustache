@@ -2,7 +2,7 @@
 	<div>
 		{{#expandBtn}}<a class="mws-tree-expander{{class}}" aria-expanded="{{expanded}}"{{#id}} aria-controlls="{{.}}-children"{{/id}} role="button"></a>{{/expandBtn}}
 		{{#iconBefore}}<span class="{{class}}"></span>{{/iconBefore}}
-		<a id="{{labelId}}" href="{{href}}" title="{{title}}">{{text}}</a>
+		<a id="{{labelId}}" class="mws-tree-node-label" href="{{href}}" title="{{title}}">{{text}}</a>
 		{{#iconAfter}}<span class="{{class}}"></span>{{/iconAfter}}
 	</div>
 	{{#hasChildren}}

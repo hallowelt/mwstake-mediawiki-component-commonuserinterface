@@ -1,6 +1,10 @@
+:root {
+    --mws-tree-expander-width: 1.5em;
+}
 ul.mws-tree-cnt,
 ul.mws-tree-node-children {
     list-style: none;
+    padding-left: var(--mws-tree-expander-width);
 }
 ul.mws-tree-node-children {
     display: none;
@@ -8,9 +12,21 @@ ul.mws-tree-node-children {
 ul.mws-tree-node-children.show {
     display: block;
 }
+.mws-tree-expander {
+    display: inline-block;
+    width: 1em;
+}
 .mws-tree-expander.ico-expand::before {
     content: "+";
 }
 .mws-tree-expander.ico-collapse::before {
     content: "-";
+}
+.mws-tree-node-label {
+    display: inline-block;
+    width: calc(100% - var(--mws-tree-expander-width));
+}
+.leaf .mws-tree-node-label {
+    display: inline-block;
+    width: 100%;
 }

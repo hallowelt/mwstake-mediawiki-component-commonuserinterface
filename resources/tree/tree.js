@@ -8,9 +8,13 @@
         if ( $( this ).attr( 'aria-expanded' ) === 'true' ) {
             $( '#'+controlls ).removeClass( 'show' );
             $( this ).attr( 'aria-expanded', 'false' );
+            $( this ).removeClass( 'ico-collapse' );
+            $( this ).addClass( 'ico-expand' );
         } else if ( $( this ).attr( 'aria-expanded' ) === 'false' ) {
             $( '#'+controlls ).addClass( 'show' );
             $( this ).attr( 'aria-expanded', 'true' );
+            $( this ).removeClass( 'ico-expand' );
+            $( this ).addClass( 'ico-collapse' );
         }
     } )
 
