@@ -27,7 +27,8 @@ class TreeDataGeneratorTest extends TestCase {
 	 */
 	protected function getExpandPaths(): array {
 		return [
-			'root-node/dummy-3/dummy-4'
+			'dummy-1/dummy-3',
+			'dummy-5',
 		];
 	}
 
@@ -37,7 +38,7 @@ class TreeDataGeneratorTest extends TestCase {
 	protected function getInputData(): array {
 		return [
 			[
-				'id' => 'root-node',
+				'id' => 'dummy-1',
 				'text' => 'node-1',
 				'items' => [
 					[
@@ -66,7 +67,19 @@ class TreeDataGeneratorTest extends TestCase {
 					[
 						'id' => 'dummy-6',
 						'text' => 'node-6',
-						'items' => []
+						'items' => [
+							[
+								'id' => 'dummy-7',
+								'text' => 'node-7',
+								'items' => [
+										[
+										'id' => 'dummy-8',
+										'text' => 'node-8',
+										'items' => []
+									]
+								]
+							]
+						]
 					]
 				]
 			]
@@ -79,7 +92,7 @@ class TreeDataGeneratorTest extends TestCase {
 	protected function getExpectedData(): array {
 		return [
 			new SimpleTreeTextNode( [
-				'id' => 'root-node',
+				'id' => 'dummy-1',
 				'text' => 'node-1',
 				'aria' => [
 					'expanded' => true
@@ -110,11 +123,26 @@ class TreeDataGeneratorTest extends TestCase {
 			new SimpleTreeTextNode( [
 				'id' => 'dummy-5',
 				'text' => 'node-2',
+				'aria' => [
+					'expanded' => true
+				],
 				'items' => [
 					new SimpleTreeTextNode( [
 						'id' => 'dummy-6',
 						'text' => 'node-6',
-						'items' => []
+						'items' => [
+							new SimpleTreeTextNode( [
+								'id' => 'dummy-7',
+								'text' => 'node-7',
+								'items' => [
+									new SimpleTreeTextNode( [
+										'id' => 'dummy-8',
+										'text' => 'node-8',
+										'items' => []
+									] ),
+								]
+							] ),
+						]
 					] ),
 				]
 			] ),
