@@ -36,10 +36,14 @@ class TreeLinkNode extends TreeTextNode {
 				'id' => $id,
 				'role' => $component->getRole(),
 				'text' => $component->getText()->text(),
-				'title' => $component->getTitle()->text(),
 				'href' => $component->getHref(),
 				'labelId' => "$id-label",
 			];
+
+			$title = $component->getTitle()->text();
+			if ( $title !== '' ) {
+				$templateData['title'] = $title;
+			}
 
 			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
