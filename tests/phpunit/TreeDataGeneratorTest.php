@@ -17,11 +17,23 @@ class TreeDataGeneratorTest extends TestCase {
 	
 		$treeDataGenerator = $services->get( 'MWStakeCommonUITreeDataGenerator' );
 
-		$nodes = $treeDataGenerator->generate( $this->getInputData() );
+		$nodes = $treeDataGenerator->generate( $this->getInputData(), $this->getExpandPaths() );
 
 		$this->assertEquals( $this->getExpectedData(), $nodes );
 	}
 
+	/**
+	 * @return array
+	 */
+	protected function getExpandPaths(): array {
+		return [
+			'root-node/dummy-3/dummy-4'
+		];
+	}
+
+	/**
+	 * @return array
+	 */
 	protected function getInputData(): array {
 		return [
 			[
@@ -61,11 +73,17 @@ class TreeDataGeneratorTest extends TestCase {
 		];
 	}
 
+	/**
+	 * @return array
+	 */
 	protected function getExpectedData(): array {
 		return [
 			new SimpleTreeTextNode( [
 				'id' => 'root-node',
 				'text' => 'node-1',
+				'aria' => [
+					'expanded' => true
+				],
 				'items' => [
 					new SimpleTreeLinkNode( [
 						'id' => 'dummy-2',
@@ -76,6 +94,9 @@ class TreeDataGeneratorTest extends TestCase {
 					new SimpleTreeTextNode( [
 						'id' => 'dummy-3',
 						'text' => 'node-4',
+						'aria' => [
+							'expanded' => true
+						],
 						'items' => [
 							new SimpleTreeTextNode( [
 								'id' => 'dummy-4',

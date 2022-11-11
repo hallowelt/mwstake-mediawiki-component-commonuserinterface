@@ -28,7 +28,7 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 			'title' => '',
 			'href' => '',
 			'aria' => [
-				'expanded' => true
+				'expanded' => false
 			]
 		], $options );
 	}
