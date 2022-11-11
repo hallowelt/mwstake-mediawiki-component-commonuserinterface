@@ -3,7 +3,6 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
@@ -61,7 +60,7 @@ class TreeTextNode extends RendererBase {
 
 	/**
 	 * @param ITreeNode $component
-	 * @retrun array
+	 * @return array
 	 */
 	protected function getExpandButtonParams( ITreeNode $component ): array {
 		$button = [];
@@ -83,7 +82,9 @@ class TreeTextNode extends RendererBase {
 	 * @param array &$templateData
 	 * return void
 	 */
-	protected function getChildren( IComponent $component, array $subComponentNodes, array &$templateData ): void {
+	protected function getChildren( IComponent $component,
+		array $subComponentNodes, array &$templateData
+		): void {
 		$class = $templateData['class'];
 
 		if ( !empty( $subComponentNodes ) ) {
@@ -100,11 +101,10 @@ class TreeTextNode extends RendererBase {
 		}
 	}
 
-
 	/**
 	 * @param IComponent $component
 	 * @param array &$templateData
-	 * @retrun void
+	 * @return void
 	 */
 	protected function getClasses( IComponent $component, array &$templateData ): void {
 		$classes = $component->getClasses();

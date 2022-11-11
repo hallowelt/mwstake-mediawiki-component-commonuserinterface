@@ -73,7 +73,7 @@ return [
 		);
 		return $skinSlotRegistry;
 	},
-	
+
 	'MWStakeLinkFormatter' => function ( MediaWikiServices $services ) {
 		$linkFormatter = new LinkFormatter(
 			$services->getMainConfig()->get( 'ExternalLinkTarget' ),
@@ -81,7 +81,7 @@ return [
 		);
 		return $linkFormatter;
 	},
-	
+
 	'MWStakeCommonUITreeDataGenerator' => function ( MediaWikiServices $services ) {
 		return new TreeDataGenerator(
 			$GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'],

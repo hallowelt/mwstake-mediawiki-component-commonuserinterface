@@ -3,10 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
-use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 
 class TreeLinkNode extends TreeTextNode {
 

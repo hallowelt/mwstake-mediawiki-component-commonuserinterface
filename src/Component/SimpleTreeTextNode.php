@@ -3,8 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use Message;
-use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 use RawMessage;
 
 class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNode {

@@ -75,12 +75,12 @@ class TreeDataGenerator {
 	private function isExpanded( string $id, array $expandPaths ): bool {
 		foreach ( $expandPaths as $expandPath ) {
 			$path = explode( '/', $expandPath );
-	
+
 			if ( $path[0] === $id ) {
 				return true;
 			}
 		}
-	
+
 		return false;
 	}
 
@@ -142,6 +142,7 @@ class TreeDataGenerator {
 
 	/**
 	 * @param array $nodeSpec
+	 * @return string
 	 */
 	private function getNodeType( array $nodeSpec ): string {
 		$nodeType = 'text';
@@ -158,7 +159,7 @@ class TreeDataGenerator {
 	 * Examples:
 	 * - For type 'text' create node of 'tree-text-node'
 	 * - For type 'link' create node of 'tree-link-node'
-	 * 
+	 *
 	 * @param string $nodeType
 	 * @return string
 	 */
@@ -166,5 +167,3 @@ class TreeDataGenerator {
 		return "tree-$nodeType-node";
 	}
 }
-
-
