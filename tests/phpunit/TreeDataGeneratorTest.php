@@ -16,7 +16,6 @@ class TreeDataGeneratorTest extends TestCase {
 	 * @covers WStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator::generate
 	 */
 	public function testGenerate() {
-
 		$services = MediaWikiServices::getInstance();
 
 		/** @var TreeDataGenerator */
