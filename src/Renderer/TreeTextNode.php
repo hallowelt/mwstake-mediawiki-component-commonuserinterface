@@ -65,14 +65,14 @@ class TreeTextNode extends RendererBase {
 	 * @retrun array
 	 */
 	protected function getExpandButtonParams( ITreeNode $component ): array {
-		$button = [
-			'expanded' => 'false',
-			'class' => ' collapsed'
-		];
+		$button = [];
 
 		if ( $component->isExpanded() ) {
 			$button['expanded'] = 'true';
 			$button['class'] = ' expanded';
+		} else {
+			$button['expanded'] = 'false';
+			$button['class'] = ' collapsed';
 		}
 
 		return $button;

@@ -16,11 +16,11 @@ ul.mws-tree-node-children.show {
     display: inline-block;
     width: 1em;
 }
-.mws-tree-expander.ico-expand::before {
-    content: "+";
-}
-.mws-tree-expander.ico-collapse::before {
+.mws-tree-expander.expanded::before {
     content: "-";
+}
+.mws-tree-expander.collapsed::before {
+    content: "+";
 }
 .mws-tree-node-label {
     display: inline-block;
