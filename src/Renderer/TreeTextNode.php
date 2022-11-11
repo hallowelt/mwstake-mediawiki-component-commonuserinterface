@@ -42,7 +42,6 @@ class TreeTextNode extends RendererBase {
 
 			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
-			$this->getAriaAttributes( $component, $templateData );
 
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
@@ -119,22 +118,4 @@ class TreeTextNode extends RendererBase {
 			);
 		}
 	}
-
-	/**
-	 * @param IComponent $component
-	 * @param array &$templateData
-	 * @retrun void
-	 */
-	protected function getAriaAttributes( IComponent $component, array &$templateData ): void {
-		$aria = $component->getAriaAttributes();
-		$ariaAttributesBuilder = new AriaAttributesBuilder();
-		$ariaAttributes = $ariaAttributesBuilder->toString( $aria );
-		$templateData = array_merge(
-			$templateData,
-			[
-				'aria' => $ariaAttributes
-			]
-		);
-	}
-
 }

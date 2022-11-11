@@ -25,9 +25,7 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 			'classes' => [],
 			'role' => 'tree-item',
 			'text' => '',
-			'aria' => [
-				'expanded' => false
-			]
+			'expanded' => false,
 		], $options );
 	}
 
@@ -57,7 +55,7 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 * @return bool
 	 */
 	public function isExpanded(): bool {
-		return $this->options['aria']['expanded'];
+		return $this->options['expanded'];
 	}
 
 	/**
@@ -82,12 +80,5 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 */
 	public function getText(): Message {
 		return new RawMessage( $this->options['text'] );
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getAriaAttributes(): array {
-		return $this->options['aria'];
 	}
 }

@@ -43,9 +43,7 @@ class TreeDataGenerator {
 				[
 					'id' => '',
 					'items' => [],
-					'aria' => [
-						'expanded' => false
-					]
+					'expanded' => false
 				],
 				$nodeOptions
 			);
@@ -54,7 +52,7 @@ class TreeDataGenerator {
 			if ( $this->hasChildren( $nodeOptions ) ) {
 				$isExpanded = $this->isExpanded( $nodeOptions['id'], $expandPaths );
 				if ( $isExpanded ) {
-					$nodeOptions['aria']['expanded'] = true;
+					$nodeOptions['expanded'] = true;
 				}
 
 				$childExpandPaths = $this->getChildExpandPaths( $nodeOptions['id'], $expandPaths );

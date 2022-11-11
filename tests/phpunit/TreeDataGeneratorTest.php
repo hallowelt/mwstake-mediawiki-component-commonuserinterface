@@ -94,9 +94,7 @@ class TreeDataGeneratorTest extends TestCase {
 			new SimpleTreeTextNode( [
 				'id' => 'dummy-1',
 				'text' => 'node-1',
-				'aria' => [
-					'expanded' => true
-				],
+				'expanded' => true,
 				'items' => [
 					new SimpleTreeLinkNode( [
 						'id' => 'dummy-2',
@@ -107,9 +105,7 @@ class TreeDataGeneratorTest extends TestCase {
 					new SimpleTreeTextNode( [
 						'id' => 'dummy-3',
 						'text' => 'node-4',
-						'aria' => [
-							'expanded' => true
-						],
+						'expanded' => true,
 						'items' => [
 							new SimpleTreeTextNode( [
 								'id' => 'dummy-4',
@@ -123,9 +119,7 @@ class TreeDataGeneratorTest extends TestCase {
 			new SimpleTreeTextNode( [
 				'id' => 'dummy-5',
 				'text' => 'node-2',
-				'aria' => [
-					'expanded' => true
-				],
+				'expanded' => true,
 				'items' => [
 					new SimpleTreeTextNode( [
 						'id' => 'dummy-6',

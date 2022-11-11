@@ -1,4 +1,4 @@
-<li{{#id}} id="{{.}}"{{/id}} class="mws-tree-node{{class}}" {{#role}} role="{{.}}"{{/role}} tabindex="0">
+<li{{#id}} id="{{.}}"{{/id}} class="mws-tree-node{{class}}" {{#role}} role="{{.}}"{{/role}}{{#hasChildren}} aria-haspopup="true"{{/hasChildren}} tabindex="0">
 	<div>
 		{{#expandBtn}}<a class="mws-tree-expander{{class}}" aria-expanded="{{expanded}}"{{#id}} aria-controlls="{{.}}-children"{{/id}} role="button"></a>{{/expandBtn}}
 		<span id="{{labelId}}" class="mws-tree-node-label" >{{text}}</span>

@@ -12,11 +12,6 @@ interface ITreeNode {
 	/**
 	 * @return array
 	 */
-	public function getAriaAttributes(): array;
-
-	/**
-	 * @return array
-	 */
 	public function getClasses(): array;
 
 	/**
