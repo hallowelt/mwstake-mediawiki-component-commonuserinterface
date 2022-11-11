@@ -4,8 +4,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
+use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 
 class TreeTextNode extends RendererBase {
 

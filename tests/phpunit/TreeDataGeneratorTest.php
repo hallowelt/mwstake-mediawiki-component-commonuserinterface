@@ -5,8 +5,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 use MediaWiki\MediaWikiServices;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeLinkNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeTextNode;
-use PHPUnit\Framework\TestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator;
+use PHPUnit\Framework\TestCase;
 
 class TreeDataGeneratorTest extends TestCase {
 
