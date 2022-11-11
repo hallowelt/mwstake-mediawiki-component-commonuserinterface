@@ -44,7 +44,6 @@ class TreeLinkNode extends TreeTextNode {
 			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
 			$this->getAriaAttributes( $component, $templateData );
-			$this->getIcons( $component, $templateData );
 
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );

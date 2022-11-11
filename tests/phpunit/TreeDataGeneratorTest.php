@@ -14,12 +14,10 @@ class TreeDataGeneratorTest extends TestCase {
 		require_once( '../../bootstrap.php' );
 
 		$services = MediaWikiServices::getInstance();
-		$objectFactory = $services->get( 'ObjectFactory' );
-		$mainConfig = $services->getMainConfig();
+	
+		$treeDataGenerator = $services->get( 'MWStakeCommonUITreeDataGenerator' );
 
-		$treeData = $services->get( 'MWStakeCommonUITreeDataGenerator' );
-
-		$nodes = $treeData->generate( $this->getInputData() );
+		$nodes = $treeDataGenerator->generate( $this->getInputData() );
 
 		$this->assertEquals( $this->getExpectedData(), $nodes );
 	}

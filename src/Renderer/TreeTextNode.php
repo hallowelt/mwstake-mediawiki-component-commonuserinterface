@@ -43,7 +43,6 @@ class TreeTextNode extends RendererBase {
 			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
 			$this->getAriaAttributes( $component, $templateData );
-			$this->getIcons( $component, $templateData );
 
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
@@ -68,12 +67,12 @@ class TreeTextNode extends RendererBase {
 	protected function getExpandButtonParams( ITreeNode $component ): array {
 		$button = [
 			'expanded' => 'false',
-			'class' => ' ' . implode( ' ', $component->getIconExpandClasses() )
+			'class' => ' collapsed'
 		];
 
 		if ( $component->isExpanded() ) {
 			$button['expanded'] = 'true';
-			$button['class'] = ' ' . implode( ' ', $component->getIconCollapseClasses() );
+			$button['class'] = ' expanded';
 		}
 
 		return $button;
@@ -138,35 +137,4 @@ class TreeTextNode extends RendererBase {
 		);
 	}
 
-	/**
-	 * @param IComponent $component
-	 * @param array &$templateData
-	 * @retrun void
-	 */
-	protected function getIcons( IComponent $component, array &$templateData ): void {
-		$iconBeforeClasses = $component->getIconBeforeClasses();
-		$iconAfterClasses = $component->getIconAfterClasses();
-
-		if ( !empty( $iconBeforeClasses ) ) {
-			$templateData = array_merge(
-				$templateData,
-				[
-					'iconBefore' => [
-						'classes' => implode( ' ', $iconBeforeClasses )
-					]
-				]
-			);
-		}
-
-		if ( !empty( $iconAfterClasses ) ) {
-			$templateData = array_merge(
-				$templateData,
-				[
-					'iconAfter' =>  [
-						'classes' => implode( ' ', $iconAfterClasses )
-					]
-				]
-			);
-		}
-	}
 }
