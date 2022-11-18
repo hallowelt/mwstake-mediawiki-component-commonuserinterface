@@ -2,14 +2,14 @@
     --mws-tree-expander-width: 1.5em;
 }
 ul.mws-tree,
-ul.mws-tree-node-children {
+ul.mws-tree-item-children {
     list-style: none;
     padding-left: var(--mws-tree-expander-width);
 }
-ul.mws-tree-node-children {
+ul.mws-tree-item-children {
     display: none;
 }
-ul.mws-tree-node-children.show {
+ul.mws-tree-item-children.show {
     display: block;
 }
 .mws-tree-expander {
@@ -22,11 +22,11 @@ ul.mws-tree-node-children.show {
 .mws-tree-expander.collapsed::before {
     content: "+";
 }
-.mws-tree-node-label {
+.mws-tree-item-label {
     display: inline-block;
     width: calc(100% - var(--mws-tree-expander-width));
 }
-.leaf .mws-tree-node-label {
+.leaf .mws-tree-item-label {
     display: inline-block;
     width: 100%;
 }
