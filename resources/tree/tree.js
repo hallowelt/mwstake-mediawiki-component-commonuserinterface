@@ -23,7 +23,7 @@
                 focusableElement.focus();
             }
             else {
-                $parentTreeItem = $list.parent( 'li' ).find( '> div' ).first();
+                $parentTreeItem = $list.parents( 'li' ).first().find( '> div' ).first();
                 if ( $parentTreeItem ) {
                     let $focusableElement = $parentTreeItem.children().first();
                     $focusableElement.focus();
@@ -36,7 +36,7 @@
             stopPropagation( e );
 
             if ( $( this ).hasClass( 'expanded' ) ) {
-                $childList = $( this ).find( '> ul' ).first();
+                $childList = $( this ).find( '> div > ul' ).first();
                 let $listItem = $childList.children().first();
                 let $focusableElementContainer = $listItem.find( '> div' ).first();
                 let focusableElement = $focusableElementContainer.children().first();
@@ -65,6 +65,7 @@
         //left
         if ( e.keyCode === 37 ) {
             stopPropagation( e );
+            // does not work for some reason
             if ( this.previousElementSibling ) {
                 this.previousElementSibling.focus();
             }
