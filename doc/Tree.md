@@ -28,16 +28,54 @@ class MyTree extends SimpleTreeContainer {
 	 * @return array
 	 */
 	private function getTreeData(): array {
-		/** @var IContextSource */
-		$context = RequestContext::getMain();
-
-		/** @var Title */
-		$title = $context->getTitle();
-
-		$subpageDataGenerator = new SubpageDataGenerator();
-		$subpageData = $subpageDataGenerator->generate( $title );
-
-		return $subpageData;
+		return [
+			[
+				'id' => 'dummy-1',
+				'text' => 'node-1',
+				'items' => [
+					[
+						'id' => 'dummy-2',
+						'text' => 'node-3',
+						'href' => 'test',
+						'items' => []
+					],
+					[
+						'id' => 'dummy-3',
+						'text' => 'node-4',
+						'items' => [
+							[
+								'id' => 'dummy-4',
+								'text' => 'node-5',
+								'items' => []
+							]
+						]
+					]
+				]
+			],
+			[
+				'id' => 'dummy-5',
+				'text' => 'node-2',
+				'items' => [
+					[
+						'id' => 'dummy-6',
+						'text' => 'node-6',
+						'items' => [
+							[
+								'id' => 'dummy-7',
+								'text' => 'node-7',
+								'items' => [
+										[
+										'id' => 'dummy-8',
+										'text' => 'node-8',
+										'items' => []
+									]
+								]
+							]
+						]
+					]
+				]
+			]
+		];
 	}
 
 	/**
