@@ -8,7 +8,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeTextNode
 use MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator;
 use PHPUnit\Framework\TestCase;
 
-require_once( dirname( dirname( __DIR__ ) ) . '/bootstrap.php' );
+require_once dirname( dirname( __DIR__ ) ) . '/bootstrap.php';
 
 class TreeDataGeneratorTest extends TestCase {
 
