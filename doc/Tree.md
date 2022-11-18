@@ -1,69 +1,52 @@
 Example for creating a tree in a component like SimpleCard
 
+class MyTree extends SimpleTreeContainer {
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getId(): string {
+		return 'my-tree';
+	}
+
 	/**
 	 * @inheritDoc
 	 */
 	public function getSubComponents(): array {
 		$services = MediaWikiServices::getInstance();
-		$objectFactory = $services->get( 'ObjectFactory' );
-		$treeData = new TreeData( $objectFactory );
-		$nodes = $treeData->getTreeNodes( $this->getTreeData() );
+		$treeDataGenerator = $services->get( 'MWStakeCommonUITreeDataGenerator' );
+
+		$nodes = $treeDataGenerator->generate(
+			$this->getTreeData(),
+			$this->getTreeExpandPaths()
+		);
 
 		return $nodes;
 	}
 
+	/**
+	 * @return array
+	 */
 	private function getTreeData(): array {
+		/** @var IContextSource */
+		$context = RequestContext::getMain();
+
+		/** @var Title */
+		$title = $context->getTitle();
+
+		$subpageDataGenerator = new SubpageDataGenerator();
+		$subpageData = $subpageDataGenerator->generate( $title );
+
+		return $subpageData;
+	}
+
+	/**
+	 * @return array
+	 */
+	protected function getExpandPaths(): array {
 		return [
-			[
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-				'options' => [
-					'id' => 'root-node',
-					'text' => 'node-1',
-					'items' => [
-						[
-							'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-							'options' => [
-								'id' => 'dummy-2',
-								'text' => 'node-3',
-								'items' => []
-							]
-						],
-						[
-							'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-							'options' => [
-								'id' => 'dummy-3',
-								'text' => 'node-4',
-								'items' => [
-									[
-										'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-										'options' => [
-											'id' => 'dummy-4',
-											'text' => 'node-5',
-											'items' => []
-										]
-									]
-								]
-							]
-						]
-					]
-				]
-			],
-			[
-				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-				'options' => [
-					'id' => 'dummy-5',
-					'text' => 'node-2',
-					'items' => [
-						[
-							'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
-							'options' => [
-								'id' => 'dummy-6',
-								'text' => 'node-6',
-								'items' => []
-							]
-						]
-					]
-				]
-			]
+			'dummy-1/dummy-3',
+			'dummy-5',
 		];
 	}
+}
