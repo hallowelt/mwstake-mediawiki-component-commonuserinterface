@@ -1,7 +1,7 @@
 :root {
     --mws-tree-expander-width: 1.5em;
 }
-ul.mws-tree-cnt,
+ul.mws-tree,
 ul.mws-tree-node-children {
     list-style: none;
     padding-left: var(--mws-tree-expander-width);

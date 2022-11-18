@@ -109,6 +109,10 @@ class TreeTextNode extends RendererBase {
 	protected function getClasses( IComponent $component, array &$templateData ): void {
 		$classes = $component->getClasses();
 
+		if ( $component->isExpanded() ) {
+			$classes[] = 'expanded';
+		}
+
 		if ( !empty( $classes ) ) {
 			$templateData = array_merge(
 				$templateData,

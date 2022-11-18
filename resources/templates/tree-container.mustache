@@ -1,5 +1,7 @@
 {{#hasItems}}
-<ul role="tree" class="mws-tree-cnt{{class}}"{{#aria}} {{{.}}}{{/aria}}>
-	{{#body}}{{{.}}}{{/body}}
-</ul>
+<div role="tree" {{#aria}} {{{.}}}{{/aria}}>
+	<ul class="mws-tree{{class}}">
+		{{#body}}{{{.}}}{{/body}}
+	</ul>
+</div>
 {{/hasItems}}
