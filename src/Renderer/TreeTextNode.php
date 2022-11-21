@@ -117,9 +117,13 @@ class TreeTextNode extends RendererBase {
 			$templateData = array_merge(
 				$templateData,
 				[
-					'labelclass' => ' ' . implode( ' ', $classes )
+					'class' => ' ' . implode( ' ', $classes )
 				]
 			);
+		}
+
+		if ( in_array( 'new', $classes ) ) {
+			$templateData['isNew'] = 'true';
 		}
 	}
 }
