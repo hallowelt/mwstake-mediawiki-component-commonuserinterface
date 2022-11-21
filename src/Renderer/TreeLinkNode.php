@@ -10,6 +10,22 @@ class TreeLinkNode extends TreeTextNode {
 
 	/**
 	 *
+	 * @var MainConfig
+	 */
+	private $mainConfig = null;
+
+	/**
+	 *
+	 * @param MainConfig $mainConfig
+	 */
+	public function __construct( $mainConfig ) {
+		parent::__construct();
+
+		$this->mainConfig = $mainConfig;
+	}
+
+	/**
+	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */
@@ -46,6 +62,25 @@ class TreeLinkNode extends TreeTextNode {
 			$this->getClasses( $component, $templateData );
 			$this->getChildren( $component, $subComponentNodes, $templateData );
 
+			// Is target external?
+			$parsedUrl = wfParseUrl( $component->getHref() );
+			// MediaWiki global $wgExternalLinkTarget
+			$externalLinkTarget = $this->mainConfig->get( 'ExternalLinkTarget' );
+			if ( $parsedUrl && $externalLinkTarget ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'target' => $externalLinkTarget
+					]
+				);
+				// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
+				$rel = [ 'external', 'noreferrer', 'noopener' ];
+				if ( isset( $templateData['rel'] ) ) {
+					$componentRel = implode( ' ', $templateData['rel'] );
+					$rel = array_merge( $componentRel, $rel );
+				}
+				$templateData['rel'] = implode( ' ', $rel );
+			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}

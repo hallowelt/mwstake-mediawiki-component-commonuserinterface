@@ -137,6 +137,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			],
 			'tree-link-node' => [
 				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeLinkNode',
+				'services' => [ 'MainConfig' ]
 			],
 			// phpcs:enable
 		],
