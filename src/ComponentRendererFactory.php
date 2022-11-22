@@ -3,7 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Exception;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 class ComponentRendererFactory {
 

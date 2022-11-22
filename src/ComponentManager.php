@@ -5,7 +5,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 use IContextSource;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
-use Wikimedia\ObjectFactory;
+use Wikimedia\ObjectFactory\ObjectFactory;
 
 class ComponentManager {
 
