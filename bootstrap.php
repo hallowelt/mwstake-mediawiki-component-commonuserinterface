@@ -114,6 +114,9 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IBadge',
 		'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButtonGroup',
 		'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMediaObject',
+		'tree-container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeContainer',
+		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode',
+		'tree-link-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeLinkNode',
 		// phpcs:enable
 	];
 
@@ -126,6 +129,16 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			// phpcs:disable
 			'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
 			'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MessageLiteral',
+			'tree-container' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeContainer',
+			],
+			'tree-text-node' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeTextNode',
+			],
+			'tree-link-node' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeLinkNode',
+				'services' => [ 'MainConfig' ]
+			],
 			// phpcs:enable
 		],
 		'bootstrap5' => [
@@ -172,6 +185,15 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 
 	$GLOBALS['mwsgCommonUIComponentRendererType'] = 'bootstrap5';
 
+	$GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'] = [
+		'tree-text-node' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeTextNode',
+		],
+		'tree-link-node' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Component\\SimpleTreeLinkNode',
+		],
+	];
+
 	$GLOBALS['mwsgCommonUISkinSlots'] = [
 		'siteNoticeAfter' => [],
 		'skinAfterContent' => []
@@ -196,6 +218,20 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSiteNoticeAfter';
 	$GLOBALS['wgHooks']['SkinAfterContent'][]
 		= 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Setup::onSkinAfterContent';
+
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component'] = [
+		'localBasePath' => __DIR__ . "/resources/tree/",
+		'packageFiles' => [
+			'tree.js',
+		],
+	];
+
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component.styles'] = [
+		'localBasePath' => __DIR__ . "/resources/tree/",
+		'styles' => [
+			'tree.css',
+		],
+	];
 
 	// phpcs:disable
 	// Not yet ready

@@ -10,6 +10,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\RendererDataTreeRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRegistry;
 use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
+use MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator;
 
 return [
 	'MWStakeCommonUISkinSlotRendererFactory' => function ( MediaWikiServices $services ) {
@@ -72,11 +73,19 @@ return [
 		);
 		return $skinSlotRegistry;
 	},
+
 	'MWStakeLinkFormatter' => function ( MediaWikiServices $services ) {
 		$linkFormatter = new LinkFormatter(
 			$services->getMainConfig()->get( 'ExternalLinkTarget' ),
 			$services->getMainConfig()->get( 'NoFollowLinks' )
 		);
 		return $linkFormatter;
+	},
+
+	'MWStakeCommonUITreeDataGenerator' => function ( MediaWikiServices $services ) {
+		return new TreeDataGenerator(
+			$GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'],
+			$services->getObjectFactory()
+		);
 	},
 ];
