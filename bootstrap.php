@@ -117,6 +117,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'tree-container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeContainer',
 		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode',
 		'tree-link-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeLinkNode',
+		'container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IContainer',
 		// phpcs:enable
 	];
 
@@ -139,6 +140,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TreeLinkNode',
 				'services' => [ 'MainConfig' ]
 			],
+			'container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Container',
 			// phpcs:enable
 		],
 		'bootstrap5' => [
