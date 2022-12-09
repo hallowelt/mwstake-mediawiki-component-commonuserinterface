@@ -53,6 +53,7 @@ class TreeContainer extends RendererBase {
 			$aria = $component->getAriaAttributes();
 			$ariaAttributesBuilder = new AriaAttributesBuilder();
 			$ariaAttributes = $ariaAttributesBuilder->toString( $aria );
+
 			$templateData = array_merge(
 				$templateData,
 				[
@@ -74,5 +75,14 @@ class TreeContainer extends RendererBase {
 	 */
 	public function getTemplatePathname() : string {
 		return $this->templateBasePath . '/tree-container.mustache';
+	}
+
+	/**
+	 * `AriaAttributesBuilder` and `DataAttributesBuilder` are already using
+	 * `Sanitizer::safeEncodeTagAttributes`
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'aria' ];
 	}
 }
