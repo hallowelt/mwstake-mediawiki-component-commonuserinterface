@@ -4,15 +4,15 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
-use MWStake\MediaWiki\Component\CommonUserInterface\IWrapper;
+use MWStake\MediaWiki\Component\CommonUserInterface\IContainer;
 
-class Wrapper extends RendererBase {
+class Container extends RendererBase {
 
 	/**
 	 * @return string
 	 */
 	public function getTemplatePathname() : string {
-		return $this->templateBasePath . 'wrapper.mustache';
+		return $this->templateBasePath . 'container.mustache';
 	}
 
 	/**
@@ -22,12 +22,12 @@ class Wrapper extends RendererBase {
 		$templateData = [];
 
 		/** @var IComponent $component */
-		if ( $component instanceof IWrapper ) {
+		if ( $component instanceof IContainer ) {
 			$templateData = [
 				'id' => $component->getId()
 			];
-			if ( $component->enableWrapperHtml() ) {
-				$templateData['wrap'] = 'true';
+			if ( $component->getTagName() !== '' ) {
+				$templateData['tag'] = $component->getTagName();
 			}
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['body'] = $subComponentNodes;

@@ -2,12 +2,12 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-interface IWrapper {
+interface IContainer {
 
 	/**
-	 * @ return bool
+	 * @ return string
 	 */
-	public function enableWrapperHtml(): bool;
+	public function getTagName(): string;
 
 	/**
 	 * @return array

@@ -2,9 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use MWStake\MediaWiki\Component\CommonUserInterface\IWrapper;
+use MWStake\MediaWiki\Component\CommonUserInterface\IContainer;
 
-class Wrapper extends ComponentBase implements IWrapper {
+class Container extends ComponentBase implements IContainer {
 
 	/**
 	 *
@@ -20,7 +20,7 @@ class Wrapper extends ComponentBase implements IWrapper {
 			'id' => 'some-id',
 			'items' => [],
 			'classes' => [],
-			'enableWrapperHtml' => false,
+			'tag' => '',
 		], $options );
 	}
 
@@ -39,9 +39,9 @@ class Wrapper extends ComponentBase implements IWrapper {
 	}
 
 	/**
-	 * @return bool
+	 * @return string
 	 */
-	public function enableWrapperHtml(): bool {
-		return $this->options['enableWrapperHtml'];
+	public function getTagName(): string {
+		return $this->options['tag'];
 	}
 }
