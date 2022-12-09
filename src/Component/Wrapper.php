@@ -39,7 +39,7 @@ class Wrapper extends ComponentBase implements IWrapper {
 	}
 
 	/**
-	 * @ return bool
+	 * @return bool
 	 */
 	public function enableWrapperHtml(): bool {
 		return $this->options['enableWrapperHtml'];

@@ -2,8 +2,6 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use IContextSource;
-
 interface IWrapper {
 
 	/**
