@@ -3,8 +3,8 @@
 		{{#expandBtn}}<a class="mws-tree-expander{{class}}" aria-expanded="{{expanded}}" role="button" tabindex="0" aria-label="{{text}}"{{#id}} aria-controlls="{{.}}-children"{{/id}}{{#hasChildren}} aria-haspopup="true"{{/hasChildren}}></a>{{/expandBtn}}<a id="{{labelId}}" class="mws-tree-item-label{{#isNew}} new{{/isNew}}" href="{{href}}"{{#title}} title="{{{.}}}"{{/title}}{{#rel}} rel="{{{.}}}"{{/rel}}{{#target}} target="{{{.}}}"{{/target}}>{{text}}</a>
 	</div>
 	{{#hasChildren}}
-	<div class="mws-tree-cnt" role="tree" aria-labelledby="{{labelId}}" aria-expanded="expanded">
-		<ul class="mws-tree-item-children{{#expanded}} show{{/expanded}}"{{#id}} id="{{.}}-children"{{/id}}>
+	<div class="mws-tree-cnt{{#expanded}} show{{/expanded}}" role="tree" aria-labelledby="{{labelId}}" aria-expanded="expanded" tabindex="0">
+		<ul class="mws-tree-item-children"{{#id}} id="{{.}}-children"{{/id}}>
 			{{#children}}{{{.}}}{{/children}}
 		</ul>
 	</div>
