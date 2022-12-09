@@ -122,7 +122,7 @@
     }
 
     function collapseTreeItem( element, controlls ) {
-        $( '#'+controlls ).removeClass( 'show' );
+        $( '#'+controlls ).parent( '.mws-tree-cnt' ).removeClass( 'show' );
         $( element ).attr( 'aria-expanded', 'false' );
         $( element ).removeClass( 'expanded' );
         $( element ).addClass( 'collapsed' );
@@ -130,7 +130,7 @@
     }
 
     function expandTreeItem( element, controlls ) {
-        $( '#'+controlls ).addClass( 'show' );
+        $( '#'+controlls ).parent( '.mws-tree-cnt' ).addClass( 'show' );
         $( element ).attr( 'aria-expanded', 'true' );
         $( element ).removeClass( 'collapsed' );
         $( element ).addClass( 'expanded' );
