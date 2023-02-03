@@ -87,6 +87,14 @@ class DropdownIconSplitButton extends RendererBase {
 					]
 				);
 			}
+			if ( $component->getButtonRel() !== '' ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'btn-rel' => $component->getButtonRel()
+					]
+				);
+			}
 			if ( $component->buttonIsDisabled() ) {
 				$templateData = array_merge(
 					$templateData,
