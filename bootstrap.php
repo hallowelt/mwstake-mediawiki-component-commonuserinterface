@@ -210,6 +210,13 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'skinAfterContent' => [],
 	];
 
+	/** Allows to add component filter for rendering components */
+	$GLOBALS['mwsgCommonUIComponentFilters'] = [
+		'default' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ComponentFilter\\DefaultFilter'
+		]
+	];
+
 	$GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'skinAfterContent' ];
 
 	$GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';

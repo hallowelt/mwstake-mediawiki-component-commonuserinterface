@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\CommonUserInterface\ComponentFilterFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\GenericComponentRenderer;
@@ -25,6 +26,7 @@ return [
 			RequestContext::getMain(),
 			$GLOBALS['mwsgCommonUISkinSlots'],
 			$GLOBALS['mwsgCommonUISkinSlotsEnabled'],
+			$services->get( 'MWStakeCommonUIComponentFilterFactory' ),
 			$services->getObjectFactory(),
 			$services->getHookContainer()
 		);
@@ -85,6 +87,13 @@ return [
 	'MWStakeCommonUITreeDataGenerator' => function ( MediaWikiServices $services ) {
 		return new TreeDataGenerator(
 			$GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'],
+			$services->getObjectFactory()
+		);
+	},
+
+	'MWStakeCommonUIComponentFilterFactory' => function ( MediaWikiServices $services ) {
+		return new ComponentFilterFactory(
+			$GLOBALS['mwsgCommonUIComponentFilters'],
 			$services->getObjectFactory()
 		);
 	},
