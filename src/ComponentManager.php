@@ -83,22 +83,9 @@ class ComponentManager {
 
 	/**
 	 *
-	 * @var ComponentFilterFactory
-	 */
-	private $componentFilterFactory = null;
-
-	/**
-	 *
-	 * @var IComponentFilter[]
-	 */
-	private $filters = [];
-
-	/**
-	 *
 	 * @param IContextSource $context
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
-	 * @param ComponentFilterFactory $componentFilterFactory
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
 	 * @param SkinSlotRegistry|null $slotRegistry
@@ -106,16 +93,14 @@ class ComponentManager {
 	 * @return ComponentManager
 	 */
 	public static function singleton( IContextSource $context, $slotSpecs, $enabledSlots,
-	$componentFilterFactory, $objectFactory = null, $hookContainer = null,
-	$slotRegistry = null ) : ComponentManager {
+	$objectFactory = null, $hookContainer = null, $slotRegistry = null ) : ComponentManager {
 		if ( static::$instance == null ) {
 			static::$instance = new ComponentManager(
 				$slotSpecs,
 				$enabledSlots,
 				$objectFactory,
 				$hookContainer,
-				$slotRegistry,
-				$componentFilterFactory
+				$slotRegistry
 			);
 			static::$instance->init( $context );
 		}
@@ -130,17 +115,14 @@ class ComponentManager {
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
 	 * @param SkinSlotRegistry|null $slotRegistry
-	 * @param ComponentFilterFactory $componentFilterFactory
 	 */
 	public function __construct( $slotSpecs, $enabledSlots,
-		$objectFactory = null, $hookContainer = null, $slotRegistry = null, $componentFilterFactory ) {
+		$objectFactory = null, $hookContainer = null, $slotRegistry = null ) {
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
 		$this->hookContainer = $hookContainer;
 		$this->slotRegistry = $slotRegistry;
-		$this->componentFilterFactory = $componentFilterFactory;
-		$this->filters = $this->componentFilterFactory->getAllFilters();
 		if ( $this->objectFactory instanceof ObjectFactory === false ) {
 			$this->objectFactory = \MediaWiki\MediaWikiServices::getInstance()->getObjectFactory();
 		}
@@ -217,13 +199,9 @@ class ComponentManager {
 		if ( $component instanceof IRestrictedComponent && !$this->checkPermissions( $component ) ) {
 			return;
 		}
-
-		foreach ( $this->filters as $filter ) {
-			if ( !$filter->shouldRender( $component, $this->context ) ) {
-				return;
-			}
+		if ( !$component->shouldRender( $this->context ) ) {
+			return;
 		}
-
 		$component->setComponentData( $data );
 
 		$id = $component->getId();
