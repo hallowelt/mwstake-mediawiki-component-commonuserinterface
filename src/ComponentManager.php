@@ -130,10 +130,10 @@ class ComponentManager {
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
 	 * @param SkinSlotRegistry|null $slotRegistry
-	 * @param ComponentFilterFactory $componentFilterFactory
+	 * @param ComponentFilterFactory|null $componentFilterFactory
 	 */
 	public function __construct( $slotSpecs, $enabledSlots,
-		$objectFactory = null, $hookContainer = null, $slotRegistry = null, $componentFilterFactory ) {
+		$objectFactory = null, $hookContainer = null, $slotRegistry = null, $componentFilterFactory = null ) {
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
@@ -142,14 +142,17 @@ class ComponentManager {
 		$this->componentFilterFactory = $componentFilterFactory;
 		$this->filters = $this->componentFilterFactory->getAllFilters();
 		if ( $this->objectFactory instanceof ObjectFactory === false ) {
-			$this->objectFactory = \MediaWiki\MediaWikiServices::getInstance()->getObjectFactory();
+			$this->objectFactory = MediaWikiServices::getInstance()->getObjectFactory();
 		}
 		if ( $this->hookContainer instanceof HookContainer === false ) {
-			$this->hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
+			$this->hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		}
 		if ( $this->slotRegistry instanceof SkinSlotRegistry === false ) {
+			$this->slotRegistry = MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
+		}
+		if ( $this->componentFilterFactory instanceof ComponentFilterFactory === false ) {
 			// phpcs:ignore Generic.Files.LineLength.TooLong
-			$this->slotRegistry = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
+			$this->componentFilterFactory = MediaWikiServices::getInstance()->getService( 'MWStakeCommonUIComponentFilterFactory' );
 		}
 	}
 
