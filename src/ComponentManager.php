@@ -132,8 +132,8 @@ class ComponentManager {
 	 * @param SkinSlotRegistry|null $slotRegistry
 	 * @param ComponentFilterFactory|null $componentFilterFactory
 	 */
-	public function __construct( $slotSpecs, $enabledSlots,
-		$objectFactory = null, $hookContainer = null, $slotRegistry = null, $componentFilterFactory = null ) {
+	public function __construct( $slotSpecs, $enabledSlots,	$objectFactory = null,
+		$hookContainer = null, $slotRegistry = null, $componentFilterFactory = null ) {
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
