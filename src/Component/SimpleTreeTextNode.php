@@ -79,6 +79,10 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 * @return Message
 	 */
 	public function getText(): Message {
+		$msg = Message::newFromKey( $this->options['text'] );
+		if ( $msg->exists() ) {
+			return $msg;
+		}
 		return new RawMessage( $this->options['text'] );
 	}
 }
