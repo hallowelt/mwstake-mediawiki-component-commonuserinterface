@@ -85,7 +85,7 @@ class TreeTextNode extends RendererBase {
 	protected function getChildren( IComponent $component,
 		array $subComponentNodes, array &$templateData
 		): void {
-		$class = $templateData['class'];
+		$class = $templateData['class'] ?? '';
 
 		if ( !empty( $subComponentNodes ) ) {
 			$templateData['hasChildren'] = 'true';
