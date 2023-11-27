@@ -31,7 +31,7 @@ class SimpleButton extends ComponentBase implements IButton {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
@@ -39,21 +39,21 @@ class SimpleButton extends ComponentBase implements IButton {
 	 *
 	 * @return Message
 	 */
-	public function getAriaLabel() : Message {
+	public function getAriaLabel(): Message {
 		return $this->options['aria-label'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getText() : Message {
+	public function getText(): Message {
 		return $this->options['text'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses() : array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 
@@ -61,7 +61,7 @@ class SimpleButton extends ComponentBase implements IButton {
 	 *
 	 * @return bool
 	 */
-	public function isDisabled() : bool {
+	public function isDisabled(): bool {
 		return $this->options['disabled'];
 	}
 }

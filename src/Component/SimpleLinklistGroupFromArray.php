@@ -8,7 +8,7 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 
 	/**
 	 *
-	 * @var array $options
+	 * @var array
 	 */
 	private $options = [];
 
@@ -30,28 +30,28 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 	/**
 	 * @inheritDoc
 	 */
-	public function getLinks() : array {
+	public function getLinks(): array {
 		return $this->options['links'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getContainerClasses() : array {
+	public function getContainerClasses(): array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getAriaAttributes() : array {
+	public function getAriaAttributes(): array {
 		return $this->options['aria'];
 	}
 }

@@ -6,8 +6,10 @@ use Wikimedia\ObjectFactory\ObjectFactory;
 
 class ComponentFilterFactory {
 
+	/** @var array */
 	private $registeredFilters = [];
 
+	/** @var ObjectFactory */
 	private $objectFactory;
 
 	/**

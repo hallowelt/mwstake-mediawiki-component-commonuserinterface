@@ -5,7 +5,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 interface IContainer {
 
 	/**
-	 * @ return string
+	 * @return string
 	 */
 	public function getTagName(): string;
 

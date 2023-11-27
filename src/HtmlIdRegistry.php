@@ -20,7 +20,7 @@ class HtmlIdRegistry {
 
 	/**
 	 *
-	 * @var integer
+	 * @var int
 	 */
 	private $limit = 1000;
 
@@ -28,7 +28,7 @@ class HtmlIdRegistry {
 	 *
 	 * @return HtmlIdRegistry
 	 */
-	public static function singleton() : HtmlIdRegistry {
+	public static function singleton(): HtmlIdRegistry {
 		if ( self::$registry === null ) {
 			self::$registry = new HtmlIdRegistry();
 		}
@@ -48,7 +48,7 @@ class HtmlIdRegistry {
 	 * @param string $id
 	 * @return string
 	 */
-	public function makeHtmlIdSafe( $id ) : string {
+	public function makeHtmlIdSafe( $id ): string {
 		if ( !in_array( $id, $this->htmlIds ) ) {
 			$newId = Sanitizer::escapeIdForAttribute( $id );
 			array_push( $this->htmlIds, $newId );

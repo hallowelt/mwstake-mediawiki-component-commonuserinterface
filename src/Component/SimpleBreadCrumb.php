@@ -25,21 +25,21 @@ class SimpleBreadCrumb extends ComponentBase implements IBreadCrumb {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses() : array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getAriaLabel() : Message {
+	public function getAriaLabel(): Message {
 		return $this->options['aria-label'];
 	}
 }

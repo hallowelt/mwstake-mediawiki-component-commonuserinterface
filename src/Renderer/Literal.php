@@ -13,7 +13,7 @@ class Literal extends RendererBase {
 	 * @param IComponent $component
 	 * @return bool
 	 */
-	public function canRender( IComponent $component ) : bool {
+	public function canRender( IComponent $component ): bool {
 		return $component instanceof ILiteral;
 	}
 
@@ -24,7 +24,7 @@ class Literal extends RendererBase {
 	 * @param array $subComponentNodes
 	 * @return array
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ): array {
 		$templateData = [];
 
 		/** @var IComponent $component */
@@ -48,7 +48,7 @@ class Literal extends RendererBase {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname() : string {
+	public function getTemplatePathname(): string {
 		return $this->templateBasePath . '/literal.mustache';
 	}
 

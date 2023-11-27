@@ -9,5 +9,5 @@ interface IAccordion extends IComponent {
 	 *
 	 * @return Message
 	 */
-	public function getLabel() : Message;
+	public function getLabel(): Message;
 }

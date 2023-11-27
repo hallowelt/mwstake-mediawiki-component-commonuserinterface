@@ -7,10 +7,10 @@ interface IDropdownItemlistFromArray {
 	/**
 	 * @return string[]
 	 */
-	public function getClasses() : array;
+	public function getClasses(): array;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getLinks() : array;
+	public function getLinks(): array;
 }

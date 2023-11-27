@@ -38,21 +38,21 @@ class SimpleCollapsibleCard extends ComponentBase implements ICollapsibleCard {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses() : array {
+	public function getContainerClasses(): array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return $this->options['items'];
 	}
 
@@ -60,42 +60,42 @@ class SimpleCollapsibleCard extends ComponentBase implements ICollapsibleCard {
 	 *
 	 * @return bool
 	 */
-	public function getExpandedState() : bool {
+	public function getExpandedState(): bool {
 		return $this->options['expanded'];
 	}
 
 	/**
 	 * @return string[]
 	 */
-	public function getHeaderClasses() : array {
+	public function getHeaderClasses(): array {
 		return $this->options['header-classes'];
 	}
 
 	/**
 	 * @return string[]
 	 */
-	public function getBodyClasses() : array {
+	public function getBodyClasses(): array {
 		return $this->options['body-classes'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getText() : Message {
+	public function getText(): Message {
 		return $this->options['text'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getTitle() : Message {
+	public function getTitle(): Message {
 		return $this->options['title'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getAriaLabel() : Message {
+	public function getAriaLabel(): Message {
 		return $this->options['aria-label'];
 	}
 

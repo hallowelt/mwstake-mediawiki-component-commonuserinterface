@@ -11,7 +11,7 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '3.2.4' );
 
 MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
-->register( 'commonuserinterface', function () {
+->register( 'commonuserinterface', static function () {
 	$lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
 
 	// Provide the list of values

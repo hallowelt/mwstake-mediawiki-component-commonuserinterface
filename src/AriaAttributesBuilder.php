@@ -17,7 +17,7 @@ class AriaAttributesBuilder {
 	 * @param array $data
 	 * @return array
 	 */
-	public function build( $data ) : array {
+	public function build( $data ): array {
 		$attribs = [];
 
 		foreach ( $data  as $key => $value ) {
@@ -35,7 +35,7 @@ class AriaAttributesBuilder {
 	 * @param array $data
 	 * @return string
 	 */
-	public function toString( $data ) : string {
+	public function toString( $data ): string {
 		$attribs = $this->build( $data );
 
 		return implode( ' ', $attribs );

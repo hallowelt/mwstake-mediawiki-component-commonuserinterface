@@ -32,56 +32,56 @@ class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return $this->options['items'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getContainerClasses() : array {
+	public function getContainerClasses(): array {
 		return $this->options['container-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getButtonClasses() : array {
+	public function getButtonClasses(): array {
 		return $this->options['button-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getMenuClasses() : array {
+	public function getMenuClasses(): array {
 		return $this->options['menu-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getIconClasses() : array {
+	public function getIconClasses(): array {
 		return $this->options['icon-classes'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getTitle() : Message {
+	public function getTitle(): Message {
 		return $this->options['title'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getAriaLabel() : Message {
+	public function getAriaLabel(): Message {
 		return $this->options['aria-label'];
 	}
 
@@ -89,7 +89,7 @@ class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 	 *
 	 * @return string
 	 */
-	public function getTabindex() : string {
+	public function getTabindex(): string {
 		return $this->options['tabindex'];
 	}
 }

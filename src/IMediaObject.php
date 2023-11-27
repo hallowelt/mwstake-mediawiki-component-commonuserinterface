@@ -9,27 +9,27 @@ interface IMediaObject {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array;
+	public function getContainerClasses(): array;
 
 	/**
 	 * @return string[]
 	 */
-	public function getImageClasses() : array;
+	public function getImageClasses(): array;
 
 	/**
 	 * @return string[]
 	 */
-	public function getBodyClasses() : array;
+	public function getBodyClasses(): array;
 
 	/**
 	 *
 	 * @return Message
 	 */
-	public function getImageAltText() : Message;
+	public function getImageAltText(): Message;
 
 	/**
 	 *
 	 * @return string
 	 */
-	public function getImageSrc() : string;
+	public function getImageSrc(): string;
 }

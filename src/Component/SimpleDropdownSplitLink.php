@@ -38,91 +38,91 @@ class SimpleDropdownSplitLink extends ComponentBase implements IDropdownSplitLin
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return $this->options['items'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getContainerClasses() : array {
+	public function getContainerClasses(): array {
 		return $this->options['container-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getButtonGroupClasses() : array {
+	public function getButtonGroupClasses(): array {
 		return $this->options['button-group-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getButtonClasses() : array {
+	public function getButtonClasses(): array {
 		return $this->options['button-classes'];
 	}
 
 		/**
 		 * @return array
 		 */
-	public function getSplitButtonClasses() : array {
+	public function getSplitButtonClasses(): array {
 		return $this->options['split-button-classes'];
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getMenuClasses() : array {
+	public function getMenuClasses(): array {
 		return $this->options['menu-classes'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getButtonText() : Message {
+	public function getButtonText(): Message {
 		return $this->options['button-text'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getButtonTitle() : Message {
+	public function getButtonTitle(): Message {
 		return $this->options['button-title'];
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getButtonHref() : string {
+	public function getButtonHref(): string {
 		return $this->options['button-href'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getSplitButtonTitle() : Message {
+	public function getSplitButtonTitle(): Message {
 		return $this->options['split-button-title'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getButtonAriaLabel() : Message {
+	public function getButtonAriaLabel(): Message {
 		return $this->options['button-aria-label'];
 	}
 
 	/**
 	 * @return Message
 	 */
-	public function getSplitButtonAriaLabel() : Message {
+	public function getSplitButtonAriaLabel(): Message {
 		return $this->options['split-button-aria-label'];
 	}
 
@@ -130,7 +130,7 @@ class SimpleDropdownSplitLink extends ComponentBase implements IDropdownSplitLin
 	 *
 	 * @return bool
 	 */
-	public function buttonIsDisabled() : bool {
+	public function buttonIsDisabled(): bool {
 		return $this->options['button-disabled'];
 	}
 
@@ -138,7 +138,7 @@ class SimpleDropdownSplitLink extends ComponentBase implements IDropdownSplitLin
 		 *
 		 * @return bool
 		 */
-	public function splitButtonIsDisabled() : bool {
+	public function splitButtonIsDisabled(): bool {
 		return $this->options['split-button-disabled'];
 	}
 }

@@ -25,14 +25,14 @@ class SimpleAccordion extends ComponentBase implements IAccordion {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return $this->options['items'];
 	}
 }

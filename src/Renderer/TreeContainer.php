@@ -14,7 +14,7 @@ class TreeContainer extends RendererBase {
 	 * @param IComponent $component
 	 * @return bool
 	 */
-	public function canRender( IComponent $component ) : bool {
+	public function canRender( IComponent $component ): bool {
 		return $component instanceof ITreeContainer;
 	}
 
@@ -73,7 +73,7 @@ class TreeContainer extends RendererBase {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname() : string {
+	public function getTemplatePathname(): string {
 		return $this->templateBasePath . '/tree-container.mustache';
 	}
 

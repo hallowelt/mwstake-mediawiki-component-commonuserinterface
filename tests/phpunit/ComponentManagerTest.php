@@ -61,14 +61,14 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function () use ( $mockComponent1 ) {
+				'factory' => static function () use ( $mockComponent1 ) {
 					return $mockComponent1;
 				}
 			],
 		];
 		$slots[ 'testSlot2' ] = [
 			'test1' => [
-				'factory' => function () use ( $mockComponent2 ) {
+				'factory' => static function () use ( $mockComponent2 ) {
 					return $mockComponent2;
 				}
 			]
@@ -107,7 +107,7 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function () use ( $mockComponent1 ) {
+				'factory' => static function () use ( $mockComponent1 ) {
 					return $mockComponent1;
 				}
 			],
@@ -148,7 +148,7 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function () use ( $mockComponent1 ) {
+				'factory' => static function () use ( $mockComponent1 ) {
 					return $mockComponent1;
 				}
 			],
@@ -174,7 +174,7 @@ class ComponentManagerTest extends TestCase {
 		$slots = [];
 		$slots[ 'testSlot1' ] = [
 			'test1' => [
-				'factory' => function () {
+				'factory' => static function () {
 					return new SimplePanel( [
 						'id' => 'my-panel',
 						'title' => new RawMessage( 'My card' ),

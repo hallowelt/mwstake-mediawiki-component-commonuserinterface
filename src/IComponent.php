@@ -10,31 +10,31 @@ interface IComponent {
 	 *
 	 * @return string
 	 */
-	public function getId() : string;
+	public function getId(): string;
 
 	/**
 	 *
 	 * @return string[]
 	 */
-	public function getRequiredRLModules() : array;
+	public function getRequiredRLModules(): array;
 
 	/**
 	 *
 	 * @return string[]
 	 */
-	public function getRequiredRLStyles() : array;
+	public function getRequiredRLStyles(): array;
 
 	/**
 	 * @return IComponent[]
 	 */
-	public function getSubComponents() : array;
+	public function getSubComponents(): array;
 
 	/**
 	 *
 	 * @param IContextSource $context
-	 * @return boolean
+	 * @return bool
 	 */
-	public function shouldRender( IContextSource $context ) : bool;
+	public function shouldRender( IContextSource $context ): bool;
 
 	/**
 	 *
@@ -42,5 +42,5 @@ interface IComponent {
 	 *                    Usually this is SkinTemplate's `$tpl->data`
 	 * @return void
 	 */
-	public function setComponentData( $data ) : void;
+	public function setComponentData( $data ): void;
 }

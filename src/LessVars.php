@@ -3,6 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 class LessVars {
+
+	/** @var LessVars */
 	protected static $instance = null;
 
 	/** @var array */
