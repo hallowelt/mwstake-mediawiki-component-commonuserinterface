@@ -14,14 +14,14 @@ use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator;
 
 return [
-	'MWStakeCommonUISkinSlotRendererFactory' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUISkinSlotRendererFactory' => static function ( MediaWikiServices $services ) {
 		return new SkinSlotRendererFactory(
 			$GLOBALS['mwsgCommonUISkinSlotRenderers'],
 			$services->getObjectFactory()
 		);
 	},
 
-	'MWStakeCommonUIComponentManager' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIComponentManager' => static function ( MediaWikiServices $services ) {
 		$componentManager = ComponentManager::singleton(
 			RequestContext::getMain(),
 			$GLOBALS['mwsgCommonUISkinSlots'],
@@ -34,7 +34,7 @@ return [
 		return $componentManager;
 	},
 
-	'MWStakeCommonUIComponentRendererFactory' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIComponentRendererFactory' => static function ( MediaWikiServices $services ) {
 		return new ComponentRendererFactory(
 			$GLOBALS['mwsgCommonUIComponentRendererRegistry'],
 			$GLOBALS['mwsgCommonUIComponentRegistry'],
@@ -43,24 +43,24 @@ return [
 		);
 	},
 
-	'MWStakeCommonUIRendererDataTreeBuilder' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIRendererDataTreeBuilder' => static function ( MediaWikiServices $services ) {
 		return new RendererDataTreeBuilder(
 			$services->getService( 'MWStakeCommonUIComponentRendererFactory' )
 		);
 	},
 
-	'MWStakeCommonUIRendererDataTreeRenderer' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIRendererDataTreeRenderer' => static function ( MediaWikiServices $services ) {
 		return new RendererDataTreeRenderer(
 			$services->getService( 'MWStakeCommonUIComponentRendererFactory' )
 		);
 	},
 
-	'MWStakeCommonUIHtmlIdRegistry' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIHtmlIdRegistry' => static function ( MediaWikiServices $services ) {
 		$registry = HtmlIdRegistry::singleton();
 		return $registry;
 	},
 
-	'MWStakeCommonUIGenericComponentRenderer' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIGenericComponentRenderer' => static function ( MediaWikiServices $services ) {
 		$renderer = new GenericComponentRenderer(
 			$services->get( 'MWStakeCommonUIComponentManager' ),
 			$services->get( 'MWStakeCommonUIRendererDataTreeBuilder' ),
@@ -69,14 +69,14 @@ return [
 		return $renderer;
 	},
 
-	'MWStakeSkinSlotRegistry' => function ( MediaWikiServices $services ) {
+	'MWStakeSkinSlotRegistry' => static function ( MediaWikiServices $services ) {
 		$skinSlotRegistry = SkinSlotRegistry::singleton(
 			$GLOBALS['mwsgCommonUISkinSlots']
 		);
 		return $skinSlotRegistry;
 	},
 
-	'MWStakeLinkFormatter' => function ( MediaWikiServices $services ) {
+	'MWStakeLinkFormatter' => static function ( MediaWikiServices $services ) {
 		$linkFormatter = new LinkFormatter(
 			$services->getMainConfig()->get( 'ExternalLinkTarget' ),
 			$services->getMainConfig()->get( 'NoFollowLinks' )
@@ -84,14 +84,14 @@ return [
 		return $linkFormatter;
 	},
 
-	'MWStakeCommonUITreeDataGenerator' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUITreeDataGenerator' => static function ( MediaWikiServices $services ) {
 		return new TreeDataGenerator(
 			$GLOBALS['mwsgCommonUIComponentTreeNodeRegistry'],
 			$services->getObjectFactory()
 		);
 	},
 
-	'MWStakeCommonUIComponentFilterFactory' => function ( MediaWikiServices $services ) {
+	'MWStakeCommonUIComponentFilterFactory' => static function ( MediaWikiServices $services ) {
 		return new ComponentFilterFactory(
 			$GLOBALS['mwsgCommonUIComponentFilters'],
 			$services->getObjectFactory()

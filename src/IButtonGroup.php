@@ -9,17 +9,17 @@ interface IButtonGroup {
 	/**
 	 * @return string[]
 	 */
-	public function getClasses() : array;
+	public function getClasses(): array;
 
 	/**
 	 * @return Message
 	 */
-	public function getAriaLabel() : Message;
+	public function getAriaLabel(): Message;
 
 	/**
 	 * One of the `ARIARole::*` constants
 	 *
 	 * @return string
 	 */
-	public function getRole() : string;
+	public function getRole(): string;
 }

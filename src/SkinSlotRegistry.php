@@ -21,7 +21,7 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	 * @param array $slotSpecs
 	 * @return SkinSlotRegistry
 	 */
-	public static function singleton( $slotSpecs ) : SkinSlotRegistry {
+	public static function singleton( $slotSpecs ): SkinSlotRegistry {
 		if ( static::$instance == null ) {
 			static::$instance = new SkinSlotRegistry(
 				$slotSpecs
@@ -55,7 +55,7 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	 *
 	 * @return array
 	 */
-	public function getSkinSlots() : array {
+	public function getSkinSlots(): array {
 		return $this->slotSpecs;
 	}
 
@@ -63,7 +63,7 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	 * @param string $regKey
 	 * @return array
 	 */
-	public function getSkinSlot( $regKey ) : array {
+	public function getSkinSlot( $regKey ): array {
 		if ( array_key_exists( $regKey, $this->slotSpecs ) ) {
 			return $this->slotSpecs[$regKey];
 		}

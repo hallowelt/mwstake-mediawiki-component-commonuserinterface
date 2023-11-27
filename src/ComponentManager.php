@@ -71,7 +71,7 @@ class ComponentManager {
 
 	/**
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	private $async = false;
 
@@ -107,7 +107,7 @@ class ComponentManager {
 	 */
 	public static function singleton( IContextSource $context, $slotSpecs, $enabledSlots,
 	$componentFilterFactory, $objectFactory = null, $hookContainer = null,
-	$slotRegistry = null ) : ComponentManager {
+	$slotRegistry = null ): ComponentManager {
 		if ( static::$instance == null ) {
 			static::$instance = new ComponentManager(
 				$slotSpecs,
@@ -280,7 +280,7 @@ class ComponentManager {
 	 * @param IRestrictedComponent $component
 	 * @return bool
 	 */
-	private function checkPermissions( $component ) : bool {
+	private function checkPermissions( $component ): bool {
 		$user = $this->context->getUser();
 		$services = MediaWikiServices::getInstance();
 		foreach ( $component->getPermissions() as $permission ) {

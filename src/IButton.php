@@ -10,21 +10,21 @@ interface IButton extends IComponent {
 	 *
 	 * @return Message
 	 */
-	public function getAriaLabel() : Message;
+	public function getAriaLabel(): Message;
 
 	/**
 	 * @return Message
 	 */
-	public function getText() : Message;
+	public function getText(): Message;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses() : array;
+	public function getClasses(): array;
 
 	/**
 	 *
 	 * @return bool
 	 */
-	public function isDisabled() : bool;
+	public function isDisabled(): bool;
 }

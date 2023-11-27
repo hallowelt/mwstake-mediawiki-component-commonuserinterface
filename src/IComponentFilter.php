@@ -10,7 +10,7 @@ interface IComponentFilter {
 	 *
 	 * @param IComponent $component
 	 * @param IContextSource $context
-	 * @return boolean
+	 * @return bool
 	 */
 	public function shouldRender( IComponent $component, IContextSource $context ): bool;
 

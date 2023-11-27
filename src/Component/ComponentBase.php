@@ -17,7 +17,7 @@ abstract class ComponentBase implements IComponent {
 	 *
 	 * @inheritDoc
 	 */
-	public function getRequiredRLModules() : array {
+	public function getRequiredRLModules(): array {
 		return [];
 	}
 
@@ -25,7 +25,7 @@ abstract class ComponentBase implements IComponent {
 	 *
 	 * @inheritDoc
 	 */
-	public function getRequiredRLStyles() : array {
+	public function getRequiredRLStyles(): array {
 		return [];
 	}
 
@@ -33,7 +33,7 @@ abstract class ComponentBase implements IComponent {
 	 *
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return [];
 	}
 
@@ -41,7 +41,7 @@ abstract class ComponentBase implements IComponent {
 	 *
 	 * @inheritDoc
 	 */
-	public function shouldRender( IContextSource $context ) : bool {
+	public function shouldRender( IContextSource $context ): bool {
 		return true;
 	}
 
@@ -51,7 +51,7 @@ abstract class ComponentBase implements IComponent {
 	 *                    Usually this is SkinTemplate's `$tpl->data`
 	 * @return void
 	 */
-	public function setComponentData( $data ) : void {
+	public function setComponentData( $data ): void {
 		$this->componentProcessData = $data;
 	}
 }

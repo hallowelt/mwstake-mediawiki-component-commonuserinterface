@@ -11,14 +11,14 @@ class CardTitle extends RendererBase {
 	/**
 	 * @return string
 	 */
-	public function getTemplatePathname() : string {
+	public function getTemplatePathname(): string {
 		return $this->templateBasePath . 'card-title.mustache';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ): array {
 		$templateData = [];
 
 		/** @var IComponent $component */

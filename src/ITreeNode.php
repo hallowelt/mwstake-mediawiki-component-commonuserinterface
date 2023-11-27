@@ -5,7 +5,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 interface ITreeNode {
 
 	/**
-	 * @return boolean
+	 * @return bool
 	 */
 	public function isExpanded(): bool;
 

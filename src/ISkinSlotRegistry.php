@@ -22,5 +22,5 @@ interface ISkinSlotRegistry {
 	 *
 	 * @return array
 	 */
-	public function getSkinSlots() : array;
+	public function getSkinSlots(): array;
 }

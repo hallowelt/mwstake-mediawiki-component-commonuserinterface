@@ -35,42 +35,42 @@ class SimpleMediaObject extends ComponentBase implements IMediaObject {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getContainerClasses() : array {
+	public function getContainerClasses(): array {
 		return $this->options['container-classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageClasses() : array {
+	public function getImageClasses(): array {
 		return $this->options['image-classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getBodyClasses() : array {
+	public function getBodyClasses(): array {
 		return $this->options['body-classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageSrc() : string {
+	public function getImageSrc(): string {
 		return $this->options['src'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageAltText() : Message {
+	public function getImageAltText(): Message {
 		return $this->options['alt'];
 	}
 }

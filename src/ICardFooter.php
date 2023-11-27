@@ -7,5 +7,5 @@ interface ICardFooter {
 	/**
 	 * @return string[]
 	 */
-	public function getClasses() : array;
+	public function getClasses(): array;
 }

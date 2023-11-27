@@ -34,35 +34,35 @@ class SimpleCardImage extends ComponentBase implements ICardImage {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses() : array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageType() : string {
+	public function getImageType(): string {
 		return $this->options['type'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageSrc() : string {
+	public function getImageSrc(): string {
 		return $this->options['src'];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getImageAltText() : Message {
+	public function getImageAltText(): Message {
 		return $this->options['alt'];
 	}
 }

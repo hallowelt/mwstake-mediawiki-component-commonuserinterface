@@ -10,10 +10,10 @@ interface IAccordionItem extends IComponent {
 	 *
 	 * @return Message
 	 */
-	public function getHeaderText() : Message;
+	public function getHeaderText(): Message;
 
 	/**
 	 * @return Message
 	 */
-	public function getTooltip() : Message;
+	public function getTooltip(): Message;
 }

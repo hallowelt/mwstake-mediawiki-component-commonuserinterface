@@ -9,5 +9,5 @@ interface IMessageLiteral {
 	/**
 	 * @return Message
 	 */
-	public function getText() : Message;
+	public function getText(): Message;
 }

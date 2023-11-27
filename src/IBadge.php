@@ -12,10 +12,10 @@ interface IBadge {
 	/**
 	 * @return Message
 	 */
-	public function getText() : Message;
+	public function getText(): Message;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getClasses() : array;
+	public function getClasses(): array;
 }

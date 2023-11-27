@@ -8,5 +8,5 @@ interface IRestrictedComponent {
 	 *
 	 * @return string[]
 	 */
-	public function getPermissions() : array;
+	public function getPermissions(): array;
 }

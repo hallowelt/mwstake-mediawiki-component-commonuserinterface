@@ -31,7 +31,7 @@ class CallbackLiteral extends ComponentBase implements ILiteral {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->id;
 	}
 
@@ -40,7 +40,7 @@ class CallbackLiteral extends ComponentBase implements ILiteral {
 	 *
 	 * @return string
 	 */
-	public function getHtml() : string {
+	public function getHtml(): string {
 		return call_user_func_array( $this->callback, [ $this->componentProcessData ] );
 	}
 }
