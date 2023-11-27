@@ -9,6 +9,9 @@ use RawMessage;
 
 class RestrictedTextLink extends ComponentBase implements ITextLink, IRestrictedComponent {
 
+	/** @var array */
+	protected $options = [];
+
 	/**
 	 *
 	 * @param array $options
