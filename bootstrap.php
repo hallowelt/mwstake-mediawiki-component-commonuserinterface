@@ -8,10 +8,10 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 	return;
 }
 
-define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '3.1.1' );
+define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '3.2.4' );
 
 MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
-->register( 'commonuserinterface', function () {
+->register( 'commonuserinterface', static function () {
 	$lessVars = \MWStake\MediaWiki\Component\CommonUserInterface\LessVars::getInstance();
 
 	// Provide the list of values
@@ -211,6 +211,13 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		// Use internal fallback to GenericSkinSlotRenderer by giving empty spec array
 		'siteNoticeAfter' => [],
 		'skinAfterContent' => [],
+	];
+
+	/** Allows to add component filter for rendering components */
+	$GLOBALS['mwsgCommonUIComponentFilters'] = [
+		'default' => [
+			'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ComponentFilter\\DefaultFilter'
+		]
 	];
 
 	$GLOBALS['mwsgCommonUISkinSlotsEnabled'] = [ 'siteNoticeAfter', 'skinAfterContent' ];

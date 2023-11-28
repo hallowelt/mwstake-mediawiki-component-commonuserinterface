@@ -7,5 +7,5 @@ interface ILiteral {
 	/**
 	 * @return string
 	 */
-	public function getHtml() : string;
+	public function getHtml(): string;
 }

@@ -8,7 +8,7 @@ class SimpleDropdownItemlist extends ComponentBase implements IDropdownItemlist 
 
 	/**
 	 *
-	 * @var array $options
+	 * @var array
 	 */
 	private $options = [];
 
@@ -29,7 +29,7 @@ class SimpleDropdownItemlist extends ComponentBase implements IDropdownItemlist 
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
@@ -37,7 +37,7 @@ class SimpleDropdownItemlist extends ComponentBase implements IDropdownItemlist 
 	 *
 	 * @return string[]
 	 */
-	public function getClasses() : array {
+	public function getClasses(): array {
 		return $this->options['classes'];
 	}
 }

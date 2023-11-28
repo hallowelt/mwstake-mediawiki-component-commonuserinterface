@@ -14,7 +14,7 @@ class TreeTextNode extends RendererBase {
 	 * @param IComponent $component
 	 * @return bool
 	 */
-	public function canRender( IComponent $component ) : bool {
+	public function canRender( IComponent $component ): bool {
 		return $component instanceof ITreeTextNode;
 	}
 
@@ -54,7 +54,7 @@ class TreeTextNode extends RendererBase {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname() : string {
+	public function getTemplatePathname(): string {
 		return $this->templateBasePath . '/tree-text-node.mustache';
 	}
 
@@ -85,7 +85,7 @@ class TreeTextNode extends RendererBase {
 	protected function getChildren( IComponent $component,
 		array $subComponentNodes, array &$templateData
 		): void {
-		$class = $templateData['class'];
+		$class = $templateData['class'] ?? '';
 
 		if ( !empty( $subComponentNodes ) ) {
 			$templateData['hasChildren'] = 'true';

@@ -1,6 +1,6 @@
 <?php
 
-namespace  MWStake\MediaWiki\Component\CommonUserInterface\Hook;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Hook;
 
 interface MWStakeCommonUIRegisterSkinSlotComponents {
 
@@ -9,5 +9,5 @@ interface MWStakeCommonUIRegisterSkinSlotComponents {
 	 * @param ISkinSlotRegistry $registry
 	 * @return void
 	 */
-	public function onMWStakeCommonUIRegisterSkinSlotComponents( $registry ) : void;
+	public function onMWStakeCommonUIRegisterSkinSlotComponents( $registry ): void;
 }

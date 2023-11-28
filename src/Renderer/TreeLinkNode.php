@@ -29,7 +29,7 @@ class TreeLinkNode extends TreeTextNode {
 	 * @param IComponent $component
 	 * @return bool
 	 */
-	public function canRender( IComponent $component ) : bool {
+	public function canRender( IComponent $component ): bool {
 		return $component instanceof ITreeLinkNode;
 	}
 
@@ -93,7 +93,7 @@ class TreeLinkNode extends TreeTextNode {
 	 *
 	 * @return string
 	 */
-	public function getTemplatePathname() : string {
+	public function getTemplatePathname(): string {
 		return $this->templateBasePath . '/tree-link-node.mustache';
 	}
 

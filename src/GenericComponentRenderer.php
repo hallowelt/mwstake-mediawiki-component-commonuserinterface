@@ -40,7 +40,7 @@ class GenericComponentRenderer {
 	 * @param IComponent $component
 	 * @return string
 	 */
-	public function getHtml( $component ) : string {
+	public function getHtml( $component ): string {
 		$componentTree = $this->componentManager->getCustomComponentTree( $component );
 		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree( $componentTree );
 		return $this->RendererDataTreeRenderer->getHtml( $rendererDataTree );

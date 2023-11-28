@@ -71,7 +71,7 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 *
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return $this->options['items'];
 	}
 
@@ -79,6 +79,10 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 * @return Message
 	 */
 	public function getText(): Message {
+		$msg = Message::newFromKey( $this->options['text'] );
+		if ( $msg->exists() ) {
+			return $msg;
+		}
 		return new RawMessage( $this->options['text'] );
 	}
 }

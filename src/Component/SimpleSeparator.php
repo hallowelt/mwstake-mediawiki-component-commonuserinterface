@@ -23,7 +23,7 @@ class SimpleSeparator extends ComponentBase implements ISeparator {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return 'separator';
 	}
 
@@ -32,7 +32,7 @@ class SimpleSeparator extends ComponentBase implements ISeparator {
 	 *
 	 * @return string
 	 */
-	public function getHtml() : string {
+	public function getHtml(): string {
 		return $this->html;
 	}
 
@@ -40,7 +40,7 @@ class SimpleSeparator extends ComponentBase implements ISeparator {
 	 *
 	 * @return string[]
 	 */
-	public function getClasses() : array {
+	public function getClasses(): array {
 		return $this->classes;
 	}
 }

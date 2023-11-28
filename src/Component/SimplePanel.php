@@ -37,7 +37,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 	/**
 	 * @inheritDoc
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->options['id'];
 	}
 
@@ -86,7 +86,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array {
+	public function getContainerClasses(): array {
 		return $this->options['container-classes'];
 	}
 
@@ -108,7 +108,7 @@ class SimplePanel extends ComponentBase implements IPanel {
 	/**
 	 * @inheritDoc
 	 */
-	public function getSubComponents() : array {
+	public function getSubComponents(): array {
 		return $this->options['items'];
 	}
 }

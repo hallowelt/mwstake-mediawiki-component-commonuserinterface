@@ -29,7 +29,7 @@ abstract class RendererBase implements IComponentRenderer {
 	/**
 	 * @inheritDoc
 	 */
-	public function getHtml( $data ) : string {
+	public function getHtml( $data ): string {
 		$templatePathname = $this->getTemplatePathname();
 		$templateDirname = dirname( $templatePathname );
 		$templateFilename = basename( $templatePathname );
@@ -78,14 +78,14 @@ abstract class RendererBase implements IComponentRenderer {
 	/**
 	 * @inheritDoc
 	 */
-	public function getRLModules() : array {
+	public function getRLModules(): array {
 		return [];
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getRLModuleStyles() : array {
+	public function getRLModuleStyles(): array {
 		return [];
 	}
 }

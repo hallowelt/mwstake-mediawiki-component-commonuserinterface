@@ -10,14 +10,14 @@ class MediaObject extends RendererBase {
 	/**
 	 * @return string
 	 */
-	public function getTemplatePathname() : string {
+	public function getTemplatePathname(): string {
 		return $this->templateBasePath . 'card-img.mustache';
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getRendererDataTreeNode( $component, $subComponentNodes ) : array {
+	public function getRendererDataTreeNode( $component, $subComponentNodes ): array {
 		$templateData = [];
 
 		/** @var IComponent $component */

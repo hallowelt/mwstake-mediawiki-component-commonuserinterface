@@ -11,49 +11,49 @@ interface ITabPanel {
 	 *
 	 * @return string
 	 */
-	public function getId() : string;
+	public function getId(): string;
 
 	/**
 	 *
 	 * @return Message
 	 */
-	public function getText() : Message;
+	public function getText(): Message;
 
 	/**
 	 *
 	 * @return Message
 	 */
-	public function getTitle() : Message;
+	public function getTitle(): Message;
 
 	/**
 	 *
 	 * @return Message
 	 */
-	public function getAriaLabel() : Message;
+	public function getAriaLabel(): Message;
 
 	/**
 	 *
 	 * @return Message
 	 */
-	public function getAriaDesc() : Message;
+	public function getAriaDesc(): Message;
 
 	/**
 	 *
 	 * @return IComponent[]
 	 */
-	public function getSubComponents() : array;
+	public function getSubComponents(): array;
 
 	/**
 	 *
 	 * @param IContextSource $context
-	 * @return boolean
+	 * @return bool
 	 */
-	public function shouldRender( IContextSource $context ) : bool;
+	public function shouldRender( IContextSource $context ): bool;
 
 	/**
 	 *
 	 * @param IContextSource $context
-	 * @return boolean
+	 * @return bool
 	 */
-	public function isActive( $context ) : bool;
+	public function isActive( $context ): bool;
 }

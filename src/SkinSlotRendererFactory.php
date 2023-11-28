@@ -32,7 +32,7 @@ class SkinSlotRendererFactory {
 	 * @param string $slotId
 	 * @return ISkinSlotRenderer
 	 */
-	public function create( string $slotId ) : ISkinSlotRenderer {
+	public function create( string $slotId ): ISkinSlotRenderer {
 		$spec = [];
 		if ( isset( $this->registry[$slotId] ) ) {
 			$spec = $this->registry[$slotId];

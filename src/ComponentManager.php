@@ -71,7 +71,7 @@ class ComponentManager {
 
 	/**
 	 *
-	 * @var boolean
+	 * @var bool
 	 */
 	private $async = false;
 
@@ -83,9 +83,22 @@ class ComponentManager {
 
 	/**
 	 *
+	 * @var ComponentFilterFactory
+	 */
+	private $componentFilterFactory = null;
+
+	/**
+	 *
+	 * @var IComponentFilter[]
+	 */
+	private $filters = [];
+
+	/**
+	 *
 	 * @param IContextSource $context
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
+	 * @param ComponentFilterFactory $componentFilterFactory
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
 	 * @param SkinSlotRegistry|null $slotRegistry
@@ -93,14 +106,16 @@ class ComponentManager {
 	 * @return ComponentManager
 	 */
 	public static function singleton( IContextSource $context, $slotSpecs, $enabledSlots,
-	$objectFactory = null, $hookContainer = null, $slotRegistry = null ) : ComponentManager {
+	$componentFilterFactory, $objectFactory = null, $hookContainer = null,
+	$slotRegistry = null ): ComponentManager {
 		if ( static::$instance == null ) {
 			static::$instance = new ComponentManager(
 				$slotSpecs,
 				$enabledSlots,
 				$objectFactory,
 				$hookContainer,
-				$slotRegistry
+				$slotRegistry,
+				$componentFilterFactory
 			);
 			static::$instance->init( $context );
 		}
@@ -115,23 +130,29 @@ class ComponentManager {
 	 * @param ObjectFactory|null $objectFactory
 	 * @param HookContainer|null $hookContainer
 	 * @param SkinSlotRegistry|null $slotRegistry
+	 * @param ComponentFilterFactory|null $componentFilterFactory
 	 */
-	public function __construct( $slotSpecs, $enabledSlots,
-		$objectFactory = null, $hookContainer = null, $slotRegistry = null ) {
+	public function __construct( $slotSpecs, $enabledSlots,	$objectFactory = null,
+		$hookContainer = null, $slotRegistry = null, $componentFilterFactory = null ) {
 		$this->slotSpecs = $slotSpecs;
 		$this->enabledSlots = $enabledSlots;
 		$this->objectFactory = $objectFactory;
 		$this->hookContainer = $hookContainer;
 		$this->slotRegistry = $slotRegistry;
+		$this->componentFilterFactory = $componentFilterFactory;
+		$this->filters = $this->componentFilterFactory->getAllFilters();
 		if ( $this->objectFactory instanceof ObjectFactory === false ) {
-			$this->objectFactory = \MediaWiki\MediaWikiServices::getInstance()->getObjectFactory();
+			$this->objectFactory = MediaWikiServices::getInstance()->getObjectFactory();
 		}
 		if ( $this->hookContainer instanceof HookContainer === false ) {
-			$this->hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
+			$this->hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 		}
 		if ( $this->slotRegistry instanceof SkinSlotRegistry === false ) {
+			$this->slotRegistry = MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
+		}
+		if ( $this->componentFilterFactory instanceof ComponentFilterFactory === false ) {
 			// phpcs:ignore Generic.Files.LineLength.TooLong
-			$this->slotRegistry = \MediaWiki\MediaWikiServices::getInstance()->getService( 'MWStakeSkinSlotRegistry' );
+			$this->componentFilterFactory = MediaWikiServices::getInstance()->getService( 'MWStakeCommonUIComponentFilterFactory' );
 		}
 	}
 
@@ -199,9 +220,13 @@ class ComponentManager {
 		if ( $component instanceof IRestrictedComponent && !$this->checkPermissions( $component ) ) {
 			return;
 		}
-		if ( !$component->shouldRender( $this->context ) ) {
-			return;
+
+		foreach ( $this->filters as $filter ) {
+			if ( !$filter->shouldRender( $component, $this->context ) ) {
+				return;
+			}
 		}
+
 		$component->setComponentData( $data );
 
 		$id = $component->getId();
@@ -255,7 +280,7 @@ class ComponentManager {
 	 * @param IRestrictedComponent $component
 	 * @return bool
 	 */
-	private function checkPermissions( $component ) : bool {
+	private function checkPermissions( $component ): bool {
 		$user = $this->context->getUser();
 		$services = MediaWikiServices::getInstance();
 		foreach ( $component->getPermissions() as $permission ) {

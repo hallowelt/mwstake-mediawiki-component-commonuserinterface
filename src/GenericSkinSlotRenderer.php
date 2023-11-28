@@ -10,7 +10,7 @@ class GenericSkinSlotRenderer extends SkinSlotRendererBase {
 	 * that needs to pass `QuickTemplate::$data`
 	 * @return string
 	 */
-	public function getHtml( $data = [] ) : string {
+	public function getHtml( $data = [] ): string {
 		$componentTree = $this->componentManager->getSkinSlotComponentTree( $this->slotId );
 		$rendererDataTree = $this->rendererDataTreeBuilder->getRendererDataTree( $componentTree );
 		$html = $this->rendererDataTreeRenderer->getHtml( $rendererDataTree );

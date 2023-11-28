@@ -23,7 +23,7 @@ class NullComponent extends ComponentBase {
 	/**
 	 * @return string
 	 */
-	public function getId() : string {
+	public function getId(): string {
 		return $this->id;
 	}
 
@@ -31,7 +31,7 @@ class NullComponent extends ComponentBase {
 	 * @param IContextSource $context
 	 * @return bool
 	 */
-	public function shouldRender( IContextSource $context ) : bool {
+	public function shouldRender( IContextSource $context ): bool {
 		return false;
 	}
 }

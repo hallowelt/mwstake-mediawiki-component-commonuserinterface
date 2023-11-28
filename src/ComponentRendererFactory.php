@@ -68,7 +68,7 @@ class ComponentRendererFactory {
 	 * @param string $rendererKey
 	 * @return IComponentRenderer
 	 */
-	public function getRenderer( $rendererKey ) : IComponentRenderer {
+	public function getRenderer( $rendererKey ): IComponentRenderer {
 		$spec = [];
 
 		// Renderer available for current environment?
@@ -78,7 +78,7 @@ class ComponentRendererFactory {
 		// Try to fall back to "generic" renderer
  elseif ( isset( $this->rendererRegistry['*'][$rendererKey] ) ) {
 			$spec = $this->rendererRegistry['*'][$rendererKey];
-	}
+ }
 		// Convert simple registration to `ObjectFactory` compatible spec
 		if ( is_string( $spec ) && !empty( $spec ) ) {
 			$callback = $spec;
@@ -98,7 +98,7 @@ class ComponentRendererFactory {
 	 *
 	 * @return IComponentRenderer[]
 	 */
-	public function getAllRenderers() : array {
+	public function getAllRenderers(): array {
 		$componentKeys = array_keys( $this->componentRegistry );
 		$renderers = [];
 		foreach ( $componentKeys as $key ) {

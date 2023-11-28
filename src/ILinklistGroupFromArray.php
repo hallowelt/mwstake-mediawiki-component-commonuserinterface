@@ -7,15 +7,15 @@ interface ILinklistGroupFromArray {
 	/**
 	 * @return string[]
 	 */
-	public function getContainerClasses() : array;
+	public function getContainerClasses(): array;
 
 	/**
 	 * @inheritDoc
 	 */
-	public function getLinks() : array;
+	public function getLinks(): array;
 
 	/**
 	 * @return array
 	 */
-	public function getAriaAttributes() : array;
+	public function getAriaAttributes(): array;
 }
