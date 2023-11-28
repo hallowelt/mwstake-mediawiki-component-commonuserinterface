@@ -71,7 +71,7 @@ interface IDropdownIconSplitButton extends IComponent {
 	 * @return string
 	 */
 	public function getButtonRel(): string;
-  
+
 	/**
 	 *
 	 * @return bool
