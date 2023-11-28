@@ -22,6 +22,7 @@ class SimpleDropdownIconSplitButton extends ComponentBase implements IDropdownIc
 				'split-button-title' => new RawMessage( 'SimpleSplitButton' ),
 				'split-button-aria-label' => new RawMessage( 'SimpleSplitButton' ),
 				'button-href' => '',
+				'button-rel' => '',
 				'button-disabled' => false,
 				'split-button-disabled' => false,
 				'items' => [],
@@ -140,5 +141,12 @@ class SimpleDropdownIconSplitButton extends ComponentBase implements IDropdownIc
 		 */
 	public function splitButtonIsDisabled(): bool {
 		return $this->options['split-button-disabled'];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getButtonRel(): string {
+		return $this->options['button-rel'];
 	}
 }

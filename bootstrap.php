@@ -150,7 +150,10 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
 			'dropdown-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownButton',
 			'dropdown-icon' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownIcon',
-			'dropdown-icon-split-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownIconSplitButton',
+			'dropdown-icon-split-button' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownIconSplitButton',
+				'services' => [ 'MainConfig' ]
+			],
 			'dropdown-split-button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownSplitButton',
 			'dropdown-split-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownSplitLink',
 			'dropdown-itemlist' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\DropdownItemlist',

@@ -46,9 +46,9 @@ interface IDropdownIconSplitButton extends IComponent {
 	 */
 	public function getButtonTitle(): Message;
 
-		/**
-		 * @return Message
-		 */
+	/**
+	 * @return Message
+	 */
 	public function getSplitButtonTitle(): Message;
 
 	/**
@@ -66,6 +66,11 @@ interface IDropdownIconSplitButton extends IComponent {
 	 * @return bool
 	 */
 	public function buttonIsDisabled(): bool;
+
+	/**
+	 * @return string
+	 */
+	public function getButtonRel(): string;
 
 	/**
 	 *
