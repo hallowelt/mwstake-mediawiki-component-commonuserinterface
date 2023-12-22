@@ -4,14 +4,14 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\ResourceLoader;
 
 use Config;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
 use MWStake\MediaWiki\Component\CommonUserInterface\LessVars as LessVarsObject;
-use ResourceLoaderContext;
 use ResourceLoaderFileModule;
 use WebRequest;
 
 class LessVars extends ResourceLoaderFileModule {
+
 	/**
-	 *
 	 * @param ResourceLoaderContext $context
 	 * @return array
 	 */
