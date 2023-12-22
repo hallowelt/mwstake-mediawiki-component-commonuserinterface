@@ -5,8 +5,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\ResourceLoader;
 use Config;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
+use MediaWiki\ResourceLoader\FileModule as ResourceLoaderFileModule;
 use MWStake\MediaWiki\Component\CommonUserInterface\LessVars as LessVarsObject;
-use ResourceLoaderFileModule;
 use WebRequest;
 
 class LessVars extends ResourceLoaderFileModule {
