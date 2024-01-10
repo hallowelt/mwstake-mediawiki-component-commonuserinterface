@@ -10,12 +10,6 @@ class SimpleAccordionItem extends ComponentBase implements IAccordionItem {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

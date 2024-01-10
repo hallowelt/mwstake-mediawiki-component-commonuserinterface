@@ -8,9 +8,6 @@ use RawMessage;
 
 class SimpleTextLink extends ComponentBase implements ITextLink {
 
-	/** @var array */
-	private $options = [];
-
 	/**
 	 *
 	 * @param array $options

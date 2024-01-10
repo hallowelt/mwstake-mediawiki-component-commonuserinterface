@@ -8,12 +8,6 @@ class SimpleCardTitle extends ComponentBase implements ICardTitle {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

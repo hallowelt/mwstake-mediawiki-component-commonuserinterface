@@ -8,9 +8,6 @@ use RawMessage;
 
 class SimpleDropdownSplitButton extends ComponentBase implements IDropdownSplitButton {
 
-	/** @var array */
-	private $options = [];
-
 	/**
 	 *
 	 * @param array $options

@@ -7,12 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ITreeContainer;
 class SimpleTreeContainer extends ComponentBase implements ITreeContainer {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {

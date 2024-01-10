@@ -8,9 +8,6 @@ use RawMessage;
 
 class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 
-	/** @var array */
-	private $options = [];
-
 	/**
 	 *
 	 * @param array $options

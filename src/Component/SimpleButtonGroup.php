@@ -8,9 +8,6 @@ use RawMessage;
 
 class SimpleButtonGroup extends ComponentBase implements IButtonGroup {
 
-	/** @var array */
-	private $options = [];
-
 	/**
 	 *
 	 * @param array $options

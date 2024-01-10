@@ -7,12 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlistItem;
 class SimpleDropdownItemlistItem extends ComponentBase implements IDropdownItemlistItem {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

@@ -10,12 +10,6 @@ class SimpleCardImage extends ComponentBase implements ICardImage {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

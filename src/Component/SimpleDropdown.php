@@ -8,9 +8,6 @@ use RawMessage;
 
 class SimpleDropdown extends ComponentBase implements IDropdown {
 
-	/** @var array */
-	private $options = [];
-
 	/**
 	 *
 	 * @param array $options

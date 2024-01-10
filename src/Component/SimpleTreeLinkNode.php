@@ -10,12 +10,6 @@ use RawMessage;
 class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNode {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {

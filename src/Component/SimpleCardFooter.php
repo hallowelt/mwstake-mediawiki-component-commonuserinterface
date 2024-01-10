@@ -8,12 +8,6 @@ class SimpleCardFooter extends ComponentBase implements ICardFooter {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

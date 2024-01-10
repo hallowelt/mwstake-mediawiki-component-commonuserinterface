@@ -8,12 +8,6 @@ class SimpleCardBody extends ComponentBase implements ICardBody {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {
