@@ -180,7 +180,6 @@ class ComponentManager {
 				continue;
 			}
 			$this->slotComponentTrees[$slotId] = [];
-			$this->currentSlot = $slotId;
 			foreach ( $specs as $spec ) {
 				$component = $this->objectFactory->createObject( $spec );
 				$this->processComponent( $component, $this->slotComponentTrees[$slotId] );
