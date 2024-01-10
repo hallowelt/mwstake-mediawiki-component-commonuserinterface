@@ -8,6 +8,9 @@ use RawMessage;
 
 class Badge extends ComponentBase implements IBadge {
 
+	/** @var array */
+	private $options = [];
+
 	/**
 	 *
 	 * @param array $options

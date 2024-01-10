@@ -7,6 +7,10 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownButton;
 use RawMessage;
 
 class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
+
+	/** @var array */
+	private $options = [];
+
 	/**
 	 *
 	 * @param array $options

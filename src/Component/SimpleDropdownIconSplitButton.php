@@ -8,6 +8,9 @@ use RawMessage;
 
 class SimpleDropdownIconSplitButton extends ComponentBase implements IDropdownIconSplitButton {
 
+	/** @var array */
+	private $options = [];
+
 	/**
 	 *
 	 * @param array $options
