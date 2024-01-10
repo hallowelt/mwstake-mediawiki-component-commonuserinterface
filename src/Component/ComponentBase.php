@@ -13,9 +13,6 @@ abstract class ComponentBase implements IComponent {
 	 */
 	protected $componentProcessData = [];
 
-	/** @var array */
-	protected $options = [];
-
 	/**
 	 *
 	 * @inheritDoc
