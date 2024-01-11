@@ -10,12 +10,6 @@ class SimpleMediaObject extends ComponentBase implements IMediaObject {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

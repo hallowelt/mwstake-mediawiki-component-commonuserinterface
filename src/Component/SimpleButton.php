@@ -10,12 +10,6 @@ class SimpleButton extends ComponentBase implements IButton {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

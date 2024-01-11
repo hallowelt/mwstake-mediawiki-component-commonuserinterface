@@ -8,12 +8,6 @@ class SimpleCardText extends ComponentBase implements ICardText {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

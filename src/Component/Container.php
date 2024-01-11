@@ -7,12 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IContainer;
 class Container extends ComponentBase implements IContainer {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
