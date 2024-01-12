@@ -3,8 +3,8 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\ResourceLoader;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader\FileModule as ResourceLoaderFileModule;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
-use ResourceLoaderFileModule;
 
 class ComponentRenderer extends ResourceLoaderFileModule {
 
