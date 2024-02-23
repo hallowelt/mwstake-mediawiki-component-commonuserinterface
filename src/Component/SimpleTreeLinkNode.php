@@ -17,7 +17,7 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 			'id' => 'some-id',
 			'items' => [],
 			'classes' => [],
-			'role' => 'tree-item',
+			'role' => 'treeitem',
 			'text' => '',
 			'title' => '',
 			'href' => '',
