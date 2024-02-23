@@ -17,7 +17,7 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 			'id' => 'some-id',
 			'items' => [],
 			'classes' => [],
-			'role' => 'tree-item',
+			'role' => 'treeitem',
 			'text' => '',
 			'expanded' => false,
 		], $options );
