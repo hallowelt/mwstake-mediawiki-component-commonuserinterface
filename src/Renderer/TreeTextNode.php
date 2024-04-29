@@ -126,4 +126,12 @@ class TreeTextNode extends RendererBase {
 			$templateData['isNew'] = 'true';
 		}
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'text' ];
+	}
+
 }
