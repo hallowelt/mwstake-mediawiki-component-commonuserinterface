@@ -2,8 +2,8 @@
     $( d ).on( 'click', '.mws-tree-expander', function( e ) {
         stopPropagation( e );
 
-        controlls = $( this ).attr( 'aria-controlls' );
-        toggleTreeItem( this, controlls );
+        controls = $( this ).attr( 'aria-controls' );
+        toggleTreeItem( this, controls );
         
     } );
 
@@ -36,7 +36,7 @@
             stopPropagation( e );
 
             if ( $( this ).hasClass( 'expanded' ) ) {
-                $childList = $( this ).find( '> div > ul' ).first();
+                $childList = $( this ).find( '>  ul' ).first();
                 let $listItem = $childList.children().first();
                 let $focusableElementContainer = $listItem.find( '> div' ).first();
                 let focusableElement = $focusableElementContainer.children().first();
@@ -81,18 +81,18 @@
     } );
 
     $( d ).on( 'keydown', '.mws-tree-expander', function ( e ) {
-        controlls = $( this ).attr( 'aria-controlls' );
+        controls = $( this ).attr( 'aria-controls' );
 
         if ( e.keyCode === 13 ) {
             stopPropagation( e );
-            toggleTreeItem( this, controlls );
+            toggleTreeItem( this, controls );
         }
 
         //left
         if ( e.keyCode === 37 ) {
             stopPropagation( e );
             if ( isExpanded( this ) ) {
-                collapseTreeItem( this, controlls );
+                collapseTreeItem( this, controls );
             }
             else if ( this.previousElementSibling ) {
                 this.previousElementSibling.focus();
@@ -104,7 +104,7 @@
             stopPropagation( e );       
             if ( !isExpanded( this ) ) {
 
-                expandTreeItem( this, controlls );
+                expandTreeItem( this, controls );
             }
             else if ( this.nextElementSibling ) {
                 this.nextElementSibling.focus();
@@ -113,24 +113,27 @@
     } );
     
 
-    function toggleTreeItem( element, controlls ) {
+    function toggleTreeItem( element, controls ) {
         if ( $( element ).attr( 'aria-expanded' ) === 'true' ) {
-            collapseTreeItem( element, controlls );
+            collapseTreeItem( element, controls );
         } else if ( $( element ).attr( 'aria-expanded' ) === 'false' ) {
-            expandTreeItem( element, controlls);
+            expandTreeItem( element, controls);
         }
     }
 
-    function collapseTreeItem( element, controlls ) {
-        $( '#'+controlls ).parent( '.mws-tree-cnt' ).removeClass( 'show' );
+    function collapseTreeItem( element, controls ) {
+        console.log( controls );
+        $( '#'+controls ).removeClass( 'show' );
+        $( '#'+controls ).attr( 'aria-expanded', 'false' );
         $( element ).attr( 'aria-expanded', 'false' );
         $( element ).removeClass( 'expanded' );
         $( element ).addClass( 'collapsed' );
         $( element ).parents( 'li' ).first().removeClass( 'expanded' );
     }
 
-    function expandTreeItem( element, controlls ) {
-        $( '#'+controlls ).parent( '.mws-tree-cnt' ).addClass( 'show' );
+    function expandTreeItem( element, controls ) {
+        $( '#'+controls ).addClass( 'show' );
+        $( '#'+controls ).attr( 'aria-expanded', 'true' );
         $( element ).attr( 'aria-expanded', 'true' );
         $( element ).removeClass( 'collapsed' );
         $( element ).addClass( 'expanded' );
