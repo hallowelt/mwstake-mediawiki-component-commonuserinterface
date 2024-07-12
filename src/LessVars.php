@@ -17,6 +17,12 @@ class LessVars {
 		if ( static::$instance === null ) {
 			static::$instance = new static();
 		}
+		\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->run(
+			'MWStakeCommonUILessVarsInit', [ static::$instance ]
+		);
+		\MediaWiki\MediaWikiServices::getInstance()->getHookContainer()->run(
+			'MWStakeCommonUILessVarsOverride', [ static::$instance ]
+		);
 
 		return static::$instance;
 	}
