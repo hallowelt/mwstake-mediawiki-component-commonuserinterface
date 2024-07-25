@@ -66,10 +66,10 @@ class TreeTextNode extends RendererBase {
 		$button = [];
 
 		if ( $component->isExpanded() ) {
-			$button['expanded'] = 'true';
+			$button['hasChildren'] = [ 'expanded' => 'true' ];
 			$button['class'] = ' expanded';
 		} else {
-			$button['expanded'] = 'false';
+			$button['hasChildren'] = [ 'expanded' => 'false' ];
 			$button['class'] = ' collapsed';
 		}
 
