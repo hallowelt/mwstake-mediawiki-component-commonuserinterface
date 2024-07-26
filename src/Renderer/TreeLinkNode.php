@@ -97,4 +97,11 @@ class TreeLinkNode extends TreeTextNode {
 		return $this->templateBasePath . '/tree-link-node.mustache';
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	protected function getHtmlArmorExcludedFields() {
+		return [ 'text' ];
+	}
+
 }
