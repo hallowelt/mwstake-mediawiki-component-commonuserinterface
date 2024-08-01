@@ -10,12 +10,6 @@ class SimplePanel extends ComponentBase implements IPanel {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

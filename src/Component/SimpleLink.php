@@ -8,6 +8,9 @@ use RawMessage;
 
 class SimpleLink extends ComponentBase implements ILink {
 
+	/** @var null|string */
+	protected $isExpanded;
+
 	/**
 	 *
 	 * @param array $options

@@ -10,12 +10,6 @@ use RawMessage;
 class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNode {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
@@ -23,7 +17,7 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 			'id' => 'some-id',
 			'items' => [],
 			'classes' => [],
-			'role' => 'tree-item',
+			'role' => 'treeitem',
 			'text' => '',
 			'expanded' => false,
 		], $options );
@@ -79,10 +73,6 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	 * @return Message
 	 */
 	public function getText(): Message {
-		$msg = Message::newFromKey( $this->options['text'] );
-		if ( $msg->exists() ) {
-			return $msg;
-		}
 		return new RawMessage( $this->options['text'] );
 	}
 }

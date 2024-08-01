@@ -8,12 +8,6 @@ class SimpleAccordion extends ComponentBase implements IAccordion {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

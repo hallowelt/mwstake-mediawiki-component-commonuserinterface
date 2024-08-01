@@ -7,12 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupItem;
 class SimpleLinklistGroupItem extends ComponentBase implements ILinklistGroupItem {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

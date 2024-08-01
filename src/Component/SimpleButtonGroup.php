@@ -7,6 +7,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IButtonGroup;
 use RawMessage;
 
 class SimpleButtonGroup extends ComponentBase implements IButtonGroup {
+
 	/**
 	 *
 	 * @param array $options

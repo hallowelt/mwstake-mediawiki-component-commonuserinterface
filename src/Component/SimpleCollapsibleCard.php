@@ -10,12 +10,6 @@ class SimpleCollapsibleCard extends ComponentBase implements ICollapsibleCard {
 
 	/**
 	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

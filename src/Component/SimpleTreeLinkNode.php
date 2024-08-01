@@ -10,12 +10,6 @@ use RawMessage;
 class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNode {
 
 	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
-
-	/**
 	 * @param array $options
 	 */
 	public function __construct( array $options = [] ) {
@@ -23,7 +17,7 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 			'id' => 'some-id',
 			'items' => [],
 			'classes' => [],
-			'role' => 'tree-item',
+			'role' => 'treeitem',
 			'text' => '',
 			'title' => '',
 			'href' => '',
@@ -81,10 +75,6 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 	 * @return Message
 	 */
 	public function getText(): Message {
-		$msg = Message::newFromKey( $this->options['text'] );
-		if ( $msg->exists() ) {
-			return $msg;
-		}
 		return new RawMessage( $this->options['text'] );
 	}
 
@@ -92,10 +82,6 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 	 * @return Message
 	 */
 	public function getTitle(): Message {
-		$msg = Message::newFromKey( $this->options['title'] );
-		if ( $msg->exists() ) {
-			return $msg;
-		}
 		return new RawMessage( $this->options['title'] );
 	}
 

@@ -7,11 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardLink;
 use RawMessage;
 
 class SimpleCardLink extends ComponentBase implements ICardLink {
-	/**
-	 *
-	 * @var array
-	 */
-	private $options = [];
 
 	/**
 	 *
