@@ -4,8 +4,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use Config;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
 use OutputPage;
-use ResourceLoaderContext;
 use Skin;
 
 class Setup {
@@ -63,7 +63,6 @@ class Setup {
 	}
 
 	/**
-	 *
 	 * @param ResourceLoaderContext $context
 	 * @param Config $config
 	 * @param array $callbackParams
