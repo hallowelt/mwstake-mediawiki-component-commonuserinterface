@@ -109,4 +109,12 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 	public function getPermissions(): array {
 		return $this->options['permissions'];
 	}
+
+	/**
+	 * @param string|Message $stringOrMessage
+	 * @return Message
+	 */
+	protected function ensureMessageObject( $stringOrMessage ) {
+		return $stringOrMessage instanceof Message ? $stringOrMessage : new RawMessage( $stringOrMessage );
+	}
 }
