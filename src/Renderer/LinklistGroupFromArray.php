@@ -68,7 +68,7 @@ class LinklistGroupFromArray extends RendererBase {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'cnt-aria' => $ariaAttributesBuilder->build( $aria )
+						'cnt-aria' => $ariaAttributesBuilder->toString( $aria )
 					]
 				);
 			}
