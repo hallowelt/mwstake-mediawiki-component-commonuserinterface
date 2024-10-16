@@ -18,5 +18,4 @@ interface ILinklistGroupFromArray {
 	 * @return array
 	 */
 	public function getAriaAttributes(): array;
-
 }
