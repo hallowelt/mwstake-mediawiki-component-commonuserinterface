@@ -17,8 +17,8 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 				'links' => [],
 				'classes' => [],
 				'aria' => [],
-				'role' => [],
-				'item-role' => []
+				'role' => '',
+				'item-role' => ''
 			],
 			$options
 		);
