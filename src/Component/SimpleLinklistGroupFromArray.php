@@ -3,8 +3,9 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupFromArray;
+use MWStake\MediaWiki\Component\CommonUserInterface\IListRoleProvider;
 
-class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGroupFromArray {
+class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGroupFromArray, IListRoleProvider {
 
 	/**
 	 * @param array $options
@@ -16,8 +17,8 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 				'links' => [],
 				'classes' => [],
 				'aria' => [],
-				'role' => '',
-				'item-role' => ''
+				'role' => [],
+				'item-role' => []
 			],
 			$options
 		);
@@ -52,14 +53,14 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 	}
 
 	/**
-	 * @return string
+	 * @inheritDoc
 	 */
 	public function getContainerRole(): string {
 		return $this->options['role'];
 	}
 
 	/**
-	 * @return string
+	 * @inheritDoc
 	 */
 	public function getItemRole(): string {
 		return $this->options['item-role'];
