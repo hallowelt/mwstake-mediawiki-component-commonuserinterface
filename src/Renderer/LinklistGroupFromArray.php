@@ -72,6 +72,24 @@ class LinklistGroupFromArray extends RendererBase {
 					]
 				);
 			}
+			$role = $component->getContainerRole();
+			if ( $role !== '' ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'cnt-role' => $role
+					]
+				);
+			}
+			$itemRole = $component->getItemRole();
+			if ( $itemRole !== '' ) {
+				$templateData = array_merge(
+					$templateData,
+					[
+						'item-role' => $itemRole
+					]
+				);
+			}
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
 		}

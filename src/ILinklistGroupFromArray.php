@@ -18,4 +18,15 @@ interface ILinklistGroupFromArray {
 	 * @return array
 	 */
 	public function getAriaAttributes(): array;
+
+
+	/**
+	 * @return string
+	 */
+	public function getContainerRole(): string;
+
+	/**
+	 * @return string
+	 */
+	public function getItemRole(): string;
 }

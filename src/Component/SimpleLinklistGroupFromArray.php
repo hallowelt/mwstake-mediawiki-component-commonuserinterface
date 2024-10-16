@@ -15,7 +15,9 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 				'id' => '',
 				'links' => [],
 				'classes' => [],
-				'aria' => []
+				'aria' => [],
+				'role' => '',
+				'item-role' => ''
 			],
 			$options
 		);
@@ -47,5 +49,19 @@ class SimpleLinklistGroupFromArray extends ComponentBase implements ILinklistGro
 	 */
 	public function getAriaAttributes(): array {
 		return $this->options['aria'];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getContainerRole(): string {
+		return $this->options['role'];
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getItemRole(): string {
+		return $this->options['item-role'];
 	}
 }
