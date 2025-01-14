@@ -19,7 +19,7 @@ class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisp
 	 * @param Skin $skin
 	 * @return bool
 	 */
-	public function onSkinAfterContent( &$data, Skin $skin ) {
+	public function onSkinAfterContent( &$data, $skin ) {
 		$services = MediaWikiServices::getInstance();
 		/** @var SkinSlotRendererFactory */
 		$skinSlotRendererFactory = $services->getService( 'MWStakeCommonUISkinSlotRendererFactory' );
@@ -53,7 +53,7 @@ class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisp
 	 * @param Skin $skin
 	 * @return bool
 	 */
-	public function onBeforePageDisplay( OutputPage $out, Skin $skin ) {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		$services = MediaWikiServices::getInstance();
 		/** @var ComponentManager */
 		$componentManager = $services->getService( 'MWStakeCommonUIComponentManager' );
@@ -62,7 +62,6 @@ class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisp
 		$out->addModuleStyles( $componentManager->getRLModuleStyles() );
 
 		$out->addModules( 'mwstake.component.commonui' );
-		return true;
 	}
 
 	/**
