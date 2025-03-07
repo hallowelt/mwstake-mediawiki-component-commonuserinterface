@@ -155,7 +155,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 
 	$GLOBALS['wgServiceWiringFiles'][] = __DIR__ . '/includes/ServiceWiring.php';
 
-	$GLOBALS['wgExtensionFunctions'][] = static function() {
+	$GLOBALS['wgExtensionFunctions'][] = static function () {
 		$hookContainer = \MediaWiki\MediaWikiServices::getInstance()->getHookContainer();
 		$runner = new \MWStake\MediaWiki\Component\CommonUserInterface\Setup();
 		$hookContainer->register( 'SiteNoticeAfter', [ $runner, 'onSiteNoticeAfter' ] );
