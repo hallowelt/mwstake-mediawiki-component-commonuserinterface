@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use HtmlArmor;
 use Message;
 
 interface ITreeLinkNode {
@@ -20,4 +21,9 @@ interface ITreeLinkNode {
 	 * @return string
 	 */
 	public function getHref(): string;
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPreHtml(): HtmlArmor;
 }
