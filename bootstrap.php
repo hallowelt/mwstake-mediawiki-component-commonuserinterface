@@ -4,7 +4,7 @@ if ( defined( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION' ) ) {
 	return;
 }
 
-define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '5.1.6' );
+define( 'MWSTAKE_MEDIAWIKI_COMPONENT_COMMONUSERINTERFACE_VERSION', '6.0.0' );
 
 MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 ->register( 'commonuserinterface', static function () {
@@ -12,7 +12,6 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 	 * Allows to register additional component interfaces
 	 */
 	$GLOBALS['mwsgCommonUIComponentRegistry'] = [
-		// phpcs:disable
 		'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ILiteral',
 		'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IMessageLiteral',
 		'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IButton',
@@ -49,7 +48,6 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode',
 		'tree-link-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeLinkNode',
 		'container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IContainer',
-		// phpcs:enable
 	];
 
 	/**
@@ -58,7 +56,6 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 	 */
 	$GLOBALS['mwsgCommonUIComponentRendererRegistry'] = [
 		'*' => [
-			// phpcs:disable
 			'literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Literal',
 			'message-literal' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MessageLiteral',
 			'tree-container' => [
@@ -72,10 +69,8 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 				'services' => [ 'MainConfig' ]
 			],
 			'container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Container',
-			// phpcs:enable
 		],
 		'bootstrap5' => [
-			// phpcs:disable
 			'button' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Button',
 			'panel' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Card',
 			'dropdown' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Dropdown',
@@ -108,14 +103,13 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Link',
 				'services' => [ 'MainConfig' ]
 			],
-			'text-link' =>  [
+			'text-link' => [
 				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\TextLink',
 				'services' => [ 'MainConfig' ]
 			],
 			'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 			'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 			'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',
-			// phpcs:enable
 		]
 	];
 
