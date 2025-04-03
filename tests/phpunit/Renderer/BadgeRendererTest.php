@@ -2,12 +2,12 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Renderer;
 
+use MediaWiki\Language\RawMessage;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Badge;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Badge as BadgeRenderer;
 use PHPUnit\Framework\TestCase;
-use RawMessage;
 
 class BadgeRendererTest extends TestCase {
 

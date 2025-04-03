@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class DataAttributesBuilderTest extends TestCase {
 
 	/**
-	 * @covers DataAttributesBuilder::build
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder::build
 	 *
 	 * @return void
 	 */
