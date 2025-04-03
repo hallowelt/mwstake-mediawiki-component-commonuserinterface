@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class AriaAttributesBuilderTest extends TestCase {
 
 	/**
-	 * @covers AriaAttributesBuilder::build
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder::build
 	 *
 	 * @return void
 	 */

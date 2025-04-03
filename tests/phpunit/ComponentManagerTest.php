@@ -2,8 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 
-use IContextSource;
+use MediaWiki\Context\IContextSource;
 use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\Language\RawMessage;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel;
@@ -12,12 +13,11 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
 use PHPUnit\Framework\TestCase;
-use RawMessage;
 
 class ComponentManagerTest extends TestCase {
 
 	/**
-	 * @covers ComponentManager::init
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::init
 	 *
 	 * @return void
 	 */
@@ -83,7 +83,7 @@ class ComponentManagerTest extends TestCase {
 	}
 
 	/**
-	 * @covers ComponentManager::getRequiredRLModules
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getRequiredRLModules
 	 *
 	 * @return void
 	 */
@@ -125,7 +125,7 @@ class ComponentManagerTest extends TestCase {
 	}
 
 	/**
-	 * @covers ComponentManager::getRequiredRLModules
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getRequiredRLModules
 	 *
 	 * @return void
 	 */
@@ -166,7 +166,7 @@ class ComponentManagerTest extends TestCase {
 	}
 
 	/**
-	 * @covers ComponentManager::getSkinSlotComponentTree
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getSkinSlotComponentTree
 	 *
 	 * @return void
 	 */

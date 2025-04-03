@@ -3,7 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use HtmlArmor;
-use Message;
+use MediaWiki\Message\Message;
 
 interface ITreeLinkNode {
 

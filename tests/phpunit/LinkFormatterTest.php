@@ -12,7 +12,7 @@ class LinkFormatterTest extends TestCase {
 	 * @param bool $noFollowLinks
 	 * @param array $unformattedLinks
 	 * @param array $expectedLinks
-	 * @covers LinkFormatter::formatLinks
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter::formatLinks
 	 * @return void
 	 * @dataProvider provideFormatLinksData
 	 */

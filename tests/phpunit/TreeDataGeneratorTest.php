@@ -80,7 +80,7 @@ class TreeDataGeneratorTest extends TestCase {
 										'id' => 'dummy-8',
 										'text' => 'node-8',
 										'items' => []
-									]
+										]
 								]
 							]
 						]
