@@ -2,13 +2,13 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use Config;
-use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Config\Config;
 use MediaWiki\Hook\SiteNoticeAfterHook;
 use MediaWiki\Hook\SkinAfterContentHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
-use OutputPage;
 use Skin;
 
 class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisplayHook {

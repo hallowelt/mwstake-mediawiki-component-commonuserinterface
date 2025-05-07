@@ -2,13 +2,13 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Renderer;
 
-use HashConfig;
+use MediaWiki\Config\HashConfig;
+use MediaWiki\Language\RawMessage;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Link as LinkRenderer;
 use PHPUnit\Framework\TestCase;
-use RawMessage;
 
 class LinkRendererTest extends TestCase {
 

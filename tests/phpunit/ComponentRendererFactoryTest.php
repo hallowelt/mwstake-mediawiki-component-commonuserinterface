@@ -14,7 +14,7 @@ use Wikimedia\ObjectFactory\ObjectFactory;
 class ComponentRendererFactoryTest extends TestCase {
 
 	/**
-	 * @covers ComponentRendererFactory::getKey
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory::getKey
 	 *
 	 * @return void
 	 */
@@ -40,7 +40,7 @@ class ComponentRendererFactoryTest extends TestCase {
 	}
 
 	/**
-	 * @covers ComponentRendererFactory::getRenderer
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory::getRenderer
 	 *
 	 * @return void
 	 */

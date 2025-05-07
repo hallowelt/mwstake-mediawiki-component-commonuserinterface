@@ -2,9 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
 
+use MediaWiki\Language\RawMessage;
 use MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter;
 use PHPUnit\Framework\TestCase;
-use RawMessage;
 
 /**
  * @group Broken
@@ -13,7 +13,7 @@ class LinkConverterTest extends TestCase {
 
 	/**
 	 * @param array $linkDescs
-	 * @covers LinkConverter::getLinksFromArrayDescriptor
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter::getLinksFromArrayDescriptor
 	 * @dataProvider provideGetLinksFromArrayDescriptorTestData
 	 * @return void
 	 */
@@ -21,7 +21,7 @@ class LinkConverterTest extends TestCase {
 		$linkConverter = new LinkConverter();
 		$links = $linkConverter->getLinkComponents( $linkDescs );
 
-		$this->assertEquals( count( $linkDescs ), count( $links ) );
+		$this->assertSameSize( $linkDescs, $links );
 
 		foreach ( $links as $link ) {
 			$link->getId();

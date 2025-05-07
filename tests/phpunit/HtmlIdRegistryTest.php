@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class HtmlIdRegistryTest extends TestCase {
 	/**
-	 * @covers HtmlIdRegistry::makeHtmlIdSafe
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\HtmlIdRegistry::makeHtmlIdSafe
 	 *
 	 * @return void
 	 */
