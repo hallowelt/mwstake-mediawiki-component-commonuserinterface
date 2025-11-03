@@ -1,23 +1,20 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Unit;
 
 use MediaWiki\Language\RawMessage;
+use MediaWikiUnitTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter;
-use PHPUnit\Framework\TestCase;
 
-/**
- * @group Broken
- */
-class LinkConverterTest extends TestCase {
+class LinkConverterTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @param array $linkDescs
-	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter::getLinksFromArrayDescriptor
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\LinkConverter::getLinkComponents
 	 * @dataProvider provideGetLinksFromArrayDescriptorTestData
 	 * @return void
 	 */
-	public function testGetLinksFromArrayDescriptor( $linkDescs ) {
+	public function testGetLinkComponents( $linkDescs ) {
 		$linkConverter = new LinkConverter();
 		$links = $linkConverter->getLinkComponents( $linkDescs );
 

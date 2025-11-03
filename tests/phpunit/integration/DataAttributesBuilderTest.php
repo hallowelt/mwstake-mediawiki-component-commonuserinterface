@@ -1,11 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Integration;
 
+use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
-use PHPUnit\Framework\TestCase;
 
-class DataAttributesBuilderTest extends TestCase {
+class DataAttributesBuilderTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder::build

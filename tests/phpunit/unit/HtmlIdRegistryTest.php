@@ -1,11 +1,17 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Unit;
 
+use MediaWikiUnitTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\HtmlIdRegistry;
-use PHPUnit\Framework\TestCase;
 
-class HtmlIdRegistryTest extends TestCase {
+class HtmlIdRegistryTest extends MediaWikiUnitTestCase {
+
+	protected function setUp(): void {
+		parent::setUp();
+		$GLOBALS['wgFragmentMode'] = [ 'html5', 'legacy', ];
+	}
+
 	/**
 	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\HtmlIdRegistry::makeHtmlIdSafe
 	 *

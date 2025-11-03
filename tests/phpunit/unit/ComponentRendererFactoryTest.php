@@ -1,17 +1,17 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Unit;
 
 use Exception;
+use MediaWikiUnitTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
-use PHPUnit\Framework\TestCase;
 use Wikimedia\ObjectFactory\ObjectFactory;
 
-class ComponentRendererFactoryTest extends TestCase {
+class ComponentRendererFactoryTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory::getKey
