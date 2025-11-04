@@ -1,11 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Integration;
 
+use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
-use PHPUnit\Framework\TestCase;
 
-class AriaAttributesBuilderTest extends TestCase {
+class AriaAttributesBuilderTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder::build

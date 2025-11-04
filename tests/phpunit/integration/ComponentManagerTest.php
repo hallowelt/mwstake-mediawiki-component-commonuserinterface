@@ -1,10 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Integration;
 
 use MediaWiki\Context\IContextSource;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Language\RawMessage;
+use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel;
@@ -12,9 +13,8 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
-use PHPUnit\Framework\TestCase;
 
-class ComponentManagerTest extends TestCase {
+class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::init

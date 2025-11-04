@@ -1,16 +1,16 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Integration;
 
 use MediaWiki\MediaWikiServices;
+use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeLinkNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeTextNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator;
-use PHPUnit\Framework\TestCase;
 
-require_once dirname( dirname( __DIR__ ) ) . '/bootstrap.php';
+require_once dirname( __DIR__, 3 ) . '/bootstrap.php';
 
-class TreeDataGeneratorTest extends TestCase {
+class TreeDataGeneratorTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @covers WStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator::generate

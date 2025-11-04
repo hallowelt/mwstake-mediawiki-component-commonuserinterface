@@ -1,15 +1,15 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Renderer;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Integration\Renderer;
 
 use MediaWiki\Language\RawMessage;
+use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Badge;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 use MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Badge as BadgeRenderer;
-use PHPUnit\Framework\TestCase;
 
-class BadgeRendererTest extends TestCase {
+class BadgeRendererTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * This is not the regular call of getHtml. This test should confirm DataAttributeBuilder

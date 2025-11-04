@@ -1,11 +1,11 @@
 <?php
 
-namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests;
+namespace MWStake\MediaWiki\Component\CommonUserInterface\Tests\Integration;
 
+use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\LinkFormatter;
-use PHPUnit\Framework\TestCase;
 
-class LinkFormatterTest extends TestCase {
+class LinkFormatterTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @param bool|string $externalLinkTarget
