@@ -30,7 +30,7 @@ class ActionLink extends ComponentBase implements IActionLink, IRestrictedCompon
 				'showAction' => false,
 				'action-title' => new RawMessage( 'ActionLink action' ),
 				'actionClass' => '',
-				'action-label' => new RawMessage( 'ActionLink action'),
+				'action-label' => new RawMessage( 'ActionLink action' ),
 				'showActionLabel' => false
 			],
 			$options
