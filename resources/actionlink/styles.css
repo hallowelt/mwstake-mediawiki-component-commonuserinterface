@@ -1,0 +1,24 @@
+.mws-action-link .mws-action-link-action {
+	position: absolute;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	width: 0;
+}
+
+.mws-action-link-action .mws-action-link-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.mws-action-link:hover .mws-action-link-action {
+	opacity: 1;
+	width: 30px;
+}
+
+.mws-action-link-action:focus {
+	opacity: 1;
+	width: 30px;
+}

@@ -48,6 +48,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode',
 		'tree-link-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeLinkNode',
 		'container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IContainer',
+		'action-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IActionLink',
 	];
 
 	/**
@@ -110,6 +111,10 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 			'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 			'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',
+			'action-link' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ActionLink',
+				'services' => [ 'MainConfig' ]
+			],
 		]
 	];
 
@@ -168,6 +173,13 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'localBasePath' => __DIR__ . "/resources/tree/",
 		'styles' => [
 			'tree.css',
+		],
+	];
+
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.action-link-component.styles'] = [
+		'localBasePath' => __DIR__ . "/resources/actionlink/",
+		'styles' => [
+			'styles.css',
 		],
 	];
 
