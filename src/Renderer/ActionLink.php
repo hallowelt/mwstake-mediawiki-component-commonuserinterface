@@ -110,25 +110,26 @@ class ActionLink extends RendererBase {
 				$templateData['rel'] = implode( ' ', $rel );
 			}
 
-			$templateData['showAction'] = $component->showAction();
-			$templateData['actionClass'] = $component->getActionClass();
-			$templateData['icon'] = $component->getIcon();
-			$templateData['action-title'] = $component->getActionTitle()->text();
-			$templateData['showActionLabel'] = $component->showActionLabel();
+			if ( $component->showAction() ) {
+				$templateData['showAction'] = $component->showAction();
+				$templateData['actionClass'] = $component->getActionClass();
+				$templateData['icon'] = $component->getIcon();
+				$templateData['action-title'] = $component->getActionTitle()->text();
 
-			if ( $templateData['showActionLabel'] ) {
-				$templateData['action-label'] = $component->getActionLabel()->text();
+				if ( $component->showActionLabel() ) {
+					$templateData['action-label'] = $component->getActionLabel()->text();
+				}
+
+				$actionAria = [
+					'label' => $component->getActionAriaLabel()->text()
+				];
+				$templateData = array_merge(
+					$templateData,
+					[
+						'action-aria' => $ariaAttributesBuilder->toString( $actionAria )
+					]
+				);
 			}
-
-			$actionAria = [
-				'label' => $component->getActionAriaLabel()->text()
-			];
-			$templateData = array_merge(
-				$templateData,
-				[
-					'action-aria' => $ariaAttributesBuilder->toString( $actionAria )
-				]
-			);
 
 		} else {
 			throw new Exception( "Can not extract data from " . get_class( $component ) );
