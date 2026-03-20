@@ -162,6 +162,6 @@ class ActionLink extends ComponentBase implements IActionLink, IRestrictedCompon
 	 * @inheritDoc
 	 */
 	public function getRequiredRLStyles(): array {
-		return [ 'mwstake.component.commonui.action-link-component.styles' ];
+		return [ 'mwstake.component.commonui.component.styles' ];
 	}
 }

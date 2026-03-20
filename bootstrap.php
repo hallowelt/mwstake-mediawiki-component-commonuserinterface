@@ -162,24 +162,19 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		$hookContainer->register( 'SkinAfterContent', [ $runner, 'onSkinAfterContent' ] );
 	};
 
-	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component'] = [
-		'localBasePath' => __DIR__ . "/resources/tree/",
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.component'] = [
+		'localBasePath' => __DIR__ . "/resources/",
 		'packageFiles' => [
-			'tree.js',
+			'bootstrap.js',
+			'tree/tree.js'
 		],
 	];
 
-	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component.styles'] = [
-		'localBasePath' => __DIR__ . "/resources/tree/",
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.component.styles'] = [
+		'localBasePath' => __DIR__ . "/resources/",
 		'styles' => [
-			'tree.css',
-		],
-	];
-
-	$GLOBALS['wgResourceModules']['mwstake.component.commonui.action-link-component.styles'] = [
-		'localBasePath' => __DIR__ . "/resources/actionlink/",
-		'styles' => [
-			'styles.css',
+			'actionlink/styles.css',
+			'tree/tree.css'
 		],
 	];
 
