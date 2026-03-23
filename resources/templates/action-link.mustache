@@ -1,0 +1,14 @@
+<div class="mws-action-link">
+	<a {{#id}}id="{{.}}"{{/id}} class="mws-action-link-link {{class}}" href="{{href}}"{{#title}} title="{{.}}"{{/title}}{{#data}} {{{.}}}{{/data}}{{#rel}} role="{{.}}"{{/rel}}{{#aria}} {{{.}}}{{/aria}}{{#target}} target="{{.}}"{{/target}}>
+		{{{body}}}
+	</a>
+
+	{{#showAction}}
+	<a role="button" href="" {{#action-title}}title="{{.}}"{{/action-title}} {{#action-aria}} {{{.}}}{{/action-aria}} class="mws-action-link-action {{actionClass}}">
+		<span class="mws-action-link-icon {{icon}}"></span>
+		{{#action-label}}
+			<span class="mws-action-link-text">{{action-label}}</span>
+		{{/action-label}}
+	</a>
+	{{/showAction}}
+</div>

@@ -48,6 +48,7 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		'tree-text-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeTextNode',
 		'tree-link-node' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\ITreeLinkNode',
 		'container' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IContainer',
+		'action-link' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\IActionLink',
 	];
 
 	/**
@@ -110,6 +111,10 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 			'badge' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\Badge',
 			'button-group' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ButtonGroup',
 			'media-object' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\MediaObject',
+			'action-link' => [
+				'class' => 'MWStake\\MediaWiki\\Component\\CommonUserInterface\\Renderer\\ActionLink',
+				'services' => [ 'MainConfig' ]
+			],
 		]
 	];
 
@@ -157,17 +162,19 @@ MWStake\MediaWiki\ComponentLoader\Bootstrapper::getInstance()
 		$hookContainer->register( 'SkinAfterContent', [ $runner, 'onSkinAfterContent' ] );
 	};
 
-	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component'] = [
-		'localBasePath' => __DIR__ . "/resources/tree/",
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.component'] = [
+		'localBasePath' => __DIR__ . "/resources/",
 		'packageFiles' => [
-			'tree.js',
+			'bootstrap.js',
+			'tree/tree.js'
 		],
 	];
 
-	$GLOBALS['wgResourceModules']['mwstake.component.commonui.tree-component.styles'] = [
-		'localBasePath' => __DIR__ . "/resources/tree/",
+	$GLOBALS['wgResourceModules']['mwstake.component.commonui.component.styles'] = [
+		'localBasePath' => __DIR__ . "/resources/",
 		'styles' => [
-			'tree.css',
+			'actionlink/styles.css',
+			'tree/tree.css'
 		],
 	];
 

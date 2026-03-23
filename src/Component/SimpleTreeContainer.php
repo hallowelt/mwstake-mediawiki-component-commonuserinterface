@@ -54,7 +54,7 @@ class SimpleTreeContainer extends ComponentBase implements ITreeContainer {
 	 * @inheritDoc
 	 */
 	public function getRequiredRLModules(): array {
-		return [ 'mwstake.component.commonui.tree-component' ];
+		return [ 'mwstake.component.commonui.component' ];
 	}
 
 	/**
@@ -62,6 +62,6 @@ class SimpleTreeContainer extends ComponentBase implements ITreeContainer {
 	 * @inheritDoc
 	 */
 	public function getRequiredRLStyles(): array {
-		return [ 'mwstake.component.commonui.tree-component.styles' ];
+		return [ 'mwstake.component.commonui.component.styles' ];
 	}
 }
