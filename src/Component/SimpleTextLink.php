@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
+use HtmlArmor;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITextLink;
@@ -24,7 +25,9 @@ class SimpleTextLink extends ComponentBase implements ITextLink {
 				'aria-label' => new RawMessage( 'SimpleLink' ),
 				'rel' => '',
 				'data' => [],
-				'aria' => []
+				'aria' => [],
+				'preHtml' => new HtmlArmor( '' ),
+				'postHtml' => new HtmlArmor( '' )
 			],
 			$options
 		);
@@ -98,5 +101,19 @@ class SimpleTextLink extends ComponentBase implements ITextLink {
 	 */
 	public function getRel(): string {
 		return $this->options['rel'];
+	}
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPreHtml(): HtmlArmor {
+		return $this->options['preHtml'];
+	}
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPostHtml(): HtmlArmor {
+		return $this->options['postHtml'];
 	}
 }

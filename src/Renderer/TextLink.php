@@ -51,7 +51,9 @@ class TextLink extends RendererBase {
 				'id' => $component->getId(),
 				'title' => $component->getTitle()->text(),
 				'href' => $component->getHref(),
-				'body' => $component->getText()->text()
+				'body' => $component->getText()->text(),
+				'preHtml' => $component->getPreHtml(),
+				'postHtml' => $component->getPostHtml(),
 			];
 			$data = $component->getDataAttributes();
 			if ( !empty( $data ) ) {

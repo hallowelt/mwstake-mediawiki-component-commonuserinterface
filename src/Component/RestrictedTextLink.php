@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
+use HtmlArmor;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
@@ -27,6 +28,8 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 				'data' => [],
 				'aria' => [],
 				'permissions' => [],
+				'preHtml' => new HtmlArmor( '' ),
+				'postHtml' => new HtmlArmor( '' )
 			],
 			$options
 		);
@@ -116,5 +119,19 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 	 */
 	protected function ensureMessageObject( $stringOrMessage ) {
 		return $stringOrMessage instanceof Message ? $stringOrMessage : new RawMessage( $stringOrMessage );
+	}
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPreHtml(): HtmlArmor {
+		return $this->options['preHtml'];
+	}
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPostHtml(): HtmlArmor {
+		return $this->options['postHtml'];
 	}
 }

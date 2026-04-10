@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use HtmlArmor;
 use MediaWiki\Message\Message;
 
 interface ITextLink {
@@ -52,5 +53,15 @@ interface ITextLink {
 	 * @return string
 	 */
 	public function getRel(): string;
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPreHtml(): HtmlArmor;
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPostHtml(): HtmlArmor;
 
 }
