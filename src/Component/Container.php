@@ -38,4 +38,11 @@ class Container extends ComponentBase implements IContainer {
 	public function getTagName(): string {
 		return $this->options['tag'];
 	}
+
+	/**
+	 * @return array
+	 */
+	public function getDataAttributes(): array {
+		return $this->options['data'] ?? [];
+	}
 }

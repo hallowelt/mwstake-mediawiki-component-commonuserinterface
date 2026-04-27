@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IContainer;
 
@@ -31,6 +32,11 @@ class Container extends RendererBase {
 			}
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['body'] = $subComponentNodes;
+			}
+			$data = $component->getDataAttributes();
+			if ( !empty( $data ) ) {
+				$dataAttributesBuilder = new DataAttributesBuilder();
+				$templateData['data'] = $dataAttributesBuilder->build( $data );
 			}
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(

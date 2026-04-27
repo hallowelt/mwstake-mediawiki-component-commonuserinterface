@@ -56,6 +56,11 @@ abstract class RendererBase implements IComponentRenderer {
 		$htmlArmorExcludedFieldNames = $this->getHtmlArmorExcludedFields();
 		$processedData = [];
 		foreach ( $data as $fieldName => $dataValue ) {
+			if ( $fieldName === 'data' ) {
+				// Data is already sanitized in DataAttributesBuilder, so we can skip it here
+				$processedData[$fieldName] = $dataValue;
+				continue;
+			}
 			if ( is_array( $dataValue ) ) {
 				$dataValue = $this->preprocessData( $dataValue );
 			} elseif ( !in_array( $fieldName, $htmlArmorExcludedFieldNames ) ) {
