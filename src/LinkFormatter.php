@@ -5,6 +5,8 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
+use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\LikeValue;
 
 class LinkFormatter {
 
@@ -45,10 +47,25 @@ class LinkFormatter {
 	 */
 	private function messageExists( string $key ): bool {
 		if ( self::$messageNames === null ) {
-			$langObj = MediaWikiServices::getInstance()->getContentLanguage();
-			self::$messageNames = MediaWikiServices::getInstance()
+			$services = MediaWikiServices::getInstance();
+			$langObj = $services->getContentLanguage();
+			self::$messageNames = $services
 				->getLocalisationCache()
 				->getSubitemList( $langObj->getCode(), 'messages' ) ?? [];
+
+			$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+			$result = $dbr->select(
+				'page',
+				'page_title',
+				[
+					'page_namespace' => NS_MEDIAWIKI,
+					$dbr->expr( 'page_title', IExpression::NOT_LIKE, new LikeValue( $dbr->anyString(), '/', $dbr->anyString() ) ),
+				],
+				__METHOD__
+			);
+			foreach ( $result as $row ) {
+				self::$messageNames[] = strtolower( $row->page_title );
+			}
 		}
 		return in_array( $key, self::$messageNames );
 	}
