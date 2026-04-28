@@ -41,41 +41,20 @@ class LinkFormatter {
 		$params = [];
 
 		foreach ( $links as $key => $link ) {
-			if ( is_string( $key ) ) {
-				$strpos = strpos( $key, '-' );
-				$subKey = substr( $key, $strpos + 1 );
-			}
-
 			if ( isset( $link['text'] ) && $link['text'] !== '' ) {
-				$msg = Message::newFromKey( $link['text'] );
-				if ( $msg->exists() ) {
-					$link['text'] = $msg->text();
-				}
-			} elseif ( isset( $link['msg'] ) && $link['msg'] === '' ) {
-				$msg = Message::newFromKey( $link['msg'] );
-				if ( $msg->exists() ) {
-					$link['text'] = $msg->text();
-				}
-			} elseif ( is_string( $key ) && Message::newFromKey( $key )->exists() ) {
-				$msg = Message::newFromKey( $key );
-				$link['text'] = $msg->text();
-			} elseif ( is_string( $key ) && Message::newFromKey( $subKey )->exists() ) {
-				$msg = Message::newFromKey( $subKey );
-				$link['text'] = $msg->text();
+				$link['text'] = Message::newFromKey( $link['text'] )->text();
+			} elseif ( isset( $link['msg'] ) && $link['msg'] !== '' ) {
+				$link['text'] = Message::newFromKey( $link['msg'] )->text();
+			} elseif ( is_string( $key ) ) {
+				$link['text'] = Message::newFromKey( $key )->text();
 			} else {
 				continue;
 			}
 
 			if ( isset( $link['title'] ) && $link['title'] !== '' ) {
-				$msg = Message::newFromKey( $link['title'] );
-				if ( $msg->exists() ) {
-					$link['title'] = $msg->text();
-				}
-			} elseif ( is_string( $key ) && Message::newFromKey( $key )->exists() ) {
-				$msg = Message::newFromKey( $key );
-				if ( $msg->exists() ) {
-					$link['title'] = $msg->text();
-				}
+				$link['title'] = Message::newFromKey( $link['title'] )->text();
+			} elseif ( is_string( $key ) ) {
+				$link['title'] = Message::newFromKey( $key )->text();
 			} elseif ( isset( $link['id'] ) && $link['id'] !== '' ) {
 				$tooltip = Linker::titleAttrib( $link['id'] );
 				if ( $tooltip ) {
