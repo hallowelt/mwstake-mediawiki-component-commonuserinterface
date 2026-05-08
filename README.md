@@ -6,6 +6,8 @@ Provides common user interface elements and customizeable stylings.
 **This code is meant to be executed within the MediaWiki application context. No standalone usage is intended.**
 
 ## Compatibility
+- `8.0.x` -> MediaWiki 1.43
+- `7.0.x` -> MediaWiki 1.43
 - `6.0.x` -> MediaWiki 1.43
 - `5.0.x` -> MediaWiki 1.39
 - `3.0.x` -> MediaWiki 1.35
