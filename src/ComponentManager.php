@@ -93,6 +93,9 @@ class ComponentManager {
 	 */
 	private $filters = [];
 
+	/** @var array|null */
+	private ?array $userRights = null;
+
 	/**
 	 *
 	 * @param IContextSource $context
@@ -281,17 +284,15 @@ class ComponentManager {
 	 */
 	private function checkPermissions( $component ): bool {
 		$user = $this->context->getUser();
-		$services = MediaWikiServices::getInstance();
-		foreach ( $component->getPermissions() as $permission ) {
-			$userHasRight = $services->getPermissionManager()->userHasRight(
-				$user,
-				$permission
+		if ( $this->userRights === null ) {
+			$services = MediaWikiServices::getInstance();
+			$this->userRights = array_merge(
+				$services->getPermissionManager()->getImplicitRights(),
+				$services->getPermissionManager()->getUserPermissions( $user )
 			);
-			if ( $userHasRight ) {
-				return true;
-			}
 		}
-		return false;
+
+		return !empty( array_intersect( $component->getPermissions(), $this->userRights ) );
 	}
 
 }
