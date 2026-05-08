@@ -208,7 +208,7 @@ class ComponentManager {
 	 * @return array
 	 */
 	public function getSkinSlotComponentTree( $slotId ) {
-		return $this->slotComponentTrees[$slotId];
+		return $this->slotComponentTrees[$slotId] ?? [];
 	}
 
 	/**
