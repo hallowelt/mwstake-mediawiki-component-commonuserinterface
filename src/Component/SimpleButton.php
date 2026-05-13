@@ -17,8 +17,10 @@ class SimpleButton extends ComponentBase implements IButton {
 			'id' => 'simple-button',
 			'aria-label' => new RawMessage( 'SimpleButton' ),
 			'text' => new RawMessage( 'SimpleButton' ),
+			'title' => new RawMessage( 'SimpleButton' ),
 			'classes' => [],
-			'disabled' => false
+			'disabled' => false,
+			'aria' => []
 		], $options );
 	}
 
@@ -38,10 +40,24 @@ class SimpleButton extends ComponentBase implements IButton {
 	}
 
 	/**
+	 * @inheritDoc
+	 */
+	public function getAriaAttributes(): array {
+		return $this->options['aria'];
+	}
+
+	/**
 	 * @return Message
 	 */
 	public function getText(): Message {
 		return $this->options['text'];
+	}
+
+	/**
+	 * @return Message
+	 */
+	public function getTitle(): Message {
+		return $this->options['title'];
 	}
 
 	/**

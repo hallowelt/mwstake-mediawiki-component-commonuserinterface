@@ -1,4 +1,4 @@
-<button {{#id}}id="{{.}}" {{/id}}class="btn{{#class}} {{.}}{{/class}}" type="button"{{#disabled}} disabled{{/disabled}}>
+<button {{#id}}id="{{.}}" {{/id}}class="btn{{#class}} {{.}}{{/class}}" title="{{title}}" type="button"{{#disabled}} disabled{{/disabled}} {{#aria}} {{{.}}}{{/aria}}>
 	<span class="visually-hidden">{{aria-label}}</span>
 	{{{text}}}
 </button>

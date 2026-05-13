@@ -18,6 +18,16 @@ interface IButton extends IComponent {
 	public function getText(): Message;
 
 	/**
+	 * @return array
+	 */
+	public function getAriaAttributes(): array;
+
+	/**
+	 * @return Message
+	 */
+	public function getTitle(): Message;
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getClasses(): array;

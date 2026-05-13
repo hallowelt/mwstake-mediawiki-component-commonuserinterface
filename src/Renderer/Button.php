@@ -3,6 +3,7 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
+use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 
@@ -32,7 +33,8 @@ class Button extends RendererBase {
 			$templateData = [
 				'id' => $component->getId(),
 				'text' => $component->getText()->text(),
-				'aria-label' => $component->getAriaLabel()
+				'aria-label' => $component->getAriaLabel(),
+				'title' => $component->getTitle()->text()
 			];
 			if ( !empty( $component->getClasses() ) ) {
 				$templateData = array_merge(
@@ -42,6 +44,21 @@ class Button extends RendererBase {
 					]
 				);
 			}
+			$aria = [
+				'label' => $component->getAriaLabel()->text()
+			];
+			$aria = array_merge(
+				$aria,
+				$component->getAriaAttributes()
+			);
+			$ariaAttributesBuilder = new AriaAttributesBuilder();
+			$templateData = array_merge(
+				$templateData,
+				[
+					'aria' => $ariaAttributesBuilder->toString( $aria )
+				]
+			);
+
 			if ( $component->isDisabled() ) {
 				$templateData = array_merge(
 					$templateData,
@@ -70,7 +87,7 @@ class Button extends RendererBase {
 	 * @inheritDoc
 	 */
 	protected function getHtmlArmorExcludedFields() {
-		return [ 'id', 'class', 'disabled', 'aria-label' ];
+		return [ 'id', 'class', 'disabled', 'aria-label', 'aria' ];
 	}
 
 }
