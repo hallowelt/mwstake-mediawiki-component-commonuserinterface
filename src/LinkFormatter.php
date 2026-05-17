@@ -3,9 +3,17 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use MediaWiki\Linker\Linker;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
+use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\LikeValue;
 
 class LinkFormatter {
+
+	/**
+	 * @var array|null
+	 */
+	private static $messageNames = null;
 
 	/**
 	 *
@@ -34,6 +42,35 @@ class LinkFormatter {
 	}
 
 	/**
+	 * @param string $key
+	 * @return bool
+	 */
+	private function messageExists( string $key ): bool {
+		if ( self::$messageNames === null ) {
+			$services = MediaWikiServices::getInstance();
+			$langObj = $services->getContentLanguage();
+			self::$messageNames = $services
+				->getLocalisationCache()
+				->getSubitemList( $langObj->getCode(), 'messages' ) ?? [];
+
+			$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+			$result = $dbr->select(
+				'page',
+				'page_title',
+				[
+					'page_namespace' => NS_MEDIAWIKI,
+					$dbr->expr( 'page_title', IExpression::NOT_LIKE, new LikeValue( $dbr->anyString(), '/', $dbr->anyString() ) ),
+				],
+				__METHOD__
+			);
+			foreach ( $result as $row ) {
+				self::$messageNames[] = strtolower( $row->page_title );
+			}
+		}
+		return in_array( $key, self::$messageNames );
+	}
+
+	/**
 	 * @param array $links
 	 * @return array
 	 */
@@ -47,35 +84,27 @@ class LinkFormatter {
 			}
 
 			if ( isset( $link['text'] ) && $link['text'] !== '' ) {
-				$msg = Message::newFromKey( $link['text'] );
-				if ( $msg->exists() ) {
-					$link['text'] = $msg->text();
+				if ( $this->messageExists( $link['text'] ) ) {
+					$link['text'] = Message::newFromKey( $link['text'] )->text();
 				}
 			} elseif ( isset( $link['msg'] ) && $link['msg'] === '' ) {
-				$msg = Message::newFromKey( $link['msg'] );
-				if ( $msg->exists() ) {
-					$link['text'] = $msg->text();
+				if ( $this->messageExists( $link['msg'] ) ) {
+					$link['text'] = Message::newFromKey( $link['msg'] )->text();
 				}
-			} elseif ( is_string( $key ) && Message::newFromKey( $key )->exists() ) {
-				$msg = Message::newFromKey( $key );
-				$link['text'] = $msg->text();
-			} elseif ( is_string( $key ) && Message::newFromKey( $subKey )->exists() ) {
-				$msg = Message::newFromKey( $subKey );
-				$link['text'] = $msg->text();
+			} elseif ( is_string( $key ) && $this->messageExists( $key ) ) {
+				$link['text'] = Message::newFromKey( $key )->text();
+			} elseif ( is_string( $key ) && $this->messageExists( $subKey ) ) {
+				$link['text'] = Message::newFromKey( $subKey )->text();
 			} else {
 				continue;
 			}
 
 			if ( isset( $link['title'] ) && $link['title'] !== '' ) {
-				$msg = Message::newFromKey( $link['title'] );
-				if ( $msg->exists() ) {
-					$link['title'] = $msg->text();
+				if ( $this->messageExists( $link['title'] ) ) {
+					$link['title'] = Message::newFromKey( $link['title'] )->text();
 				}
-			} elseif ( is_string( $key ) && Message::newFromKey( $key )->exists() ) {
-				$msg = Message::newFromKey( $key );
-				if ( $msg->exists() ) {
-					$link['title'] = $msg->text();
-				}
+			} elseif ( is_string( $key ) && $this->messageExists( $key ) ) {
+				$link['title'] = Message::newFromKey( $key )->text();
 			} elseif ( isset( $link['id'] ) && $link['id'] !== '' ) {
 				$tooltip = Linker::titleAttrib( $link['id'] );
 				if ( $tooltip ) {
