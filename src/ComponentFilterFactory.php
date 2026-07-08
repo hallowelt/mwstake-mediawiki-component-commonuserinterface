@@ -13,6 +13,13 @@ class ComponentFilterFactory {
 	private $objectFactory;
 
 	/**
+	 * Cached filter instances. Filters are stateless, so they can be reused.
+	 *
+	 * @var IComponentFilter[]|null
+	 */
+	private $filterCache = null;
+
+	/**
 	 *
 	 * @param array $filters
 	 * @param ObjectFactory $objectFactory
@@ -27,12 +34,14 @@ class ComponentFilterFactory {
 	 * @return IComponentFilter[]
 	 */
 	public function getAllFilters() {
-		$filters = [];
-		foreach ( $this->registeredFilters as $key => $spec ) {
-			$filters[$key] = $this->objectFactory->createObject( $spec );
+		if ( $this->filterCache === null ) {
+			$this->filterCache = [];
+			foreach ( $this->registeredFilters as $key => $spec ) {
+				$this->filterCache[$key] = $this->objectFactory->createObject( $spec );
+			}
 		}
 
-		return $filters;
+		return $this->filterCache;
 	}
 
 }
