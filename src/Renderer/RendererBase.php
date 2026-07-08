@@ -15,10 +15,21 @@ abstract class RendererBase implements IComponentRenderer {
 	protected $templateBasePath = '';
 
 	/**
+	 * Shared TemplateParser instances keyed by directory path.
+	 * This avoids creating a new TemplateParser (and its service lookups)
+	 * on every getHtml() call, and preserves the in-memory compiled template cache.
 	 *
-	 * @var TemplateParser
+	 * @var TemplateParser[]
 	 */
-	private $templateParser = null;
+	private static $templateParsers = [];
+
+	/**
+	 * Pre-resolved template directory and filename for this renderer.
+	 * Computed once in getTemplateInfo() to avoid repeated dirname/basename/preg_replace.
+	 *
+	 * @var array|null [ 'dir' => string, 'name' => string ]
+	 */
+	private $templateInfo = null;
 
 	/**
 	 */
@@ -27,17 +38,42 @@ abstract class RendererBase implements IComponentRenderer {
 	}
 
 	/**
+	 * Returns the resolved template directory and base filename (without .mustache extension).
+	 *
+	 * @return array [ 'dir' => string, 'name' => string ]
+	 */
+	private function getTemplateInfo(): array {
+		if ( $this->templateInfo === null ) {
+			$templatePathname = $this->getTemplatePathname();
+			$dir = dirname( $templatePathname );
+			$name = basename( $templatePathname );
+			$name = preg_replace( '#\.mustache$#', '', $name );
+			$this->templateInfo = [ 'dir' => $dir, 'name' => $name ];
+		}
+		return $this->templateInfo;
+	}
+
+	/**
+	 * Returns a shared TemplateParser instance for the given directory.
+	 *
+	 * @param string $dir
+	 * @return TemplateParser
+	 */
+	private static function getTemplateParserForDir( string $dir ): TemplateParser {
+		if ( !isset( self::$templateParsers[$dir] ) ) {
+			self::$templateParsers[$dir] = new TemplateParser( $dir );
+		}
+		return self::$templateParsers[$dir];
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getHtml( $data ): string {
-		$templatePathname = $this->getTemplatePathname();
-		$templateDirname = dirname( $templatePathname );
-		$templateFilename = basename( $templatePathname );
-		// TODO: Maybe add a "getTemplateFileExtension" method to the interface?
-		$templateFilename = preg_replace( '#\.mustache$#', '', $templateFilename );
-		$this->templateParser = new TemplateParser( $templateDirname );
+		$info = $this->getTemplateInfo();
+		$templateParser = self::getTemplateParserForDir( $info['dir'] );
 		$data = $this->preprocessData( $data );
-		$html = $this->templateParser->processTemplate( $templateFilename, $data );
+		$html = $templateParser->processTemplate( $info['name'], $data );
 		// An empty string causes an
 		//  PHP Notice: 'Array to string conversion inincludes/TemplateParser.php(173) : eval()'d'
 		// and the output in the browser is 'Array'. To avoid this we replace the empty sting.

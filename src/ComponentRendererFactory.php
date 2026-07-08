@@ -32,6 +32,14 @@ class ComponentRendererFactory {
 	private $objectFactory = null;
 
 	/**
+	 * Cache of renderer instances keyed by renderer key.
+	 * Renderers are stateless, so they can be safely reused.
+	 *
+	 * @var IComponentRenderer[]
+	 */
+	private $rendererCache = [];
+
+	/**
 	 *
 	 * @param array $rendererRegistry
 	 * @param array $componentRegistry
@@ -69,6 +77,10 @@ class ComponentRendererFactory {
 	 * @return IComponentRenderer
 	 */
 	public function getRenderer( $rendererKey ): IComponentRenderer {
+		if ( isset( $this->rendererCache[$rendererKey] ) ) {
+			return $this->rendererCache[$rendererKey];
+		}
+
 		$spec = [];
 
 		// Renderer available for current environment?
@@ -90,6 +102,7 @@ class ComponentRendererFactory {
 		}
 
 		$renderer = $this->objectFactory->createObject( $spec );
+		$this->rendererCache[$rendererKey] = $renderer;
 		return $renderer;
 	}
 
