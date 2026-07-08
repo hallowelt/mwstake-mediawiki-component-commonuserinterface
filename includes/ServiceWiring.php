@@ -78,9 +78,11 @@ return [
 	},
 
 	'MWStakeLinkFormatter' => static function ( MediaWikiServices $services ) {
+		$messageHelper = $services->getService( 'MWStakeCommonUtilsFactory' )->getMessageHelper();
 		$linkFormatter = new LinkFormatter(
 			$services->getMainConfig()->get( 'ExternalLinkTarget' ),
-			$services->getMainConfig()->get( 'NoFollowLinks' )
+			$services->getMainConfig()->get( 'NoFollowLinks' ),
+			$messageHelper
 		);
 		return $linkFormatter;
 	},
