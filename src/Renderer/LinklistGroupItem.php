@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ILinklistGroupItem;
 class LinklistGroupItem extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

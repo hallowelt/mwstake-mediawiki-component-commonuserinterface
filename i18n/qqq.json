@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Hallo Welt! GmbH"
+		]
 	},
 	"apihelp-mwstake-commonui-skinslot-summary": "{{doc-apihelp-summary|mwstake-commonui-skinslot}}",
 	"apihelp-mwstake-commonui-skinslot-param-path": "{{doc-apihelp-param|mwstake-commonui-skinslot|path}}",

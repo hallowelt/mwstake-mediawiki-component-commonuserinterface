@@ -10,85 +10,71 @@ use Wikimedia\ObjectFactory\ObjectFactory;
 class ComponentManager {
 
 	/**
-	 *
 	 * @var IContextSource
 	 */
 	private $context = null;
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $slotSpecs = [];
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $slotComponentTrees = [];
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $enabledSlots = [];
 
 	/**
-	 *
 	 * @var ObjectFactory
 	 */
 	private $objectFactory = null;
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $rlModules = [];
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $rlStyles = [];
 
 	/**
-	 *
 	 * @var ComponentManager|null
 	 */
 	private static $instance = null;
 
 	/**
-	 *
 	 * @var HookContainer
 	 */
 	private $hookContainer = null;
 
 	/**
-	 *
 	 * @var SkinSlotRegistry
 	 */
 	private $slotRegistry = null;
 
 	/**
-	 *
 	 * @var bool
 	 */
 	private $async = false;
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $exclusivePaths = [];
 
 	/**
-	 *
 	 * @var ComponentFilterFactory
 	 */
 	private $componentFilterFactory = null;
 
 	/**
-	 *
 	 * @var IComponentFilter[]
 	 */
 	private $filters = [];
@@ -97,7 +83,6 @@ class ComponentManager {
 	private ?array $userRights = null;
 
 	/**
-	 *
 	 * @param IContextSource $context
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
@@ -127,7 +112,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @param array $slotSpecs
 	 * @param array $enabledSlots
 	 * @param ObjectFactory|null $objectFactory
@@ -191,7 +175,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @param array $data
 	 * @return array
@@ -203,7 +186,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @param string $slotId
 	 * @return array
 	 */
@@ -212,7 +194,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @param array &$treeNode
 	 * @param array $data
@@ -249,7 +230,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @return string[]
 	 */
 	public function getRLModules() {
@@ -259,7 +239,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @return string[]
 	 */
 	public function getRLModuleStyles() {
@@ -269,7 +248,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return string
 	 */
@@ -278,7 +256,6 @@ class ComponentManager {
 	}
 
 	/**
-	 *
 	 * @param IRestrictedComponent $component
 	 * @return bool
 	 */

@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownSplitLink;
 class SimpleDropdownSplitLink extends ComponentBase implements IDropdownSplitLink {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {
@@ -127,7 +126,6 @@ class SimpleDropdownSplitLink extends ComponentBase implements IDropdownSplitLin
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function buttonIsDisabled(): bool {
@@ -135,7 +133,6 @@ class SimpleDropdownSplitLink extends ComponentBase implements IDropdownSplitLin
 	}
 
 		/**
-		 *
 		 * @return bool
 		 */
 	public function splitButtonIsDisabled(): bool {

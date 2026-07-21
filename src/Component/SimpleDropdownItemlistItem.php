@@ -28,7 +28,6 @@ class SimpleDropdownItemlistItem extends ComponentBase implements IDropdownIteml
 	}
 
 	/**
-	 *
 	 * @return string[]
 	 */
 	public function getClasses(): array {

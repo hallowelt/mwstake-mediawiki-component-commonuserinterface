@@ -5,7 +5,6 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 interface IRenderer {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */
@@ -27,20 +26,17 @@ interface IRenderer {
 	public function getTemplatePathname(): string;
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return string
 	 */
 	public function render( IComponent $component ): string;
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function getRLModules(): array;
 
 		/**
-		 *
 		 * @return array
 		 */
 	public function getRLModuleStyles(): array;

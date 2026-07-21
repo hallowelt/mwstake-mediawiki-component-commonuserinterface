@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardTitle;
 class SimpleCardTitle extends ComponentBase implements ICardTitle {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

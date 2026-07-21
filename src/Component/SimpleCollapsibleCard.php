@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICollapsibleCard;
 class SimpleCollapsibleCard extends ComponentBase implements ICollapsibleCard {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {
@@ -51,7 +50,6 @@ class SimpleCollapsibleCard extends ComponentBase implements ICollapsibleCard {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function getExpandedState(): bool {

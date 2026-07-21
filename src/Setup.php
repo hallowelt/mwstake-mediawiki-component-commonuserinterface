@@ -14,7 +14,6 @@ use Skin;
 class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisplayHook {
 
 	/**
-	 *
 	 * @param string &$data
 	 * @param Skin $skin
 	 * @return bool
@@ -31,7 +30,6 @@ class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisp
 	}
 
 	/**
-	 *
 	 * @param string &$siteNotice
 	 * @param Skin $skin
 	 * @return bool
@@ -48,7 +46,6 @@ class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisp
 	}
 
 	/**
-	 *
 	 * @param OutputPage $out
 	 * @param Skin $skin
 	 * @return bool

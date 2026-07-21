@@ -50,7 +50,6 @@ class SimpleTreeContainer extends ComponentBase implements ITreeContainer {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLModules(): array {
@@ -58,7 +57,6 @@ class SimpleTreeContainer extends ComponentBase implements ITreeContainer {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLStyles(): array {

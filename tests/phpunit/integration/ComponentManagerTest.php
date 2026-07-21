@@ -9,10 +9,13 @@ use MediaWikiIntegrationTestCase;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\Literal;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimplePanel;
+use MWStake\MediaWiki\Component\CommonUserInterface\ComponentFilter\DefaultFilter;
+use MWStake\MediaWiki\Component\CommonUserInterface\ComponentFilterFactory;
 use MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager;
 use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
+use MWStake\MediaWiki\Component\CommonUserInterface\SkinSlotRegistry;
 
 class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 
@@ -77,13 +80,16 @@ class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 		$mockHookContainer = $this->createMock( HookContainer::class );
+		$mockSlotRegistry = new SkinSlotRegistry( [] );
+		$mockFilterFactory = $this->createMock( ComponentFilterFactory::class );
+		$mockFilterFactory->method( 'getAllFilters' )->willReturn( [ new DefaultFilter() ] );
 
-		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer, $mockSlotRegistry, $mockFilterFactory );
 		$manager->init( $mockContext );
 	}
 
 	/**
-	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getRequiredRLModules
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getRLModules
 	 *
 	 * @return void
 	 */
@@ -116,8 +122,11 @@ class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 		$mockHookContainer = $this->createMock( HookContainer::class );
+		$mockSlotRegistry = new SkinSlotRegistry( [] );
+		$mockFilterFactory = $this->createMock( ComponentFilterFactory::class );
+		$mockFilterFactory->method( 'getAllFilters' )->willReturn( [ new DefaultFilter() ] );
 
-		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer, $mockSlotRegistry, $mockFilterFactory );
 		$manager->init( $mockContext );
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
@@ -125,7 +134,7 @@ class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getRequiredRLModules
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\ComponentManager::getRLModuleStyles
 	 *
 	 * @return void
 	 */
@@ -157,8 +166,11 @@ class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 		$mockHookContainer = $this->createMock( HookContainer::class );
+		$mockSlotRegistry = new SkinSlotRegistry( [] );
+		$mockFilterFactory = $this->createMock( ComponentFilterFactory::class );
+		$mockFilterFactory->method( 'getAllFilters' )->willReturn( [ new DefaultFilter() ] );
 
-		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer, $mockSlotRegistry, $mockFilterFactory );
 		$manager->init( $mockContext );
 
 		$expectedRLModules = [ 'module1', 'module2', 'module3' ];
@@ -194,8 +206,11 @@ class ComponentManagerTest extends MediaWikiIntegrationTestCase {
 		$enabledSlots = [ 'testSlot1' ];
 		$mockContext = $this->createMock( IContextSource::class );
 		$mockHookContainer = $this->createMock( HookContainer::class );
+		$mockSlotRegistry = new SkinSlotRegistry( [] );
+		$mockFilterFactory = $this->createMock( ComponentFilterFactory::class );
+		$mockFilterFactory->method( 'getAllFilters' )->willReturn( [ new DefaultFilter() ] );
 
-		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer );
+		$manager = new ComponentManager( $slots, $enabledSlots, null, $mockHookContainer, $mockSlotRegistry, $mockFilterFactory );
 		$manager->init( $mockContext );
 
 		$tree = $manager->getSkinSlotComponentTree( 'testSlot1' );

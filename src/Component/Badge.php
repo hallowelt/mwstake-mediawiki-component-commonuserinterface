@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IBadge;
 class Badge extends ComponentBase implements IBadge {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

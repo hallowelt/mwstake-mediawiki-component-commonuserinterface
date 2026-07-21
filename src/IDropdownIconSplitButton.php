@@ -62,7 +62,6 @@ interface IDropdownIconSplitButton extends IComponent {
 	public function getSplitButtonAriaLabel(): Message;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function buttonIsDisabled(): bool;
@@ -73,7 +72,6 @@ interface IDropdownIconSplitButton extends IComponent {
 	public function getButtonRel(): string;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function splitButtonIsDisabled(): bool;

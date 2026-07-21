@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardLink;
 class SimpleCardLink extends ComponentBase implements ICardLink {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

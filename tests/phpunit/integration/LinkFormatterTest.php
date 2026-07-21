@@ -25,7 +25,6 @@ class LinkFormatterTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function provideFormatLinksData() {

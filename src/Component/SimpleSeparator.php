@@ -7,13 +7,11 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ISeparator;
 class SimpleSeparator extends ComponentBase implements ISeparator {
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $classes = [];
 
 	/**
-	 *
 	 * @param string $class
 	 */
 	public function __construct( $class ) {
@@ -37,7 +35,6 @@ class SimpleSeparator extends ComponentBase implements ISeparator {
 	}
 
 	/**
-	 *
 	 * @return string[]
 	 */
 	public function getClasses(): array {

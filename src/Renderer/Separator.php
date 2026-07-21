@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ISeparator;
 class Separator extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

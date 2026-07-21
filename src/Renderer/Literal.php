@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ILiteral;
 class Literal extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

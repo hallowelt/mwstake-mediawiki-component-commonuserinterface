@@ -57,7 +57,6 @@ class SkinSlot extends ApiBase {
 	}
 
 	/**
-	 *
 	 * @return IContextSource
 	 */
 	private function makeContext() {

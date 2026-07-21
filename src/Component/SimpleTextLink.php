@@ -10,7 +10,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ITextLink;
 class SimpleTextLink extends ComponentBase implements ITextLink {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

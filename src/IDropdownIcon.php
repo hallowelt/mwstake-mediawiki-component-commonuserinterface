@@ -37,7 +37,6 @@ interface IDropdownIcon extends IComponent {
 	public function getAriaLabel(): Message;
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getTabindex(): string;

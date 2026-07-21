@@ -7,19 +7,16 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ILiteral;
 class CallbackLiteral extends ComponentBase implements ILiteral {
 
 	/**
-	 *
 	 * @var string
 	 */
 	private $id = '';
 
 	/**
-	 *
 	 * @var callable
 	 */
 	private $callback = '';
 
 	/**
-	 *
 	 * @param string $id
 	 * @param callable $callback
 	 */

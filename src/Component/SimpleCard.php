@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICard;
 class SimpleCard extends ComponentBase implements ICard {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

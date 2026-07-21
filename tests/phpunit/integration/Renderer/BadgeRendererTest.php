@@ -18,7 +18,7 @@ class BadgeRendererTest extends MediaWikiIntegrationTestCase {
 	 *
 	 * The html is easier to compare.
 	 *
-	 * @covers BatchRenderer::getHtml
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Badge::getHtml
 	 *
 	 * @return void
 	 */
@@ -29,8 +29,8 @@ class BadgeRendererTest extends MediaWikiIntegrationTestCase {
 		$templateData = $renderer->getRendererDataTreeNode( $component, $subComponentNodes );
 
 		$html = $renderer->getHtml( $templateData );
-		$$expectedHtml = $this->getExpectedHtml();
-		$this->assertEquals( $$expectedHtml, $html );
+		$expectedHtml = $this->getExpectedHtml();
+		$this->assertEquals( $expectedHtml, $html );
 	}
 
 	/**

@@ -19,7 +19,7 @@ class LinkRendererTest extends MediaWikiIntegrationTestCase {
 	 *
 	 * The html is easier to compare.
 	 *
-	 * @covers LinkRenderer::getHtml
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\Renderer\Link::getHtml
 	 *
 	 * @return void
 	 */
@@ -30,8 +30,8 @@ class LinkRendererTest extends MediaWikiIntegrationTestCase {
 		$templateData = $renderer->getRendererDataTreeNode( $component, $subComponentNodes );
 
 		$html = $renderer->getHtml( $templateData );
-		$$expectedHtml = $this->getExpectedHtml();
-		$this->assertEquals( $$expectedHtml, $html );
+		$expectedHtml = $this->getExpectedHtml();
+		$this->assertEquals( $expectedHtml, trim( $html ) );
 	}
 
 	/**

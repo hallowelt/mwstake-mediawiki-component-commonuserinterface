@@ -10,7 +10,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
 class Dropdown extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

@@ -13,7 +13,6 @@ class ComponentFilterFactory {
 	private $objectFactory;
 
 	/**
-	 *
 	 * @param array $filters
 	 * @param ObjectFactory $objectFactory
 	 */
@@ -23,7 +22,6 @@ class ComponentFilterFactory {
 	}
 
 	/**
-	 *
 	 * @return IComponentFilter[]
 	 */
 	public function getAllFilters() {

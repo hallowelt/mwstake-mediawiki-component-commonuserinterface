@@ -11,13 +11,11 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 class ActionLink extends RendererBase {
 
 	/**
-	 *
 	 * @var MainConfig
 	 */
 	private $mainConfig = null;
 
 	/**
-	 *
 	 * @param MainConfig $mainConfig
 	 */
 	public function __construct( $mainConfig ) {
@@ -27,7 +25,6 @@ class ActionLink extends RendererBase {
 	}
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

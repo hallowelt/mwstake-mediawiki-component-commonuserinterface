@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IButtonGroup;
 class SimpleButtonGroup extends ComponentBase implements IButtonGroup {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

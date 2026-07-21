@@ -7,19 +7,16 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ILiteral;
 class Literal extends ComponentBase implements ILiteral {
 
 	/**
-	 *
 	 * @var string
 	 */
 	private $id = '';
 
 	/**
-	 *
 	 * @var string
 	 */
 	private $html = '';
 
 	/**
-	 *
 	 * @param string $id
 	 * @param string $html
 	 */

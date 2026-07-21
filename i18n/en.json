@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Hallo Welt! GmbH"
+		]
 	},
 	"apihelp-mwstake-commonui-skinslot-summary": "Allows access to the data tree of various UIs",
 	"apihelp-mwstake-commonui-skinslot-param-path": "",

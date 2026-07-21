@@ -37,7 +37,6 @@ interface ICollapsibleCard {
 	public function getAriaLabel(): Message;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function getExpandedState(): bool;

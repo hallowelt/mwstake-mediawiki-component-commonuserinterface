@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IButton;
 class SimpleButton extends ComponentBase implements IButton {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {
@@ -32,7 +31,6 @@ class SimpleButton extends ComponentBase implements IButton {
 	}
 
 	/**
-	 *
 	 * @return Message
 	 */
 	public function getAriaLabel(): Message {
@@ -68,7 +66,6 @@ class SimpleButton extends ComponentBase implements IButton {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function isDisabled(): bool {

@@ -42,7 +42,6 @@ interface IPanel extends ICard {
 	public function getContainerData();
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function getExpandedState();

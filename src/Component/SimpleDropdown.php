@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
 class SimpleDropdown extends ComponentBase implements IDropdown {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

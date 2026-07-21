@@ -8,18 +8,27 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeLinkNode
 use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleTreeTextNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator;
 
-require_once dirname( __DIR__, 3 ) . '/bootstrap.php';
-
 class TreeDataGeneratorTest extends MediaWikiIntegrationTestCase {
 
 	/**
-	 * @covers WStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator::generate
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\TreeDataGenerator::generate
 	 */
 	public function testGenerate() {
 		$services = MediaWikiServices::getInstance();
 
-		/** @var TreeDataGenerator */
-		$treeDataGenerator = $services->get( 'MWStakeCommonUITreeDataGenerator' );
+		$treeNodeRegistry = [
+			'tree-text-node' => [
+				'class' => SimpleTreeTextNode::class,
+			],
+			'tree-link-node' => [
+				'class' => SimpleTreeLinkNode::class,
+			],
+		];
+
+		$treeDataGenerator = new TreeDataGenerator(
+			$treeNodeRegistry,
+			$services->getObjectFactory()
+		);
 
 		$nodes = $treeDataGenerator->generate( $this->getInputData(), $this->getExpandPaths() );
 

@@ -17,13 +17,11 @@ interface ICardImage {
 	public function getImageType(): string;
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getImageSrc(): string;
 
 	/**
-	 *
 	 * @return Message
 	 */
 	public function getImageAltText(): Message;

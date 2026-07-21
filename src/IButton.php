@@ -7,7 +7,6 @@ use MediaWiki\Message\Message;
 interface IButton extends IComponent {
 
 	/**
-	 *
 	 * @return Message
 	 */
 	public function getAriaLabel(): Message;
@@ -33,7 +32,6 @@ interface IButton extends IComponent {
 	public function getClasses(): array;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function isDisabled(): bool;

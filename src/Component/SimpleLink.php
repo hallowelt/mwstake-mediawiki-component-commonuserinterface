@@ -12,7 +12,6 @@ class SimpleLink extends ComponentBase implements ILink {
 	protected $isExpanded;
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

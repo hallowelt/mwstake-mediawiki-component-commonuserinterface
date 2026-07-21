@@ -8,7 +8,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IBreadCrumb;
 class SimpleBreadCrumb extends ComponentBase implements IBreadCrumb {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {

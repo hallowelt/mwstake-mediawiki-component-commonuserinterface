@@ -158,7 +158,6 @@ class ActionLink extends ComponentBase implements IActionLink, IRestrictedCompon
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLStyles(): array {

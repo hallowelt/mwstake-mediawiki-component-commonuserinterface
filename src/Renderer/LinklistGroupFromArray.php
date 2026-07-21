@@ -12,7 +12,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IListRoleProvider;
 class LinklistGroupFromArray extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

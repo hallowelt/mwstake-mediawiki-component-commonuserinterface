@@ -8,19 +8,16 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IMessageLiteral;
 class MessageLiteral extends ComponentBase implements IMessageLiteral {
 
 	/**
-	 *
 	 * @var string
 	 */
 	private $id = '';
 
 	/**
-	 *
 	 * @var Message
 	 */
 	private $msg = null;
 
 	/**
-	 *
 	 * @param string $id
 	 * @param Message $msg
 	 */
@@ -37,7 +34,6 @@ class MessageLiteral extends ComponentBase implements IMessageLiteral {
 	}
 
 	/**
-	 *
 	 * @return Message
 	 */
 	public function getText(): Message {

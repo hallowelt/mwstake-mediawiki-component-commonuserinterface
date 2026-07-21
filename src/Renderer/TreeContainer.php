@@ -10,7 +10,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ITreeContainer;
 class TreeContainer extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */
