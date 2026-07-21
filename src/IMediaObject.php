@@ -22,13 +22,11 @@ interface IMediaObject {
 	public function getBodyClasses(): array;
 
 	/**
-	 *
 	 * @return Message
 	 */
 	public function getImageAltText(): Message;
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getImageSrc(): string;

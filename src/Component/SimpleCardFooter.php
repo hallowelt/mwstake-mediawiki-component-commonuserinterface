@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardFooter;
 class SimpleCardFooter extends ComponentBase implements ICardFooter {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

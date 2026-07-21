@@ -65,7 +65,6 @@ class SimpleTreeTextNode extends ComponentBase implements ITreeNode, ITreeTextNo
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getSubComponents(): array {

@@ -11,7 +11,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ITextLink;
 class RestrictedTextLink extends ComponentBase implements ITextLink, IRestrictedComponent {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {
@@ -106,7 +105,6 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function getPermissions(): array {

@@ -8,13 +8,11 @@ use MediaWiki\Message\Message;
 class LinkFormatter {
 
 	/**
-	 *
 	 * @var string|bool
 	 */
 	private $externalLinkTarget = false;
 
 	/**
-	 *
 	 * @var bool
 	 */
 	private $noFollowLinks = true;

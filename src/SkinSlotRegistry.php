@@ -5,19 +5,16 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 class SkinSlotRegistry implements ISkinSlotRegistry {
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $slotSpecs = [];
 
 	/**
-	 *
 	 * @var SkinSlotRegistry|null
 	 */
 	private static $instance = null;
 
 	/**
-	 *
 	 * @param array $slotSpecs
 	 * @return SkinSlotRegistry
 	 */
@@ -31,7 +28,6 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	}
 
 	/**
-	 *
 	 * @param array $slotSpecs
 	 */
 	public function __construct( $slotSpecs ) {
@@ -39,7 +35,6 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	}
 
 	/**
-	 *
 	 * @param string $skinSlot
 	 * @param IComponent[] $components
 	 * @return void
@@ -52,7 +47,6 @@ class SkinSlotRegistry implements ISkinSlotRegistry {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function getSkinSlots(): array {

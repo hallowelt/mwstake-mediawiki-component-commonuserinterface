@@ -5,25 +5,21 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 class GenericComponentRenderer {
 
 	/**
-	 *
 	 * @var ComponentManager
 	 */
 	protected $componentManager = [];
 
 	/**
-	 *
 	 * @var RendererDataTreeBuilder
 	 */
 	protected $rendererDataTreeBuilder = null;
 
 	/**
-	 *
 	 * @var RendererDataTreeRenderer
 	 */
 	protected $RendererDataTreeRenderer = null;
 
 	/**
-	 *
 	 * @param ComponentManager $componentManager
 	 * @param RendererDataTreeBuilder $rendererDataTreeBuilder
 	 * @param RendererDataTreeRenderer $RendererDataTreeRenderer
@@ -36,7 +32,6 @@ class GenericComponentRenderer {
 	}
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return string
 	 */

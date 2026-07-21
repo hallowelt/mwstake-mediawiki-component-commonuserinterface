@@ -8,7 +8,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 abstract class ComponentBase implements IComponent {
 
 	/**
-	 *
 	 * @var array
 	 */
 	protected $componentProcessData = [];
@@ -17,7 +16,6 @@ abstract class ComponentBase implements IComponent {
 	protected $options = [];
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLModules(): array {
@@ -25,7 +23,6 @@ abstract class ComponentBase implements IComponent {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getRequiredRLStyles(): array {
@@ -33,7 +30,6 @@ abstract class ComponentBase implements IComponent {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getSubComponents(): array {
@@ -41,7 +37,6 @@ abstract class ComponentBase implements IComponent {
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function shouldRender( IContextSource $context ): bool {
@@ -49,7 +44,6 @@ abstract class ComponentBase implements IComponent {
 	}
 
 	/**
-	 *
 	 * @param array $data Arbitrary data to be consumed by the components.
 	 *                    Usually this is SkinTemplate's `$tpl->data`
 	 * @return void

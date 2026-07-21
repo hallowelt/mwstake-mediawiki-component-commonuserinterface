@@ -8,31 +8,26 @@ use Wikimedia\ObjectFactory\ObjectFactory;
 class ComponentRendererFactory {
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $rendererRegistry = [];
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $componentRegistry = [];
 
 	/**
-	 *
 	 * @var string
 	 */
 	private $rendererType = '';
 
 	/**
-	 *
 	 * @var ObjectFactory
 	 */
 	private $objectFactory = null;
 
 	/**
-	 *
 	 * @param array $rendererRegistry
 	 * @param array $componentRegistry
 	 * @param array $rendererType
@@ -64,7 +59,6 @@ class ComponentRendererFactory {
 	}
 
 	/**
-	 *
 	 * @param string $rendererKey
 	 * @return IComponentRenderer
 	 */
@@ -94,7 +88,6 @@ class ComponentRendererFactory {
 	}
 
 	/**
-	 *
 	 * @return IComponentRenderer[]
 	 */
 	public function getAllRenderers(): array {

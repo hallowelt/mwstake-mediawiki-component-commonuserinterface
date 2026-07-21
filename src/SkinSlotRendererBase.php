@@ -5,31 +5,26 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 abstract class SkinSlotRendererBase implements ISkinSlotRenderer {
 
 	/**
-	 *
 	 * @var ComponentManager
 	 */
 	protected $componentManager = [];
 
 	/**
-	 *
 	 * @var RendererDataTreeBuilder
 	 */
 	protected $rendererDataTreeBuilder = null;
 
 	/**
-	 *
 	 * @var RendererDataTreeRenderer
 	 */
 	protected $rendererDataTreeRenderer = null;
 
 	/**
-	 *
 	 * @var string
 	 */
 	protected $slotId = '';
 
 	/**
-	 *
 	 * @param ComponentManager $componentManager
 	 * @param RendererDataTreeBuilder $rendererDataTreeBuilder
 	 * @param RendererDataTreeRenderer $rendererDataTreeRenderer

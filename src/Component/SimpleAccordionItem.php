@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IAccordionItem;
 class SimpleAccordionItem extends ComponentBase implements IAccordionItem {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {
@@ -28,7 +27,6 @@ class SimpleAccordionItem extends ComponentBase implements IAccordionItem {
 	}
 
 	/**
-	 *
 	 * @return Message
 	 */
 	public function getHeaderText(): Message {

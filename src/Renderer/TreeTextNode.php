@@ -10,7 +10,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ITreeTextNode;
 class TreeTextNode extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

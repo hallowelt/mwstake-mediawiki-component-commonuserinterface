@@ -7,13 +7,11 @@ use HtmlArmor;
 class RendererDataTreeRenderer {
 
 	/**
-	 *
 	 * @var ComponentRendererFactory
 	 */
 	private $rendererFactory = null;
 
 	/**
-	 *
 	 * @param ComponentRendererFactory $rendererFactory
 	 */
 	public function __construct( $rendererFactory ) {
@@ -21,7 +19,6 @@ class RendererDataTreeRenderer {
 	}
 
 	/**
-	 *
 	 * @param array $rendererDataTreeNodes Data tree as created by
 	 * `RendererDataTreeBuilder::getRendererDataTree`
 	 * @return string The finished HTML
@@ -35,7 +32,6 @@ class RendererDataTreeRenderer {
 	}
 
 	/**
-	 *
 	 * @param array $dataTreeNode
 	 * @return string
 	 */

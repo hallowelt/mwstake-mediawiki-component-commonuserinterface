@@ -7,7 +7,6 @@ use MediaWiki\Context\IContextSource;
 interface IComponentFilter {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @param IContextSource $context
 	 * @return bool

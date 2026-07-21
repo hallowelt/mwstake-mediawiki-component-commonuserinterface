@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IMediaObject;
 class SimpleMediaObject extends ComponentBase implements IMediaObject {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

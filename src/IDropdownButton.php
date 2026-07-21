@@ -37,7 +37,6 @@ interface IDropdownButton extends IComponent {
 	public function getAriaLabel(): Message;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function isDisabled(): bool;

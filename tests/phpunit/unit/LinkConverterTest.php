@@ -26,7 +26,6 @@ class LinkConverterTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 *
 	 * @return array
 	 */
 	public function provideGetLinksFromArrayDescriptorTestData() {

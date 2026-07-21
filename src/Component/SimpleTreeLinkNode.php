@@ -68,7 +68,6 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 	}
 
 	/**
-	 *
 	 * @inheritDoc
 	 */
 	public function getSubComponents(): array {

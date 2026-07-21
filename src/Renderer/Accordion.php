@@ -8,7 +8,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 class Accordion extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

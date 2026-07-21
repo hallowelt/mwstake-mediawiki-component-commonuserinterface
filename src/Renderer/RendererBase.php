@@ -9,19 +9,15 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
 abstract class RendererBase implements IComponentRenderer {
 
 	/**
-	 *
 	 * @var string
 	 */
 	protected $templateBasePath = '';
 
 	/**
-	 *
 	 * @var TemplateParser
 	 */
 	private $templateParser = null;
 
-	/**
-	 */
 	public function __construct() {
 		$this->templateBasePath = __DIR__ . '/../../resources/templates/';
 	}

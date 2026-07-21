@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\Component\SimpleLink;
 class LinkConverter {
 
 	/**
-	 *
 	 * @param array $linkDescs
 	 * @return SimpleLink[]
 	 */

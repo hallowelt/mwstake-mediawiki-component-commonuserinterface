@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 class ButtonGroup extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

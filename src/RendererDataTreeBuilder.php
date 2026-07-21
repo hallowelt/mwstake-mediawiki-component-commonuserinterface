@@ -5,13 +5,11 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 class RendererDataTreeBuilder {
 
 	/**
-	 *
 	 * @var ComponentRendererFactory
 	 */
 	private $rendererFactory = null;
 
 	/**
-	 *
 	 * @param ComponentRendererFactory $rendererFactory
 	 */
 	public function __construct( $rendererFactory ) {
@@ -71,7 +69,6 @@ class RendererDataTreeBuilder {
 	}
 
 	/**
-	 *
 	 * @param array $componentTreeNode
 	 * @return array
 	 */

@@ -10,13 +10,11 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
 class TreeLinkNode extends TreeTextNode {
 
 	/**
-	 *
 	 * @var MainConfig
 	 */
 	private $mainConfig = null;
 
 	/**
-	 *
 	 * @param MainConfig $mainConfig
 	 */
 	public function __construct( $mainConfig ) {
@@ -26,7 +24,6 @@ class TreeLinkNode extends TreeTextNode {
 	}
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

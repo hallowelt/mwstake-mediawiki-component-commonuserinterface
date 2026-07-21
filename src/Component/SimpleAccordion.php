@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IAccordion;
 class SimpleAccordion extends ComponentBase implements IAccordion {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

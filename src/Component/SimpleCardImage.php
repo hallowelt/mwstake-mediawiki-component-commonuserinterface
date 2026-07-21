@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardImage;
 class SimpleCardImage extends ComponentBase implements ICardImage {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

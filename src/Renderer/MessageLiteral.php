@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IMessageLiteral;
 class MessageLiteral extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

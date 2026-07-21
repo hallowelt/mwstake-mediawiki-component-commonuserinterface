@@ -7,19 +7,16 @@ use Wikimedia\ObjectFactory\ObjectFactory;
 class SkinSlotRendererFactory {
 
 	/**
-	 *
 	 * @var ObjectFactory
 	 */
 	private $objectFactory = null;
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $registry = [];
 
 	/**
-	 *
 	 * @param array $registry
 	 * @param ObjectFactory $objectFactory
 	 */

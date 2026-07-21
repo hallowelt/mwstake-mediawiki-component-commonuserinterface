@@ -7,25 +7,21 @@ use MediaWiki\Parser\Sanitizer;
 class HtmlIdRegistry {
 
 	/**
-	 *
 	 * @var HtmlIdRegistry|null
 	 */
 	private static $registry = null;
 
 	/**
-	 *
 	 * @var array
 	 */
 	private $htmlIds = [];
 
 	/**
-	 *
 	 * @var int
 	 */
 	private $limit = 1000;
 
 	/**
-	 *
 	 * @return HtmlIdRegistry
 	 */
 	public static function singleton(): HtmlIdRegistry {
@@ -36,15 +32,11 @@ class HtmlIdRegistry {
 		return self::$registry;
 	}
 
-	/**
-	 *
-	 */
 	public function __construct() {
 		$this->htmlIds = [];
 	}
 
 	/**
-	 *
 	 * @param string $id
 	 * @return string
 	 */

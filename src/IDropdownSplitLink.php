@@ -62,13 +62,11 @@ interface IDropdownSplitLink extends IComponent {
 	public function getSplitButtonAriaLabel(): Message;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function buttonIsDisabled(): bool;
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function splitButtonIsDisabled(): bool;

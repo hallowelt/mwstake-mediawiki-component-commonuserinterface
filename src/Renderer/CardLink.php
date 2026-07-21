@@ -10,7 +10,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 class CardLink extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */

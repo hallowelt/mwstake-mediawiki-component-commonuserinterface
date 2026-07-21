@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownButton;
 class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {
@@ -86,7 +85,6 @@ class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function isDisabled(): bool {

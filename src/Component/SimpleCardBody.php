@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardBody;
 class SimpleCardBody extends ComponentBase implements ICardBody {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

@@ -7,13 +7,11 @@ use MediaWiki\Context\IContextSource;
 class NullComponent extends ComponentBase {
 
 	/**
-	 *
 	 * @var string
 	 */
 	private $id = '';
 
 	/**
-	 *
 	 * @param string $id
 	 */
 	public function __construct( $id = 'null-component' ) {

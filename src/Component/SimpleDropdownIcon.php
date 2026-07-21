@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownIcon;
 class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 
 	/**
-	 *
 	 * @param array $options
 	 */
 	public function __construct( $options ) {
@@ -86,7 +85,6 @@ class SimpleDropdownIcon extends ComponentBase implements IDropdownIcon {
 	}
 
 	/**
-	 *
 	 * @return string
 	 */
 	public function getTabindex(): string {

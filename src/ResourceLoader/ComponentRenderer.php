@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ComponentRendererFactory;
 class ComponentRenderer extends ResourceLoaderFileModule {
 
 	/**
-	 *
 	 * @return void
 	 */
 	public function getTemplates() {

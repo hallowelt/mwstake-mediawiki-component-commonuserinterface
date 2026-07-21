@@ -7,7 +7,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\ICardHeader;
 class SimpleCardHeader extends ComponentBase implements ICardHeader {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {

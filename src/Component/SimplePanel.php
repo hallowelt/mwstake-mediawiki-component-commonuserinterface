@@ -9,7 +9,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IPanel;
 class SimplePanel extends ComponentBase implements IPanel {
 
 	/**
-	 *
 	 * @param string $options
 	 */
 	public function __construct( $options ) {
@@ -92,7 +91,6 @@ class SimplePanel extends ComponentBase implements IPanel {
 	}
 
 	/**
-	 *
 	 * @return bool
 	 */
 	public function getExpandedState() {

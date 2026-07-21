@@ -11,7 +11,6 @@ use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownItemlistFromArray;
 class DropdownItemlistFromArray extends RendererBase {
 
 	/**
-	 *
 	 * @param IComponent $component
 	 * @return bool
 	 */
