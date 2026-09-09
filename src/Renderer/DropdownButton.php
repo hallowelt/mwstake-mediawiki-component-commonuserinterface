@@ -31,7 +31,9 @@ class DropdownButton extends RendererBase {
 				'id' => $component->getId(),
 				'text' => $component->getText()->text(),
 				'title' => $component->getTitle()->text(),
-				'btn-aria-label' => $component->getAriaLabel()->text()
+				'btn-aria-label' => $component->getAriaLabel()->text(),
+				'preHtml' => $component->getPreHtml(),
+				'postHtml' => $component->getPostHtml(),
 			];
 			if ( !empty( $subComponentNodes ) ) {
 				$templateData['body'] = $subComponentNodes;
