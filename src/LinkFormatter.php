@@ -4,6 +4,7 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
 use MediaWiki\Linker\Linker;
 use MediaWiki\Message\Message;
+use MWStake\MediaWiki\Component\Utils\MessageHelper;
 
 class LinkFormatter {
 
@@ -20,17 +21,64 @@ class LinkFormatter {
 	private $noFollowLinks = true;
 
 	/**
+	 * @var MessageHelper|null
+	 */
+	private $messageHelper = null;
+
+	/**
+	 * Cache for resolved message text, keyed by message key.
+	 * Avoids redundant Message::newFromKey() instantiations for the same key.
+	 *
+	 * @var array [ key => string|false ]
+	 */
+	private $messageCache = [];
+
+	/**
 	 * See:
 	 * https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
 	 * https://www.mediawiki.org/wiki/Manual:$wgNoFollowLinks
 	 *
 	 * @param string|bool $externalLinkTarget
 	 * @param bool $noFollowLinks
-	 * @return LinkFormatter
+	 * @param MessageHelper|null $messageHelper
 	 */
-	public function __construct( $externalLinkTarget = false, $noFollowLinks = true ) {
+	public function __construct( $externalLinkTarget = false, $noFollowLinks = true,
+		?MessageHelper $messageHelper = null
+	) {
 		$this->externalLinkTarget = $externalLinkTarget;
 		$this->noFollowLinks = $noFollowLinks;
+		$this->messageHelper = $messageHelper;
+	}
+
+	/**
+	 * Check if a message key exists, using MessageHelper for fast lookup.
+	 *
+	 * @param string $key
+	 * @return bool
+	 */
+	private function messageExists( string $key ): bool {
+		if ( !isset( $this->messageCache[$key] ) ) {
+			if ( $this->messageHelper ) {
+				$exists = $this->messageHelper->msgExistsQuick( $key );
+			} else {
+				$exists = Message::newFromKey( $key )->exists();
+			}
+			$this->messageCache[$key] = $exists ? null : false;
+		}
+		return $this->messageCache[$key] !== false;
+	}
+
+	/**
+	 * Get the text of a message key, with caching.
+	 *
+	 * @param string $key
+	 * @return string
+	 */
+	private function messageText( string $key ): string {
+		if ( !isset( $this->messageCache[$key] ) || $this->messageCache[$key] === null ) {
+			$this->messageCache[$key] = Message::newFromKey( $key )->text();
+		}
+		return $this->messageCache[$key];
 	}
 
 	/**
@@ -47,35 +95,27 @@ class LinkFormatter {
 			}
 
 			if ( isset( $link['text'] ) && $link['text'] !== '' ) {
-				$msg = Message::newFromKey( $link['text'] );
-				if ( $msg->exists() ) {
-					$link['text'] = $msg->text();
+				if ( $this->messageExists( $link['text'] ) ) {
+					$link['text'] = $this->messageText( $link['text'] );
 				}
 			} elseif ( isset( $link['msg'] ) && $link['msg'] === '' ) {
-				$msg = Message::newFromKey( $link['msg'] );
-				if ( $msg->exists() ) {
-					$link['text'] = $msg->text();
+				if ( $this->messageExists( $link['msg'] ) ) {
+					$link['text'] = $this->messageText( $link['msg'] );
 				}
-			} elseif ( is_string( $key ) && Message::newFromKey( $key )->exists() ) {
-				$msg = Message::newFromKey( $key );
-				$link['text'] = $msg->text();
-			} elseif ( is_string( $key ) && Message::newFromKey( $subKey )->exists() ) {
-				$msg = Message::newFromKey( $subKey );
-				$link['text'] = $msg->text();
+			} elseif ( is_string( $key ) && $this->messageExists( $key ) ) {
+				$link['text'] = $this->messageText( $key );
+			} elseif ( is_string( $key ) && $this->messageExists( $subKey ) ) {
+				$link['text'] = $this->messageText( $subKey );
 			} else {
 				continue;
 			}
 
 			if ( isset( $link['title'] ) && $link['title'] !== '' ) {
-				$msg = Message::newFromKey( $link['title'] );
-				if ( $msg->exists() ) {
-					$link['title'] = $msg->text();
+				if ( $this->messageExists( $link['title'] ) ) {
+					$link['title'] = $this->messageText( $link['title'] );
 				}
-			} elseif ( is_string( $key ) && Message::newFromKey( $key )->exists() ) {
-				$msg = Message::newFromKey( $key );
-				if ( $msg->exists() ) {
-					$link['title'] = $msg->text();
-				}
+			} elseif ( is_string( $key ) && $this->messageExists( $key ) ) {
+				$link['title'] = $this->messageText( $key );
 			} elseif ( isset( $link['id'] ) && $link['id'] !== '' ) {
 				$tooltip = Linker::titleAttrib( $link['id'] );
 				if ( $tooltip ) {
