@@ -2,6 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
+use HtmlArmor;
 use MediaWiki\Message\Message;
 
 interface IDropdownButton extends IComponent {
@@ -40,4 +41,14 @@ interface IDropdownButton extends IComponent {
 	 * @return bool
 	 */
 	public function isDisabled(): bool;
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPreHtml(): HtmlArmor;
+
+	/**
+	 * @return HtmlArmor
+	 */
+	public function getPostHtml(): HtmlArmor;
 }
