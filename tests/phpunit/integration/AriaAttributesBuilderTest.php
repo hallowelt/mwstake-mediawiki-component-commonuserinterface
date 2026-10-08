@@ -30,4 +30,28 @@ class AriaAttributesBuilderTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertEquals( $ariaAttributesExpected, $ariaAttributes );
 	}
+
+	/**
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder::build
+	 *
+	 * @return void
+	 */
+	public function testBuildWithNonStringValues() {
+		$ariaAttributesBuilder = new AriaAttributesBuilder();
+
+		$aria = [
+			'pressed' => false,
+			'expanded' => true,
+			'level' => 2
+		];
+
+		$ariaAttributes = $ariaAttributesBuilder->build( $aria );
+		$ariaAttributesExpected = [
+			'aria-pressed="false"',
+			'aria-expanded="true"',
+			'aria-level="2"'
+		];
+
+		$this->assertEquals( $ariaAttributesExpected, $ariaAttributes );
+	}
 }
