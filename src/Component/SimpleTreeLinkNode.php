@@ -5,10 +5,11 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 use HtmlArmor;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
 
-class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNode {
+class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNode, ILinkTarget {
 
 	/**
 	 * @param array $options
@@ -22,6 +23,7 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 			'text' => '',
 			'title' => '',
 			'href' => '',
+			'target' => '',
 			'expanded' => false,
 			'isLeaf' => true,
 			'preHtml' => new HtmlArmor( '' ),
@@ -93,6 +95,11 @@ class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNo
 	 */
 	public function getHref(): string {
 		return $this->options['href'];
+	}
+
+	/** @inheritDoc */
+	public function getTarget(): string {
+		return $this->options['target'];
 	}
 
 	/**

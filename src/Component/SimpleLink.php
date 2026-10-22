@@ -5,8 +5,9 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILink;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 
-class SimpleLink extends ComponentBase implements ILink {
+class SimpleLink extends ComponentBase implements ILink, ILinkTarget {
 
 	/** @var null|string */
 	protected $isExpanded;
@@ -21,6 +22,7 @@ class SimpleLink extends ComponentBase implements ILink {
 				'role' => '',
 				'classes' => [],
 				'href' => '',
+				'target' => '',
 				'title' => new RawMessage( 'SimpleLink' ),
 				'aria-label' => new RawMessage( 'SimpleLink' ),
 				'rel' => '',
@@ -93,6 +95,11 @@ class SimpleLink extends ComponentBase implements ILink {
 	 */
 	public function getHref(): string {
 		return $this->options['href'];
+	}
+
+	/** @inheritDoc */
+	public function getTarget(): string {
+		return $this->options['target'];
 	}
 
 	/**
