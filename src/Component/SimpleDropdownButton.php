@@ -2,10 +2,10 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use HtmlArmor;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdownButton;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class SimpleDropdownButton extends ComponentBase implements IDropdownButton {
 

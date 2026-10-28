@@ -2,8 +2,8 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use HtmlArmor;
 use MediaWiki\Message\Message;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 interface ITextLink {
 
