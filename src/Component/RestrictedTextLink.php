@@ -4,11 +4,12 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITextLink;
 use Wikimedia\HtmlArmor\HtmlArmor;
 
-class RestrictedTextLink extends ComponentBase implements ITextLink, IRestrictedComponent {
+class RestrictedTextLink extends ComponentBase implements ITextLink, IRestrictedComponent, ILinkTarget {
 
 	/**
 	 * @param array $options
@@ -20,6 +21,7 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 				'id' => 'restircted-text-link',
 				'classes' => [],
 				'href' => '',
+				'target' => '',
 				'text' => new RawMessage( 'RestrictedTextLink' ),
 				'title' => new RawMessage( 'RestrictedTextLink' ),
 				'aria-label' => new RawMessage( 'RestrictedTextLink' ),
@@ -95,6 +97,11 @@ class RestrictedTextLink extends ComponentBase implements ITextLink, IRestricted
 	 */
 	public function getHref(): string {
 		return $this->options['href'];
+	}
+
+	/** @inheritDoc */
+	public function getTarget(): string {
+		return $this->options['target'];
 	}
 
 	/**

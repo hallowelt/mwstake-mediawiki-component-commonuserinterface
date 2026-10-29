@@ -8,6 +8,7 @@ use MWStake\MediaWiki\Component\CommonUserInterface\AriaAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder;
 use MWStake\MediaWiki\Component\CommonUserInterface\IActionLink;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 
 class ActionLink extends RendererBase {
 
@@ -88,6 +89,9 @@ class ActionLink extends RendererBase {
 					'aria' => $ariaAttributesBuilder->toString( $aria )
 				]
 			);
+			if ( $component instanceof ILinkTarget && $component->getTarget() !== '' ) {
+				$templateData['target'] = $component->getTarget();
+			}
 			// Is target external?
 			$parsedUrl = MediaWikiServices::getInstance()->getUrlUtils()->parse( $component->getHref() );
 			// MediaWiki global $wgExternalLinkTarget
@@ -96,13 +100,13 @@ class ActionLink extends RendererBase {
 				$templateData = array_merge(
 					$templateData,
 					[
-						'target' => $externalLinkTarget
+						'target' => $templateData['target'] ?? $externalLinkTarget
 					]
 				);
 				// See https://www.mediawiki.org/wiki/Manual:$wgExternalLinkTarget
 				$rel = [ 'external', 'noreferrer', 'noopener' ];
 				if ( isset( $templateData['rel'] ) ) {
-					$componentRel = implode( ' ', $templateData['rel'] );
+					$componentRel = explode( ' ', $templateData['rel'] );
 					$rel = array_merge( $componentRel, $rel );
 				}
 				$templateData['rel'] = implode( ' ', $rel );

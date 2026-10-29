@@ -5,9 +5,10 @@ namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\IActionLink;
+use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 use MWStake\MediaWiki\Component\CommonUserInterface\IRestrictedComponent;
 
-class ActionLink extends ComponentBase implements IActionLink, IRestrictedComponent {
+class ActionLink extends ComponentBase implements IActionLink, IRestrictedComponent, ILinkTarget {
 
 	/**
 	 * @param array $options
@@ -20,6 +21,7 @@ class ActionLink extends ComponentBase implements IActionLink, IRestrictedCompon
 				'classes' => [],
 				'permissions' => [],
 				'href' => '',
+				'target' => '',
 				'title' => new RawMessage( 'ActionLink' ),
 				'text' => new RawMessage( 'ActionLink' ),
 				'rel' => '',
@@ -42,6 +44,11 @@ class ActionLink extends ComponentBase implements IActionLink, IRestrictedCompon
 	 */
 	public function getText(): Message {
 		return $this->options['text'];
+	}
+
+	/** @inheritDoc */
+	public function getTarget(): string {
+		return $this->options['target'];
 	}
 
 	/**
