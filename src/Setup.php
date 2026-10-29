@@ -9,7 +9,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
-use Skin;
+use MediaWiki\Skin\Skin;
 
 class Setup implements SkinAfterContentHook, SiteNoticeAfterHook, BeforePageDisplayHook {
 
