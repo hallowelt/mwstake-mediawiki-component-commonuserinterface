@@ -3,9 +3,9 @@
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
 use Exception;
-use HtmlArmor;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponent;
 use MWStake\MediaWiki\Component\CommonUserInterface\IDropdown;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class Dropdown extends RendererBase {
 

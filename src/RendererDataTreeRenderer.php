@@ -2,7 +2,7 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface;
 
-use HtmlArmor;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class RendererDataTreeRenderer {
 

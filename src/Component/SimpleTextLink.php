@@ -2,11 +2,11 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use HtmlArmor;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITextLink;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class SimpleTextLink extends ComponentBase implements ITextLink, ILinkTarget {
 

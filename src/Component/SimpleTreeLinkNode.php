@@ -2,12 +2,12 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Component;
 
-use HtmlArmor;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Message\Message;
 use MWStake\MediaWiki\Component\CommonUserInterface\ILinkTarget;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeLinkNode;
 use MWStake\MediaWiki\Component\CommonUserInterface\ITreeNode;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 class SimpleTreeLinkNode extends ComponentBase implements ITreeNode, ITreeLinkNode, ILinkTarget {
 

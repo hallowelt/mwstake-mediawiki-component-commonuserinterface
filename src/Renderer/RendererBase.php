@@ -2,9 +2,9 @@
 
 namespace MWStake\MediaWiki\Component\CommonUserInterface\Renderer;
 
-use HtmlArmor;
 use MediaWiki\Html\TemplateParser;
 use MWStake\MediaWiki\Component\CommonUserInterface\IComponentRenderer;
+use Wikimedia\HtmlArmor\HtmlArmor;
 
 abstract class RendererBase implements IComponentRenderer {
 
