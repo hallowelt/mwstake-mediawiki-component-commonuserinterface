@@ -20,11 +20,8 @@ class DataAttributesBuilder {
 		$attribs = [];
 
 		foreach ( $data  as $key => $value ) {
-			if ( $value === null ) {
-				$value = 'null';
-			}
 			$attrib = Sanitizer::safeEncodeTagAttributes( [
-				"data-$key" => $value
+				"data-$key" => AttributeValueNormalizer::normalize( $value )
 			] );
 			$attrib = trim( $attrib );
 			array_push( $attribs, $attrib );

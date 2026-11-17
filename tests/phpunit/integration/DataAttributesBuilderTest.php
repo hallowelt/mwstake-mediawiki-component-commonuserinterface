@@ -30,4 +30,32 @@ class DataAttributesBuilderTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertEquals( $dataAttributesExpected, $dataAttributes );
 	}
+
+	/**
+	 * @covers \MWStake\MediaWiki\Component\CommonUserInterface\DataAttributesBuilder::build
+	 *
+	 * @return void
+	 */
+	public function testBuildWithNonStringValues() {
+		$dataAttributesBuilder = new DataAttributesBuilder();
+
+		$data = [
+			'depth' => 3,
+			'ratio' => 1.5,
+			'show-details' => true,
+			'collapsed' => false,
+			'root' => null
+		];
+
+		$dataAttributes = $dataAttributesBuilder->build( $data );
+		$dataAttributesExpected = [
+			'data-depth="3"',
+			'data-ratio="1.5"',
+			'data-show-details="true"',
+			'data-collapsed="false"',
+			'data-root="null"'
+		];
+
+		$this->assertEquals( $dataAttributesExpected, $dataAttributes );
+	}
 }

@@ -31,7 +31,7 @@ class AriaAttributesBuilder {
 			}
 
 			$attrib = Sanitizer::safeEncodeTagAttributes( [
-				"aria-$key" => $value
+				"aria-$key" => AttributeValueNormalizer::normalize( $value )
 			] );
 			$attrib = trim( $attrib );
 			array_push( $attribs, $attrib );
