@@ -15,7 +15,7 @@ class SimpleSeparator extends ComponentBase implements ISeparator {
 	 * @param string $class
 	 */
 	public function __construct( $class ) {
-		$this->class = $class;
+		$this->classes = [ $class ];
 	}
 
 	/**
